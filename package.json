@@ -1,18 +1,18 @@
 {
-  "name": "vanilla-app-template",
+  "name": "js-project-blended-06",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build --base=/vanilla-app-template/",
+    "start": "vite --open",
+    "build": "vite build --base=/js-project-blended-06/",
     "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^4.0.0",
     "glob": "^8.1.0"
   },
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "Illia Shatokhin <resonance.2106@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "vite-plugin-full-reload": "^1.0.5",
