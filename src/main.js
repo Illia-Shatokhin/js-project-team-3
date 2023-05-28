@@ -22,3 +22,4 @@ import {} from 'module';
 import {} from 'module';
 import {} from 'module';
 import {} from 'module';
+function name(params) {}
