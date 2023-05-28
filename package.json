@@ -15,7 +15,13 @@
   "author": "Illia Shatokhin <resonance.2106@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@vimeo/player": "^2.20.1",
+    "axios": "^1.4.0",
+    "flatpickr": "^4.6.13",
+    "lodash": "^4.17.21",
     "modern-normalize": "^2.0.0",
+    "notiflix": "^3.2.6",
+    "simplelightbox": "^2.14.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }
