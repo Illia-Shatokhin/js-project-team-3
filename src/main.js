@@ -22,3 +22,4 @@ import {} from 'module';
 import {} from 'module';
 import {} from 'module';
 import {} from 'module';
+console.log('11');
