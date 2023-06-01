@@ -1,2 +1,15 @@
 :root {
+  --orange: #f87719;
+  --black: #111111;
+  --dark-gray: #282828;
+  --gray: #595959;
+  --light-gray: #b7b7b7;
+  --white-smoke: #f8f8f8;
+  --white: #ffffff;
+  --basic-gradient: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  --other-gradient: linear-gradient(
+    141.22deg,
+    #f84119 9.4%,
+    rgba(248, 159, 25, 0.68) 91.91%
+  );
 }
