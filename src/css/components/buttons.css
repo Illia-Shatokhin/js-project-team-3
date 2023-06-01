@@ -1,0 +1,56 @@
+/* ==== BUTTON ==== */
+
+.button {
+  display: block;
+  padding: 12px 24px;
+  background: var(--basic-gradient);
+  border-radius: 74px;
+  cursor: pointer;
+
+  /* text */
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+  text-align: center;
+
+  transition: var(--transition);
+}
+.btn-gradient {
+  background-color: var(--basic-gradient);
+}
+
+.btn-gradient:hover,
+.btn-gradient:focus {
+  background-color: transparent;
+  border: 1px solid var(--basic-gradient);
+  color: var(--orange);
+}
+
+/* ===Dark theme ===== */
+
+.btn-border-dark {
+  background-color: transparent;
+  border: 1px solid var(--basic-gradient);
+  color: var(--white)
+}
+
+.btn-border-dark:hover,
+.btn-border-dark:focus {
+  background-color: var(--white);
+  border: 1px solid var(--white);
+  color: var(--orange);
+}
+/* ===Ligth theme ===== */
+
+.btn-border-light {
+    background-color: transparent;
+    border: 1px solid var(--basic-gradient);
+    color: var(--black);
+  }
+  
+  .btn-border-light:hover,
+  .btn-border-light:focus {
+    background-color: var(--black);
+    border: 1px solid var(--black);
+    color: var(--orange);
+  }
