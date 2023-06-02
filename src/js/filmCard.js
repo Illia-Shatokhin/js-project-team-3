@@ -1,9 +1,13 @@
 import axios from 'axios';
 
 function createMovieCardMarkup({ data }) {
-  const releaseYear = data.release_date.split('-')[0];
+  console.log(data);
+  let releaseYear = 'No data available';
+  if (!!data.release_date) {
+    releaseYear = data.release_date.split('-')[0];
+  }
   return `    
-  <li class="catalog-item" id="${data.genres.name}">
+  <li class="catalog-item" id="${data.results.id}">
   <img class="catalog-card-img" href="${data.results.backdrop_path}"></img>
 
   <div class="catalog-card-info-container">
@@ -33,6 +37,10 @@ function getWeeklyTrands() {
     .request(options)
     .then(function (response) {
       console.log(response.data);
+      response.data.results.map(el => {
+        console.log(el);
+        createMovieCardMarkup(el);
+      });
     })
     .catch(function (error) {
       console.error(error);
