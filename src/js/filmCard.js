@@ -1,40 +1,27 @@
 import axios from 'axios';
-import { CONSTS } from './consts';
 
-const genres = getGenres();
-console.log(genres);
-const baerer =
-  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZGE4NzU4ZWI0MGUyMjEwMTM3MDlkNjMwNzlmZDljNCIsInN1YiI6IjY0NzlhODg5ZTMyM2YzMDBhN2Q0ZGYzOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.X0uZkuPOvO6LdN-fYieV72t0jFMKCqqFgnPHTxpIpdg';
+function createMovieCardMarkup({ data }) {
+  const releaseYear = data.release_date.split('-')[0];
+  return `    
+  <li class="catalog-item" id="${data.genres.name}">
+  <img class="catalog-card-img" href="${data.results.backdrop_path}"></img>
 
-async function getMoviesFromSearch(value) {
-  // https://api.themoviedb.org/3/search/movie?query=value&include_adult=false&language=en-US&page=1
-  const query = `${CONSTS.URL}serch/movie/search?query=${value}&include_adult=false&language=en-US&page=1`;
-
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzgzN2Q4ZThiOWY1YjkyODFlNGYzODM2ZjQwZmMzMiIsInN1YiI6IjY0NzhmMTllMGUyOWEyMDBkY2I5YmFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Gm8FRVhZa5JYfHHhkK7gHuf4DwF_mvLWBXC6uzMdhLk',
-    },
-  };
-
-  fetch(
-    `https://api.themoviedb.org/3/search/movie?query=${value}&include_adult=false&language=en-US&page=1`,
-    options
-  )
-    .then(response => response.json())
-    .then(response => response.results[0])
-    .catch(err => console.error(err));
+  <div class="catalog-card-info-container">
+    <h4 class="catalog-card-title">${data.results.title}</h4>
+    <pcatalog-card-description><span class="card-info-span">${data.results.genre_ids}</span> | <span
+        class="card-info-span">${releaseYear}</span>
+    </p>
+    <div class="rating">${data}</div>
+  </div>
+</li>
+`;
 }
 
-getMoviesFromSearch('ghosted');
-
-console.log('hello world');
-
-function getGenres() {
+function getWeeklyTrands() {
   const options = {
     method: 'GET',
+    url: 'https://api.themoviedb.org/3/trending/all/week',
+    params: { language: 'en-US' },
     headers: {
       accept: 'application/json',
       Authorization:
@@ -42,8 +29,14 @@ function getGenres() {
     },
   };
 
-  fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+  axios
+    .request(options)
+    .then(function (response) {
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 }
+
+getWeeklyTrands();
