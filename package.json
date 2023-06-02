@@ -1,11 +1,11 @@
 {
-  "name": "js-project-blended-06",
+  "name": "js-project-team-3",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "start": "vite --open",
-    "build": "vite build --base=/js-project-blended-06/",
+    "build": "vite build --base=/js-project-team-3/",
     "preview": "vite preview"
   },
   "devDependencies": {
