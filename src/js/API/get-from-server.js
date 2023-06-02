@@ -15,15 +15,13 @@ function generateOption(addURL, params) {
 }
 
 async function axiosGet(options) {
-  await axios
-    .request(options)
-    .then(function (response) {
-      return response.data;
-    })
-    .catch(function (err) {
-      console.error(err);
-      Notify.failure(err.message);
-    });
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (err) {
+    console.error(err);
+    Notify.failure(err.message);
+  }
 }
 
 //additional functions
@@ -76,7 +74,7 @@ export async function getMovieVideos(movie_id) {
   return axiosGet(options);
 }
 
-export function getGenreMovieList() {
+export async function getGenreMovieList() {
   const options = generateOption('genre/movie/list', { language: 'en' });
   return axiosGet(options);
 }
