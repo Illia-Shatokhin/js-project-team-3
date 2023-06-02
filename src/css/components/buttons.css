@@ -5,7 +5,7 @@
   padding: 12px 24px;
   border-radius: 74px;
   cursor: pointer;
-  border:none;
+  border: none;
 
   /* text */
   font-weight: 500;
@@ -22,16 +22,17 @@
 .btn-gradient:hover,
 .btn-gradient:focus {
   border: 1px solid transparent;
-  background: linear-gradient(var(--white),var(--white)) padding-box, linear-gradient(to right, #FFC226 100%, var(--orange) 100%) border-box; 
+  background: linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
   color: var(--orange);
-  
 }
 
 /* ===Dark theme ===== */
 
 .btn-border-dark {
   border: 1px solid transparent;
-  background: linear-gradient(var(--black),var(--black)) padding-box, linear-gradient(to right, #FFC226 100%, var(--orange) 100%) border-box; ;
+  background: linear-gradient(var(--black), var(--black)) padding-box,
+    linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
   color: var(--white);
   transition: var(--transition);
 }
@@ -45,14 +46,14 @@
 
 .btn-border-light {
   border: 1px solid transparent;
-  background: linear-gradient(var(--white),var(--white)) padding-box, linear-gradient(to right, #FFC226 100%, var(--orange) 100%) border-box; ;
+  background: linear-gradient(var(--white), var(--white)) padding-box,
+    linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
   color: var(--black);
   transition: var(--transition);
-  }
-  
-  .btn-border-light:hover,
-  .btn-border-light:focus {
-    background: var(--black);
-    color: var(--orange);
-    
-  }
+}
+
+.btn-border-light:hover,
+.btn-border-light:focus {
+  background: var(--black);
+  color: var(--orange);
+}
