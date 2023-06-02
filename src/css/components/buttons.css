@@ -3,9 +3,9 @@
 .button {
   display: block;
   padding: 12px 24px;
-  background: var(--basic-gradient);
   border-radius: 74px;
   cursor: pointer;
+  border:none;
 
   /* text */
   font-weight: 500;
@@ -16,41 +16,43 @@
   transition: var(--transition);
 }
 .btn-gradient {
-  background-color: var(--basic-gradient);
+  background: var(--basic-gradient);
 }
 
 .btn-gradient:hover,
 .btn-gradient:focus {
-  background-color: transparent;
-  border: 1px solid var(--basic-gradient);
+  border: 1px solid transparent;
+  background: linear-gradient(var(--white),var(--white)) padding-box, linear-gradient(to right, #FFC226 100%, var(--orange) 100%) border-box; 
   color: var(--orange);
+  
 }
 
 /* ===Dark theme ===== */
 
 .btn-border-dark {
-  background-color: transparent;
-  border: 1px solid var(--basic-gradient);
-  color: var(--white)
+  border: 1px solid transparent;
+  background: linear-gradient(var(--black),var(--black)) padding-box, linear-gradient(to right, #FFC226 100%, var(--orange) 100%) border-box; ;
+  color: var(--white);
+  transition: var(--transition);
 }
 
 .btn-border-dark:hover,
 .btn-border-dark:focus {
-  background-color: var(--white);
-  border: 1px solid var(--white);
+  background: var(--white);
   color: var(--orange);
 }
 /* ===Ligth theme ===== */
 
 .btn-border-light {
-    background-color: transparent;
-    border: 1px solid var(--basic-gradient);
-    color: var(--black);
+  border: 1px solid transparent;
+  background: linear-gradient(var(--white),var(--white)) padding-box, linear-gradient(to right, #FFC226 100%, var(--orange) 100%) border-box; ;
+  color: var(--black);
+  transition: var(--transition);
   }
   
   .btn-border-light:hover,
   .btn-border-light:focus {
-    background-color: var(--black);
-    border: 1px solid var(--black);
+    background: var(--black);
     color: var(--orange);
+    
   }
