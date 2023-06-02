@@ -12,7 +12,6 @@ const options = {
 };
 
 const heroRef = document.querySelector('.hero');
-console.log(heroRef);
 
 fetchTrendingMovie();
 
@@ -34,7 +33,6 @@ function renderHero(data) {
     data.results[index];
   // ! Питання по адресі картинки
   heroRef.style.backgroundImage = `url(https://www.themoviedb.org/t/p/original${backdrop_path})`;
-  console.log(backdrop_path);
   const a = `
     <div class="container">
     <h2 class="hero-title">${original_title}</h2>
