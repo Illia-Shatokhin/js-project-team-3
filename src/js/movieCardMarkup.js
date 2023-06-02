@@ -1,26 +1,30 @@
-export default function createMovieCardMarkup({ data }, catalogCard) {
+export default function createMovieCardMarkup(data, catalogCard) {
   // console.log(data.results);
   let releaseYear = 'No data available';
-  if (!!data.results.release_date) {
-    releaseYear = data.results.release_date.split('-')[0];
-  }
-  const cardMarkup = data.results
-    .map(
-      card => `
-      <li class="catalog-item" id="${card.id}">
-      <img class="catalog-card-img" href="${card.backdrop_path}"></img>
+  console.log(data, 'create markup');
 
-      <div class="catalog-card-info-container">
-        <h4 class="catalog-card-title">${card.title}</h4>
-        <pcatalog-card-description><span class="card-info-span">${card.genre_ids}</span> | <span
-            class="card-info-span">${releaseYear}</span>
-        </p>
-        <div class="rating">${card}</div>
-      </div>
-    </li>
-    `
-    )
-    .join('');
+  // if (!!data.results.release_date) {
+  //   releaseYear = data.results.release_date.split('-')[0];
+  // }
+  // const cardMarkup = data.results
+  //   .map(
+  //     card => `
+  //     <li class="catalog-item" id="${card.id}">
+  //     <img class="catalog-card-img" href="${card.backdrop_path}"></img>
 
-  catalogCard.insertAdjacentHTML('beforeend', cardMarkup);
+  //     <div class="catalog-card-info-container">
+  //       <h4 class="catalog-card-title">${card.title}</h4>
+  //       <pcatalog-card-description><span class="card-info-span">${card.genre_ids}</span> | <span
+  //           class="card-info-span">${releaseYear}</span>
+  //       </p>
+  //       <div class="rating">${card}</div>
+  //     </div>
+  //   </li>
+  //   `
+  //   )
+  //   .join('');
+
+  // if (data.page === 1) catalogCard.innerHTML = cardMarkup;
+  // else catalogCard.insertAdjacentHTML('beforeend', cardMarkup);
+  // catalogCard.insertAdjacentHTML('beforeend', cardMarkup);
 }
