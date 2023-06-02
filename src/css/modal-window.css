@@ -11,7 +11,7 @@
  padding: 52px 16px ;
  height: 847px;
  width: 280px;
- background-color: var(--dark-gray);
+ background-color: var(--black);
  border-radius: 14px;
  transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
