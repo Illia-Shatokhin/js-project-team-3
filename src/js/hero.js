@@ -31,16 +31,20 @@ function renderHero(data) {
   const index = Math.floor(Math.random() * 20);
   const { overview, original_title, vote_average, backdrop_path } =
     data.results[index];
-  // ! Питання по адресі картинки
   heroRef.style.backgroundImage = `url(https://www.themoviedb.org/t/p/original${backdrop_path})`;
+
   const a = `
     <div class="container">
     <h2 class="hero-title">${original_title}</h2>
-   <p>${vote_average.toFixed(1)}</p>
+   <p class="reting-stars">${vote_average.toFixed(1)}</p>
    
-    <p class="overview">${overview}</p>
-    <button>Watch trailer</button>
-    <button>More details</button>
+    <div class="overview">
+    <p overview-text> ${overview} </p>
+    </div>
+    <div class="thumb-hero-btn">
+    <button class="button btn-gradient" >Watch trailer</button>
+    <button class="button">More details</button>
+    </div>
   </div>`;
   heroRef.innerHTML = a;
 }
