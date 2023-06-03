@@ -16,10 +16,12 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",
-    "lodash": "^4.17.21",
+    "basiclightbox": "^5.0.4",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",
-    "simplelightbox": "^2.14.1",
+    "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }
