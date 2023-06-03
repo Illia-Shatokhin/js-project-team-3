@@ -1,8 +1,39 @@
 .hero {
-  padding-top: 181px;
-  padding-bottom: 102px;
+  padding-top: 40px;
+  padding-bottom: 54px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  /* !_________________________ */
+  background: linear-gradient(
+    86.47deg,
+    #111111 33.63%,
+    rgba(17, 17, 17, 0) 76.86%
+  );
+}
+
+.hero-title {
+  font-family: 'Roboto-Bold';
+  font-size: 32px;
+  color: var(--white);
+  margin-bottom: 14px;
+  width: 232px;
+}
+
+.reting-stars {
+  margin-bottom: 21px;
+}
+
+.overview {
+  font-family: 'Roboto-Regular';
+  margin-bottom: 21px;
+  max-width: 177px;
+  color: var(--white-smoke);
+}
+
+.thumb-hero-btn {
+  display: flex;
+  gap: 8px;
 }
