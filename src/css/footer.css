@@ -1,22 +1,28 @@
 .footer {
-  padding-top: 100px;
-  padding-bottom: 80px;
-  padding-left: 399px;
-  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 399px 80px 399px;
+  background-color: #ffffff;
 }
 
 .footer-text {
-  /* width: 326px;
-  height: 19px;
-  left: 399px;
-  top: 5306px; */
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   display: inline;
-  /* align-items: center; */
   text-align: center;
   color: #b7b7b7;
+}
+
+.orange_heart {
+  fill: orange;
+  vertical-align: middle;
+}
+
+.goit-link {
+  color: #b7b7b7;
+  text-decoration: none;
 }
