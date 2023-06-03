@@ -1,5 +1,7 @@
 import { getTrendingAllDay } from './API/get-from-server.js';
 
+
+export default function createHero () {}
 const data = getTrendingAllDay().then(response= {response.json});
 
 const { overview, original_title, vote_average, backdrop_path } = data5;

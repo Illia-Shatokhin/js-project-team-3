@@ -1,1 +1,1 @@
-import '/js/hero.js';
+import { createHero } from './hero.js';
