@@ -67,6 +67,14 @@ export async function getSearchMovie({
   return axiosGet(options);
 }
 
+export async function getMovieDetails(movie_id) {
+  const options = generateOption(`movie/${movie_id}`, {
+    language: 'en-US',
+  });
+  return axiosGet(options);
+}
+
+
 export async function getMovieVideos(movie_id) {
   const options = generateOption(`movie/${movie_id}/videos`, {
     language: 'en-US',
