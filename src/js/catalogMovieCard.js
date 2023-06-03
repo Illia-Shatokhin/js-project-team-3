@@ -16,13 +16,19 @@ export default async function createCatalogMovieCard(func, catalogList) {
       return 'function from Dima';
     }
 
-    let releaseYear = 'No data available';
+    let releaseYear = 'No date';
+
+    if (screen.width <= 767) {
+      data.results = data.results.slice(0, 10);
+    }
 
     const cardMarkup = data.results
       .map(card => {
+        console.log(data.results);
         if (!!card.release_date) {
           releaseYear = card.release_date.split('-')[0];
         }
+
         return movieCardMarkup(card, releaseYear);
       })
       .join('');
