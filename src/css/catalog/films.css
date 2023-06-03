@@ -1,0 +1,91 @@
+/*section*/
+.catalog-film-section {
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+
+/* ul */
+.catalog-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* li */
+.catalog-item {
+  position: relative;
+
+  width: 280px;
+  height: 406px;
+  border-radius: 5px;
+}
+
+.catalog-card-info-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.film-info-container {
+  display: flex;
+  flex-direction: row;
+  width: 280px;
+  justify-content: space-between;
+}
+
+.catalog-card-title {
+  /* font-family: 'Roboto'; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+
+  text-transform: uppercase;
+
+  color: var(--white);
+}
+
+.catalog-card-description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  color: var(--light-gray);
+}
+@media screen and (max-width: 767px) {
+  .catalog-film-section {
+    display: block;
+  }
+
+  .catalog-item {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 768px) {
+  .catalog-film-section {
+    display: flex;
+    flex: wrap;
+    justify-content: space-between;
+    row-gap: 16px;
+    column-gap: 28px;
+
+    padding-top: 36px;
+    padding-bottom: 44px;
+  }
+  .catalog-item {
+    width: 224px;
+    height: 325px;
+
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .catalog-item {
+    position: relative;
+    width: 394px;
+    height: 574px;
+
+    margin-bottom: 16px;
+  }
+}
