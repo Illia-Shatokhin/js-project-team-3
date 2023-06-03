@@ -8,18 +8,33 @@ body.dark-theme {
   color: #f0f0f0;
 }
 
-.mobile-header {
+.desktop-header {
   display: flex;
-  width: auto;
+  width: 100%;
   height: 48px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 20px;
   padding-left: 20px;
 }
 
+.desktop-header.dark-theme {
+  background-color: #000;
+  color: white;
+}
+
+.mobile-header {
+  display: flex;
+  width: auto;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 20px;
+}
+.tablet-menu {
+  display: none;
+}
 .mobile-header.dark-theme {
   background-color: #000;
   color: white;
@@ -58,8 +73,8 @@ body.dark-theme {
   color: #f0f0f0;
   background-color: #000;
 }
-.checkbox input[type="checkbox"] {
-    opacity: 0;
+.checkbox input[type='checkbox'] {
+  opacity: 0;
 }
 
 .logo-container img {
@@ -75,6 +90,7 @@ body.dark-theme {
   background: none;
   border: none;
   cursor: pointer;
+  display: none;
 }
 
 .logo-container img {
@@ -113,7 +129,9 @@ body.dark-theme {
 #mobile-menu.dark-theme {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
+img {
+  padding-bottom: 40px;
+}
 #mobile-menu.visible {
   transform: translateX(0);
 }
@@ -197,10 +215,16 @@ body.dark-theme {
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .menu-container {
-    
+  .hidden {
+    display: none;
   }
-
+  .table-menu {
+    display: flex;
+    flex-direction: row;
+  }
+  .space {
+    padding-right: 36px;
+  }
   .menu-toggle-label {
     display: none;
   }
@@ -250,12 +274,81 @@ body.dark-theme {
     font-size: 24px;
     line-height: 28px;
   }
-
-  #mobile-menu {
+  .mobile-menu {
+    display: flex;
+    margin-left: 216px;
+  }
+}
+@media (max-width: 768px) {
+  .table-menu {
+    display: none;
+  }
+  .table-desktop {
+    display: none;
+  }
+}
+@media (min-width: 1279px){
+    .hidden {
+    display: none;
+  }
+  .table-menu {
+    display: flex;
+    flex-direction: row;
+  }
+  .space {
+    padding-right: 40px;
+  }
+  .menu-toggle-label {
     display: none;
   }
 
-  .menu-content {
-    padding-bottom: 0;
+  .main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-list li {
+    padding: 0 10px;
+  }
+
+  .menu-list li a {
+    color: #000;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-container img {
+    max-width: 45px;
+    max-height: 36px;
+  }
+
+  .logo-container::after {
+    content: 'Cinemania';
+    margin-left: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .mobile-menu {
+    display: flex;
+    margin-left: 216px;
   }
 }
