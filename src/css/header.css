@@ -8,21 +8,73 @@ body.dark-theme {
   color: #f0f0f0;
 }
 
-.mobile-header {
+.desktop-header {
   display: flex;
-  width: auto;
+  width: 100%;
   height: 48px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 20px;
   padding-left: 20px;
 }
 
+.desktop-header.dark-theme {
+  background-color: #000;
+  color: white;
+}
+
+.mobile-header {
+  display: flex;
+  width: auto;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 20px;
+}
+.tablet-menu {
+  display: none;
+}
 .mobile-header.dark-theme {
   background-color: #000;
   color: white;
+}
+
+/* Add styles for the close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-size: 18px;
+}
+
+.close-button.dark-theme {
+  color: #f0f0f0;
+}
+
+/* Modify the styles for the menu-content */
+.menu-content {
+  width: 204px;
+  padding-left: 20px;
+  padding-top: 8px;
+  padding-right: 20px;
+  padding-bottom: 262.2px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  position: relative;
+}
+
+.menu-content.dark-theme {
+  color: #f0f0f0;
+  background-color: #000;
+}
+.checkbox input[type='checkbox'] {
+  opacity: 0;
 }
 
 .logo-container img {
@@ -38,9 +90,20 @@ body.dark-theme {
   background: none;
   border: none;
   cursor: pointer;
+  display: none;
 }
 
-.mobile-header.dark-theme #menu-toggle {
+.logo-container img {
+  max-width: 100px;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-header.dark-theme #menu-toggle,
+.mobile-header.dark-theme .menu-content a {
   color: white;
 }
 
@@ -49,13 +112,13 @@ body.dark-theme {
   color: white;
 }
 
-
 #mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.2);
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -66,7 +129,9 @@ body.dark-theme {
 #mobile-menu.dark-theme {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
+img {
+  padding-bottom: 40px;
+}
 #mobile-menu.visible {
   transform: translateX(0);
 }
@@ -74,13 +139,13 @@ body.dark-theme {
 .menu-content {
   width: 204px;
   border-radius: 5px;
-  text-align: center;
+  text-align: left;
   background-color: white;
 }
 
-.menu-content.dark-theme{
-    color: #f0f0f0;
-    background-color: #000;
+.menu-content.dark-theme {
+  color: #f0f0f0;
+  background-color: #000;
 }
 
 #mobile-menu ul {
@@ -90,7 +155,7 @@ body.dark-theme {
 }
 
 #mobile-menu ul li {
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 #mobile-menu ul li a {
@@ -147,4 +212,143 @@ body.dark-theme {
 
 .switch input:checked + .slider:before {
   transform: translateX(20px);
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hidden {
+    display: none;
+  }
+  .table-menu {
+    display: flex;
+    flex-direction: row;
+  }
+  .space {
+    padding-right: 36px;
+  }
+  .menu-toggle-label {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-list li {
+    padding: 0 10px;
+  }
+
+  .menu-list li a {
+    color: #000;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-container img {
+    max-width: 45px;
+    max-height: 36px;
+  }
+
+  .logo-container::after {
+    content: 'Cinemania';
+    margin-left: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .mobile-menu {
+    display: flex;
+    margin-left: 216px;
+  }
+}
+@media (max-width: 768px) {
+  .table-menu {
+    display: none;
+  }
+  .table-desktop {
+    display: none;
+  }
+}
+@media (min-width: 1279px){
+    .hidden {
+    display: none;
+  }
+  .table-menu {
+    display: flex;
+    flex-direction: row;
+  }
+  .space {
+    padding-right: 40px;
+  }
+  .menu-toggle-label {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-list li {
+    padding: 0 10px;
+  }
+
+  .menu-list li a {
+    color: #000;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-container img {
+    max-width: 45px;
+    max-height: 36px;
+  }
+
+  .logo-container::after {
+    content: 'Cinemania';
+    margin-left: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .mobile-menu {
+    display: flex;
+    margin-left: 216px;
+  }
 }
