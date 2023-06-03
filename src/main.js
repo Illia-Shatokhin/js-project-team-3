@@ -1,4 +1,5 @@
 import '/js/hero.js';
+import '/js/models/data-for-library.js';
 
 import createCatalogMovieCard from './js/catalogMovieCard';
 import {
