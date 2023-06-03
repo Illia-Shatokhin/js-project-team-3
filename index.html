@@ -13,7 +13,7 @@
     />
     
     <script type="module" crossorigin src="/js-project-team-3/assets/hero-ca7488c6.js"></script>
-    <link rel="stylesheet" href="/js-project-team-3/assets/hero-52f41501.css">
+    <link rel="stylesheet" href="/js-project-team-3/assets/hero-9cd95684.css">
   </head>
   <body>
     <button class="button btn-gradient">
@@ -25,11 +25,21 @@
     <header class="mobile-header">
   <!-- <link rel="stylesheet" href="/header.css" /> -->
   <div class="logo-container">
-    <a href="index.html"><img src="img/logo.png" alt="Your Logo" /></a>
+    <a href="./index.html"
+      ><img style="padding: 0" src="./img/tablet-logo.png" alt="Your Logo"
+    /></a>
   </div>
-  <div class="menu-container">
-    <button id="menu-toggle">MENU</button>
-    <div id="mobile-menu" class="hidden">
+  <nav id="table-menu" class="table-desktop">
+    <ul class="table-menu">
+      <li class="space"><a href="./index.html">HOME</a></li>
+      <li class="space"><a href="./catalog.html">CATALOG</a></li>
+      <li><a href="./my-library.html">MY LIBRARY</a></li>
+    </ul>
+  </nav>
+  <div class="menu-container checkbox">
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-toggle-label">MENU</label>
+    <nav id="mobile-menu" class="hidden">
       <div class="menu-content">
         <a href="index.html"><img src="img/logo.png" alt="Your Logo" /></a>
         <ul class="menu-list">
@@ -38,7 +48,7 @@
           <li><a href="my-library.html">MY LIBRARY</a></li>
         </ul>
       </div>
-    </div>
+    </nav>
   </div>
   <div class="theme-slider-container">
     <label class="switch">
@@ -46,7 +56,7 @@
       <span class="slider round"></span>
     </label>
   </div>
-  <script src="js/header.js"></script>
+  <script src="./js/header.js"></script>
 </header>
 
     <section class="hero"></section>
