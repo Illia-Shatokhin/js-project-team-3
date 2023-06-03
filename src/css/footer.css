@@ -6,20 +6,17 @@
 }
 
 .footer-text {
-  width: 326px;
+  /* width: 326px;
   height: 19px;
   left: 399px;
-  top: 5306px;
-
+  top: 5306px; */
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-
-  display: flex;
-  align-items: center;
+  display: inline;
+  /* align-items: center; */
   text-align: center;
-
   color: #b7b7b7;
 }
