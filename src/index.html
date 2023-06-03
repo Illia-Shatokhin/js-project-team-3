@@ -29,55 +29,57 @@
 
     <div class="errortrailer">
       <div class="errortrailer-text">
-        <!-- <p>OOPS...
-          We are very sorry!
-          But we couldn’t find the trailer.
-        </p> -->
-<p class="errortrailer-text-item">OOPS...</p>
-<p class="errortrailer-text-item">We are very sorry!</p>
-<p class="errortrailer-text-item">But we couldn’t find the trailer.</p>
+        <p class="errortrailer-text-item">OOPS...</p>
+        <p class="errortrailer-text-item">We are very sorry!</p>
+        <p class="errortrailer-text-item">But we couldn’t find the trailer.</p>
       </div>
       <picture class="trailer-list-img">
         <source
           srcset="
-            ./img/traitrailer-list-imgr-modal-desk.png    1x,
-            ./img/traitrailer-list-imgr-modal-desk@2x.png 2x
+            ./public/img/trailer-modal-desk.png    1x,
+            ./public/img/trailer-modal-desk@2x.png 2x
           "
-          media="(min-trailer-list-imgdth: 1280px)"
+          media="(min-width: 1280px)"
           type="image/png"
           width="363"
-          height="318"
-        >
+        />
         <source
           srcset="
-            ./img/trailer-modal-tab.png    1x,
-            ./img/trailer-modal-tab@2x.png 2x
+            ./public/img/trailer-modal-tab.png    1x,
+            ./public/img/trailer-modal-tab@2x.png 2x
           "
           media="(min-width: 768px)"
           type="image/png"
           width="296"
-          height="260"
-        >
-          <source
-            srcset="
-              /img/trailer-modal-mob.png 1x,
-              ./img/trailer-modal-mob-@2x.png 2x
-            "
-            media="(max-width: 767px)"
-            type="image/png"
-            width="363"
-            height="153"
-          > 
+        />
+        <source
+          srcset="
+            ./public/img/trailer-modal-mob.png     1x,
+            ./public/img/trailer-modal-mob-@2x.png 2x
+          "
+          media="(max-width: 767px)"
+          type="image/png"
+          width="159"
+        />
         <img
           class="trailer-img"
-          src="./img/trailer-modal-mob.png"
+          src="./public/img/trailer-modal-mob.png"
           alt="image"
           width="159"
-          height="153"
-        >
+        />
       </picture>
-    </div>
+      <span class="select-icon">
+            <svg class="icon" width="24" height="24">
+              <use href=".public/img/symbols.svg#close"></use>
+            </svg>
+          </span>
 
+    </div>
+    <span class="select-icon">
+            <svg class="icon" width="24" height="24">
+              <use href=".public/img/symbols.svg#close"></use>
+            </svg>
+          </span>
     <script type="module" src="/index.js"></script>
   </body>
 </html>

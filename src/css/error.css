@@ -1,44 +1,111 @@
 .errortrailer {
-  /* margin-left: auto;
-  margin-right: auto; */
+  position: absolute;
   padding: 20px;
   width: 280px;
-  height: 289px;
-  background-color: #111111;
+  min-height: 289px;
+  background-color: var(--black);
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 16px;
 }
 
 .errortrailer-text {
-  /* text-align: center; */
-  /* margin-right: auto;
-  margin-left: auto; */
   margin: 19px 13px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 19px;
-  color: #ffffff;
+  line-height: 1.19;
+  color: var(--white);
 }
 
-/* .errortrailer-text-item {
-  width: 214px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  color: #ffffff;
-} */
+  .trailer-img {
+    
+    margin: auto;
+  }
 
-.trailer-img {
+  .select-icon {
+  position: absolute;
+  z-index: 1300;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
   align-items: center;
-  text-align: center;
-  margin-left: 41px;
-  /* margin-top: 24px; */
-  /* padding-top: 24px; */
-  /* padding-left: 61px; */
-  width: 159px;
-  height: 153px;
+  justify-content: center;
+  background-origin: border-box;
+  pointer-events: none;
+  color: var(--white);
+  fill: white;
+}
+
+@media screen and (min-width: 768px) {
+  .errortrailer {
+    position: absolute;
+    display: flex;
+    padding: 24px;
+    width: 609px;
+    min-height: 400px;
+  }
+
+  .errortrailer-text {
+    margin: 108px 44px;
+    left: 44px;
+    top: 132px;
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  .trailer-img {
+    position: absolute;
+    right: 10px;
+    bottom: 16px;
+  }
+
+    .select-icon {
+  position: absolute;
+  z-index: 1300;
+  top: 24px;
+  right: 24px;
+  width: 10px;
+  height: 10px;
+  align-items: center;
+  justify-content: center;
+  background-origin: border-box;
+  pointer-events: none;
+  color: var(--white);
+}
+}
+
+@media screen and (min-width: 1280px) {
+  .errortrailer {
+    position: absolute;
+    display: flex;
+    padding: 28px;
+    width: 700px;
+  }
+
+  .errortrailer-text {
+    margin: 122px 22px;
+    left: 44px;
+    top: 132px;
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  .trailer-img {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+  }
+
+  .select-icon {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  align-items: center;
+  justify-content: center;
+  background-origin: border-box;
+  pointer-events: none;
+  color: var(--white);
+}
 }
