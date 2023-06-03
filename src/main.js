@@ -1,2 +1,2 @@
-import './js/filmCard';
+import './js/catalogMovieCard';
 import '/js/hero.js';
