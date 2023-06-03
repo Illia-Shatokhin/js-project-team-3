@@ -1,16 +1,28 @@
-/* Mobile Header Styles */
+body {
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+
+body.dark-theme {
+  background-color: #000;
+  color: #f0f0f0;
+}
+
 .mobile-header {
   display: flex;
-  width:auto;
+  width: auto;
   height: 48px;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  background-color: #f0f0f0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .mobile-header.dark-theme {
   background-color: #000;
+  color: white;
 }
 
 .logo-container img {
@@ -23,19 +35,27 @@
 }
 
 #menu-toggle {
-  
   background: none;
   border: none;
   cursor: pointer;
 }
+
+.mobile-header.dark-theme #menu-toggle {
+  color: white;
+}
+
+.mobile-header.dark-theme button,
+.mobile-header.dark-theme #menu-toggle {
+  color: white;
+}
+
 
 #mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 500px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.2);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -52,11 +72,15 @@
 }
 
 .menu-content {
-  background-color: #fff; /* Replace with your desired background color */
   width: 204px;
-  padding: 20px;
   border-radius: 5px;
   text-align: center;
+  background-color: white;
+}
+
+.menu-content.dark-theme{
+    color: #f0f0f0;
+    background-color: #000;
 }
 
 #mobile-menu ul {
@@ -107,12 +131,12 @@
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 16px;
   width: 16px;
   left: 2px;
   bottom: 2px;
-  background-image: url("img/Ellipse_night.jpg");
+  background-color: #f0f0f0;
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -123,13 +147,4 @@
 
 .switch input:checked + .slider:before {
   transform: translateX(20px);
-}
-
-body {
-  background-color: white;
-  transition: background-color 0.5s ease;
-}
-
-body.dark-theme {
-  background-color: #000;
 }

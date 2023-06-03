@@ -21,12 +21,20 @@ document.addEventListener('click', function (event) {
 
 // Dark mode theme toggle
 var themeToggle = document.getElementById('theme-toggle');
+var buttons = document.querySelectorAll('button');
+
 themeToggle.addEventListener('change', function () {
   if (themeToggle.checked) {
     document.body.classList.add('dark-theme');
+    buttons.forEach(function (button) {
+      button.classList.add('dark-theme');
+    });
     console.log('User prefers dark theme');
   } else {
     document.body.classList.remove('dark-theme');
+    buttons.forEach(function (button) {
+      button.classList.remove('dark-theme');
+    });
     console.log('User prefers light theme');
   }
 });
@@ -38,9 +46,15 @@ if (
 ) {
   themeToggle.checked = true;
   document.body.classList.add('dark-theme');
+  buttons.forEach(function (button) {
+    button.classList.add('dark-theme');
+  });
   console.log('User prefers dark theme');
 } else {
   themeToggle.checked = false;
   document.body.classList.remove('dark-theme');
+  buttons.forEach(function (button) {
+    button.classList.remove('dark-theme');
+  });
   console.log('User prefers light theme');
 }
