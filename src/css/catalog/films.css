@@ -1,22 +1,21 @@
-/*section*/
 .catalog-film-section {
   padding-top: 16px;
   padding-bottom: 20px;
 }
 
-/* ul */
 .catalog-list {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
 }
 
-/* li */
 .catalog-item {
   position: relative;
 
   width: 280px;
   height: 406px;
+
+  background-size: cover;
   border-radius: 5px;
 }
 
@@ -24,68 +23,92 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  margin: 12px;
 }
+
 .film-info-container {
   display: flex;
-  flex-direction: row;
-  width: 280px;
+  width: 256px;
   justify-content: space-between;
 }
 
-.catalog-card-title {
-  /* font-family: 'Roboto'; */
+.catalog-card-title,
+.catalog-card-description,
+.rating {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
-
+}
+.catalog-card-title {
   text-transform: uppercase;
-
   color: var(--white);
 }
 
 .catalog-card-description {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.67;
   color: var(--light-gray);
 }
-@media screen and (max-width: 767px) {
-  .catalog-film-section {
-    display: block;
-  }
-
-  .catalog-item {
-    flex-direction: column;
-  }
+.rating {
+  color: var(--white);
 }
+
 @media screen and (min-width: 768px) {
   .catalog-film-section {
-    display: flex;
-    flex: wrap;
-    justify-content: space-between;
-    row-gap: 16px;
-    column-gap: 28px;
-
     padding-top: 36px;
     padding-bottom: 44px;
   }
+
+  .catalog-list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 28px;
+  }
+
   .catalog-item {
     width: 224px;
     height: 325px;
+  }
 
-    margin-bottom: 16px;
+  .catalog-card-title,
+  .catalog-card-description,
+  .rating {
+    line-height: 1.5;
+  }
+
+  .film-info-container {
+    width: 200px;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .catalog-film-section {
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  .catalog-list {
+    row-gap: 32px;
+  }
+
   .catalog-item {
-    position: relative;
     width: 394px;
     height: 574px;
+  }
+  .catalog-card-title {
+    margin-bottom: 10px;
+  }
 
-    margin-bottom: 16px;
+  .catalog-card-title,
+  .catalog-card-description,
+  .rating {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  .catalog-card-info-container {
+    margin: 20px;
+  }
+  .film-info-container {
+    width: 355px;
   }
 }
