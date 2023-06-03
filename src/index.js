@@ -1,5 +1,5 @@
-import { createHero } from './js/hero.js';
+// import { createHero } from './js/hero.js';
 
-const g = createHero();
+// createHero();
 
-console.log(g);
+import '/js/hero.js';
