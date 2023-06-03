@@ -25,6 +25,43 @@ body.dark-theme {
   color: white;
 }
 
+/* Add styles for the close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-size: 18px;
+}
+
+.close-button.dark-theme {
+  color: #f0f0f0;
+}
+
+/* Modify the styles for the menu-content */
+.menu-content {
+  width: 204px;
+  padding-left: 20px;
+  padding-top: 8px;
+  padding-right: 20px;
+  padding-bottom: 262.2px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  position: relative;
+}
+
+.menu-content.dark-theme {
+  color: #f0f0f0;
+  background-color: #000;
+}
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+
 .logo-container img {
   max-width: 100px; /* Adjust the size as per your logo dimensions */
 }
@@ -40,7 +77,17 @@ body.dark-theme {
   cursor: pointer;
 }
 
-.mobile-header.dark-theme #menu-toggle {
+.logo-container img {
+  max-width: 100px;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-header.dark-theme #menu-toggle,
+.mobile-header.dark-theme .menu-content a {
   color: white;
 }
 
@@ -49,13 +96,13 @@ body.dark-theme {
   color: white;
 }
 
-
 #mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.2);
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -74,13 +121,13 @@ body.dark-theme {
 .menu-content {
   width: 204px;
   border-radius: 5px;
-  text-align: center;
+  text-align: left;
   background-color: white;
 }
 
-.menu-content.dark-theme{
-    color: #f0f0f0;
-    background-color: #000;
+.menu-content.dark-theme {
+  color: #f0f0f0;
+  background-color: #000;
 }
 
 #mobile-menu ul {
@@ -90,7 +137,7 @@ body.dark-theme {
 }
 
 #mobile-menu ul li {
-  padding: 10px 0;
+  padding: 12px 0;
 }
 
 #mobile-menu ul li a {
@@ -147,4 +194,68 @@ body.dark-theme {
 
 .switch input:checked + .slider:before {
   transform: translateX(20px);
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .menu-container {
+    display: none;
+  }
+
+  .menu-toggle-label {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-list li {
+    padding: 0 10px;
+  }
+
+  .menu-list li a {
+    color: #000;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-container img {
+    max-width: 45px;
+    max-height: 36px;
+  }
+
+  .logo-container::after {
+    content: 'Cinemania';
+    margin-left: 10px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  #mobile-menu {
+    display: none;
+  }
+
+  .menu-content {
+    padding-bottom: 0;
+  }
 }
