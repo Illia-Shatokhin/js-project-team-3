@@ -1,1 +1,25 @@
-<header class="header"></header>
+<header class="mobile-header">
+  <link rel="stylesheet" href="header.css" />
+  <div class="logo-container">
+    <img src="img/logo.png" alt="Your Logo" />
+  </div>
+  <div class="menu-container">
+    <button id="menu-toggle">Menu</button>
+    <div id="mobile-menu" class="hidden">
+      <div class="menu-content">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Catalog</a></li>
+          <li><a href="#">My Library</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="theme-slider-container">
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <script src="./header.js"></script>
+</header>
