@@ -22,11 +22,15 @@
 }
 
 .overview {
+  display: block;
   font-family: 'Roboto-Regular';
   font-size: 14px;
   line-height: 1.14;
-  margin-bottom: 21px;
   max-width: 177px;
+  height: 65px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  margin-bottom: 21px;
   color: var(--white-smoke);
 }
 
@@ -49,7 +53,9 @@
 
   .overview {
     margin-bottom: 28px;
+    max-width: none;
     width: 254px;
+    height: 49px;
   }
 }
 
@@ -59,22 +65,28 @@
     padding-bottom: 181px;
   }
 
+  .hero-container {
+    padding: 0 135px;
+  }
+
   .hero-title {
     font-size: 64px;
-    margin-bottom: 18x;
+    line-height: 1.17;
+    margin-bottom: 18px;
     width: 670px;
   }
 
   .reting-stars {
-    margin-bottom: 21px;
+    margin-bottom: 30px;
   }
 
   .overview {
     font-family: 'Roboto-Regular';
-    font-size: 14px;
-    line-height: 1.14;
-    margin-bottom: 21px;
-    max-width: 177px;
+    font-size: 16px;
+    line-height: 1.19;
+    margin-bottom: 36px;
+    width: 367px;
+    height: 59px;
     color: var(--white-smoke);
   }
 
