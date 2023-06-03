@@ -1,4 +1,5 @@
 import '/js/hero.js';
+import '/js/hero-trailer.js'
 
 // import createCatalogMovieCard from './js/catalogMovieCard';
 // import {
