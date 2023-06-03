@@ -198,7 +198,7 @@ body.dark-theme {
 
 @media (min-width: 768px) and (max-width: 1279px) {
   .menu-container {
-    display: none;
+    
   }
 
   .menu-toggle-label {
