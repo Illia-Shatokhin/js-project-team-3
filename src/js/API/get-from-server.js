@@ -9,9 +9,9 @@ function generateOption(addURL, params) {
     params,
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${CONSTS.BEARER}`
-    }
-  }
+      Authorization: `Bearer ${CONSTS.BEARER}`,
+    },
+  };
 }
 
 async function axiosGet(options) {
@@ -30,7 +30,6 @@ export async function getLanguages() {
   return axiosGet(options);
 }
 
-
 //============================================================================
 export async function getTrendingAllDay() {
   const options = generateOption('trending/all/day', { language: 'en-US' });
@@ -48,13 +47,30 @@ export async function getMovieUpcoming(page) {
 }
 
 //!!! query must not be empty
-export async function getSearchMovie({ query = 'qqq', include_adult = false, primary_release_year, page = 1, region, year }) {
-  const options = generateOption('search/movie', { language: 'en-US', query, include_adult, primary_release_year, page, region, year });
+export async function getSearchMovie({
+  query = 'qqq',
+  include_adult = false,
+  primary_release_year,
+  page = 1,
+  region,
+  year,
+}) {
+  const options = generateOption('search/movie', {
+    language: 'en-US',
+    query,
+    include_adult,
+    primary_release_year,
+    page,
+    region,
+    year,
+  });
   return axiosGet(options);
 }
 
 export async function getMovieVideos(movie_id) {
-  const options = generateOption(`movie/${movie_id}/videos`, { language: 'en-US' });
+  const options = generateOption(`movie/${movie_id}/videos`, {
+    language: 'en-US',
+  });
   return axiosGet(options);
 }
 
