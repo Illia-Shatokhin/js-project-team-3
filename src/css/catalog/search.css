@@ -3,7 +3,7 @@
 
 .catalog-search {
   padding-top: 80px;
-  padding-bottom: 48px;
+  /* padding-bottom: 48px; */
 }
 .catalog-search-form {
   display: flex;
@@ -24,9 +24,8 @@
   top: 0px;
   border-radius: 8px;
   padding: 12px 24px 12px 24px;
-  border: 1px solid var(--white);
   padding: 10px 20px 10px 20px;
-  color: var(--white);
+  
   font-size: 14px;
   line-height: 1.14;
   font-family: 'Roboto-Medium';
@@ -53,7 +52,7 @@ input::placeholder {
   transition: stroke 100ms linear;
 }
 .catalog-button-reset {
-  background-color: var(--black);
+  background-color: var(--white);
   border-radius: 5px;
   height: 32px;
   border: 1px solid transparent;
@@ -132,14 +131,17 @@ input::placeholder {
 }
 .dark-theme-input {
   background-color: var(--black);
-  stroke: rgba(183, 183, 183, 1);
-  /* border: 1px solid var(--orange); */
+  color: var(--white);
+  border: 1px solid var(--white);
 }
 .light-theme-input {
-  background-color: var(--gray);
-  stroke: var(--gray);
+  background-color: var(--white);
+  color: var(--grey);
   border: 1px solid var(--gray);
 }
 .light-theme-btn {
   stroke: var(--black);
+}
+.catalog-button-reset-dark{
+background-color: var(--black);
 }
