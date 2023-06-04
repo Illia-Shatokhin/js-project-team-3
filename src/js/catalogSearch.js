@@ -1,4 +1,4 @@
-// import axios from 'axios';
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getSearchMovie } from './API/get-from-server';
 // import {createCatalogMovieCard} from './js/catalogMovieCard';
