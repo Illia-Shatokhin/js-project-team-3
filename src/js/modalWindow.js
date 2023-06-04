@@ -1,5 +1,6 @@
 // const axios = require('axios').default;
 import axios from 'axios';
+import * as basicLightbox from 'basiclightbox'
 
 const KEY =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzgzN2Q4ZThiOWY1YjkyODFlNGYzODM2ZjQwZmMzMiIsInN1YiI6IjY0NzhmMTllMGUyOWEyMDBkY2I5YmFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Gm8FRVhZa5JYfHHhkK7gHuf4DwF_mvLWBXC6uzMdhLk';
@@ -12,7 +13,6 @@ const options = {
   params: {
     api_key: API_KEY,
     language: 'en-US',
-    // append_to_response: 'images',
   },
   headers: {
     Authorization: `Bearer ${KEY}`,
@@ -20,37 +20,34 @@ const options = {
   },
 };
 
-const backdropEl = document.querySelector('.modal-backdrop');
-console.log(backdropEl)
+// const backdropEl = document.querySelector('.modal-backdrop');
+// console.log(backdropEl)
+
 /*--------отримує дані з бекенду про фільм-------------*/
 
- async function fetchMovieDetails(movie_id) {
-   try {
+async function fetchMovieDetails(movie_id) {
+  try {
     const URL_DETAIL = `https://api.themoviedb.org/3/movie/${movie_id}`;
-     const response = await axios.get(URL_DETAIL, options);
-     const data = response.data;
-    //  const { poster_path, original_title, vote_average, vote_count, popularity, genre_ids } = data;;
-   
+    const response = await axios.get(URL_DETAIL, options);
+    const data = response.data;
     console.log(data)
-// return { poster_path, original_title, vote_average, vote_count, popularity, genre_ids };
-return data;
-   } catch (error) {
-     console.error('Помилка запиту:', error);
-   }
+    return data;
+  } catch (error) {
+    console.error('Помилка запиту:', error);
+  }
 }
 
-
-const movie_id =  603654;
+// const movie_id =  603654;
 // const movie_id =  605579;
 
 /*---------------------створює розмітку мадального вікна з інфо про фільм---------------------*/
- function renderModalMovieMarkup(data){
-   const genreList =data.genres.map(genre => genre.name).join(', ');
-   const vote =  data.vote_average.toFixed(1);
-   const populatity = data.popularity.toFixed(1);
-   const voteCount = data.vote_count.toFixed(1);
-   const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`
-return `
+function renderModalMovieMarkup(data) {
+  const genreList = data.genres.map(genre => genre.name).join(', ');
+  const vote = data.vote_average.toFixed(1);
+  const populatity = data.popularity.toFixed(1);
+  const voteCount = data.vote_count.toFixed(1);
+  const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`
+  return `
 <div class="modal-film-window">
   <button class="modal-close-btn">
      <svg class="modal-close-icon" width="100%" height="100%" >
@@ -77,22 +74,55 @@ return `
  <button class=" button btn-border-dark add-film-btn">Add to my library</button>
  </div>
 </div>`
- }
+}
 
-/*--------------отримує і відображає вільм в модальному вікні----------------*/
-async function getMovie(){
+/*--------------отримує і відображає фільм в модальному вікні----------------*/
+let instance = null;
+
+async function getMovie() {
   const data = await fetchMovieDetails(movie_id);
   const markup = renderModalMovieMarkup(data);
-  updateMovieModal(markup)
+  instance = basicLightbox.create(markup, {
+    closable: true,
+    onShow: (instance) => {
+      instance.element().querySelector('.modal-close-btn').addEventListener('click', () => {
+        instance.close();
+      });
+      document.addEventListener('keydown', closeModalOnKeyPress)
+    },
+    onClose: (instance) => {
+      instance.element().querySelector('.modal-close-btn').removeEventListener('click', () => {
+        instance.close();
+      });
+      document.removeEventListener('keydown', closeModalOnKeyPress);
+    }
+  });
+  instance.show();
+  // updateMovieModal(markup);
+  // instance.show();
 }
+function closeModalOnKeyPress(e) {
+  if (e.code !== 'Escape') {
+    return;
+  }
+  instance.close();
+  document.removeEventListener('keydown', closeModalOnKeyPress);
+}
+
+document.querySelector('.modal-open').onclick = getMovie;
+
+
+const movie_id = 605578;
+
 getMovie()
 
-// const backdropEl = document.querySelector('.modal-backdrop');
-// console.log(backdropEl)
 
 /*--------------завантажує розмітку в бекдроп ----------------*/
-function updateMovieModal(markup) {
-  backdropEl.innerHTML = markup;
-}
+// function updateMovieModal(markup) {
+//   backdropEl.innerHTML = markup;
+// }
+
+
+
 
 

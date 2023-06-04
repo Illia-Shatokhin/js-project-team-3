@@ -222,3 +222,8 @@ width: 331px;
 height: 159px;
 }
 } 
+
+.modal-open{
+  padding: 20px, 25px;
+background-color: coral;
+}
