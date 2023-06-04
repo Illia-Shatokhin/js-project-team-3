@@ -12,21 +12,20 @@
   font-size: 12px;
   line-height: 1.16;
   text-align: center;
+}
+.btn-gradient {
+  background: var(--basic-gradient);
+  color: var(--black);
+  transition: var(--transition);
+  transition: color 100ms linear;
+}
 
-  }
-  .btn-gradient {
-    background: var(--basic-gradient);
-    color: var(--black);
-    transition: var(--transition);
-    transition: color 100ms linear;
-  }
-  
-  .btn-gradient:hover,
-  .btn-gradient:focus {
-    color: var(--orange);
-    background: linear-gradient(var(--white), var(--white)) padding-box,
+.btn-gradient:hover,
+.btn-gradient:focus {
+  color: var(--orange);
+  background: linear-gradient(var(--white), var(--white)) padding-box,
     linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
-  }
+}
 
 /* ===Dark theme ===== */
 
@@ -41,12 +40,11 @@
 .btn-border-dark:focus {
   background: var(--white);
   color: var(--orange);
-
 }
 /* ===Ligth theme ===== */
 
 .btn-border-light {
-   background: linear-gradient(var(--white), var(--white)) padding-box,
+  background: linear-gradient(var(--white), var(--white)) padding-box,
     linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
   color: var(--black);
   transition: var(--transition);
@@ -56,7 +54,6 @@
 .btn-border-light:focus {
   background: var(--black);
   color: var(--orange);
-  ;
 }
 
 .btn-transparent-dark {
@@ -68,9 +65,9 @@
 .btn-transparent-dark:focus {
   background: var(--white);
   color: var(--orange);
- }
+}
 
- .btn-transparent-light  {
+.btn-transparent-light {
   background: transparent;
   border: 1px solid var(--black);
   color: var(--black);
@@ -80,4 +77,4 @@
 .btn-transparent-light:focus {
   background: var(--black);
   color: var(--orange);
- }
+}
