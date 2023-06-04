@@ -1,12 +1,21 @@
 /* MOVIE IMAGE */
 
 .weekly-section {
-  /* display: flex;
-  flex-wrap: wrap; */
+
+  background-color: var(--black);
+  padding-top: 80px;
+  padding-bottom: 60px;
+
+}
+
+.weekly-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
 }
 
 .weekly-section-title {
-    font-family: 'Roboto';
+    font-family: 'Roboto-Medium';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -14,7 +23,7 @@
 
     text-transform: uppercase;
 
-    /* color: #FFFFFF; */
+    color: #FFFFFF;
 }
 
 .trends-film {
@@ -38,6 +47,8 @@ left: 252px;
 }
 
 .weekly-links {
+  display: flex;
+  gap: 15px;
 }
 
 /* Rating stars */

@@ -1,4 +1,18 @@
 import { getTrendingAllWeek } from "../API/get-from-server";
+import { refs } from "./refs";
+
+import createMovieCard from "../catalogMovieCard";
+
+
+screen.width <= 767
+  ? createMovieCard(getTrendingAllWeek, refs.weeklyLinks, 1)
+  : createMovieCard(getTrendingAllWeek, refs.weeklyLinks, 3);
+ 
+
+
+
+
+
 // import createCatalogMovieCard  from "./../catalogMovieCard";
 
  
