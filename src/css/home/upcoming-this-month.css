@@ -2,31 +2,57 @@
     display: flex;
     flex-wrap: wrap;
   }
-  
-  .film-card {
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  
+
+.upcoming-film-section {
+background: #111111;
+margin-top: 60px;
+}
+
+.upcoming-film-section-title{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 28px;
+line-height: 1.18;
+text-transform: uppercase;
+color: var(--white);
+margin-bottom: 28px;
+}
+
+.upcoming-wrap {
+    display: flex;
+    gap: 16px;
+}
+
+
+.film-title {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 1.18;
+color: var(--white);
+margin-bottom: 28px;
+}
+
   .film-image {
-    width: 100%;
-    height: 200px;
+    width: 800px;
+    height: 458px;
     object-fit: cover;
   }
   
-  .film-title {
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .film-release-date {
-    margin-top: 5px;
+  .film-release-date, .film-rating {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+    color: #B7B7B7;
+    margin-bottom: 12px;
   }
   
   .film-rating {
-    margin-top: 5px;
+
   }
   
   .film-genres {
@@ -35,6 +61,14 @@
   
   .film-description {
     margin-top: 10px;
+    max-width: 390px;
+    color: var(--white);
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+color: #F8F8F8;
   }
   
   .library-button {

@@ -40,11 +40,14 @@ if (!localStorage.getItem('myLibrary')) {
   
           const filmCard = document.createElement('div');
           filmCard.className = 'film-card';
+
+          const filmImgContainer = document.querySelector('.upcoming-film-image-container')
+        //   const releaseDateWrap = document.querySelector('.release-date-wrap')
   
           const filmImage = document.createElement('img');
           filmImage.className = 'film-image';
           filmImage.src = `https://image.tmdb.org/t/p/original/${randomFilm.backdrop_path}`;
-          filmCard.appendChild(filmImage);
+          filmImgContainer.appendChild(filmImage);
   
           const filmTitle = document.createElement('h2');
           filmTitle.className = 'film-title';
@@ -67,7 +70,7 @@ if (!localStorage.getItem('myLibrary')) {
           filmCard.appendChild(filmDescription);
   
           const libraryButton = document.createElement('button');
-          libraryButton.className = 'library-button';
+          libraryButton.className = 'library-button button btn-gradient';
           if (isInLibrary(randomFilm.id)) {
             libraryButton.textContent = 'Remove from My Library';
           } else {
