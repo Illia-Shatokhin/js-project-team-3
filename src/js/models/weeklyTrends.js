@@ -61,7 +61,7 @@ renderStars(7.51, 40, 40);
 
 function starsMarkup(whichStar, width, height) {
   return `<svg class="icon-star" width="${width}" height="${height}">
-      <use href="./public/img/symbols.svg#${whichStar}"></use>
+      <use href="./img/symbols.svg#${whichStar}"></use>
   </svg>`;
 }
 
