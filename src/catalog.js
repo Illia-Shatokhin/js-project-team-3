@@ -1,5 +1,7 @@
 import '/js/hero.js';
 import '/js/catalogSearch.js';
+import '/js/header.js';
+import createCatalogMovieCard from './js/catalogMovieCard';
 import createMovieCard from './js/catalogMovieCard';
 import {
   getMovieDetails,
