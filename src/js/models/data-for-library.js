@@ -14,20 +14,32 @@ filmsOfLocalStorage.style.cssText =
   `;
 
 const libraryIdsArr = localStorage.getItem('my_fake_library') ? JSON.parse(localStorage.getItem('my_fake_library')) : [];
+console.log('This Without parse:', localStorage.getItem('my_fake_library'));
 
-// const nameValue = [569094];
-// // recive item.id from btn-remove
-// export function removeLibraryIdsArr() {
+function addtoLocalStorage(num) {
+  if (!num) return
+  const test = JSON.parse(localStorage.getItem('my_fake_library'));
 
-//   const getDatasLocalStorage = JSON.parse(localStorage.getItem("my_fake_library"));
-//   const nameValue = getDatasLocalStorage.indexOf(nameValue);
-//   if (nameValue !== -1) {
-//     getDatasLocalStorage.splice(nameValue, 1);
-//     localStorage.setItem("my_fake_library", JSON.stringify(getDatasLocalStorage));
-//   }
-// }
+  if (!test.includes(num)) {
+    test.push(num);
+    localStorage.setItem('my_fake_library', JSON.stringify(test))
+  }
+}
+addtoLocalStorage(569097);
 
-// removeLibraryIdsArr(nameValue);
+
+// recive item.id from btn-remove
+function removeLibraryIdsArr(id) {
+  if (!id) return
+  const getDatasLocalStorage = JSON.parse(localStorage.getItem("my_fake_library"));
+  const index = getDatasLocalStorage.indexOf(id);
+  if (index !== -1) {
+    getDatasLocalStorage.splice(index, 1);
+    localStorage.setItem("my_fake_library", JSON.stringify(getDatasLocalStorage));
+  }
+}
+
+removeLibraryIdsArr(569094);
 
 
 const libraryArr = [];
