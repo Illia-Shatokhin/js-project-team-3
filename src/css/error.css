@@ -26,28 +26,30 @@
 }
 
 .select-icon {
-  position: absolute;
-  /* float: center; */
-  z-index: 130;
-  top: 20px;
-  right: 20px;
-  width: 24px;
-  height: 24px;
-  align-items: center;
-  justify-content: center;
-  background-origin: border-box;
+  display: block;
   background-color: transparent;
-  pointer-events: none;
   border: none;
+  margin-left: auto;
 }
 .icon {
   stroke: var(--white);
 }
 
+.errortext {
+  width: 250px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0 auto;
+  color: var(--white);
+}
+
 @media screen and (min-width: 768px) {
   .errortrailer {
     position: absolute;
-    display: flex;
     padding: 24px;
     width: 609px;
     min-height: 400px;
@@ -67,20 +69,16 @@
     bottom: 16px;
   }
 
-  .select-icon {
-    top: 24px;
-    right: 24px;
-    align-items: center;
-    justify-content: center;
-    background-origin: border-box;
-    pointer-events: none;
+  .errortext {
+    width: 513px;
+    font-size: 24px;
+    line-height: 1.33;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .errortrailer {
     position: absolute;
-    display: flex;
     padding: 28px;
     width: 700px;
     border-radius: 20px;
@@ -100,13 +98,9 @@
     bottom: 5px;
   }
 
-  .select-icon {
-    position: absolute;
-    top: 28px;
-    right: 28px;
-    align-items: center;
-    justify-content: center;
-    background-origin: border-box;
-    pointer-events: none;
+  .errortext {
+    width: 684px;
+    font-size: 32px;
+    line-height: 1.13;
   }
 }

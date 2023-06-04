@@ -1,7 +1,30 @@
-export function errorTrailer() {
+
+function renderError(elem, markup) {
+    elem.insertAdjacentHTML('beforeend', markup()); 
+}
+
+function errorLibraryMarkup() {
+    return `
+     <div class="error">
+        <p class="errortext">OOPS...</p>
+        <p class="errortext">We are very sorry!</p>
+        <p class="errortext">You don’t have any movies at your library.</p>
+      </div>`;
+}
+
+function errorCatalogMarkup() {
+  return `
+       <div class="error">
+        <p class="errortext">OOPS...</p>
+        <p class="errortext">We are very sorry!</p>
+        <p class="errortext">We don’t have any results matching your search.</p>
+      </div>`;
+}
+
+function errorTrailerMarkup() {
   return `
   <div class="errortrailer">
-  <button class="popup-close-btn select-icon js-modal-close" type="button">
+      <button class="select-icon" type="button">
         <svg class="icon" width="24" height="24">
           <use href="./public/img/symbols.svg#close"></use>
         </svg>
@@ -46,6 +69,7 @@ export function errorTrailer() {
           width="159"
         />
       </picture>
-     
     </div>`;
 }
+
+export {renderError, errorLibraryMarkup, errorCatalogMarkup, errorTrailerMarkup}
