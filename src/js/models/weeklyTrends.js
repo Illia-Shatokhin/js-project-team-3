@@ -59,8 +59,6 @@ function renderStars(rating, width, height) {
 
 renderStars(7.51, 40, 40);
 
-console.log(filmCard);
-
 function starsMarkup(whichStar, width, height) {
   return `<svg class="icon-star" width="${width}" height="${height}">
       <use href="./public/img/symbols.svg#${whichStar}"></use>

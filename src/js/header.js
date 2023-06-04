@@ -54,5 +54,4 @@ if (
   buttons.forEach(function (button) {
     button.classList.remove('dark-theme');
   });
-  console.log('User prefers light theme');
 }

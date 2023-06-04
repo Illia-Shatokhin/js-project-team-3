@@ -13,7 +13,7 @@ filmsOfLocalStorage.style.cssText = ` display: flex;
 const libraryIdsArr = localStorage.getItem('my_fake_library')
   ? JSON.parse(localStorage.getItem('my_fake_library'))
   : [];
-console.log('This Without parse:', localStorage.getItem('my_fake_library'));
+// console.log('This Without parse:', localStorage.getItem('my_fake_library'));
 
 function addtoLocalStorage(num) {
   if (!num) return;
