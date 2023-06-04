@@ -1,13 +1,6 @@
 import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
 import { movieCardMarkup } from './markups/movieCardMaurkup';
 
-// const genreMovieList = await getGenreMovieList();
-// getGenreMovieFromList(genreMovieList, catalogCard);
-
-// function getGenreMovieFromList(data) {
-//   console.log(data.genres);
-// }
-
 export default async function createCatalogMovieCard(func, catalogList) {
   try {
     const data = await func();
@@ -24,18 +17,25 @@ export default async function createCatalogMovieCard(func, catalogList) {
 
     const cardMarkup = data.results
       .map(card => {
-        console.log(data.results);
         if (!!card.release_date) {
           releaseYear = card.release_date.split('-')[0];
         }
-
         return movieCardMarkup(card, releaseYear);
       })
       .join('');
 
     if (data.page === 1) catalogList.innerHTML = cardMarkup;
     else catalogList.insertAdjacentHTML('beforeend', cardMarkup);
+
+    const movieCards = document.querySelectorAll('.catalog-item');
+    movieCards.forEach(card => {
+      card.addEventListener('click', getMovie);
+    });
   } catch (error) {
     console.error(error);
   }
+}
+
+function getMovie() {
+  console.log('Modal window');
 }

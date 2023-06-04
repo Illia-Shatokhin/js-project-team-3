@@ -1,9 +1,5 @@
 import '/js/hero.js';
-<<<<<<< HEAD:src/main.js
-import '/js/models/data-for-library.js';
-
-=======
->>>>>>> 99800c074ff732140af65742f40291a7ed87c08c:src/catalog.js
+import '/js/catalogSearch.js';
 import createCatalogMovieCard from './js/catalogMovieCard';
 import {
   getGenreMovieList,
