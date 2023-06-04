@@ -1,4 +1,5 @@
 import '/js/hero.js';
+import '/js/catalogSearch.js';
 import createCatalogMovieCard from './js/catalogMovieCard';
 import {
   getGenreMovieList,
