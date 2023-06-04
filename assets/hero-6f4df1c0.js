@@ -30,4 +30,4 @@ Notiflix needs to be appended to the "<`+d+'>" element, but you called it before
       <div class="thumb-hero-btn">
         <button class="button btn-gradient hero-btn">Get Started</button>
       </div>
-    </div>`}export{zn as g};
+    </div>`}export{Sn as a,zn as g,ne as n};
