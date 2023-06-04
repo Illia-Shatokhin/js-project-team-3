@@ -1,6 +1,11 @@
 export function errorTrailer() {
   return `
   <div class="errortrailer">
+  <button class="popup-close-btn select-icon js-modal-close" type="button">
+        <svg class="icon" width="24" height="24">
+          <use href="./public/img/symbols.svg#close"></use>
+        </svg>
+      </button>
       <div class="errortrailer-text">
         <p class="errortrailer-text-item">OOPS...</p>
         <p class="errortrailer-text-item">We are very sorry!</p>
@@ -41,11 +46,6 @@ export function errorTrailer() {
           width="159"
         />
       </picture>
-      <span class="select-icon">
-            <svg class="icon" width="24" height="24">
-              <use href="./public/img/symbols.svg#close"></use>
-            </svg>
-          </span>
-
+     
     </div>`;
 }

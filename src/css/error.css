@@ -1,7 +1,7 @@
 .errortrailer {
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 50%;
   padding: 20px;
   width: 280px;
   min-height: 289px;
@@ -27,6 +27,7 @@
 
 .select-icon {
   position: absolute;
+  /* float: center; */
   z-index: 130;
   top: 20px;
   right: 20px;
@@ -35,9 +36,9 @@
   align-items: center;
   justify-content: center;
   background-origin: border-box;
+  background-color: transparent;
   pointer-events: none;
-  color: var(--white);
-  /* fill: white; */
+  border: none;
 }
 .icon {
   stroke: var(--white);
@@ -67,16 +68,12 @@
   }
 
   .select-icon {
-    position: absolute;
-    z-index: 1300;
     top: 24px;
     right: 24px;
-
     align-items: center;
     justify-content: center;
     background-origin: border-box;
     pointer-events: none;
-    color: var(--white);
   }
 }
 
@@ -111,6 +108,5 @@
     justify-content: center;
     background-origin: border-box;
     pointer-events: none;
-    color: var(--white);
   }
 }
