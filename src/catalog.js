@@ -7,4 +7,4 @@ import {
 
 const catalogList = document.querySelector('.catalog-list');
 // const weeklyTrendsData = await getTrendingAllWeek();
-createCatalogMovieCard(weeklyTrendsData, catalogList);
+createCatalogMovieCard(getTrendingAllWeek, catalogList);
