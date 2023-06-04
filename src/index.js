@@ -1,6 +1,6 @@
-// import { createHero } from './js/hero.js';
+import { createHero } from './js/hero.js';
 
-// createHero();
+createHero();
 
 import '/js/hero.js';
 import '/js/models/weeklyTrends.js';

@@ -4,10 +4,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
 }
-
+.hero-stub {
+  background-image: var(--gradient320HomeStub), url(../public/img/hero-mob.jpg);
+}
 .hero-title {
   font-family: 'Roboto-Bold';
   font-size: 32px;
@@ -23,15 +25,19 @@
 
 .overview {
   display: block;
+  margin-bottom: 21px;
+  max-width: 177px;
+}
+
+.overview-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  color: var(--white-smoke);
   font-family: 'Roboto-Regular';
   font-size: 14px;
   line-height: 1.14;
-  max-width: 177px;
-  height: 65px;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  margin-bottom: 21px;
-  color: var(--white-smoke);
 }
 
 .thumb-hero-btn {
@@ -55,7 +61,10 @@
     margin-bottom: 28px;
     max-width: none;
     width: 254px;
-    height: 49px;
+  }
+
+  .overview-text {
+    -webkit-line-clamp: 3;
   }
 
   .hero-btn {
@@ -92,10 +101,11 @@
     line-height: 1.19;
     margin-bottom: 36px;
     width: 367px;
-    height: 59px;
     color: var(--white-smoke);
   }
-
+  .overview-text {
+    -webkit-line-clamp: 4;
+  }
   .thumb-hero-btn {
     display: flex;
     gap: 8px;
