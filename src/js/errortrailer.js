@@ -1,10 +1,23 @@
+const modalWindow = document.querySelector('.modal-window');
+const btnClose = document.querySelector('.close-modal-window');
+
+function closeModalWindows() {
+  modalWindow.classList.add('hidden');
+}
+ 
+btnClose.addEventListener('click', closeModalWindows);
+window.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modalWindow.classList.contains('hidden')) {
+    closeModalWindows();
+  }
+});
 
 function renderError(elem, markup) {
-    elem.insertAdjacentHTML('beforeend', markup()); 
+  elem.insertAdjacentHTML('beforeend', markup());
 }
 
 function errorLibraryMarkup() {
-    return `
+  return `
      <div class="error">
         <p class="errortext">OOPS...</p>
         <p class="errortext">We are very sorry!</p>
@@ -23,8 +36,8 @@ function errorCatalogMarkup() {
 
 function errorTrailerMarkup() {
   return `
-  <div class="errortrailer">
-      <button class="select-icon" type="button">
+  <div class="errortrailer modal-window">
+      <button class="select-icon close-modal-window" type="button">
         <svg class="icon" width="24" height="24">
           <use href="./public/img/symbols.svg#close"></use>
         </svg>
@@ -72,4 +85,9 @@ function errorTrailerMarkup() {
     </div>`;
 }
 
-export {renderError, errorLibraryMarkup, errorCatalogMarkup, errorTrailerMarkup}
+export {
+  renderError,
+  errorLibraryMarkup,
+  errorCatalogMarkup,
+  errorTrailerMarkup,
+};
