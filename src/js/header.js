@@ -10,13 +10,9 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
-// Close menu when clicking outside of modal
-document.addEventListener('click', function (event) {
-  var mobileMenu = document.getElementById('mobile-menu');
-  var menuToggle = document.getElementById('menu-toggle');
-  if (!mobileMenu.contains(event.target) && event.target !== menuToggle) {
-    mobileMenu.classList.remove('visible');
-  }
+// Close menu when clicking on close button
+document.getElementById('close-menu').addEventListener('click', function () {
+  document.getElementById('mobile-menu').classList.remove('visible');
 });
 
 // Dark mode theme toggle
