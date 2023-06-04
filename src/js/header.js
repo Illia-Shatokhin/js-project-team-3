@@ -11,7 +11,7 @@ document.addEventListener('keydown', function (event) {
 });
 
 // Close menu when clicking on close button
-if(document.getElementById('close-menu')){
+if (document.getElementById('close-menu')) {
   document.getElementById('close-menu').addEventListener('click', function () {
     document.getElementById('mobile-menu').classList.remove('visible');
   });

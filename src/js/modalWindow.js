@@ -1,6 +1,6 @@
 // const axios = require('axios').default;
 import axios from 'axios';
-import * as basicLightbox from 'basiclightbox'
+import * as basicLightbox from 'basiclightbox';
 
 const KEY =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzgzN2Q4ZThiOWY1YjkyODFlNGYzODM2ZjQwZmMzMiIsInN1YiI6IjY0NzhmMTllMGUyOWEyMDBkY2I5YmFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Gm8FRVhZa5JYfHHhkK7gHuf4DwF_mvLWBXC6uzMdhLk';
@@ -30,7 +30,7 @@ async function fetchMovieDetails(movie_id) {
     const URL_DETAIL = `https://api.themoviedb.org/3/movie/${movie_id}`;
     const response = await axios.get(URL_DETAIL, options);
     const data = response.data;
-    console.log(data)
+    console.log(data);
     return data;
   } catch (error) {
     console.log('Помилка запиту:', error);
@@ -46,7 +46,7 @@ function renderModalMovieMarkup(data) {
   const vote = data.vote_average.toFixed(1);
   const populatity = data.popularity.toFixed(1);
   const voteCount = data.vote_count.toFixed(1);
-  const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`
+  const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   return `
 <div class="modal-film-window">
   <button class="modal-close-btn">
@@ -73,7 +73,7 @@ function renderModalMovieMarkup(data) {
  <p class="about-film-story">${data.overview} </p>
  <button class=" button btn-border-dark add-film-btn button-library">Add to my library</button>
  </div>
-</div>`
+</div>`;
 }
 
 /*--------------отримує і відображає фільм в модальному вікні----------------*/
@@ -83,34 +83,37 @@ async function getMovie(id) {
   const markup = renderModalMovieMarkup(data);
   instance = basicLightbox.create(markup, {
     closable: true,
-    onShow: (instance) => {
-      instance.element().querySelector('.modal-close-btn').addEventListener('click', () => {
-        instance.close();
-      });
-      document.addEventListener('keydown', closeModalOnKeyPress)
+    onShow: instance => {
+      instance
+        .element()
+        .querySelector('.modal-close-btn')
+        .addEventListener('click', () => {
+          instance.close();
+        });
+      document.addEventListener('keydown', closeModalOnKeyPress);
     },
-    onClose: (instance) => {
-      instance.element().querySelector('.modal-close-btn').removeEventListener('click', () => {
-        instance.close();
-      });
+    onClose: instance => {
+      instance
+        .element()
+        .querySelector('.modal-close-btn')
+        .removeEventListener('click', () => {
+          instance.close();
+        });
       document.removeEventListener('keydown', closeModalOnKeyPress);
-    }
+    },
   });
 
   instance.show();
 
-  document.querySelector('.button-library').addEventListener('click', (event)=>{
-    console.log(event)
-    onAddToMovieLibraryClick(data)
+  document.querySelector('.button-library').addEventListener('click', event => {
+    console.log(event);
+    onAddToMovieLibraryClick(data);
   });
 
   // onAddToMovieLibraryClick(data)
   // onRemuveFromLibraryClick(data)
   // updateMovieModal(markup);
 }
-
-
-
 
 function closeModalOnKeyPress(e) {
   if (e.code !== 'Escape') {
@@ -122,14 +125,11 @@ function closeModalOnKeyPress(e) {
 
 document.querySelector('.modal-open').onclick = getMovie;
 
-
-const movie_id =  605575;
-
+const movie_id = 605575;
 
 // getMovie()
 
-export { getMovie } ;
-
+export { getMovie };
 
 /*--------------Робота з LocalStorage ----------------*/
 
@@ -138,22 +138,20 @@ export { getMovie } ;
 // const key = 'movie-details';
 // document.querySelector('.button-library').addEventListener('click', onAddToMovieLibraryClick);
 
-
 function onAddToMovieLibraryClick(data) {
   const key = 'movie-details';
-const movie = JSON.stringify(data.id)
-localStorage.setItem(key, movie)
-const libraryBtn = document.querySelector('.button-library');
+  const movie = JSON.stringify(data.id);
+  localStorage.setItem(key, movie);
+  const libraryBtn = document.querySelector('.button-library');
 
-document.querySelector('.button-library').textContent = 'Remove from my library';
-
+  document.querySelector('.button-library').textContent =
+    'Remove from my library';
 }
 
-function clickListener(event){
-  console.log(event)
-  onAddToMovieLibraryClick(data)
+function clickListener(event) {
+  console.log(event);
+  onAddToMovieLibraryClick(data);
 }
-
 
 //  function onRemuveFromLibraryClick(){
 //   const key = 'movie-details';
@@ -162,9 +160,6 @@ function clickListener(event){
 //   document.querySelector('.button-library').textContent = 'Add to my library';
 //  }
 //  onRemuveFromLibraryClick()
-
-
-
 
 /*--------------завантажує розмітку в бекдроп ----------------*/
 // function updateMovieModal(markup) {

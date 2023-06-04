@@ -1,11 +1,9 @@
 /* MOVIE IMAGE */
 
 .weekly-section {
-
   background-color: var(--black);
   padding-top: 80px;
   padding-bottom: 60px;
-
 }
 
 .weekly-wrap {
@@ -15,21 +13,20 @@
 }
 
 .weekly-section-title {
-    font-family: 'Roboto-Medium';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.18;
+  font-family: 'Roboto-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
 .trends-film {
-  
-flex-direction: row;
-left: 252px;
+  flex-direction: row;
+  left: 252px;
   top: 468px;
   font-family: 'Roboto';
   font-style: normal;
@@ -132,12 +129,11 @@ left: 252px;
 }
 
 .icon-star-half {
-    stroke: orange;
-    fill: orange;
-
+  stroke: orange;
+  fill: orange;
 }
 
 .icon-star-outline {
-    stroke: orange;
-    fill: white;
+  stroke: orange;
+  fill: white;
 }
