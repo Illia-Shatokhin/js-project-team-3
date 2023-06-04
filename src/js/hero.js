@@ -64,7 +64,7 @@ function creatHeroMarkup(overview, original_title, vote_average) {
       <h2 class="hero-title">${original_title}</h2>
       <p class="reting-stars">${vote_average.toFixed(1)}</p>
       <div class="overview">
-        <p overview-text> ${overview} </p>
+        <p overview-text>${overview}</p>
       </div>
       <div class="thumb-hero-btn">
         <button class="button btn-gradient hero-btn">Watch trailer</button>

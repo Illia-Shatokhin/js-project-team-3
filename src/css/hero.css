@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -28,10 +28,20 @@
   line-height: 1.14;
   max-width: 177px;
   height: 65px;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+  /* overflow-y: scroll;
+  scroll-behavior: smooth; */
+  /* text-overflow: ellipsis; */
+  overflow: hidden;
+  /* white-space: nowrap; */
   margin-bottom: 21px;
   color: var(--white-smoke);
+}
+
+.overview-text {
+  text-overflow: ellipsis;
+}
+.overview:hover {
+  height: 100%;
 }
 
 .thumb-hero-btn {
