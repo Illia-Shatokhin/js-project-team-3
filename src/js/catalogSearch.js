@@ -1,6 +1,6 @@
 import axios from 'axios';
-import debounce from 'lodash';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import {getSearchMovie} from './API/get-from-server';
 
 const KEY =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MwNTQ2OTJhMjhhMGI4N2RjMjcxY2I3MjM1MGY5ZCIsInN1YiI6IjY0NzkwNDQ3MTc0OTczMDEzNTAwM2Q4ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.18CUpoY0xgepvezf35K1455pbEVdmHEuDU72vq0k1uQ';
@@ -18,7 +18,6 @@ const options = {
 
 const catalogForm = document.getElementById('search-form');
 const buttonReset = document.querySelector('.catalog-button-reset');
-// console.log(buttonReset);
 
 async function fetchMovie() {
   try {
@@ -37,32 +36,23 @@ function onSubmit(event) {
   event.preventDefault();
   const form = event.currentTarget;
   const value = form.elements.searchQuery.value.trim();
-  //   const URL_Movie = 'https://api.themoviedb.org/3/search/movie?query=${value}&include_adult=false&language=en-US&page=1';
-  console.dir(value);
 
   if (value === '') Notify.failure('No value!');
   else {
     fetchMovie();
     renderBtnReset();
-    buttonReset.addEventListener('click', (e) => {
-        catalogForm.reset();
-        hiddenBtnReset();
-    })
-    //     photoService.searchValue = value;
-    //     photoService.resetPage();
-    //     clearPhotoGallery();
-    //     form.reset();
-    //     getPhotoMarkup();
-    //     window.addEventListener('scroll', handleScrollDeb);
-    // loadMoreBtn.show();
+    buttonReset.addEventListener('click', e => {
+      catalogForm.reset();
+      hiddenBtnReset();
+    });
   }
 }
 
 function renderBtnReset() {
-    buttonReset.classList.remove('hidden');
-    buttonReset.classList.add('active');
+  buttonReset.classList.remove('hidden');
+  buttonReset.classList.add('active');
 }
 function hiddenBtnReset() {
-    buttonReset.classList.remove('active');
-    buttonReset.classList.add('hidden');
+  buttonReset.classList.remove('active');
+  buttonReset.classList.add('hidden');
 }

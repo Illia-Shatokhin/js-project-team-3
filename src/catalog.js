@@ -1,4 +1,5 @@
 import '/js/hero.js';
+import '/js/catalogSearch.js';
 import createCatalogMovieCard from './js/catalogMovieCard';
 import {
   getGenreMovieList,
@@ -7,4 +8,5 @@ import {
 
 const catalogList = document.querySelector('.catalog-list');
 // const weeklyTrendsData = await getTrendingAllWeek();
-createCatalogMovieCard(weeklyTrendsData, catalogList);
+// createCatalogMovieCard(weeklyTrendsData, catalogList);
+
