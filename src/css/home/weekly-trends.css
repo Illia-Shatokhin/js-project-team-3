@@ -1,0 +1,143 @@
+/* MOVIE IMAGE */
+
+.weekly-section {
+
+  background-color: var(--black);
+  padding-top: 80px;
+  padding-bottom: 60px;
+
+}
+
+.weekly-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.weekly-section-title {
+    font-family: 'Roboto-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.18;
+
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+.trends-film {
+  
+flex-direction: row;
+left: 252px;
+  top: 468px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  /* orange */
+
+  color: #f87719;
+}
+
+.weekly-info {
+}
+
+.weekly-links {
+  display: flex;
+  gap: 15px;
+}
+
+/* Rating stars */
+
+.star-text {
+  color: orange;
+}
+
+/* .rating {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  padding: 0px;
+  gap: 4px;
+  font-size: 40px;
+  line-height: 0.75;
+
+  position: absolute;
+  width: 86px;
+  height: 14px;
+  left: 202px;
+  top: 887px;
+}
+
+.rating_body {
+  position: relative;
+}
+
+.rating_body::before {
+  content: '★★★★★';
+  display: block;
+}
+
+.rating_active {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+}
+
+.rating_active::before {
+  content: '★★★★★';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(
+    141.22deg,
+    #f84119 9.4%,
+    rgba(248, 159, 25, 0.68) 91.91%
+  );
+}
+
+.rating_items {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+.rating_item {
+  flex: 0 0 20%;
+  height: 100%;
+  opacity: 0;
+}
+
+.rating_value {
+  font-size: 50%;
+  line-height: 1;
+  padding: 0px 0px 0px 10px;
+} */
+
+.icon-star {
+  stroke: orange;
+  fill: var(--basic-gradient);
+}
+
+.icon-star-half {
+    stroke: orange;
+    fill: orange;
+
+}
+
+.icon-star-outline {
+    stroke: orange;
+    fill: white;
+}

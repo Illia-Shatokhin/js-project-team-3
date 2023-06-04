@@ -4,4 +4,6 @@ export const refs = {
   // searchQueryInput: document.querySelector('.search-form input'),
   // SearchButton: document.querySelector('.search-form button'),
   // galleryDiv: document.querySelector('.gallery'),
-}
+  catalogList: document.querySelector('.catalog-list'),
+  weeklyLinks: document.querySelector('.weekly-links'),
+};
