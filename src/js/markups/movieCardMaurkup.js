@@ -5,7 +5,7 @@ export function movieCardMarkup(card, releaseYear) {
   })" id="${card.id}">
 
 <div class="catalog-card-info-container">
-    <h4 class="catalog-card-title">${card.original_title}</h4>
+    <p class="catalog-card-title">${card.original_title}</p>
 
   <div class="film-info-container">
     <p class="catalog-card-description">${card.genre_ids} | ${releaseYear}
