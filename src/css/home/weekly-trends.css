@@ -117,12 +117,13 @@ left: 252px;
 
 .icon-star {
   stroke: orange;
-  fill: var(--other-gradient);
+  fill: var(--basic-gradient);
 }
 
 .icon-star-half {
     stroke: orange;
     fill: orange;
+
 }
 
 .icon-star-outline {
