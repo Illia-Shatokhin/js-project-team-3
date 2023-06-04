@@ -114,3 +114,23 @@ left: 252px;
   line-height: 1;
   padding: 0px 0px 0px 10px;
 } */
+
+.icon-star {
+  stroke: orange;
+  fill: var(--other-gradient);
+}
+
+.icon-star-half {
+    stroke: orange;
+    fill: orange;
+}
+
+.icon-star-outline {
+    stroke: orange;
+    fill: white;
+}
+
+.bootext {
+   
+    color: var(--basic-gradient);
+  }
