@@ -4,6 +4,9 @@
   align-items: center;
   padding: 100px 399px 80px 399px;
   background-color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .footer-text {

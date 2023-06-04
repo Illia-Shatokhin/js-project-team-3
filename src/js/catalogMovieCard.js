@@ -1,30 +1,55 @@
-import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
 import { movieCardMarkup } from './markups/movieCardMaurkup';
 
-// const catalogList = document.querySelector('.catalog-list');
+export default async function createCatalogMovieCard(func, catalogList, arg) {
+  try {
+    let data;
+    if (arg === undefined) {
+      data = await func();
+    } else if (!isNaN(arg)) {
+      data = await func(arg);
+    } else {
+      const obj = {
+        query: arg,
+        include_adult: false,
+        primary_release_year,
+        page: 1,
+        region,
+        year,
+      };
+      data = await func(obj);
+    }
 
-// const weeklyTrendsData = await getTrendingAllWeek();
-// export default createCatalogMovieCard(weeklyTrendsData, catalogList);
+    let releaseYear = 'No date';
 
-// const genreMovieList = await getGenreMovieList();
-// getGenreMovieFromList(genreMovieList, catalogCard);
+    if (!data) {
+      return 'function from Dima';
+    }
 
-// function getGenreMovieFromList(data) {
-//   console.log(data.genres);
-// }
+    if (screen.width <= 767) {
+      data.results = data.results.slice(0, 10);
+    }
 
-export default function createCatalogMovieCard(data, catalogList) {
-  let releaseYear = 'No data available';
+    const cardMarkup = data.results
+      .map(card => {
+        if (!!card.release_date) {
+          releaseYear = card.release_date.split('-')[0];
+        }
+        return movieCardMarkup(card, releaseYear);
+      })
+      .join('');
 
-  const cardMarkup = data.results
-    .map(card => {
-      if (!!card.release_date) {
-        releaseYear = card.release_date.split('-')[0];
-      }
-      return movieCardMarkup(card, releaseYear);
-    })
-    .join('');
+    if (data.page === 1) catalogList.innerHTML = cardMarkup;
+    else catalogList.insertAdjacentHTML('beforeend', cardMarkup);
 
-  if (data.page === 1) catalogList.innerHTML = cardMarkup;
-  else catalogList.insertAdjacentHTML('beforeend', cardMarkup);
+    const movieCards = document.querySelectorAll('.catalog-item');
+    movieCards.forEach(card => {
+      card.addEventListener('click', getMovie);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function getMovie() {
+  console.log('Modal window');
 }
