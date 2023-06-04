@@ -1,15 +1,29 @@
-import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
 import { movieCardMarkup } from './markups/movieCardMaurkup';
 
-export default async function createCatalogMovieCard(func, catalogList) {
+export default async function createCatalogMovieCard(func, catalogList, arg) {
   try {
-    const data = await func();
+    let data;
+    if (arg === undefined) {
+      data = await func();
+    } else if (!isNaN(arg)) {
+      data = await func(arg);
+    } else {
+      const obj = {
+        query: arg,
+        include_adult: false,
+        primary_release_year,
+        page: 1,
+        region,
+        year,
+      };
+      data = await func(obj);
+    }
+
+    let releaseYear = 'No date';
 
     if (!data) {
       return 'function from Dima';
     }
-
-    let releaseYear = 'No date';
 
     if (screen.width <= 767) {
       data.results = data.results.slice(0, 10);
