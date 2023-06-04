@@ -33,7 +33,7 @@ async function fetchMovieDetails(movie_id) {
     console.log(data)
     return data;
   } catch (error) {
-    console.error('Помилка запиту:', error);
+    console.log('Помилка запиту:', error);
   }
 }
 
@@ -77,10 +77,9 @@ function renderModalMovieMarkup(data) {
 }
 
 /*--------------отримує і відображає фільм в модальному вікні----------------*/
-let instance = null;
-
-async function getMovie() {
-  const data = await fetchMovieDetails(movie_id);
+let instance;
+async function getMovie(id) {
+  const data = await fetchMovieDetails(id);
   const markup = renderModalMovieMarkup(data);
   instance = basicLightbox.create(markup, {
     closable: true,
@@ -99,10 +98,18 @@ async function getMovie() {
   });
 
   instance.show();
- 
+
+  document.querySelector('.button-library').addEventListener('click', (event)=>{
+    console.log(event)
+    onAddToMovieLibraryClick(data)
+  });
+
+  // onAddToMovieLibraryClick(data)
+  // onRemuveFromLibraryClick(data)
   // updateMovieModal(markup);
-  // instance.show();
 }
+
+
 
 
 function closeModalOnKeyPress(e) {
@@ -116,28 +123,50 @@ function closeModalOnKeyPress(e) {
 document.querySelector('.modal-open').onclick = getMovie;
 
 
-const movie_id = 605578;
+const movie_id =  605575;
 
-getMovie()
+
+// getMovie()
+
+export { getMovie } ;
+
+
+/*--------------Робота з LocalStorage ----------------*/
+
+// const libraryBtn = document.querySelector('.button-library');
+// libraryBtn.addEventListener('click', onAddToMovieLibraryClick);
+// const key = 'movie-details';
+// document.querySelector('.button-library').addEventListener('click', onAddToMovieLibraryClick);
+
+
+function onAddToMovieLibraryClick(data) {
+  const key = 'movie-details';
+const movie = JSON.stringify(data.id)
+localStorage.setItem(key, movie)
+const libraryBtn = document.querySelector('.button-library');
+
+document.querySelector('.button-library').textContent = 'Remove from my library';
+
+}
+
+function clickListener(event){
+  console.log(event)
+  onAddToMovieLibraryClick(data)
+}
+
+
+//  function onRemuveFromLibraryClick(){
+//   const key = 'movie-details';
+//   // const libraryBtn = document.querySelector('.button-library');
+//   localStorage.removeItem(key);
+//   document.querySelector('.button-library').textContent = 'Add to my library';
+//  }
+//  onRemuveFromLibraryClick()
+
+
 
 
 /*--------------завантажує розмітку в бекдроп ----------------*/
 // function updateMovieModal(markup) {
 //   backdropEl.innerHTML = markup;
 // }
-
-/*--------------Робота з LocalStorage ----------------*/
-const libraryBtn = document.querySelector('.button-library')
-libraryBtn.addEventListener('click', onAddToMovieLibraryClick)
-// const key = 'movie-details';
-// const movie = JSON.stringify(data)
-// const addMovieToLibrary = localStorage.setItem(key, movie)
-
-function onAddToMovieLibraryClick(data) {
-  const key = 'movie-details';
-const movie = JSON.stringify(data)
-const addMovieToLibrary = localStorage.setItem(key, movie)
-// libraryBtn.textContent = ''
-  // localStorage.setItem('movie-details', JSON.stringify(data));
-}
-// onAddToMovieLibraryClick(data);
