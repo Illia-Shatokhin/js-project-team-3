@@ -71,7 +71,7 @@ function renderModalMovieMarkup(data) {
  </div>
  <p class="about-film-tittle">About </p>
  <p class="about-film-story">${data.overview} </p>
- <button class=" button btn-border-dark add-film-btn">Add to my library</button>
+ <button class=" button btn-border-dark add-film-btn button-library">Add to my library</button>
  </div>
 </div>`
 }
@@ -97,10 +97,14 @@ async function getMovie() {
       document.removeEventListener('keydown', closeModalOnKeyPress);
     }
   });
+
   instance.show();
+ 
   // updateMovieModal(markup);
   // instance.show();
 }
+
+
 function closeModalOnKeyPress(e) {
   if (e.code !== 'Escape') {
     return;
@@ -122,7 +126,18 @@ getMovie()
 //   backdropEl.innerHTML = markup;
 // }
 
+/*--------------Робота з LocalStorage ----------------*/
+const libraryBtn = document.querySelector('.button-library')
+libraryBtn.addEventListener('click', onAddToMovieLibraryClick)
+// const key = 'movie-details';
+// const movie = JSON.stringify(data)
+// const addMovieToLibrary = localStorage.setItem(key, movie)
 
-
-
-
+function onAddToMovieLibraryClick(data) {
+  const key = 'movie-details';
+const movie = JSON.stringify(data)
+const addMovieToLibrary = localStorage.setItem(key, movie)
+// libraryBtn.textContent = ''
+  // localStorage.setItem('movie-details', JSON.stringify(data));
+}
+// onAddToMovieLibraryClick(data);
