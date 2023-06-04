@@ -35,6 +35,12 @@ export default async function createCatalogMovieCard(func, catalogList) {
 
     if (data.page === 1) catalogList.innerHTML = cardMarkup;
     else catalogList.insertAdjacentHTML('beforeend', cardMarkup);
+
+    // getWatched.getFilms();
+    const watchedPagination = new CreatePagination(func);
+    watchedPagination.activatePagination();
+
+
   } catch (error) {
     console.error(error);
   }
