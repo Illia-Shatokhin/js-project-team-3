@@ -18,12 +18,6 @@ export default async function weeklyTrends() {
   }
 }
 
-
-
-
-
-
-
 // Ratings
 const filmCard = document.querySelector('.film-card');
 
