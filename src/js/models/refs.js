@@ -8,4 +8,7 @@ export const refs = {
   weeklyLinks: document.querySelector('.weekly-links'),
   modalCloseBtn: document.querySelector('.modal-close-btn'),
   libraryBtn:  document.querySelector('.button-library'),
+  catalogForm: document.getElementById('search-form'),
+  buttonReset: document.querySelector('.catalog-button-reset'),
+  buttonSearchCatalog: document.querySelector('.catalog-search-button'),
 };
