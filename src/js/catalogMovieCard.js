@@ -9,19 +9,22 @@ import { refs } from './models/refs';
 export default async function createMovieCard(func, elem, count, arg) {
   try {
     let data;
+
     //для запиту на allDay & allWeek
     if (!arg) {
       data = await func();
+      let releaseYear = 'No date';
       for (let index = 0; index < count; index++) {
-        const markup = movieCardMarkup(data.results[index], 2014);
+        releaseYear = data.results[index].release_date.split('-')[0];
+        const markup = movieCardMarkup(data.results[index], releaseYear);
         elem.insertAdjacentHTML('beforeend', markup);
       }
       //для запиту на getMovieDetails
     } else if (!isNaN(arg)) {
       data = await func(arg);
-      console.log(data);
       for (let index = 0; index < count; index++) {
-        const markup = movieCardMarkupLocalStorage(data, 2014);
+        releaseYear = data.results[index].release_date.split('-')[0];
+        const markup = movieCardMarkupLocalStorage(data, releaseYear);
         elem.insertAdjacentHTML('beforeend', markup);
       }
       //для запиту на getSearchMovie
@@ -36,12 +39,11 @@ export default async function createMovieCard(func, elem, count, arg) {
       };
       data = await func(obj);
       for (let index = 0; index < count; index++) {
-        const markup = movieCardMarkup(data.results[index], 2014);
+        releaseYear = data.results[index].release_date.split('-')[0];
+        const markup = movieCardMarkup(data.results[index], releaseYear);
         elem.insertAdjacentHTML('beforeend', markup);
       }
     }
-    let releaseYear = 'No date';
-    console.log(data.results);
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
@@ -100,7 +102,3 @@ export default async function createMovieCard(func, elem, count, arg) {
 //     renderError(refs.catalogList, errorCatalogMarkup);
 //   }
 // }
-
-// // function getMovie() {
-// //   console.log('Modal window');
-// // }
