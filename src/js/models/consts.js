@@ -3,4 +3,5 @@ export const CONSTS = {
   URL: 'https://api.themoviedb.org/3',
   BEARER:
     'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzgzN2Q4ZThiOWY1YjkyODFlNGYzODM2ZjQwZmMzMiIsInN1YiI6IjY0NzhmMTllMGUyOWEyMDBkY2I5YmFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Gm8FRVhZa5JYfHHhkK7gHuf4DwF_mvLWBXC6uzMdhLk',
+  LOCALSTORE_My_library: 'LOCALSTORE_My_library',
 };

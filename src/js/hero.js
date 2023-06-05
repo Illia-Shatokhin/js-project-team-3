@@ -1,7 +1,6 @@
 import { getTrendingAllDay } from './API/get-from-server.js';
 
 const heroRef = document.querySelector('.hero');
-createHero();
 
 const gradient320 =
   'linear-gradient(86.47deg, #111111 33.63%, rgba(17, 17, 17, 0) 76.86%)';
@@ -10,21 +9,21 @@ const gradient768 =
 const gradient1280 =
   'linear-gradient(83.06deg, #111111 11.91%, rgba(17, 17, 17, 0) 73.11%)';
 
-const gradient320HomeStub =
-  'linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%)';
-const gradient768HomeStub =
-  'linear-gradient(82.55deg, #111111 39.6%, rgba(17, 17, 17, 0) 72.95%)';
-const gradient1280HomeStub =
-  'linear-gradient(83.16deg, #111111 36.85%, rgba(17, 17, 17, 0) 60.05%)';
+// const gradient320HomeStub =
+//   'linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%)';
+// const gradient768HomeStub =
+//   'linear-gradient(82.55deg, #111111 39.6%, rgba(17, 17, 17, 0) 72.95%)';
+// const gradient1280HomeStub =
+//   'linear-gradient(83.16deg, #111111 36.85%, rgba(17, 17, 17, 0) 60.05%)';
 
-const gradient320LibStub =
-  'linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%)';
-const gradient768LibStub =
-  'linear-gradient(77.77deg, #111111 33.58%, rgba(17, 17, 17, 0) 71.57%)';
-const gradient1280LibStub =
-  'linear-gradient(79.39deg, #111111 32.37%, rgba(17, 17, 17, 0) 72.02%)';
+// const gradient320LibStub =
+//   'linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%)';
+// const gradient768LibStub =
+//   'linear-gradient(77.77deg, #111111 33.58%, rgba(17, 17, 17, 0) 71.57%)';
+// const gradient1280LibStub =
+//   'linear-gradient(79.39deg, #111111 32.37%, rgba(17, 17, 17, 0) 72.02%)';
 
-export default function createHero() {
+export function createHero() {
   getDataHero();
 }
 
@@ -64,7 +63,7 @@ function creatHeroMarkup(overview, original_title, vote_average) {
       <h2 class="hero-title">${original_title}</h2>
       <p class="reting-stars">${vote_average.toFixed(1)}</p>
       <div class="overview">
-        <p overview-text> ${overview} </p>
+        <p class="overview-text">${overview}</p>
       </div>
       <div class="thumb-hero-btn">
         <button class="button btn-gradient hero-btn">Watch trailer</button>
