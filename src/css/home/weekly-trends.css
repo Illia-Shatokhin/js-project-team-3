@@ -3,7 +3,7 @@
 .weekly-section {
  padding-top: 40px;
  padding-bottom: 32px;
- border-color: var(--black);
+ background-color: var(--black);
 }
 
 .weekly-wrap {
@@ -31,69 +31,76 @@
   color: var(--orange);
 }
 
-
-
-/* .weekly-section {
-  background-color: var(--black);
-  padding-top: 80px;
-  padding-bottom: 60px;
-} */
-/* 
-.weekly-wrap {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 24px;
-} */
-
-/* .weekly-section-title {
-  font-family: 'Roboto-Medium';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.18;
-
-  text-transform: uppercase;
-
-  color: #ffffff;
-} */
-
-/* .trends-film {
-  flex-direction: row;
-  left: 252px;
-  top: 468px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  color: #f87719;
-} */
-
 .weekly-info {
-    display: flex;
-    flex-wrap: wrap;
-     gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+
+@media screen and (min-width: 768px) {
+
+.weekly-section {
+    padding-top: 52px;
+    padding-bottom: 44px;
 }
 
 .weekly-links {
-  display: flex;
-  gap: 15px;
+ display: flex;
+ gap: 16px;
 }
+
+.weekly-section-title {
+  font-size: 24px;
+  line-height: 1.16;
+}
+
+.trends-film {
+  font-size: 24px;
+  line-height: 1.16;
+}
+}
+
+@media screen and (min-width: 1280px) {
+ .weekly-section {
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.weekly-wrap {
+  margin-bottom: 28px;
+}
+
+.weekly-section-title {
+ font-size: 28px;
+  line-height: 1.17;
+}
+
+.trends-film {
+  font-size: 24px;
+  line-height: 1.17;
+}
+
+}
+
+
+
+
 
 /* Rating stars */
 
-/* .simple-rating {
+.simple-rating {
   position: relative;
   font-size: 40px;
   display: inline-block;
-} */
+}
  
- /* Псевдоелемент для спільної обгортки */
-/* .simple-rating::before {
+ /* Псевдоелемент для спільної обгортки */ 
+ .simple-rating::before {
   content:"★★★★★";
   display: block;
 }
- */
+
 
 
 .simple-rating_items {
