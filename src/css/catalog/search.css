@@ -1,4 +1,3 @@
-
 .catalog-search {
   padding-top: 80px;
   padding-bottom: 32px;
@@ -21,6 +20,7 @@
   left: 0px;
   top: 0px;
   border-radius: 8px;
+  /* border: 1px solid var(--white); */
   padding: 10px 20px 10px 20px;
 
   font-size: 14px;
@@ -40,7 +40,7 @@ input::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 50%;
   height: 40px;
   width: 40px;
   padding: 10px;
@@ -51,15 +51,21 @@ input::placeholder {
 }
 .catalog-button-reset {
   border-radius: 5px;
-  height: 40px;
+  height: 38px;
   border: 1px solid transparent;
   margin-left: -60px;
   outline: none;
   stroke: var(--white);
   transition: stroke 100ms linear;
 }
-
+.active {
+  display: block;
+}
 .hidden {
+  display: none;
+}
+
+/* .hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -71,7 +77,7 @@ input::placeholder {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
+} */
 .icon-search {
   width: 18px;
   height: 18px;
@@ -86,7 +92,6 @@ input::placeholder {
 catalog-button-reset:focus {
   stroke: var(--orange);
 }
-
 
 @media screen and (min-width: 768px) {
   .catalog-search-form {
@@ -149,5 +154,5 @@ catalog-button-reset:focus {
   stroke: var(--black);
 }
 .catalog-button-reset-light {
-background-color: var(--white);
+  background-color: var(--white);
 }
