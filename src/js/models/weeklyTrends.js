@@ -3,9 +3,17 @@ import { refs } from './refs';
 
 import createMovieCard from '../catalogMovieCard';
 
-screen.width <= 767
-  ? createMovieCard(getTrendingAllWeek, refs.weeklyLinks, 1)
-  : createMovieCard(getTrendingAllWeek, refs.weeklyLinks, 3);
+export default async function weeklyTrends() {
+  const data = await getTrendingAllWeek();
+
+  screen.width <= 767
+  ? createMovieCard(data.results, refs.weeklyLinks, 1)
+  : createMovieCard(data.results, refs.weeklyLinks, 3);
+
+}
+
+
+
 
 // import createCatalogMovieCard  from "./../catalogMovieCard";
 
