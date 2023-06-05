@@ -6,29 +6,46 @@ import {
 import { getMovie } from './modalWindow';
 import { refs } from './models/refs';
 import { getTrendingAllWeek } from './API/get-from-server';
+import CreatePagination from './services/pagination';
 
+//================================================================
+function getReleaseYear(film) {
+  let releaseYear = 'No date';
+  const { release_date } = film;
+  if (release_date) releaseYear = release_date.split('-')[0];
+  return releaseYear;
+}
+
+//================================================================
 export default function createMovieCard(data, elem, count) {
   let markup = '';
   for (let index = 0; index < count; index++) {
     // releaseYear = data.results[index].release_date.split('-')[0];
-    let releaseYear = 2000;
-    console.log(data);
+    // console.log(data);
+    const releaseYear = getReleaseYear(data[index]);
     markup += movieCardMarkup(data[index], releaseYear);
   }
   elem.insertAdjacentHTML('beforeend', markup);
 }
 
+//================================================================
 export async function week() {
   try {
     const data = await getTrendingAllWeek();
     screen.width <= 767
       ? createMovieCard(data.results, refs.catalogList, 10)
       : createMovieCard(data.results, refs.catalogList, 20);
+    
+      // TODO:  fix pagination functionality
+    const watchedPagination = new CreatePagination(data);
+    watchedPagination.activatePagination();
+    
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
 }
 
+//================================================================
 export async function openFilmDetails(e) {
   const clickedElement = e.target;
   if (clickedElement.tagName === 'LI') {
