@@ -1,5 +1,6 @@
 import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
 import { movieCardMarkup } from './markups/movieCardMaurkup';
+import CreatePagination from './services/pagination';
 
 export default async function createCatalogMovieCard(func, catalogList) {
   try {
@@ -27,8 +28,8 @@ export default async function createCatalogMovieCard(func, catalogList) {
     if (data.page === 1) catalogList.innerHTML = cardMarkup;
     else catalogList.insertAdjacentHTML('beforeend', cardMarkup);
 
-    // getWatched.getFilms();
-    const watchedPagination = new CreatePagination(func);
+    // TODO:  fix pagination functionality
+    const watchedPagination = new CreatePagination(data);
     watchedPagination.activatePagination();
 
 
@@ -38,7 +39,7 @@ export default async function createCatalogMovieCard(func, catalogList) {
     });
   } catch (error) {
     console.error(error);
-  }
+  }  
 }
 
 function getMovie() {
