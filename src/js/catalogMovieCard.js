@@ -5,6 +5,15 @@ import {
 } from './markups/movieCardMaurkup';
 import { getMovie } from './modalWindow';
 import { refs } from './models/refs';
+import CreatePagination from './services/pagination';
+
+
+function getReleaseYear(film) {
+  let releaseYear = 'No date';
+  const { release_date } = film;
+  if (release_date) releaseYear = release_date.split('-')[0];
+  return releaseYear;
+}
 
 export default async function createMovieCard(func, elem, count, arg) {
   try {
@@ -13,20 +22,32 @@ export default async function createMovieCard(func, elem, count, arg) {
     //для запиту на allDay & allWeek
     if (!arg) {
       data = await func();
-      let releaseYear = 'No date';
+      // let releaseYear = 'No date';
       for (let index = 0; index < count; index++) {
-        releaseYear = data.results[index].release_date.split('-')[0];
+        // releaseYear = data.results[index].release_date.split('-')[0];
+        const releaseYear = getReleaseYear(data.results[index]);
         const markup = movieCardMarkup(data.results[index], releaseYear);
         elem.insertAdjacentHTML('beforeend', markup);
       }
+
+      // TODO:  fix pagination functionality
+      const watchedPagination = new CreatePagination(data);
+      watchedPagination.activatePagination();
+
       //для запиту на getMovieDetails
     } else if (!isNaN(arg)) {
       data = await func(arg);
       for (let index = 0; index < count; index++) {
-        releaseYear = data.results[index].release_date.split('-')[0];
+        // releaseYear = data.results[index].release_date.split('-')[0];
+        const releaseYear = getReleaseYear(data.results[index]);
         const markup = movieCardMarkupLocalStorage(data, releaseYear);
         elem.insertAdjacentHTML('beforeend', markup);
       }
+
+      // TODO:  fix pagination functionality
+      const watchedPagination = new CreatePagination(data);
+      watchedPagination.activatePagination();
+
       //для запиту на getSearchMovie
     } else {
       const obj = {
@@ -39,12 +60,19 @@ export default async function createMovieCard(func, elem, count, arg) {
       };
       data = await func(obj);
       for (let index = 0; index < count; index++) {
-        releaseYear = data.results[index].release_date.split('-')[0];
+        // releaseYear = data.results[index].release_date.split('-')[0];
+        const releaseYear = getReleaseYear(data.results[index]);
         const markup = movieCardMarkup(data.results[index], releaseYear);
         elem.insertAdjacentHTML('beforeend', markup);
       }
+
+      // TODO:  fix pagination functionality
+      const watchedPagination = new CreatePagination(data);
+      watchedPagination.activatePagination();
+
     }
   } catch (error) {
+    console.log(error);
     renderError(refs.catalogList, errorCatalogMarkup);
   }
 }

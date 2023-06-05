@@ -36,10 +36,9 @@ export default class CreatePagination {
   }
 
   activatePagination() {
-    const pagination = new Pagination('pagination', this.options);
+    const pagination = new Pagination('tui-pagination-container', this.options);
     pagination.on('afterMove', ({ page }) => {
-      this.object.moveToPage(page);
+      // this.object.moveToPage(page);
     });
-
   }
 }
