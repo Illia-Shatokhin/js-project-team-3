@@ -3,7 +3,7 @@
     flex-wrap: wrap;
   }
 
-.upcoming-film-section {
+.upcoming-film-section > .container {
 background: var(--black);
 padding-top: 60px;
 }

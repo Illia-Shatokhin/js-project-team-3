@@ -88,7 +88,7 @@
 
           const filmVotes = document.createElement('p');
           filmVotes.className = 'film-votes';
-          filmVotes.textContent = `${randomFilm.vote_average} / git${randomFilm.vote_count}`;
+          filmVotes.textContent = `${randomFilm.vote_average} / ${randomFilm.vote_count}`;
           filmVoteWrap.appendChild(filmVotes);
 
           
