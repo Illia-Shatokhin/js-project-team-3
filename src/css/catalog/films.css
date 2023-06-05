@@ -1,6 +1,7 @@
 .catalog-film-section {
   padding-top: 16px;
   padding-bottom: 20px;
+  background-color: var(--black);
 }
 
 .catalog-list {
@@ -53,6 +54,7 @@
 .catalog-card-title,
 .catalog-card-description,
 .rating {
+  font-family: Roboto-Medium;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
