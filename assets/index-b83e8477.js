@@ -1,0 +1,3 @@
+import{d as k,c as l,r as o,o as m,b as y}from"./header-22777803.js";async function v(){try{const e=await k();screen.width<=767?l(e.results,o.weeklyLinks,1):l(e.results,o.weeklyLinks,3),o.weeklyLinks.addEventListener("click",m)}catch(e){console.error(e)}}const c=document.querySelector(".film-card");function L(e,r,s){const a=Math.round(e),d=a%2===0?a/2:(a-1)/2,t=Math.round(10-e),f=t%2===0?t/2:(t-1)/2,u=t%2!==0;for(let n=0;n<d;n++)c.insertAdjacentHTML("beforeend",i("icon-star-outline",r,s));u&&c.insertAdjacentHTML("beforeend",i("close",r,s));for(let n=0;n<f;n++)c.insertAdjacentHTML("beforeend",i("search",r,s))}L(7.51,40,40);function i(e,r,s){return`<svg class="icon-star" width="${r}" height="${s}">
+      <use href="./img/symbols.svg#${e}"></use>
+  </svg>`}y();v();
