@@ -35,11 +35,10 @@ export async function week() {
     screen.width <= 767
       ? createMovieCard(data.results, refs.catalogList, 10)
       : createMovieCard(data.results, refs.catalogList, 20);
-    
-      // TODO:  fix pagination functionality
+
+    // TODO:  fix pagination functionality
     const watchedPagination = new CreatePagination(data);
     watchedPagination.activatePagination();
-    
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
