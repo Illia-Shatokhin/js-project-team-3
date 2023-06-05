@@ -1,10 +1,9 @@
-
 function renderError(elem, markup) {
-    elem.insertAdjacentHTML('beforeend', markup()); 
+  elem.insertAdjacentHTML('beforeend', markup());
 }
 
 function errorLibraryMarkup() {
-    return `
+  return `
      <div class="error">
         <p class="errortext">OOPS...</p>
         <p class="errortext">We are very sorry!</p>
@@ -72,4 +71,9 @@ function errorTrailerMarkup() {
     </div>`;
 }
 
-export {renderError, errorLibraryMarkup, errorCatalogMarkup, errorTrailerMarkup}
+export {
+  renderError,
+  errorLibraryMarkup,
+  errorCatalogMarkup,
+  errorTrailerMarkup,
+};

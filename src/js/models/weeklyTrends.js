@@ -1,17 +1,24 @@
-import { getTrendingAllWeek } from "../API/get-from-server";
+import { getTrendingAllWeek } from '../API/get-from-server';
+import { refs } from './refs';
+
+import createMovieCard from '../catalogMovieCard';
+
+screen.width <= 767
+  ? createMovieCard(getTrendingAllWeek, refs.weeklyLinks, 1)
+  : createMovieCard(getTrendingAllWeek, refs.weeklyLinks, 3);
+
 // import createCatalogMovieCard  from "./../catalogMovieCard";
 
- 
 // // Приклад виклику API для отримання деталей фільму за ідентифікатором
 // async function getMovieTrendWeek() {
 //   try {
 //     const movieDetails = await getTrendingAllWeek();
 //     console.log("🚀 ~ file: weeklyTrends.js:8 ~ getMovieTrendWeek ~ movieDetails:", movieDetails)
-    
+
 //     // Обробка деталей фільму
 
 //     createCatalogMovieCard()
-    
+
 //   } catch (error) {
 //     console.error(error);
 //   }
@@ -19,43 +26,44 @@ import { getTrendingAllWeek } from "../API/get-from-server";
 // // // Приклад виклику функцій для використання бібліотеки фільмів
 // getMovieTrendWeek();
 
-
-
-
-
-
 // Ratings
 const filmCard = document.querySelector('.film-card');
 
-function renderStars(rating) {
+function renderStars(rating, width, height) {
   const integer = Math.round(rating);
-  const evenFullStars = integer % 2 === 0 ? integer/2 : (integer - 1)/2;
+  const evenFullStars = integer % 2 === 0 ? integer / 2 : (integer - 1) / 2;
   const diff = Math.round(10 - rating);
-  const evenEmptyStars = diff % 2 === 0 ? diff/2 : (diff - 1)/2;
+  const evenEmptyStars = diff % 2 === 0 ? diff / 2 : (diff - 1) / 2;
   const halfStar = diff % 2 === 0 ? false : true;
 
   for (let index = 0; index < evenFullStars; index++) {
-    filmCard.insertAdjacentHTML('beforeend', starsMarkup(1));
-    
+    filmCard.insertAdjacentHTML(
+      'beforeend',
+      starsMarkup('icon-star-outline', width, height)
+    );
   }
-  halfStar ? filmCard.insertAdjacentHTML('beforeend', starsMarkup(0.5)) : 0;
+  halfStar
+    ? filmCard.insertAdjacentHTML(
+        'beforeend',
+        starsMarkup('close', width, height)
+      )
+    : 0;
 
-    for (let index = 0; index < evenEmptyStars; index++) {
-    filmCard.insertAdjacentHTML('beforeend', starsMarkup(0));
-    
+  for (let index = 0; index < evenEmptyStars; index++) {
+    filmCard.insertAdjacentHTML(
+      'beforeend',
+      starsMarkup('search', width, height)
+    );
   }
-
 }
 
-renderStars(10);
+renderStars(7.51, 40, 40);
 
-console.log(filmCard);
-
-function starsMarkup(whichStar) {
-  return `<p class="star-text" >${whichStar}</p>`;
+function starsMarkup(whichStar, width, height) {
+  return `<svg class="icon-star" width="${width}" height="${height}">
+      <use href="./img/symbols.svg#${whichStar}"></use>
+  </svg>`;
 }
-
-
 
 // const ratings = document.querySelectorAll('.rating');
 // console.log(ratings);

@@ -1,12 +1,14 @@
 @font-face {
+  /* Якщо font-weight: 700; */
   font-family: 'Roboto-Bold';
   src: url(../../fonts/Roboto-Bold.ttf) format('truetype'),
     url(../../fonts/Roboto-Bold.woff) format('woff'),
     url(../../fonts/Roboto-Bold.woff2) format('woff2');
-      font-style: bold;
+  font-style: bold;
 }
 
 @font-face {
+  /* Якщо font-weight: 500; */
   font-family: 'Roboto-Medium';
   src: url(../../fonts/Roboto-Medium.ttf) format('truetype'),
     url(../../fonts/Roboto-Medium.woff) format('woff'),
@@ -15,6 +17,7 @@
 }
 
 @font-face {
+  /* Якщо font-weight: 400; */
   font-family: 'Roboto-Regular';
   src: url(../../fonts/Roboto-Regular.ttf) format('truetype'),
     url(../../fonts/Roboto-Regular.woff) format('woff'),
