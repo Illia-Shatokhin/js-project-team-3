@@ -152,6 +152,85 @@
 
 
 /* .star-text {
+.simply-rating {
+  position: relative;
+  font-size: 40px;
+  display: inline-block;
+}
+ 
+ /* Псевдоелемент для спільної обгортки */
+.simply-rating::before {
+  content:"★★★★★";
+  display: block;
+  
+}
+
+
+
+.simply-rating_items {}
+
+.simply-rating_item {}
+
+.simple-rating_label {}
+
+
+
+
+.star-text {
+  color: orange;
+} */
+
+
+
+.simple-rating_items {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: hidden;
+}
+
+.simple-rating_item {
+  position: absolute;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+}
+
+.simple-rating_label {
+  flex: 0 0 20%;
+  height: 100%;
+  cursor: pointer;
+  color: #f87719;
+}
+
+.simple-rating_label::before {
+  content: "★";
+  display: block;
+  transition: color 0.3s ease 0s;
+}
+
+.simple-rating_item:checked,
+.simple-rating_item:checked~.simply-rating_label {
+  color: #f87719;
+}
+
+.simple-rating_label:hover,
+.simple-rating_label:hover ~ .simple-rating_label,
+.simple-rating_label:checked ~ .simple-rating_label:hover {
+  color: wheat;
+}
+
+
+
+
+/* .star-text {
   color: orange;
 } */
 
@@ -223,21 +302,6 @@
   line-height: 1;
   padding: 0px 0px 0px 10px;
 } */
-/* 
 
 
 
-.icon-star {
-  stroke: orange;
-  fill: var(--basic-gradient);
-}
-
-.icon-star-half {
-  stroke: orange;
-  fill: orange;
-}
-
-.icon-star-outline {
-  stroke: orange;
-  fill: white;
-} */
