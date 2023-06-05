@@ -74,7 +74,6 @@ export async function getMovieDetails(movie_id) {
   return axiosGet(options);
 }
 
-
 export async function getMovieVideos(movie_id) {
   const options = generateOption(`movie/${movie_id}/videos`, {
     language: 'en-US',

@@ -13,4 +13,34 @@
     rgba(248, 159, 25, 0.68) 91.91%
   );
   --transition: 250ms linear;
+  --gradient320HomeStub: linear-gradient(
+    86.77deg,
+    #111111 30.38%,
+    rgba(17, 17, 17, 0) 65.61%
+  );
+  --gradient768HomeStub: linear-gradient(
+    82.55deg,
+    #111111 39.6%,
+    rgba(17, 17, 17, 0) 72.95%
+  );
+  --gradient1280HomeStub: linear-gradient(
+    83.16deg,
+    #111111 36.85%,
+    rgba(17, 17, 17, 0) 60.05%
+  );
+  --gradient320LibStub: linear-gradient(
+    79.49deg,
+    #111111 34.1%,
+    rgba(17, 17, 17, 0) 64.67%
+  );
+  --gradient768LibStub: linear-gradient(
+    77.77deg,
+    #111111 33.58%,
+    rgba(17, 17, 17, 0) 71.57%
+  );
+  --gradient1280LibStub: linear-gradient(
+    79.39deg,
+    #111111 32.37%,
+    rgba(17, 17, 17, 0) 72.02%
+  );
 }
