@@ -16,13 +16,14 @@ export async function onSubmit(event) {
 
   if (value === '') Notify.failure('No value!');
   else {
-  const arrayMovies = await getArrayMovie(value);
-  // console.dir(arrayMovies);
-  const renderCards = arrayMovies.length?alert('Ф-я рендер Каті'):alert('Заглушка');
-  //  ф-я Каті createCatalogMovieCard(getArrayMovie(value), catalogList)
-  // return getArrayMovie(value);
-  renderBtnReset();
- 
+    const arrayMovies = await getArrayMovie(value);
+    // console.dir(arrayMovies);
+    const renderCards = arrayMovies.length
+      ? alert('Ф-я рендер Каті')
+      : alert('Заглушка');
+    //  ф-я Каті createCatalogMovieCard(getArrayMovie(value), catalogList)
+    // return getArrayMovie(value);
+    renderBtnReset();
   }
   buttonReset.addEventListener('click', e => {
     catalogForm.reset();

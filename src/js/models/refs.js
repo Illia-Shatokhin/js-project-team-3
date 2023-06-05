@@ -5,4 +5,5 @@ export const refs = {
   // SearchButton: document.querySelector('.search-form button'),
   // galleryDiv: document.querySelector('.gallery'),
   catalogList: document.querySelector('.catalog-list'),
+  weeklyLinks: document.querySelector('.weekly-links'),
 };

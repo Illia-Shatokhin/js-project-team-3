@@ -1,26 +1,32 @@
 /* MOVIE IMAGE */
 
 .weekly-section {
-  /* display: flex;
-  flex-wrap: wrap; */
+  background-color: var(--black);
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.weekly-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
 }
 
 .weekly-section-title {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.18;
+  font-family: 'Roboto-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    /* color: #FFFFFF; */
+  color: #ffffff;
 }
 
 .trends-film {
-  
-flex-direction: row;
-left: 252px;
+  flex-direction: row;
+  left: 252px;
   top: 468px;
   font-family: 'Roboto';
   font-style: normal;
@@ -38,6 +44,8 @@ left: 252px;
 }
 
 .weekly-links {
+  display: flex;
+  gap: 15px;
 }
 
 /* Rating stars */
@@ -114,3 +122,18 @@ left: 252px;
   line-height: 1;
   padding: 0px 0px 0px 10px;
 } */
+
+.icon-star {
+  stroke: orange;
+  fill: var(--basic-gradient);
+}
+
+.icon-star-half {
+  stroke: orange;
+  fill: orange;
+}
+
+.icon-star-outline {
+  stroke: orange;
+  fill: white;
+}
