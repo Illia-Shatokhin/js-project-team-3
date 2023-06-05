@@ -1,17 +1,20 @@
 import { errorCatalogMarkup, renderError } from './errortrailer';
-import { movieCardMarkup } from './markups/movieCardMaurkup';
+import {
+  movieCardMarkup,
+  movieCardMarkupLocalStorage,
+} from './markups/movieCardMaurkup';
 import { getMovie } from './modalWindow';
 import { refs } from './models/refs';
 import { getTrendingAllWeek } from './API/get-from-server';
 import CreatePagination from './services/pagination';
 
 //================================================================
-// function getReleaseYear(film) {
-//   let releaseYear = 'No date';
-//   const { release_date } = film;
-//   if (release_date) releaseYear = release_date.split('-')[0];
-//   return releaseYear;
-// }
+function getReleaseYear(film) {
+  let releaseYear = 'No date';
+  const { release_date } = film;
+  if (release_date) releaseYear = release_date.split('-')[0];
+  return releaseYear;
+}
 
 //================================================================
 export default function createMovieCard(data, elem, count) {
@@ -19,8 +22,8 @@ export default function createMovieCard(data, elem, count) {
   for (let index = 0; index < count; index++) {
     // releaseYear = data.results[index].release_date.split('-')[0];
     // console.log(data);
-    // const releaseYear = getReleaseYear(data[index]);
-    markup += movieCardMarkup(data[index], 2000);
+    const releaseYear = getReleaseYear(data[index]);
+    markup += movieCardMarkup(data[index], releaseYear);
   }
   elem.insertAdjacentHTML('beforeend', markup);
 }
@@ -36,7 +39,6 @@ export async function week() {
     // TODO:  fix pagination functionality
     const watchedPagination = new CreatePagination(data);
     watchedPagination.activatePagination();
-
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
