@@ -11,9 +11,11 @@ document.addEventListener('keydown', function (event) {
 });
 
 // Close menu when clicking on close button
-document.getElementById('close-menu').addEventListener('click', function () {
-  document.getElementById('mobile-menu').classList.remove('visible');
-});
+if (document.getElementById('close-menu')) {
+  document.getElementById('close-menu').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.remove('visible');
+  });
+}
 
 // Dark mode theme toggle
 var themeToggle = document.getElementById('theme-toggle');
@@ -52,5 +54,4 @@ if (
   buttons.forEach(function (button) {
     button.classList.remove('dark-theme');
   });
-  console.log('User prefers light theme');
 }
