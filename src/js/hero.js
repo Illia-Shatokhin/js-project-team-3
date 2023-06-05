@@ -1,5 +1,6 @@
 import { getTrendingAllDay } from './API/get-from-server.js';
-// import { getTrailer } from '.hero-trailer.js';
+// import { getTrailer } from './hero-trailer.js';
+import { getMovie } from './modalWindow.js';
 
 const heroRef = document.querySelector('.hero');
 
@@ -9,6 +10,8 @@ const gradient768 =
   'linear-gradient(81.57deg, #111111 12.76%, rgba(17, 17, 17, 0) 72.65%)';
 const gradient1280 =
   'linear-gradient(83.06deg, #111111 11.91%, rgba(17, 17, 17, 0) 73.11%)';
+
+let currentId;
 
 export function createHero() {
   getDataHero();
@@ -26,11 +29,18 @@ async function getDataHero() {
   }
 
   // * Це ще в експеременті------------------
-  const watchTrailerBtn = document.getElementById('watch-trailer-btn');
-  watchTrailerBtn.addEventListener('click', e => {
+  const watchTrailerHeroBtn = document.getElementById('watch-trailer-btn');
+  watchTrailerHeroBtn.addEventListener('click', e => {
+    const id = 635587;
+    getTrailer(id);
     console.dir(e.currentTarget);
-    // getTrailer();
   });
+
+  const showDetailsHeroBtn = document.getElementById('details-hero-btn');
+  showDetailsHeroBtn.addEventListener('click', e => {
+    getMovie(currentId);
+  });
+
   // *---------------------------
 }
 
@@ -39,8 +49,8 @@ function renderHero(data) {
 
   const { id, overview, title, vote_average, backdrop_path } = data[index];
 
-  heroRef.setAttribute('id', `${id}`);
-
+  // heroRef.setAttribute('id', `${id}`);
+  currentId = id;
   // ?---------------------тест заглушки----------------
   // addHeroBackgroundStub();
   // heroRef.innerHTML = creatHeroMarkupStub(overview, title, vote_average);
@@ -77,7 +87,7 @@ function creatHeroMarkup(overview, title, vote_average) {
       </div>
       <div class="thumb-hero-btn">
         <button class="button btn-gradient hero-btn" id="watch-trailer-btn">Watch trailer</button>
-        <button class="button btn-transparent-dark hero-btn">More details</button>
+        <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
       </div>
     </div>`;
 }
