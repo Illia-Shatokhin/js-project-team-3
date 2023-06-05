@@ -33,7 +33,6 @@ async function getDataHero() {
   watchTrailerHeroBtn.addEventListener('click', e => {
     const id = 635587;
     getTrailer(id);
-    console.dir(e.currentTarget);
   });
 
   const showDetailsHeroBtn = document.getElementById('details-hero-btn');

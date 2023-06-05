@@ -74,7 +74,7 @@ function renderModalMovieMarkup(data) {
 
 /*--------------отримує і відображає фільм в модальному вікні----------------*/
 let instance;
-async function getMovie(movie_id) {
+async function getMovie(id) {
   const data = await fetchMovieDetails(movie_id);
   const markup = renderModalMovieMarkup(data);
   instance = basicLightbox.create(markup, {
@@ -122,7 +122,7 @@ function closeModalOnKeyPress(e) {
 
 // const movie_id = 605575;
 
-// const movie_id = 605578;
+const movie_id = 605578;
 
 export { getMovie };
 
