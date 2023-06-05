@@ -4,28 +4,28 @@ function renderError(elem, markup) {
 
 function errorLibraryMarkup() {
   return `
-     <div class="error">
+     <li class="error">
         <p class="errortext">OOPS...</p>
         <p class="errortext">We are very sorry!</p>
         <p class="errortext">You don’t have any movies at your library.</p>
-      </div>`;
+      </li>`;
 }
 
 function errorCatalogMarkup() {
   return `
-       <div class="error">
+       <li class="error">
         <p class="errortext">OOPS...</p>
         <p class="errortext">We are very sorry!</p>
         <p class="errortext">We don’t have any results matching your search.</p>
-      </div>`;
+      </li>`;
 }
 
 function errorTrailerMarkup() {
   return `
-  <div class="errortrailer modal-window">
-      <button class="select-icon close-modal-window" type="button">
+  <div class="errortrailer">
+      <button class="select-icon" type="button">
         <svg class="icon" width="24" height="24">
-          <use href="./public/img/symbols.svg#close"></use>
+          <use href="./img/symbols.svg#close"></use>
         </svg>
       </button>
       <div class="errortrailer-text">
@@ -36,8 +36,8 @@ function errorTrailerMarkup() {
       <picture class="trailer-list-img">
         <source
           srcset="
-            ./public/img/trailer-modal-desk.png    1x,
-            ./public/img/trailer-modal-desk@2x.png 2x
+            ./img/trailer-modal-desk.png    1x,
+            ./img/trailer-modal-desk@2x.png 2x
           "
           media="(min-width: 1280px)"
           type="image/png"
@@ -45,8 +45,8 @@ function errorTrailerMarkup() {
         />
         <source
           srcset="
-            ./public/img/trailer-modal-tab.png    1x,
-            ./public/img/trailer-modal-tab@2x.png 2x
+            ./img/trailer-modal-tab.png    1x,
+            ./img/trailer-modal-tab@2x.png 2x
           "
           media="(min-width: 768px)"
           type="image/png"
@@ -54,8 +54,8 @@ function errorTrailerMarkup() {
         />
         <source
           srcset="
-            ./public/img/trailer-modal-mob.png     1x,
-            ./public/img/trailer-modal-mob-@2x.png 2x
+            ./img/trailer-modal-mob.png     1x,
+            ./img/trailer-modal-mob-@2x.png 2x
           "
           media="(max-width: 767px)"
           type="image/png"
@@ -63,7 +63,7 @@ function errorTrailerMarkup() {
         />
         <img
           class="trailer-img"
-          src="./public/img/trailer-modal-mob.png"
+          src="./img/trailer-modal-mob.png"
           alt="image"
           width="159"
         />
