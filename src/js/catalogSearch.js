@@ -1,13 +1,10 @@
-// import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getSearchMovie } from './API/get-from-server';
-// import {createCatalogMovieCard} from './js/catalogMovieCard';
+import { refs } from './models/refs';
+import { renderError, errorCatalogMarkup } from './errortrailer';
+import createMovieCard from './catalogMovieCard';
 
-const catalogForm = document.getElementById('search-form');
-const buttonReset = document.querySelector('.catalog-button-reset');
-const buttonSearch = document.querySelector('.catalog-search-button');
-
-catalogForm.addEventListener('submit', onSubmit);
+refs.catalogForm.addEventListener('submit', onSubmit);
 
 export async function onSubmit(event) {
   event.preventDefault();
@@ -16,23 +13,6 @@ export async function onSubmit(event) {
 
   if (value === '') Notify.failure('No value!');
   else {
-    const arrayMovies = await getArrayMovie(value);
-    // console.dir(arrayMovies);
-    const renderCards = arrayMovies.length
-      ? alert('Ф-я рендер Каті')
-      : alert('Заглушка');
-    //  ф-я Каті createCatalogMovieCard(getArrayMovie(value), catalogList)
-    // return getArrayMovie(value);
-    renderBtnReset();
-  }
-  buttonReset.addEventListener('click', e => {
-    catalogForm.reset();
-    hiddenBtnReset();
-  });
-}
-
-async function getArrayMovie(value) {
-  try {
     const options = {
       query: value,
       include_adult: false,
@@ -43,19 +23,55 @@ async function getArrayMovie(value) {
     };
     const response = await getSearchMovie(options);
     const arrayMovies = await response.results;
-    return arrayMovies;
-  } catch (error) {
-    console.error(error);
+    // const arrayMovies = await getArrayMovie(value);
+    // console.dir(arrayMovies);
+    
+    if (arrayMovies.length) {
+      catalogListReset();
+      createMovieCard(getSearchMovie, refs.catalogList, 20, arrayMovies);
+      alert('Ф-я Kate');
+    } else {
+      catalogListReset();
+      renderError(refs.catalogList, errorCatalogMarkup);
+      // alert('Ф-я Діми');
+    }
+    renderBtnReset();
   }
+  refs.buttonReset.addEventListener('click', e => {
+    refs.catalogForm.reset();
+    hiddenBtnReset();
+  });
 }
 
+// async function getArrayMovie(value) {
+//   try {
+//     const options = {
+//       query: value,
+//       include_adult: false,
+//       // primary_release_year,
+//       page: 1,
+//       // region,
+//       // year,
+//     };
+//     const response = await getSearchMovie(options);
+//     const arrayMovies = await response.results;
+//     return arrayMovies;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
 function renderBtnReset() {
-  buttonReset.classList.remove('hidden');
-  buttonReset.classList.add('active');
-  buttonSearch.disabled = true;
+  refs.buttonReset.classList.remove('hidden');
+  refs.buttonReset.classList.add('active');
+  refs.buttonSearchCatalog.disabled = true;
 }
 function hiddenBtnReset() {
-  buttonReset.classList.remove('active');
-  buttonReset.classList.add('hidden');
-  buttonSearch.disabled = false;
+  refs.buttonReset.classList.remove('active');
+  refs.buttonReset.classList.add('hidden');
+  refs.buttonSearchCatalog.disabled = false;
+}
+
+function catalogListReset() {
+  refs.catalogList.innerHTML = '';
 }
