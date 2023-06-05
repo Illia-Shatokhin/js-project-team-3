@@ -138,8 +138,8 @@ function saveMovieToLocalStorage(data) {
   const movie = JSON.stringify(data.id);
   localStorage.setItem(key, movie);
   // const libraryBtn = document.querySelector('.button-library');
-refs.libraryBtn.textContent =
-    'Remove from my library';
+refs.libraryBtn.textContent = 'Remove from my library';
+refs.libraryBtn.style.backgroundColor = 'var(--basic-gradient)';
 }
 
 
