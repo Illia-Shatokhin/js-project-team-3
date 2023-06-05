@@ -1,13 +1,9 @@
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getSearchMovie } from './API/get-from-server';
+import { refs } from './models/refs';
 // import {createCatalogMovieCard} from './js/catalogMovieCard';
 
-const catalogForm = document.getElementById('search-form');
-const buttonReset = document.querySelector('.catalog-button-reset');
-const buttonSearch = document.querySelector('.catalog-search-button');
-
-catalogForm.addEventListener('submit', onSubmit);
+refs.catalogForm.addEventListener('submit', onSubmit);
 
 export async function onSubmit(event) {
   event.preventDefault();
@@ -25,8 +21,8 @@ export async function onSubmit(event) {
     // return getArrayMovie(value);
     renderBtnReset();
   }
-  buttonReset.addEventListener('click', e => {
-    catalogForm.reset();
+  refs.buttonReset.addEventListener('click', e => {
+    refs.catalogForm.reset();
     hiddenBtnReset();
   });
 }
@@ -50,12 +46,12 @@ async function getArrayMovie(value) {
 }
 
 function renderBtnReset() {
-  buttonReset.classList.remove('hidden');
-  buttonReset.classList.add('active');
-  buttonSearch.disabled = true;
+  refs.buttonReset.classList.remove('hidden');
+  refs.buttonReset.classList.add('active');
+  refs.buttonSearchCatalog.disabled = true;
 }
 function hiddenBtnReset() {
-  buttonReset.classList.remove('active');
-  buttonReset.classList.add('hidden');
-  buttonSearch.disabled = false;
+  refs.buttonReset.classList.remove('active');
+  refs.buttonReset.classList.add('hidden');
+  refs.buttonSearchCatalog.disabled = false;
 }
