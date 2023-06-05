@@ -6,4 +6,6 @@ export const refs = {
   // galleryDiv: document.querySelector('.gallery'),
   catalogList: document.querySelector('.catalog-list'),
   weeklyLinks: document.querySelector('.weekly-links'),
+  modalCloseBtn: document.querySelector('.modal-close-btn'),
+  libraryBtn:  document.querySelector('.button-library'),
 };
