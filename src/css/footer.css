@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 399px 80px 399px;
+  background-color: #111111;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.footer-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  display: inline;
+  text-align: center;
+  color: #b7b7b7;
+}
+
+.orange_heart {
+  fill: orange;
+  vertical-align: middle;
+}
+
+.goit-link {
+  color: #b7b7b7;
+  text-decoration: none;
+}

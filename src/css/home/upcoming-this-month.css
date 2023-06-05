@@ -1,79 +1,83 @@
 #film-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .upcoming-film-section > .container {
 background: var(--black);
 padding-top: 60px;
+
 }
 
-.upcoming-film-section-title{
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 28px;
-line-height: 1.18;
-text-transform: uppercase;
-color: var(--white);
-margin-bottom: 28px;
+.upcoming-film-section {
+  background: var(--black);
+}
+
+.upcoming-film-section-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.18;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 28px;
 }
 
 .upcoming-wrap {
-    display: flex;
-    gap: 16px;
+  display: flex;
+  gap: 16px;
 }
-
 
 .film-title {
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 32px;
-line-height: 1.18;
-color: var(--white);
-margin-bottom: 28px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.18;
+  color: var(--white);
+  margin-bottom: 28px;
 }
 
-  .film-image {
-    width: 800px;
-    height: 458px;
-    object-fit: cover;
-  }
-  
+.film-image {
+  width: 800px;
+  height: 458px;
+  object-fit: cover;
+}
+
   .film-release-date, .film-rating, .film-votes, .film-genre, .film-release-text, .film-vote-text, .film-rating-text, .film-genre-text {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.19;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
     color: var(--light-gray);
-    margin-bottom: 12px;
-  }
-   
-  .film-genres {
-    margin-top: 5px;
-  }
+  margin-bottom: 12px;
+}
+
+.film-genres {
+  margin-top: 5px;
+}
 
   .film-about {
     color: var(--white-smoke);
     margin-bottom: 16px;
   }
   
-  .film-description {
-    margin-top: 10px;
-    max-width: 390px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+.film-description {
+  margin-top: 10px;
+  max-width: 390px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
     color: var(--white-smoke);
     margin-bottom: 20px;
-  }
-  
-  .library-button {
-    margin-top: 10px;
+}
+
+.library-button {
+  margin-top: 10px;
   }
 .film-release-date{
   color: var(--orange);
