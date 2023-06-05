@@ -142,11 +142,20 @@
           filmCard.appendChild(libraryButton);
   
           document.getElementById('film-container').appendChild(filmCard);
+
         } else {
-          const message = document.createElement('p');
-          message.textContent = 'No upcoming films found for this month.';
-          document.getElementById('film-container').appendChild(message);
+          libraryButton.textContent = 'Add to My Library';
         }
+        libraryButton.addEventListener('click', () =>
+          toggleLibrary(randomFilm, libraryButton)
+        );
+        filmCard.appendChild(libraryButton);
+
+        document.getElementById('film-container').appendChild(filmCard);
+      } else {
+        const message = document.createElement('p');
+        message.textContent = 'No upcoming films found for this month.';
+        document.getElementById('film-container').appendChild(message);
       }
     });
   })
@@ -166,13 +175,31 @@
     } else {
       myLibrary.splice(index, 1);
     }
-  
-    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
-  
-    // Update library button text
-    if (isInLibrary(film.id)) {
-      libraryButton.textContent = 'Remove from My Library';
-    } else {
-      libraryButton.textContent = 'Add to My Library';
-    }
+  });
+
+// Check if a film is in My Library
+function isInLibrary(filmId) {
+  const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+  return myLibrary.some(film => film.id === filmId);
+}
+
+// Add or remove a film from My Library
+function toggleLibrary(film, libraryButton) {
+  const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+  const index = myLibrary.findIndex(f => f.id === film.id);
+
+  if (index === -1) {
+    myLibrary.push(film);
+  } else {
+    myLibrary.splice(index, 1);
   }
+
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+
+  // Update library button text
+  if (isInLibrary(film.id)) {
+    libraryButton.textContent = 'Remove from My Library';
+  } else {
+    libraryButton.textContent = 'Add to My Library';
+  }
+}
