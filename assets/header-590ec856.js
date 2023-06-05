@@ -28,16 +28,16 @@ Notiflix needs to be appended to the "<`+y+'>" element, but you called it before
         <a href="./my-library.html" class="button btn-gradient hero-btn">Get Started</a>
       </div>
     </div>`}const lt={catalogList:document.querySelector(".catalog-list"),weeklyLinks:document.querySelector(".weekly-links"),modalCloseBtn:document.querySelector(".modal-close-btn"),libraryBtn:document.querySelector(".button-library"),catalogForm:document.getElementById("search-form"),buttonReset:document.querySelector(".catalog-button-reset"),buttonSearchCatalog:document.querySelector(".catalog-search-button"),catalogSelectYear:document.getElementById("year"),catalogSelectCountry:document.getElementById("country")};function Gn(t,e){t.insertAdjacentHTML("beforeend",e())}function ci(){return`
-     <div class="error">
+     <li class="error">
         <p class="errortext">OOPS...</p>
         <p class="errortext">We are very sorry!</p>
         <p class="errortext">You don’t have any movies at your library.</p>
-      </div>`}function Yn(){return`
-       <div class="error">
+      </li>`}function Yn(){return`
+       <li class="error">
         <p class="errortext">OOPS...</p>
         <p class="errortext">We are very sorry!</p>
         <p class="errortext">We don’t have any results matching your search.</p>
-      </div>`}function Kn(t,e){return`
+      </li>`}function Kn(t,e){return`
   <li class="catalog-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%), url(https://image.tmdb.org/t/p/w500${t.poster_path})" id="${t.id}">
 
 <div class="catalog-card-info-container">
