@@ -1,15 +1,15 @@
 body {
-  background-color: white;
+  background-color: var(--white);
   transition: background-color 0.5s ease;
 }
 
 body.dark-theme {
-  background-color: #000;
-  color: #f0f0f0;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 body.dark-theme .menu-content {
-  background-color: #000;
+  background-color: var(--black);
 }
 
 body.dark-theme #mobile-menu {
@@ -29,31 +29,36 @@ body.dark-theme #mobile-menu {
 }
 
 .desktop-header.dark-theme {
-  background-color: #000;
-  color: white;
+  background-color: var(--black);
+  color: var(--white);
 }
-
-a {
+.hover-text {
+  font-family: 'Roboto-Medium';
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
   transition: color 0.3s ease; /* Transition for color property */
 }
 
-a:hover,
-a:focus {
-  color: #f84119;
+.hover-text:hover,
+.hover-text:focus {
+  color: var(--orange);
 }
 .mobile-header {
   display: flex;
   width: auto;
   align-items: center;
   justify-content: space-between;
-  margin: 8px 20px;
 }
 .tablet-menu {
   display: none;
 }
 .mobile-header.dark-theme {
-  background-color: #000;
-  color: white;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 /* Add styles for the close button */
@@ -69,7 +74,7 @@ a:focus {
 }
 
 .close-button.dark-theme {
-  color: #f0f0f0;
+  color: var(--white-smoke);
 }
 
 /* Modify the styles for the menu-content */
@@ -81,14 +86,14 @@ a:focus {
   padding-bottom: 262.2px;
   border-radius: 5px;
   text-align: center;
-  background-color: white;
+  background-color: var(--white);
   position: relative;
 }
 
 .menu-content.dark-theme {
-  background-color: #000;
-  background: #000;
-  color: #f0f0f0;
+  background-color: var(--black);
+  background: var(--black);
+  color: var(--white-smoke);
 }
 .checkbox input[type='checkbox'] {
   opacity: 0;
@@ -121,12 +126,12 @@ a:focus {
 
 .mobile-header.dark-theme #menu-toggle,
 .mobile-header.dark-theme .menu-content a {
-  color: white;
+  color: var(--white);
 }
 
 .mobile-header.dark-theme button,
 .mobile-header.dark-theme #menu-toggle {
-  color: white;
+  color: var(--white);
 }
 
 #mobile-menu {
@@ -153,12 +158,12 @@ a:focus {
   width: 204px;
   border-radius: 5px;
   text-align: left;
-  background-color: white;
+  background-color: var(--white);
 }
 
 .menu-content.dark-theme {
-  color: #f0f0f0;
-  background-color: #000;
+  color: var();
+  background-color: var(--black);
 }
 
 #mobile-menu ul {
@@ -180,7 +185,7 @@ a:focus {
 }
 .close-button:hover,
 .close-button:focus {
-  color: #f84119;
+  color: var(--orange);
 }
 .theme-slider-container {
   display: flex;
@@ -192,7 +197,7 @@ a:focus {
 }
 .menu-toggle-label:hover,
 .menu-toggle-label:focus {
-  color: #f84119;
+  color: var(--orange);
 }
 .switch {
   position: relative;
@@ -227,7 +232,7 @@ a:focus {
   width: 16px;
   left: 2px;
   bottom: 2px;
-  background-color: #f0f0f0;
+  background-color: var(--white-smoke);
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -240,7 +245,7 @@ a:focus {
   transform: translateX(20px);
 }
 .main-nav.dark-theme {
-  background-color: #000;
+  background-color: var(--black);
 }
 @media (min-width: 768px) and (max-width: 1279px) {
   .hidden {
@@ -281,7 +286,7 @@ a:focus {
   }
 
   .menu-list li a {
-    color: #000;
+    color: var(--black);
   }
 
   .logo-container {
@@ -354,7 +359,7 @@ a:focus {
   }
 
   .menu-list li a {
-    color: #000;
+    color: var(--black);
   }
 
   .logo-container {
