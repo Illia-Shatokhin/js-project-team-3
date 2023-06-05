@@ -1,4 +1,4 @@
-import{a as _,b as I}from"./header-ed7c8514.js";const h={catalogList:document.querySelector(".catalog-list"),weeklyLinks:document.querySelector(".weekly-links"),catalogForm:document.getElementById("search-form"),buttonReset:document.querySelector(".catalog-button-reset"),buttonSearchCatalog:document.querySelector(".catalog-search-button")};function N(e,n){e.insertAdjacentHTML("beforeend",n())}function q(){return`
+import{a as _,b as I}from"./header-6add048a.js";const h={catalogList:document.querySelector(".catalog-list"),weeklyLinks:document.querySelector(".weekly-links"),catalogForm:document.getElementById("search-form"),buttonReset:document.querySelector(".catalog-button-reset"),buttonSearchCatalog:document.querySelector(".catalog-search-button")};function N(e,n){e.insertAdjacentHTML("beforeend",n())}function q(){return`
        <div class="error">
         <p class="errortext">OOPS...</p>
         <p class="errortext">We are very sorry!</p>
