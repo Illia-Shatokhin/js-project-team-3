@@ -11,19 +11,25 @@ export async function onSubmit(event) {
     event.preventDefault();
     const form = event.currentTarget;
     const value = form.elements.searchQuery.value.trim();
+    const country = form.elements.country.value;
+    const year = form.elements.year.value;
+    console.log(year);
+    console.log(country);
 
-    if (value === '') Notify.failure('No value!');
+    if (value === '') Notify.failure('No movie specified!');
     else {
       const options = {
         query: value,
         include_adult: false,
-        // primary_release_year,
+        // primary_release_year: year,
         page: 1,
-        // region,
-        // year,
+        region: country,
+        year: year,
       };
       const response = await getSearchMovie(options);
       const arrayMovies = await response.results;
+
+      console.dir(arrayMovies[0].release_date);
       console.dir(arrayMovies);
 
       if (arrayMovies.length) {
