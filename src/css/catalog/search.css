@@ -1,9 +1,7 @@
-.container {
-}
 
 .catalog-search {
   padding-top: 80px;
-  padding-bottom: 48px;
+  padding-bottom: 32px;
 }
 .catalog-search-form {
   display: flex;

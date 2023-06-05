@@ -27,11 +27,11 @@ export async function onSubmit(event) {
     // console.dir(arrayMovies);
     
     if (arrayMovies.length) {
-      refs.catalogList.innerHTML = '';
+      catalogListReset();
       createMovieCard(getSearchMovie, refs.catalogList, 20, arrayMovies);
       alert('Ф-я Kate');
     } else {
-      refs.catalogList.innerHTML = '';
+      catalogListReset();
       renderError(refs.catalogList, errorCatalogMarkup);
       // alert('Ф-я Діми');
     }
@@ -70,4 +70,8 @@ function hiddenBtnReset() {
   refs.buttonReset.classList.remove('active');
   refs.buttonReset.classList.add('hidden');
   refs.buttonSearchCatalog.disabled = false;
+}
+
+function catalogListReset() {
+  refs.catalogList.innerHTML = '';
 }
