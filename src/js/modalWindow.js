@@ -48,7 +48,7 @@ function renderModalMovieMarkup(data) {
   <div class="modal-film-window">
     <button class="modal-close-btn">
        <svg class="modal-close-icon" width="100%" height="100%" >
-          <use href="../img/symbols.svg#close" width="100%" height="100%"></use>
+          <use href="./img/symbols.svg#close" width="100%" height="100%"></use>
        </svg>
    </button>
    <img class="film-poster-img"  src="${posterUrl}" alt="Movie poster" width="375" height="478">
