@@ -21,7 +21,7 @@
     
     <script type="module" crossorigin src="/js-project-team-3/assets/my-library-68835371.js"></script>
     <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/header-99b42019.js">
-    <link rel="stylesheet" href="/js-project-team-3/assets/header-0e58a7f5.css">
+    <link rel="stylesheet" href="/js-project-team-3/assets/header-6ae5e88b.css">
   </head>
   <body>
     <button class="button btn-gradient">
@@ -30,41 +30,47 @@
     <button class="button btn-gradient">
       <a href="./catalog.html">catalog</a>
     </button>
-    <header class="mobile-header">
+    <div class="container"></div><header class="mobile-header">
   <!--<link rel="stylesheet" href="/header.css" />-->
-  <div class="logo-container">
-    <a href="./index.html"
-      ><img style="padding: 0" src="./img/tablet-logo.png" alt="Your Logo"
-    /></a>
-  </div>
-  <nav id="table-menu" class="table-desktop">
-    <ul class="table-menu">
-      <li class="space"><a href="./index.html">HOME</a></li>
-      <li class="space"><a href="./catalog.html">CATALOG</a></li>
-      <li><a href="./my-library.html">MY LIBRARY</a></li>
-    </ul>
-  </nav>
-  <div class="menu-container checkbox">
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="menu-toggle-label">MENU</label>
-    <nav id="mobile-menu" class="hidden">
-      <div class="menu-content">
-        <a href="index.html"><img src="img/logo.png" alt="Your Logo" /></a>
-        <ul class="menu-list">
-          <li><a href="home.html">HOME</a></li>
-          <li><a href="catalog.html">CATALOG</a></li>
-          <li><a href="my-library.html">MY LIBRARY</a></li>
-        </ul>
-      </div>
+  
+    <div class="logo-container">
+      <a href="./index.html"
+        ><img style="padding: 0" src="./img/tablet-logo.png" alt="Your Logo"
+      /></a>
+    </div>
+    <nav id="table-menu" class="table-desktop">
+      <ul class="table-menu">
+        <li class="space"><a class="hover-text" href="./index.html">HOME</a></li>
+        <li class="space"><a class="hover-text" href="./catalog.html">CATALOG</a></li>
+        <li><a class="hover-text" href="./my-library.html">MY LIBRARY</a></li>
+      </ul>
     </nav>
-  </div>
-  <div class="theme-slider-container">
-    <label class="switch">
-      <input type="checkbox" id="theme-toggle" />
-      <span class="slider round"></span>
-    </label>
-  </div>
-</header>
+    <div class="menu-container checkbox">
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-toggle-label">MENU</label>
+      <div id="mobile-menu" class=" ">
+        <div class="menu-content">
+          <button id="close-menu" class="close-button" aria-label="Close menu">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <a href="index.html"><img src="img/logo.png" alt="Your Logo" /></a>
+          <ul class="menu-list">
+            <li><a class="hover-text" href="home.html">HOME</a></li>
+            <li><a class="hover-text" href="catalog.html">CATALOG</a></li>
+            <li><a class="hover-text" href="my-library.html">MY LIBRARY</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="theme-slider-container">
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" />
+        <span class="slider round"></span>
+      </label>
+    </div>
+</header>  
+</div>
+
 <!-- <script src="/src/js/header.js"></script>-->
 
     <section class="hero"></section>
