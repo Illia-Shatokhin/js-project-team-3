@@ -4,8 +4,8 @@
   }
 
 .upcoming-film-section {
-background: #111111;
-margin-top: 60px;
+background: var(--black);
+padding-top: 60px;
 }
 
 .upcoming-film-section-title{
@@ -41,36 +41,58 @@ margin-bottom: 28px;
     object-fit: cover;
   }
   
-  .film-release-date, .film-rating {
+  .film-release-date, .film-rating, .film-votes, .film-genre, .film-release-text, .film-vote-text, .film-rating-text, .film-genre-text {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.19;
-    color: #B7B7B7;
+    color: var(--light-gray);
     margin-bottom: 12px;
   }
-  
-  .film-rating {
-
-  }
-  
+   
   .film-genres {
     margin-top: 5px;
+  }
+
+  .film-about {
+    color: var(--white-smoke);
+    margin-bottom: 16px;
   }
   
   .film-description {
     margin-top: 10px;
     max-width: 390px;
-    color: var(--white);
     font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 20px;
-color: #F8F8F8;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--white-smoke);
+    margin-bottom: 20px;
   }
   
   .library-button {
     margin-top: 10px;
   }
+.film-release-date{
+  color: var(--orange);
+}
+
+.film-vote-wrap, .film-release-wrap, .film-popularity-wrap, .film-genre-wrap {
+  display: flex;
+  gap: 58px;
+}
+
+.film-vote-wrap{
+gap: 65px;
+}
+
+.film-popularity-wrap {
+  gap: 75px;
+}
+
+.film-genre-wrap {
+  gap: 105px;
+  margin-bottom: 20px;
+}

@@ -1,4 +1,4 @@
-if (!localStorage.getItem('myLibrary')) {
+  if (!localStorage.getItem('myLibrary')) {
     localStorage.setItem('myLibrary', JSON.stringify([]));
   }
   
@@ -13,6 +13,14 @@ if (!localStorage.getItem('myLibrary')) {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzcwNGY3NWVjYTA3MmEwNGFiODBiNzBjOTQ5ZWZjMiIsInN1YiI6IjY0Nzg0ZWFkY2Y0YjhiMDEwMzFjZWZjZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HGp4SG4w1Ow4nxzAlMDbe5phup9IwpC6GqyzdUZE9ZM'
     }
   };
+  fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
+.then(response => response.json())
+.then(genreData => {
+  // Створіть об'єкт зі списком жанрів, використовуючи ID як ключі і назви як значення
+  const genres = {};
+  genreData.genres.forEach(genre => {
+    genres[genre.id] = genre.name;
+  });
   
   fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options)  
     .then(response => response.json())
@@ -53,16 +61,70 @@ if (!localStorage.getItem('myLibrary')) {
           filmTitle.className = 'film-title';
           filmTitle.textContent = randomFilm.title;
           filmCard.appendChild(filmTitle);
+
+          const filmReleaseWrap = document.createElement('div');
+          filmReleaseWrap.className = 'film-release-wrap';
+          filmCard.appendChild(filmReleaseWrap);
+
+          const filmReleaseDateText = document.createElement('p');
+          filmReleaseDateText.className = 'film-release-text';
+          filmReleaseDateText.textContent = "Release Date";
+          filmReleaseWrap.appendChild(filmReleaseDateText);
+  
   
           const filmReleaseDate = document.createElement('p');
           filmReleaseDate.className = 'film-release-date';
-          filmReleaseDate.textContent = `Release Date: ${randomFilm.release_date}`;
-          filmCard.appendChild(filmReleaseDate);
+          filmReleaseDate.textContent = randomFilm.release_date;
+          filmReleaseWrap.appendChild(filmReleaseDate);
+
+          const filmVoteWrap = document.createElement('div');
+          filmVoteWrap.className = 'film-vote-wrap';
+          filmCard.appendChild(filmVoteWrap);
+
+          const filmVoteText = document.createElement('p');
+          filmVoteText.className = 'film-vote-text';
+          filmVoteText.textContent = "Vote / Votes";
+          filmVoteWrap.appendChild(filmVoteText);
+
+          const filmVotes = document.createElement('p');
+          filmVotes.className = 'film-votes';
+          filmVotes.textContent = `${randomFilm.vote_average} / git${randomFilm.vote_count}`;
+          filmVoteWrap.appendChild(filmVotes);
+
+          
+          const filmPopularityWrap = document.createElement('div');
+          filmPopularityWrap.className = 'film-popularity-wrap';
+          filmCard.appendChild(filmPopularityWrap);
   
+          const filmRatingText = document.createElement('p');
+          filmRatingText.className = 'film-rating-text';
+          filmRatingText.textContent = "Popularity";
+          filmPopularityWrap.appendChild(filmRatingText); 
+
           const filmRating = document.createElement('p');
           filmRating.className = 'film-rating';
-          filmRating.textContent = `Rating: ${randomFilm.vote_average}`;
-          filmCard.appendChild(filmRating);
+          filmRating.textContent = `${randomFilm.popularity.toFixed(1)}`;
+          filmPopularityWrap.appendChild(filmRating); 
+
+          const filmGenreWrap = document.createElement('div');
+          filmGenreWrap.className = 'film-genre-wrap';
+          filmCard.appendChild(filmGenreWrap);
+
+          const filmGenreText = document.createElement('p');
+          filmGenreText.className = 'film-genre-text';
+          filmGenreText.textContent = "Genre"; 
+          filmGenreWrap.appendChild(filmGenreText);
+
+          const filmGenre = document.createElement('p');
+          filmGenre.className = 'film-genre';
+          const movieGenres = randomFilm.genre_ids.map(genreId => genres[genreId]);
+          filmGenre.textContent = `${movieGenres.join(', ')}`; 
+          filmGenreWrap.appendChild(filmGenre);
+
+          const filmAbout = document.createElement('p');
+          filmAbout.className = 'film-about';
+          filmAbout.textContent = "ABOUT";
+          filmCard.appendChild(filmAbout);
   
           const filmDescription = document.createElement('p');
           filmDescription.className = 'film-description';
@@ -87,7 +149,7 @@ if (!localStorage.getItem('myLibrary')) {
         }
       }
     });
-  
+  })
   // Check if a film is in My Library
   function isInLibrary(filmId) {
     const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
