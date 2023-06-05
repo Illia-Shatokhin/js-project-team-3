@@ -4,7 +4,7 @@ createHero();
 
 import '/js/hero.js';
 import '/js/header.js';
-import '/js/models/weeklyTrends.js';
+import weeklyTrends from '/js/models/weeklyTrends.js';
 import '/js/modalWindow.js';
 // import { getMovie} from '/js/modalWindow.js';
 //  document.querySelector('body').addEventListener('click', ()=>{
@@ -15,3 +15,7 @@ import { getMovie } from '/js/modalWindow.js';
 //      getMovie( 605575);
 //  })
 import '/js/upcoming-films.js';
+
+weeklyTrends();
+
+

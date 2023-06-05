@@ -18,9 +18,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.18;
-
   text-transform: uppercase;
-
   color: #ffffff;
 }
 
@@ -28,15 +26,11 @@
   flex-direction: row;
   left: 252px;
   top: 468px;
-  font-family: 'Roboto';
+  font-family: 'Roboto-Medium';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
-  /* identical to box height */
-
-  /* orange */
-
+  line-height: 1.18;
   color: #f87719;
 }
 
