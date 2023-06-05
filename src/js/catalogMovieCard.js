@@ -15,7 +15,18 @@ function getReleaseYear(film) {
   return releaseYear;
 }
 
-export default async function createMovieCard(func, elem, count, arg) {
+export default function createMovieCard(data, elem, count) {
+  let markup = '';
+  for (let index = 0; index < count; index++) {
+    // releaseYear = data.results[index].release_date.split('-')[0];
+    let releaseYear = 2000;
+    console.log(data);
+    markup += movieCardMarkup(data[index], releaseYear);
+  }
+  elem.insertAdjacentHTML('beforeend', markup);
+}
+
+export async function week() {
   try {
     let data;
 
@@ -76,6 +87,64 @@ export default async function createMovieCard(func, elem, count, arg) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
 }
+
+export async function openFilmDetails(e) {
+  const clickedElement = e.target;
+  if (clickedElement.tagName === 'LI') {
+    const movieId = clickedElement.id;
+    await getMovie(movieId);
+  }
+}
+
+// export default async function createMovieCard(func, elem, count, arg) {
+//   try {
+//     let data;
+
+//     //для запиту на allDay & allWeek
+//     if (!arg) {
+//       data = await func();
+
+//       for (let index = 0; index < count; index++) {
+//         let releaseYear = data.results[index].release_date;
+//         console.log(releaseYear);
+//         if (releaseYear === false) {
+//           releaseYear = 'No date';
+//         } else {
+//           releaseYear.split('-')[0];
+//         }
+//         const markup = movieCardMarkup(data.results[index], releaseYear);
+//         elem.insertAdjacentHTML('beforeend', markup);
+//       }
+//       //для запиту на getMovieDetails
+//     } else if (!isNaN(arg)) {
+//       data = await func(arg);
+//       for (let index = 0; index < count; index++) {
+//         releaseYear = data.results[index].release_date.split('-')[0];
+//         const markup = movieCardMarkupLocalStorage(data, releaseYear);
+//         elem.insertAdjacentHTML('beforeend', markup);
+//       }
+//       //для запиту на getSearchMovie
+//     } else {
+//       const obj = {
+//         query: arg,
+//         include_adult: false,
+//         primary_release_year,
+//         page: 1,
+//         region,
+//         year,
+//       };
+//       data = await func(obj);
+//       for (let index = 0; index < count; index++) {
+//         releaseYear = data.results[index].release_date.split('-')[0];
+//         const markup = movieCardMarkup(data.results[index], releaseYear);
+//         elem.insertAdjacentHTML('beforeend', markup);
+//       }
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     // renderError(refs.catalogList, errorCatalogMarkup);
+//   }
+// }
 
 // export default async function createCatalogMovieCard(func, catalogList, arg) {
 //   try {
