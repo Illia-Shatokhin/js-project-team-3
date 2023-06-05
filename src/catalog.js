@@ -1,4 +1,6 @@
-import '/js/hero.js';
+import { createHero } from './js/hero.js';
+createHero();
+
 import '/js/catalogSearch.js';
 import '/js/header.js';
 import createCatalogMovieCard, {
