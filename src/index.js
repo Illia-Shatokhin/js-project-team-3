@@ -11,9 +11,9 @@ import '/js/modalWindow.js';
 //     getMovie( 605579);
 //  })
 import { getMovie } from '/js/modalWindow.js';
-document.querySelector('body').addEventListener('click', ()=>{
-     getMovie( 605575);
-  })
+//  document.querySelector('body').addEventListener('click', ()=>{
+//      getMovie( 605575);
+//  })
 import '/js/upcoming-films.js';
 
 weeklyTrends();
