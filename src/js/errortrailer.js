@@ -1,17 +1,3 @@
-const modalWindow = document.querySelector('.modal-window');
-const btnClose = document.querySelector('.close-modal-window');
-
-function closeModalWindows() {
-  modalWindow.classList.add('hidden');
-}
- 
-btnClose.addEventListener('click', closeModalWindows);
-window.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !modalWindow.classList.contains('hidden')) {
-    closeModalWindows();
-  }
-});
-
 function renderError(elem, markup) {
   elem.insertAdjacentHTML('beforeend', markup());
 }

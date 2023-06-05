@@ -5,47 +5,104 @@ import {
 } from './markups/movieCardMaurkup';
 import { getMovie } from './modalWindow';
 import { refs } from './models/refs';
+import { getTrendingAllWeek } from './API/get-from-server';
+import CreatePagination from './services/pagination';
 
-export default async function createMovieCard(func, elem, count, arg) {
+//================================================================
+function getReleaseYear(film) {
+  let releaseYear = 'No date';
+  const { release_date } = film;
+  if (release_date) releaseYear = release_date.split('-')[0];
+  return releaseYear;
+}
+
+//================================================================
+export default function createMovieCard(data, elem, count) {
+  let markup = '';
+  for (let index = 0; index < count; index++) {
+    // releaseYear = data.results[index].release_date.split('-')[0];
+    // console.log(data);
+    const releaseYear = getReleaseYear(data[index]);
+    markup += movieCardMarkup(data[index], releaseYear);
+  }
+  elem.insertAdjacentHTML('beforeend', markup);
+}
+
+//================================================================
+export async function week() {
   try {
-    let data;
-    //для запиту на allDay & allWeek
-    if (!arg) {
-      data = await func();
-      for (let index = 0; index < count; index++) {
-        const markup = movieCardMarkup(data.results[index], 2014);
-        elem.insertAdjacentHTML('beforeend', markup);
-      }
-      //для запиту на getMovieDetails
-    } else if (!isNaN(arg)) {
-      data = await func(arg);
-      console.log(data);
-      for (let index = 0; index < count; index++) {
-        const markup = movieCardMarkupLocalStorage(data, 2014);
-        elem.insertAdjacentHTML('beforeend', markup);
-      }
-      //для запиту на getSearchMovie
-    } else {
-      const obj = {
-        query: arg,
-        include_adult: false,
-        primary_release_year,
-        page: 1,
-        region,
-        year,
-      };
-      data = await func(obj);
-      for (let index = 0; index < count; index++) {
-        const markup = movieCardMarkup(data.results[index], 2014);
-        elem.insertAdjacentHTML('beforeend', markup);
-      }
-    }
-    let releaseYear = 'No date';
-    console.log(data.results);
+    const data = await getTrendingAllWeek();
+    screen.width <= 767
+      ? createMovieCard(data.results, refs.catalogList, 10)
+      : createMovieCard(data.results, refs.catalogList, 20);
+    
+      // TODO:  fix pagination functionality
+    const watchedPagination = new CreatePagination(data);
+    watchedPagination.activatePagination();
+    
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
 }
+
+//================================================================
+export async function openFilmDetails(e) {
+  const clickedElement = e.target;
+  if (clickedElement.tagName === 'LI') {
+    const movieId = clickedElement.id;
+    await getMovie(movieId);
+  }
+}
+
+// export default async function createMovieCard(func, elem, count, arg) {
+//   try {
+//     let data;
+
+//     //для запиту на allDay & allWeek
+//     if (!arg) {
+//       data = await func();
+
+//       for (let index = 0; index < count; index++) {
+//         let releaseYear = data.results[index].release_date;
+//         console.log(releaseYear);
+//         if (releaseYear === false) {
+//           releaseYear = 'No date';
+//         } else {
+//           releaseYear.split('-')[0];
+//         }
+//         const markup = movieCardMarkup(data.results[index], releaseYear);
+//         elem.insertAdjacentHTML('beforeend', markup);
+//       }
+//       //для запиту на getMovieDetails
+//     } else if (!isNaN(arg)) {
+//       data = await func(arg);
+//       for (let index = 0; index < count; index++) {
+//         releaseYear = data.results[index].release_date.split('-')[0];
+//         const markup = movieCardMarkupLocalStorage(data, releaseYear);
+//         elem.insertAdjacentHTML('beforeend', markup);
+//       }
+//       //для запиту на getSearchMovie
+//     } else {
+//       const obj = {
+//         query: arg,
+//         include_adult: false,
+//         primary_release_year,
+//         page: 1,
+//         region,
+//         year,
+//       };
+//       data = await func(obj);
+//       for (let index = 0; index < count; index++) {
+//         releaseYear = data.results[index].release_date.split('-')[0];
+//         const markup = movieCardMarkup(data.results[index], releaseYear);
+//         elem.insertAdjacentHTML('beforeend', markup);
+//       }
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     // renderError(refs.catalogList, errorCatalogMarkup);
+//   }
+// }
 
 // export default async function createCatalogMovieCard(func, catalogList, arg) {
 //   try {
@@ -100,7 +157,3 @@ export default async function createMovieCard(func, elem, count, arg) {
 //     renderError(refs.catalogList, errorCatalogMarkup);
 //   }
 // }
-
-// // function getMovie() {
-// //   console.log('Modal window');
-// // }
