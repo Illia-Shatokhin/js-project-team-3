@@ -24,14 +24,16 @@ export async function onSubmit(event) {
     const response = await getSearchMovie(options);
     const arrayMovies = await response.results;
     // const arrayMovies = await getArrayMovie(value);
-    console.dir(arrayMovies);
+    // console.dir(arrayMovies);
     
     if (arrayMovies.length) {
+      refs.catalogList.innerHTML = '';
       createMovieCard(getSearchMovie, refs.catalogList, 20, arrayMovies);
       alert('Ф-я Kate');
     } else {
+      refs.catalogList.innerHTML = '';
       renderError(refs.catalogList, errorCatalogMarkup);
-      alert('Ф-я Діми');
+      // alert('Ф-я Діми');
     }
     renderBtnReset();
   }

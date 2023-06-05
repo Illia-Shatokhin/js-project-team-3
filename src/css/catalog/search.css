@@ -3,7 +3,7 @@
 
 .catalog-search {
   padding-top: 80px;
-  /* padding-bottom: 48px; */
+  padding-bottom: 48px;
 }
 .catalog-search-form {
   display: flex;
@@ -23,12 +23,12 @@
   left: 0px;
   top: 0px;
   border-radius: 8px;
-  padding: 12px 24px 12px 24px;
   padding: 10px 20px 10px 20px;
 
   font-size: 14px;
   line-height: 1.14;
   font-family: 'Roboto-Medium';
+  font-weight: 500;
 }
 
 input::placeholder {
@@ -52,22 +52,14 @@ input::placeholder {
   transition: stroke 100ms linear;
 }
 .catalog-button-reset {
-  background-color: var(--white);
   border-radius: 5px;
-  height: 32px;
+  height: 40px;
   border: 1px solid transparent;
   margin-left: -60px;
   outline: none;
   stroke: var(--white);
   transition: stroke 100ms linear;
 }
-.active {
-  display: block;
-}
-
-/* .hidden {
-  display: none;
-} */
 
 .hidden {
   position: absolute;
@@ -92,13 +84,11 @@ input::placeholder {
   fill: var(--white);
 }
 
-.catalog-button-reset:hover {
+.catalog-button-reset:hover,
+catalog-button-reset:focus {
   stroke: var(--orange);
 }
 
-.icon-reset {
-  /* stroke: var(--white); */
-}
 
 @media screen and (min-width: 768px) {
   .catalog-search-form {
@@ -109,12 +99,10 @@ input::placeholder {
   .catalog-search-input {
     width: 204px;
     height: 44px;
-    /* padding: 12px 20px 12px 20px; */
   }
   .catalog-search-button {
     height: 44px;
     width: 44px;
-    /* padding: 13px; */
   }
 }
 @media screen and (min-width: 1280px) {
@@ -139,13 +127,20 @@ input::placeholder {
 .dark-theme {
   background-color: var(--black);
 }
-.light-theme {
-  background-color: var(--white);
-}
 .dark-theme-input {
   background-color: var(--black);
   color: var(--white);
   border: 1px solid var(--white);
+}
+.dark-theme-btn {
+  stroke: var(--white);
+}
+.catalog-button-reset-dark {
+  background-color: var(--black);
+}
+
+.light-theme {
+  background-color: var(--white);
 }
 .light-theme-input {
   background-color: var(--white);
@@ -155,6 +150,6 @@ input::placeholder {
 .light-theme-btn {
   stroke: var(--black);
 }
-.catalog-button-reset-dark {
-  background-color: var(--black);
+.catalog-button-reset-light {
+background-color: var(--white);
 }
