@@ -3,36 +3,26 @@ import { refs } from './refs';
 
 import createMovieCard from '../catalogMovieCard';
 
+import { openFilmDetails } from '../catalogMovieCard';
+
 export default async function weeklyTrends() {
-  const data = await getTrendingAllWeek();
+  try {
+    const data = await getTrendingAllWeek();
 
-  screen.width <= 767
-  ? createMovieCard(data.results, refs.weeklyLinks, 1)
-  : createMovieCard(data.results, refs.weeklyLinks, 3);
-
+    screen.width <= 767
+      ? createMovieCard(data.results, refs.weeklyLinks, 1)
+      : createMovieCard(data.results, refs.weeklyLinks, 3);
+    refs.weeklyLinks.addEventListener('click', openFilmDetails);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 
 
 
-// import createCatalogMovieCard  from "./../catalogMovieCard";
 
-// // Приклад виклику API для отримання деталей фільму за ідентифікатором
-// async function getMovieTrendWeek() {
-//   try {
-//     const movieDetails = await getTrendingAllWeek();
-//     console.log("🚀 ~ file: weeklyTrends.js:8 ~ getMovieTrendWeek ~ movieDetails:", movieDetails)
 
-//     // Обробка деталей фільму
-
-//     createCatalogMovieCard()
-
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-// // // Приклад виклику функцій для використання бібліотеки фільмів
-// getMovieTrendWeek();
 
 // Ratings
 const filmCard = document.querySelector('.film-card');
@@ -144,4 +134,37 @@ function starsMarkup(whichStar, width, height) {
 //       });
 //     }
 //   }
+// }
+
+
+
+
+// function generateRatingMarkup() {
+//   const ratingContainer = document.createElement('div');
+//   ratingContainer.classList.add('simple-rating');
+
+//   const ratingItemsContainer = document.createElement('div');
+//   ratingItemsContainer.classList.add('simple-rating_items');
+
+//   const ratings = [1, 2, 3, 4, 5];
+
+//   ratings.forEach((rating) => {
+//     const input = document.createElement('input');
+//     input.id = `simple-rating_${rating}`;
+//     input.type = 'radio';
+//     input.classList.add('simple-rating_item');
+//     input.name = 'simple-rating';
+//     input.value = rating;
+
+//     const label = document.createElement('label');
+//     label.setAttribute('for', `simple-rating_${rating}`);
+//     label.classList.add('simple-rating_label');
+
+//     ratingItemsContainer.appendChild(input);
+//     ratingItemsContainer.appendChild(label);
+//   });
+
+//   ratingContainer.appendChild(ratingItemsContainer);
+
+//   return ratingContainer.outerHTML;
 // }
