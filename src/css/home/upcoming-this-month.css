@@ -3,9 +3,17 @@
   flex-wrap: wrap;
 }
 
+.upcoming-film-section > .container {
+background: var(--black);
+padding-top: 60px;
+<<<<<<< HEAD
+
+}
+
 .upcoming-film-section {
-  background: #111111;
-  margin-top: 60px;
+  background: var(--black);
+=======
+>>>>>>> 3df6e258c74a8697ae3602a6a490f0e1114a7a92
 }
 
 .upcoming-film-section-title {
@@ -40,36 +48,80 @@
   object-fit: cover;
 }
 
-.film-release-date,
-.film-rating {
+  .film-release-date, .film-rating, .film-votes, .film-genre, .film-release-text, .film-vote-text, .film-rating-text, .film-genre-text {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
-  color: #b7b7b7;
+    color: var(--light-gray);
   margin-bottom: 12px;
 }
 
-.film-rating {
-}
-
+<<<<<<< HEAD
 .film-genres {
   margin-top: 5px;
 }
+=======
+  .film-image {
+    width: 800px;
+    height: 458px;
+    object-fit: cover;
+  }
+  
+  .film-release-date, .film-rating, .film-votes, .film-genre, .film-release-text, .film-vote-text, .film-rating-text, .film-genre-text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+    color: var(--light-gray);
+    margin-bottom: 12px;
+  }
+   
+  .film-genres {
+    margin-top: 5px;
+  }
+>>>>>>> 3df6e258c74a8697ae3602a6a490f0e1114a7a92
 
+  .film-about {
+    color: var(--white-smoke);
+    margin-bottom: 16px;
+  }
+  
 .film-description {
   margin-top: 10px;
   max-width: 390px;
-  color: var(--white);
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: #f8f8f8;
+    color: var(--white-smoke);
+    margin-bottom: 20px;
 }
 
 .library-button {
   margin-top: 10px;
+  }
+.film-release-date{
+  color: var(--orange);
+}
+
+.film-vote-wrap, .film-release-wrap, .film-popularity-wrap, .film-genre-wrap {
+  display: flex;
+  gap: 58px;
+}
+
+.film-vote-wrap{
+gap: 65px;
+}
+
+.film-popularity-wrap {
+  gap: 75px;
+}
+
+.film-genre-wrap {
+  gap: 105px;
+  margin-bottom: 20px;
 }
