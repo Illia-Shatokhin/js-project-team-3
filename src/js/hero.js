@@ -1,5 +1,5 @@
 import { getTrendingAllDay } from './API/get-from-server.js';
-// import { getTrailer } from './hero-trailer.js';
+import { getTrailer } from './hero-trailer.js';
 import { getMovie } from './modalWindow.js';
 
 const heroRef = document.querySelector('.hero');
@@ -29,14 +29,13 @@ async function getDataHero() {
   }
 
   // * Це ще в експеременті------------------
-  const watchTrailerHeroBtn = document.getElementById('watch-trailer-btn');
-  watchTrailerHeroBtn.addEventListener('click', e => {
-    const id = 635587;
-    getTrailer(id);
+  const watchTrailerHeroBtn = document.getElementById('trailer-hero-btn');
+  watchTrailerHeroBtn.addEventListener('click', () => {
+    getTrailer(currentId);
   });
 
   const showDetailsHeroBtn = document.getElementById('details-hero-btn');
-  showDetailsHeroBtn.addEventListener('click', e => {
+  showDetailsHeroBtn.addEventListener('click', () => {
     getMovie(currentId);
   });
 
@@ -48,6 +47,7 @@ function renderHero(data) {
 
   const { id, overview, title, vote_average, backdrop_path } = data[index];
 
+  console.log(data[index]);
   // heroRef.setAttribute('id', `${id}`);
   currentId = id;
   // ?---------------------тест заглушки----------------
@@ -85,7 +85,7 @@ function creatHeroMarkup(overview, title, vote_average) {
         <p class="overview-text">${overview}</p>
       </div>
       <div class="thumb-hero-btn">
-        <button class="button btn-gradient hero-btn" id="watch-trailer-btn">Watch trailer</button>
+        <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
         <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
       </div>
     </div>`;
