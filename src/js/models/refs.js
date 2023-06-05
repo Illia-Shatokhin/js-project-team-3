@@ -11,4 +11,6 @@ export const refs = {
   catalogForm: document.getElementById('search-form'),
   buttonReset: document.querySelector('.catalog-button-reset'),
   buttonSearchCatalog: document.querySelector('.catalog-search-button'),
+  catalogSelectYear: document.getElementById('year'),
+  catalogSelectCountry: document.getElementById('country'),
 };

@@ -23,7 +23,20 @@
   /* border: 1px solid var(--white); */
   padding: 10px 20px 10px 20px;
 
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.14;
+  font-family: 'Roboto-Medium';
+  font-weight: 500;
+}
+ .catalog-selector {
+  /* width: 224px; */
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--white);
+  padding: 10px 20px 10px 20px;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 16px;
   line-height: 1.14;
   font-family: 'Roboto-Medium';
   font-weight: 500;
@@ -31,7 +44,7 @@
 
 input::placeholder {
   color: #b7b7b7;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.14;
   font-family: 'Roboto-Medium';
 }
@@ -43,7 +56,7 @@ input::placeholder {
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  padding: 10px;
+  padding: 12px;
   fill: var(--orange);
   stroke: var(--white);
   transition: fill 100ms linear;
