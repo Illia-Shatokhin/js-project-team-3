@@ -1,9 +1,9 @@
-/* MOVIE IMAGE */
+/* MOBILE */
 
 .weekly-section {
-  background-color: var(--black);
-  padding-top: 80px;
-  padding-bottom: 60px;
+ padding-top: 40px;
+ padding-bottom: 32px;
+ border-color: var(--black);
 }
 
 .weekly-wrap {
@@ -19,22 +19,60 @@
   font-size: 16px;
   line-height: 1.18;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .trends-film {
-  flex-direction: row;
-  left: 252px;
-  top: 468px;
   font-family: 'Roboto-Medium';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.18;
-  color: #f87719;
+  color: var(--orange);
 }
 
+
+
+/* .weekly-section {
+  background-color: var(--black);
+  padding-top: 80px;
+  padding-bottom: 60px;
+} */
+/* 
+.weekly-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+} */
+
+/* .weekly-section-title {
+  font-family: 'Roboto-Medium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.18;
+
+  text-transform: uppercase;
+
+  color: #ffffff;
+} */
+
+/* .trends-film {
+  flex-direction: row;
+  left: 252px;
+  top: 468px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f87719;
+} */
+
 .weekly-info {
+    display: flex;
+    flex-wrap: wrap;
+     gap: 16px;
 }
 
 .weekly-links {
@@ -44,9 +82,71 @@
 
 /* Rating stars */
 
-.star-text {
-  color: orange;
+/* .simple-rating {
+  position: relative;
+  font-size: 40px;
+  display: inline-block;
+} */
+ 
+ /* Псевдоелемент для спільної обгортки */
+/* .simple-rating::before {
+  content:"★★★★★";
+  display: block;
 }
+ */
+
+
+.simple-rating_items {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: hidden;
+}
+
+.simple-rating_item {
+  position: absolute;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+}
+
+.simple-rating_label {
+  flex: 0 0 20%;
+  height: 100%;
+  cursor: pointer;
+  color: #f87719;
+}
+
+.simple-rating_label::before {
+  content: "★";
+  display: block;
+  transition: color 0.3s ease 0s;
+}
+
+.simple-rating_item:checked,
+.simple-rating_item:checked~.simply-rating_label {
+  color: #f87719;
+}
+
+.simple-rating_label:hover,
+.simple-rating_label:hover ~ .simple-rating_label,
+.simple-rating_label:checked ~ .simple-rating_label:hover {
+  color: wheat;
+}
+
+
+
+
+/* .star-text {
+  color: orange;
+} */
 
 /* .rating {
   display: flex;
@@ -116,6 +216,9 @@
   line-height: 1;
   padding: 0px 0px 0px 10px;
 } */
+/* 
+
+
 
 .icon-star {
   stroke: orange;
@@ -130,4 +233,4 @@
 .icon-star-outline {
   stroke: orange;
   fill: white;
-}
+} */
