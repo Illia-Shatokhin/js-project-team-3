@@ -2,8 +2,8 @@ import * as basicLightbox from 'basiclightbox';
 import { getMovieVideos } from './API/get-from-server.js';
 import { errorTrailerMarkup } from './errortrailer.js';
 
-// const trailerBtn = document.getElementById('trailer-btn');
-// const id = 667538;
+const trailerBtn = document.getElementById('trailer-btn');
+const id = 667538;
 trailerBtn.addEventListener('click', () => {
   getTrailer(id);
 });
@@ -16,30 +16,20 @@ async function getDataVideo(id) {
     console.log(err);
   }
 }
-
 export async function getTrailer(id) {
   try {
     const videos = await getDataVideo(id);
     const myKey = videos.find(el => el.key)?.key;
-
-    const instance = basicLightbox.create(succesTrailerMarkup(myKey), {
-      onShow: instance => {
-        window.addEventListener('keydown', closeModalOnEsc);
-      },
-      onClose: instance => {
-        window.removeEventListener('keydown', closeModalOnEsc);
-      },
-    });
+    const instance = createLightboxWithEvents(succesTrailerMarkup(myKey));
     instance.show(() => console.log('lightbox now visible'));
-
-    window.addEventListener('keydown', closeModalOnEsc);
-    function closeModalOnEsc(event) {
-      if (event.code === 'Escape') {
-        instance.close();
-      }
-    }
   } catch (error) {
-    const instance = basicLightbox.create(errorTrailerMarkup(), {
+    const instance = createLightboxWithEvents(errorTrailerMarkup());
+    instance.show(() => console.log('lightbox now visible'));
+    instance.element().addEventListener('click', closeModalOnBtn);
+  }
+
+  function createLightboxWithEvents(content) {
+    const instance = basicLightbox.create(content, {
       onShow: instance => {
         window.addEventListener('keydown', closeModalOnEsc);
       },
@@ -47,20 +37,26 @@ export async function getTrailer(id) {
         window.removeEventListener('keydown', closeModalOnEsc);
       },
     });
-    instance.show(() => console.log('Lightbox now visible'));
-    
+
     window.addEventListener('keydown', closeModalOnEsc);
-    function closeModalOnEsc(event) {
-      if (event.code === 'Escape') {
+
+    return instance;
+  }
+
+  function closeModalOnEsc(event) {
+    if (event.code === 'Escape') {
+      const instance = basicLightbox.get();
+      if (instance) {
         instance.close();
-        console.log(event);
       }
     }
-    instance.element().addEventListener('click', closeModalOnBtn);
-    function closeModalOnBtn(event) {
-      const target = event.target;
-      console.log(target);
-      if (target.classList.contains('select-icon') || target.closest('.icon')) {
+  }
+
+  function closeModalOnBtn(event) {
+    const target = event.target;
+    if (target.classList.contains('select-icon') || target.closest('.icon')) {
+      const instance = basicLightbox.get();
+      if (instance) {
         instance.close();
       }
     }
