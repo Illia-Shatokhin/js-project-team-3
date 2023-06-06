@@ -43,7 +43,9 @@ function renderModalMovieMarkup(data) {
   const vote = data.vote_average.toFixed(1);
   const populatity = data.popularity.toFixed(1);
   const voteCount = data.vote_count.toFixed(1);
-  const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+
+  const posterUrl = getPosterUrl(data);
+
   return `
   <div class="modal-film-window">
     <button class="modal-close-btn">
@@ -71,13 +73,29 @@ function renderModalMovieMarkup(data) {
    <button class=" button btn-border-dark add-film-btn button-library-active">Add to my library</button>
    </div>
   </div>`;
+
 }
 
+
+/*--------------------повертає постер з бекенду---------------------*/
+function getPosterUrl(data) {
+  if (data.poster_path !== null) {
+    return `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+  } else if (data.backdrop_path !== null) {
+    return `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
+  } else {
+    console.log('Немає постеру');
+    return 'https://bosaksvitlana.blogspot.com/p/blog-page_25.html'
+
+    // return 'шлях_до_загального_застосунку_постеру';
+  }
+}
 /*--------------отримує і відображає фільм в модальному вікні----------------*/
 let instance;
 async function getMovie(movie_id) {
   try {
   const data = await fetchMovieDetails(movie_id);
+  console.log(data)
   const markup = renderModalMovieMarkup(data);
   instance = basicLightbox.create(markup, {
     closable: true,
@@ -168,5 +186,55 @@ function updateLibraryButtonStatus(movieId) {
 
 export { getMovie };
 
-/*--------------Робота з LocalStorage ----------------*/
 
+
+/*------------- Функція для додавання/видалення класу 'dark-theme' для модального вікна ----------------*/
+
+function toggleModalTheme(darkMode) {
+  if (darkMode) {
+    modalWindow.classList.add('dark-theme');
+  } else {
+    modalWindow.classList.remove('dark-theme');
+  }
+}
+
+// Перевірка вибраної теми при завантаженні сторінки
+// if (
+//   window.matchMedia &&
+//   window.matchMedia('(prefers-color-scheme: dark)').matches
+// ) {
+//   themeToggle.checked = true;
+//   document.body.classList.add('dark-theme');
+//   buttons.forEach(function (button) {
+//     button.classList.add('dark-theme');
+//   });
+//   toggleModalTheme(true); // Виклик функції при завантаженні сторінки
+//   console.log('User prefers dark theme');
+// } else {
+//   themeToggle.checked = false;
+//   document.body.classList.remove('dark-theme');
+//   buttons.forEach(function (button) {
+//     button.classList.remove('dark-theme');
+//   });
+//   toggleModalTheme(false); // Виклик функції при завантаженні сторінки
+//   console.log('User prefers light theme');
+// }
+
+// // Подія зміни теми
+// themeToggle.addEventListener('change', function () {
+//   if (themeToggle.checked) {
+//     document.body.classList.add('dark-theme');
+//     buttons.forEach(function (button) {
+//       button.classList.add('dark-theme');
+//     });
+//     toggleModalTheme(true); // Виклик функції при зміні теми
+//     console.log('User prefers dark theme');
+//   } else {
+//     document.body.classList.remove('dark-theme');
+//     buttons.forEach(function (button) {
+//       button.classList.remove('dark-theme');
+//     });
+//     toggleModalTheme(false); // Виклик функції при зміні теми
+//     console.log('User prefers light theme');
+//   }
+// });
