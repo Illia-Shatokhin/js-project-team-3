@@ -47,12 +47,13 @@
   display: flex;
   width: 256px;
   justify-content: space-between;
+  align-items: end;
 }
 
 .catalog-card-title,
 .catalog-card-description,
 .rating {
-  font-family: Roboto-Medium;
+  font-family: 'Roboto-Medium', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
