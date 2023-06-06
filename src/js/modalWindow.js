@@ -37,7 +37,7 @@ async function fetchMovieDetails(movie_id) {
 
 //================================================================
 function normalizeData(data) {
-  const genre_ids = data.genres.map(el => el.id)
+  const genre_ids = data.genres.map(el => el.id);
   data.genre_ids = genre_ids;
 }
 
@@ -82,7 +82,7 @@ let instance;
 async function getMovie(movie_id) {
   try {
     const data = await fetchMovieDetails(movie_id);
-    
+
     normalizeData(data);
 
     const markup = renderModalMovieMarkup(data);

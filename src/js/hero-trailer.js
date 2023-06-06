@@ -2,7 +2,6 @@ import * as basicLightbox from 'basiclightbox';
 import { getMovieVideos } from './API/get-from-server.js';
 import { errorTrailerMarkup } from './errortrailer.js';
 
-
 async function getDataVideo(id) {
   try {
     const data = await getMovieVideos(id);
@@ -13,7 +12,7 @@ async function getDataVideo(id) {
 }
 export async function getTrailer(id) {
   try {
-       const videos = await getDataVideo(id);
+    const videos = await getDataVideo(id);
     const myKey = videos.find(el => el.key)?.key;
 
     const instance = basicLightbox.create(succesTrailerMarkup(myKey), {
