@@ -2,10 +2,10 @@ import * as basicLightbox from 'basiclightbox';
 import { getMovieVideos } from './API/get-from-server.js';
 import { errorTrailerMarkup } from './errortrailer.js';
 
-
 async function getDataVideo(id) {
   try {
     const data = await getMovieVideos(id);
+    console.log(data);
     return data.results;
   } catch (err) {
     console.log(err);
@@ -13,9 +13,11 @@ async function getDataVideo(id) {
 }
 export async function getTrailer(id) {
   try {
-       const videos = await getDataVideo(id);
+    const videos = await getDataVideo(id);
+    console.log(videos);
+    console.log(id);
     const myKey = videos.find(el => el.key)?.key;
-
+    console.log(myKey);
     const instance = basicLightbox.create(succesTrailerMarkup(myKey), {
       onShow: instance => {
         trailerBtn.addEventListener('keydown', closeModalOnEsc);
@@ -25,6 +27,7 @@ export async function getTrailer(id) {
       },
     });
 
+    console.log(instance);
     instance.show(() => console.log('lightbox now visible'));
     window.addEventListener('keydown', closeModalOnEsc);
     function closeModalOnEsc(event) {
