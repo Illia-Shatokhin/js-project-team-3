@@ -5,7 +5,7 @@ const KEY = '2d1d8e2963579243d8e1859d5054f040';
 
 const trailerBtn = document.getElementById('trailer-btn');
 
-async function getTrailer() {
+async function getDataVideo(id) {
   try {
     const data = await getMovieVideos(id);
     return data.results;
