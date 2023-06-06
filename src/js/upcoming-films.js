@@ -10,19 +10,11 @@ const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzcwNGY3NWVjYTA3MmEwNGFiODBiNzBjOTQ5ZWZjMiIsInN1YiI6IjY0Nzg0ZWFkY2Y0YjhiMDEwMzFjZWZjZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HGp4SG4w1Ow4nxzAlMDbe5phup9IwpC6GqyzdUZE9ZM'
-  }
+    Authorization:
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYzcwNGY3NWVjYTA3MmEwNGFiODBiNzBjOTQ5ZWZjMiIsInN1YiI6IjY0Nzg0ZWFkY2Y0YjhiMDEwMzFjZWZjZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HGp4SG4w1Ow4nxzAlMDbe5phup9IwpC6GqyzdUZE9ZM',
+  },
 };
 fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
-.then(response => response.json())
-.then(genreData => {
-// Створіть об'єкт зі списком жанрів, використовуючи ID як ключі і назви як значення
-const genres = {};
-genreData.genres.forEach(genre => {
-  genres[genre.id] = genre.name;
-});
-
-fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options)  
   .then(response => response.json())
   .then(data => {
     const films = data.results;
@@ -141,20 +133,15 @@ fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', optio
           libraryButton.textContent = 'Remove from My Library';
         } else {
           libraryButton.textContent = 'Add to My Library';
-        }
-        libraryButton.addEventListener('click', () => toggleLibrary(randomFilm, libraryButton));
-        filmCard.appendChild(libraryButton);
 
-        document.getElementById('film-container').appendChild(filmCard);
-      } else {
+        }
         const message = document.createElement('p');
         message.textContent = 'No upcoming films found for this month.';
         document.getElementById('film-container').appendChild(message);
       }
     }
   });
-})
-// Check if a film is in My Library
+//   // Check if a film is in My Library
 function isInLibrary(filmId) {
   const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
   return myLibrary.some(film => film.id === filmId);

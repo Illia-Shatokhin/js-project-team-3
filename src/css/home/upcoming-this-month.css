@@ -156,33 +156,37 @@ margin-bottom: 20px;
 .film-genres {
   margin-top: 5px;
 }
-
+    
   .film-about {
     color: var(--white-smoke);
     margin-bottom: 16px;
   }
   
+
 .film-description {
   margin-top: 10px;
   max-width: 390px;
   font-size: 14px;
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .library-button {
   margin-top: 10px;
-  }
-.film-release-date{
+}
+.film-release-date {
   color: var(--orange);
 }
 
-.film-vote-wrap, .film-release-wrap, .film-popularity-wrap, .film-genre-wrap {
+.film-vote-wrap,
+.film-release-wrap,
+.film-popularity-wrap,
+.film-genre-wrap {
   display: flex;
   gap: 58px;
 }
 
-.film-vote-wrap{
-gap: 65px;
+.film-vote-wrap {
+  gap: 65px;
 }
 
 .film-popularity-wrap {

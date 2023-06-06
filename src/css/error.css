@@ -47,6 +47,10 @@
   color: var(--white);
 }
 
+.hidden {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .errortrailer {
     position: absolute;
