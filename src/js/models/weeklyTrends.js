@@ -131,9 +131,6 @@ function starsMarkup(whichStar, width, height) {
 //   }
 // }
 
-
-
-
 // function generateRatingMarkup() {
 //   const ratingContainer = document.createElement('div');
 //   ratingContainer.classList.add('simple-rating');
