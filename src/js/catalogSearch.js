@@ -8,7 +8,7 @@ import CreatePagination from './services/pagination';
 
 refs.catalogForm.addEventListener('submit', onSubmit);
 
-export async function sendSearch(page) {
+export async function sendSearch(page = 1) {
   try {
     const options = {
       query: dataObj.searchQuery,
@@ -18,16 +18,18 @@ export async function sendSearch(page) {
       year: dataObj.searchYear,
     };
     const data = await getSearchMovie(options);
-    const arrayMovies = await data.results;
-    // console.dir(arrayMovies);
+    const arrayMovies = data.results;
+    
+    const searchPagination = new CreatePagination(data, sendSearch);
+    searchPagination.activatePagination();
 
     if (arrayMovies.length) {
-      catalogListReset();
       filterCreateMovieCard(data);
       refs.catalogForm.reset();
+      hiddenBtnReset();
     } else {
-      catalogListReset();
       renderBtnReset();
+      catalogListReset();
       renderError(refs.catalogList, errorCatalogMarkup);
     }
 
@@ -49,43 +51,11 @@ export async function onSubmit(event) {
   const country = form.elements.country.value;
   const year = form.elements.year.value;
 
-  if (value === '') Notify.failure('No movie specified!');
-  let page = 1;
-  const options = setSearchParam(page, value, year, country);
- 
-  sendSearch((page));
-  // TODO:  fix pagination functionality
-  const searchPagination = new CreatePagination(response, sendSearch(page));
-  searchPagination.activatePagination();
-
-  // try {
-  //   if (value === '') Notify.failure('No movie specified!');
-  //   else {
-  //     const options = setSearchParam(page, value, year, country);
-  //     const response = await getSearchMovie(options);
-  //     const arrayMovies = await response.results;
-  //     console.dir(arrayMovies);
-
-  //     if (arrayMovies.length) {
-  //       catalogListReset();
-  //       filterCreateMovieCard(response);
-  //       refs.catalogForm.reset();
-  //     } else {
-  //       catalogListReset();
-  //       renderBtnReset();
-  //       renderError(refs.catalogList, errorCatalogMarkup);
-  //     }
-  //     // renderBtnReset();
-  //   }
-  //   refs.buttonReset.addEventListener('click', e => {
-  //     refs.catalogForm.reset();
-  //     hiddenBtnReset();
-  //   });
-  // } catch (error) {
-  //   console.error(error);
-  //   catalogListReset();
-  //   renderError(refs.catalogList, errorCatalogMarkup);
-  // }
+  if (value === '') Notify.failure('No movie specified!')
+ else {
+  setSearchParam(1, value, year, country);
+  sendSearch();
+ }
 }
 
 function filterCreateMovieCard(data) {
@@ -98,6 +68,7 @@ function renderBtnReset() {
   refs.buttonReset.classList.remove('hidden');
   refs.buttonReset.classList.add('active');
   // refs.buttonSearchCatalog.disabled = true;
+  clearSearchParam();
 }
 // =========================================================================================
 function hiddenBtnReset() {
@@ -110,19 +81,11 @@ function catalogListReset() {
   refs.catalogList.innerHTML = '';
 }
 // ==========================================================================================
-function setSearchParam(page = 1, query, year, region) {
+function setSearchParam( page, query, year, region) {
   dataObj.searchCurrentPage = page;
   dataObj.searchQuery = query;
   dataObj.searchYear = year;
   dataObj.searchRegion = region;
-  const options = {
-    query: query,
-    primary_release_year: year,
-    page,
-    region,
-    year,
-  };
-  return options;
 }
 //================================================================
 function clearSearchParam() {
