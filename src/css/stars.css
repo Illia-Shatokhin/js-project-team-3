@@ -5,7 +5,7 @@ $color1: gold;
     $ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation: 0.6s star-animation ease-out;
     animation-delay: var(--delay, 0s);
-    fill: $color1;
+    fill: var(--other-gradient);
     stroke: none;
     transform: rotate(0deg) scale(1);
     opacity: 1;
@@ -16,49 +16,6 @@ $color1: gold;
     transition: all 0.15s ease-in;
 }
 
-// @keyframes star-animation {
-//   0% {
-//     fill: $color2;
-//     stroke: $color2;
-//     stroke-width: 2;
-//     transform: scale(1) rotate(-72deg);
-//     opacity: 1;
-//   }
-//   50% {
-//     transform: scale(1.25);
-//   }
-//   65% {
-//     transform: scale(0.5);
-//   }
-//   80% {
-//     stroke: $color1;
-//     transform: scale(1.1) rotate(-3deg);
-//   }
-//   100% {
-//     fill: $color1;
-//     stroke: $color1;
-//     transform: scale(1) rotate(0deg);
-//   }
-// }
-
-// @keyframes circle-animation {
-//   0% {
-//     transform: scale(0);
-//     opacity: 0;
-//   }
-//   30% {
-//     transform: scale(1.25);
-//     opacity: 0.3;
-//   }
-//   60% {
-//     transform: scale(1.75);
-//     opacity: 0.3;
-//   }
-//   100% {
-//     transform: scale(3);
-//     opacity: 0;
-//   }
-// }
 
 .review-stars {
     margin: 4px auto 16px;
@@ -94,7 +51,7 @@ svg.review-star {
 
     // Default State
     path.star.on {
-        fill: $color1;
+        fill: var(--other-gradient);
         opacity: 0;
     }
 
@@ -133,7 +90,7 @@ svg.review-star.animate-star {
 
         +circle {
             stroke: none;
-            fill: lighten($color1, 15%);
+            fill: lighten(var(--other-gradient), 15%);
             animation: circle-animation 0.6s cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s;
         }
     }
