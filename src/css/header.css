@@ -180,6 +180,7 @@
   align-items: center;
 }
 .menu-toggle-label {
+  color: white;
   transition: color 0.3s ease;
   cursor: pointer;
 }
