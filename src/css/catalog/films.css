@@ -17,7 +17,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
+.catalog-card-rating {
+  align-items: center;
+}
 .catalog-item:hover,
 .catalog-item:focus {
   transform: scale(1.05);
@@ -46,7 +48,7 @@
   display: flex;
   width: 256px;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
 }
 
 .catalog-card-title,
