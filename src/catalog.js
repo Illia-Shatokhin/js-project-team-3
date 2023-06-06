@@ -1,15 +1,11 @@
-import { createHero } from './js/hero.js';
-createHero('hero/catalog');
 
-import '/js/catalogSearch.js';
+import './js/services/get-default-data';
+
+import '/js/hero.js';
 import { onSubmit } from './js/catalogSearch.js';
+import { createHero } from './js/hero.js';
+import '/js/catalogSearch.js';
 import '/js/header.js';
-import createCatalogMovieCard, {
-  openFilmDetails,
-  week,
-} from './js/catalogMovieCard';
-
-import { refs } from './js/models/refs';
-
-week();
-refs.catalogList.addEventListener('click', openFilmDetails);
+import { weeklyTrendsList } from './js/catalogMovieCard';
+createHero();
+weeklyTrendsList();
