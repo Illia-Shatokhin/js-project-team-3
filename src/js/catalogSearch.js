@@ -21,7 +21,7 @@ export async function onSubmit(event) {
       const options = {
         query: value,
         include_adult: false,
-        // primary_release_year: year,
+        primary_release_year: year,
         page: 1,
         region: country,
         year: year,
@@ -29,7 +29,6 @@ export async function onSubmit(event) {
       const response = await getSearchMovie(options);
       const arrayMovies = await response.results;
 
-      console.dir(arrayMovies[0].release_date);
       console.dir(arrayMovies);
 
       if (arrayMovies.length) {

@@ -16,7 +16,7 @@ console.log(btnLoadMore);
 const libraryFromLocal = localStorage.getItem('myLibrary') ? JSON.parse(localStorage.getItem('myLibrary')) : []
 
 if (libraryFromLocal.length == 0) {
-  renderError(filmsOfLocalStorage, errorLibraryMarkup)
+  renderError(filmsOfLocalStorage, errorLibraryMarkup);
 } else {
   createMovieCard(libraryFromLocal, filmsOfLocalStorage, libraryFromLocal.length < moviePerPage ? libraryFromLocal.length : moviePerPage);
 }
