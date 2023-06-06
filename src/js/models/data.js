@@ -1,7 +1,9 @@
 export const dataObj = {
   genreMovieList: null,
   configLanguages: null,
-
-  SearchQuery: '',
-  currentPageForSearch: 0,
-};
+  
+  searchCurrentPage: 0,
+  searchQuery: "mouse",
+  searchYear: "",
+  searchRegion: "",
+}
