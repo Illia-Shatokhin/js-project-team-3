@@ -124,8 +124,6 @@ function closeModalOnKeyPress(e) {
  
 }
 
-
-
 /*--------------перевіряє чи є фільм у сховищі, записує та видаляє фільм зі сховища;----*/
 function toggleLibraryStatus(movieData) {
   const libraryMovies = getLibraryMovies();
@@ -136,7 +134,6 @@ function toggleLibraryStatus(movieData) {
   } else {
     libraryMovies.splice(movieIndex, 1);
   }
-
   localStorage.setItem('myLibrary', JSON.stringify(libraryMovies));
   updateLibraryButtonStatus(movieData.id);
 }

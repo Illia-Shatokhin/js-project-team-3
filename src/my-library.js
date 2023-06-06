@@ -1,5 +1,5 @@
 import { createHero } from './js/hero.js';
-createHero();
+createHero('library');
 
 import '/js/models/data-for-library.js';
 import './js/header';
