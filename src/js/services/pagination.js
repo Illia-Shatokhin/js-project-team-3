@@ -1,6 +1,6 @@
 import Pagination from 'tui-pagination';
+import { refs } from '../models/refs';
 // import 'tui-pagination/dist/tui-pagination.css';
-
 
 export default class CreatePagination {
   constructor(object, requestType = '') {
@@ -36,7 +36,7 @@ export default class CreatePagination {
   }
 
   activatePagination() {
-    const pagination = new Pagination('tui-pagination-container', this.options);
+    const pagination = new Pagination(refs.tuiPaginationContainer, this.options);
     pagination.on('afterMove', ({ page }) => {
       // this.object.moveToPage(page);
     });

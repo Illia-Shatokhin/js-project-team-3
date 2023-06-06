@@ -1,3 +1,5 @@
+import './js/services/get-default-data';
+
 import { createHero } from './js/hero.js';
 
 createHero();

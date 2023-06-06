@@ -1,3 +1,5 @@
+import './js/services/get-default-data';
+
 import '/js/hero.js';
 import { onSubmit } from './js/catalogSearch.js';
 import '/js/header.js';
