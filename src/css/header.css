@@ -244,6 +244,7 @@ body.dark-theme #mobile-menu {
 
 .switch input:checked + .slider:before {
   transform: translateX(20px);
+  background-color: black;
 }
 .main-nav.dark-theme {
   background-color: var(--black);
