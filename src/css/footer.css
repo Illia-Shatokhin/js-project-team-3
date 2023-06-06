@@ -5,7 +5,6 @@
   margin-top: auto;
 }
 
-
 .footer-container {
   display: flex;
   flex-direction: column;
@@ -13,12 +12,10 @@
   gap: 8px;
 }
 
-
-
 .footer-text {
   font-family: 'Roboto-Regular';
   font-size: 14px;
-  line-height:1.14;
+  line-height: 1.14;
   display: inline;
   text-align: center;
   color: var(--light-gray);
@@ -26,7 +23,7 @@
 
 .orange_heart {
   margin: 0 10px 0 10px;
-  fill:var(--orange);
+  fill: var(--orange);
   vertical-align: middle;
 }
 
@@ -44,19 +41,20 @@
   .footer {
     padding-top: 60px;
     padding-bottom: 40px;
-}
-.footer-container {display:block;
-  text-align: center;
-}
-.footer-text {
-  font-size: 16px;
-  line-height:1.18;
-}
+  }
+  .footer-container {
+    display: block;
+    text-align: center;
+  }
+  .footer-text {
+    font-size: 16px;
+    line-height: 1.18;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .footer {
     padding-top: 100px;
     padding-bottom: 80px;
-}
+  }
 }

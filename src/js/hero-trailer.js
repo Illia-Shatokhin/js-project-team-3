@@ -59,5 +59,8 @@ export async function getTrailer(id) {
     }
   }
 }
-
+function succesTrailerMarkup(myKey) {
+  return `
+<iframe class="iframe" src="https://www.youtube.com/embed/${myKey}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
+}
 
