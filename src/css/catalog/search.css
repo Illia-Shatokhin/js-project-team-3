@@ -23,7 +23,7 @@
 
   font-size: 16px;
   line-height: 1.14;
-  font-family: 'Roboto-Medium';
+  font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
 }
 .catalog-wrapper-selector {
@@ -47,7 +47,7 @@
   color: var(--white);
   font-size: 16px;
   line-height: 1.14;
-  font-family: 'Roboto-Medium';
+  font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
 }
 .year {
@@ -70,7 +70,7 @@ input::placeholder {
   color: #b7b7b7;
   font-size: 16px;
   line-height: 1.14;
-  font-family: 'Roboto-Medium';
+  font-family: 'Roboto-Medium', sans-serif;
 }
 
 .catalog-search-button {
