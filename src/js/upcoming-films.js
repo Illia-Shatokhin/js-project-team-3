@@ -2,12 +2,6 @@ if (!localStorage.getItem('myLibrary')) {
   localStorage.setItem('myLibrary', JSON.stringify([]));
 }
 
-//================================================================
-function normalizeData(data) {
-  const genre_ids = data.genres.map(el => el.id)
-  data.genre_ids = genre_ids;
-}
-
 // Fetch upcoming films
 const today = new Date();
 const thisMonth = today.getMonth();
@@ -35,7 +29,6 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
     )
       .then(response => response.json())
       .then(data => {
-        normalizeData(data)
         const films = data.results;
 
         if (films.length === 0) {
