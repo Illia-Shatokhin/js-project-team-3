@@ -35,19 +35,21 @@ export default async function createMovieCard(data, elem, count) {
     const genreNames = movieGenres.map(genre => genre.name).join(', ');
     if (data) markup += movieCardMarkup(data[index], releaseYear, genreNames);
   }
-  elem.insertAdjacentHTML('beforeend', markup);
+  //! для перемалювання списку при пагінації
+  // elem.insertAdjacentHTML('beforeend', markup);
+  elem.innerHTML = markup;
 }
 
 //================================================================
-export async function weeklyTrendsList() {
+export async function weeklyTrendsList(page = 1) {
   try {
-    const data = await getTrendingAllWeek();
+    const data = await getTrendingAllWeek(page);
     screen.width <= 767
       ? createMovieCard(data.results, refs.catalogList, 10)
       : createMovieCard(data.results, refs.catalogList, 20);
 
     // TODO:  fix pagination functionality
-    const watchedPagination = new CreatePagination(data);
+    const watchedPagination = new CreatePagination(data, weeklyTrendsList);
     watchedPagination.activatePagination();
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);

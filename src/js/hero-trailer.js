@@ -1,14 +1,11 @@
+import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
-import { getMovieVideos } from './API/get-from-server.js';
-import { errorTrailerMarkup } from './errortrailer.js';
+const BASE_URL = 'https://api.themoviedb.org/3';
+const KEY = '2d1d8e2963579243d8e1859d5054f040';
 
 const trailerBtn = document.getElementById('trailer-btn');
-const id = 667538;
-trailerBtn.addEventListener('click', () => {
-  getTrailer(id);
-});
 
-async function getDataVideo(id) {
+async function getTrailer() {
   try {
     const data = await getMovieVideos(id);
     return data.results;
@@ -63,7 +60,4 @@ export async function getTrailer(id) {
   }
 }
 
-function succesTrailerMarkup(myKey) {
-  return `
-<iframe class="iframe" src="https://www.youtube.com/embed/${myKey}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
-}
+
