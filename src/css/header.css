@@ -52,6 +52,7 @@ body.dark-theme #mobile-menu {
   width: auto;
   align-items: center;
   justify-content: space-between;
+  margin: 6px auto;
 }
 .tablet-menu {
   display: none;
@@ -147,9 +148,9 @@ body.dark-theme #mobile-menu {
   transform: translateX(-100%);
   transition: transform 0.3s ease-out;
 }
-/* img {
+.menu-logo {
   padding-bottom: 40px;
-}  */
+}
 #mobile-menu.visible {
   transform: translateX(0);
 }
