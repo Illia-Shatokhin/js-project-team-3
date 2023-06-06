@@ -1,18 +1,15 @@
 :root {
   --color2: #d0d8e0;
-  --color1: gold;
+  --color1: #f84119;
 }
 
 .review-stars {
-  margin: 4px auto 16px;
-  position: relative;
+  width: calc((var(--size) * 5) + 16px);
   display: flex;
   align-items: center;
-  gap: 0 calc(var(--size) / 2);
+  gap: 4px;
   justify-content: center;
-  background: white;
-  border-radius: 100px;
-  padding: 16px 24px;
+  background: transparent;
 }
 
 /* One Star SVG */
@@ -56,8 +53,6 @@ svg.review-star * {
 }
 
 svg.review-star.animate-star .star.on {
-  animation: star-animation 0.6s ease-out;
-  animation-delay: var(--delay, 0s);
   fill: var(--color1);
   stroke: none;
   transform: rotate(0deg) scale(1);
@@ -67,7 +62,6 @@ svg.review-star.animate-star .star.on {
 svg.review-star.animate-star .star.on + circle {
   stroke: none;
   fill: lighten(var(--color1), 15%);
-  animation: circle-animation 0.6s cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s;
 }
 
 svg.review-star.filled .star.on {
