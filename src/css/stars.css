@@ -1,152 +1,76 @@
-$color2: #d0d8e0;
-$color1: gold;
-
-@mixin star-enter() {
-    $ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: 0.6s star-animation ease-out;
-    animation-delay: var(--delay, 0s);
-    fill: var(--other-gradient);
-    stroke: none;
-    transform: rotate(0deg) scale(1);
-    opacity: 1;
+:root {
+  --color2: #d0d8e0;
+  --color1: gold;
 }
-
-@mixin star-before-enter() {
-    fill: transparent;
-    transition: all 0.15s ease-in;
-}
-
 
 .review-stars {
-    margin: 4px auto 16px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    grid-gap: 0 calc(var(--size) / 2);
-    justify-content: center;
-    background: white;
-    border-radius: 100px;
-    padding: 16px 24px;
+  margin: 4px auto 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0 calc(var(--size) / 2);
+  justify-content: center;
+  background: white;
+  border-radius: 100px;
+  padding: 16px 24px;
 }
 
-/*
-  --------------------------------
-  One Star SVG
-*/
+/* One Star SVG */
 svg.review-star {
-    width: var(--size);
-    height: var(--size);
-    display: block;
-    overflow: visible;
-
-    * {
-        pointer-events: none;
-    }
-
-    // Each star is a <path/>
-    path.star {
-        stroke: transparent;
-        stroke-width: 0;
-    }
-
-    // Default State
-    path.star.on {
-        fill: var(--other-gradient);
-        opacity: 0;
-    }
-
-    // Default State
-    path.star.off {
-        fill: $color2;
-    }
-
-    // Default State
-    circle {
-        transform: scale(2);
-        transform-origin: center;
-        opacity: 0;
-    }
-
-    * {
-        transform-origin: center;
-    }
+  width: var(--size);
+  height: var(--size);
+  display: block;
+  overflow: visible;
 }
 
-/*
-  --------------------------------
-  Loading Skeleton State
-*/
+svg.review-star * {
+  pointer-events: none;
+}
+
+svg.review-star path.star {
+  stroke: transparent;
+  stroke-width: 0;
+}
+
+svg.review-star path.star.on {
+  fill: var(--color1);
+  opacity: 0;
+}
+
+svg.review-star path.star.off {
+  fill: var(--color2);
+}
+
+svg.review-star circle {
+  transform: scale(2);
+  transform-origin: center;
+  opacity: 0;
+}
+
+svg.review-star * {
+  transform-origin: center;
+}
+
 .loading-skeleton .review-star {
-    fill: $color2;
+  fill: var(--color2);
 }
 
-/*
-  --------------------------------
-  Animation On - SVG element
-*/
-svg.review-star.animate-star {
-    .star.on {
-        @include star-enter();
-
-        +circle {
-            stroke: none;
-            fill: lighten(var(--other-gradient), 15%);
-            animation: circle-animation 0.6s cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s;
-        }
-    }
+svg.review-star.animate-star .star.on {
+  animation: star-animation 0.6s ease-out;
+  animation-delay: var(--delay, 0s);
+  fill: var(--color1);
+  stroke: none;
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
 }
 
-/*
-  --------------------------------
-  Static, does not animate.
-*/
-svg.review-star.filled {
-    .star.on {
-        opacity: 1;
-        transition: none;
-    }
+svg.review-star.animate-star .star.on + circle {
+  stroke: none;
+  fill: lighten(var(--color1), 15%);
+  animation: circle-animation 0.6s cubic-bezier(0.47, 0, 0.745, 0.715) 0.25s;
 }
 
-//-----------------------------
-
-body {
-    background: radial-gradient(darken($color2, 40%), darken($color2, 80%));
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-h1 {
-    font: bold 24px/1 Sans-serif;
-    text-align: center;
-    margin: 2em;
-}
-
-button {
-    width: 220px;
-    margin: 24px 0;
-    border-radius: 100px;
-    font: bold 12px/1 Sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 16px 32px;
-    border: none;
-    border: 1px solid lighten($color2, 0%);
-    cursor: pointer;
-    background: transparent;
-    transition: all 0.15s;
-    transform: scale(1);
-    color: darken($color2, 35%);
-
-    &:hover {
-        background: lighten($color2, 10%);
-        border-color: darken($color2, 35%);
-    }
-
-    &:active {
-        transform: scale(0.985);
-    }
+svg.review-star.filled .star.on {
+  opacity: 1;
+  transition: none;
 }

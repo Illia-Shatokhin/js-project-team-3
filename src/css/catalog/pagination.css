@@ -37,7 +37,7 @@
   vertical-align: middle;
   border: 1px solid var(--gray);
   border-radius: 50%;
-  background-color: var(--white);
+  background-color: transparent;
   transition: background-color var(--transition);
 }
 
@@ -208,8 +208,6 @@
     vertical-align: middle;
     border: 1px solid var(--gray);
     border-radius: 50%;
-    background-color: var(--white);
-    transition: background-color var(--transition);
   }
 
   .tui-pagination .tui-first,
