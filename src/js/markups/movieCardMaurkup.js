@@ -1,4 +1,4 @@
-function movieCardMarkup(card, releaseYear) {
+function movieCardMarkup(card, releaseYear, genreNames) {
   return `
   <li class="catalog-item" style="background-image: linear-gradient(180deg, 
     rgba(0, 0, 0, 0) 63.48%, 

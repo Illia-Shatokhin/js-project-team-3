@@ -12,10 +12,8 @@
 
 .catalog-item {
   position: relative;
-
   width: 280px;
   height: 406px;
-
   background-size: cover;
   border-radius: 5px;
   cursor: pointer;

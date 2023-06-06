@@ -11,5 +11,9 @@ export const refs = {
   catalogForm: document.getElementById('search-form'),
   buttonReset: document.querySelector('.catalog-button-reset'),
   buttonSearchCatalog: document.querySelector('.catalog-search-button'),
+
   tuiPaginationContainer:document.getElementById('tui-pagination-container'),
+  
+  catalogSelectYear: document.getElementById('year'),
+  catalogSelectCountry: document.getElementById('country'),
 };

@@ -1,0 +1,6 @@
+.my-library-list {
+    display: flex;  
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 15px;
+}   
