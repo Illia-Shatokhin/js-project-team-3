@@ -71,8 +71,7 @@ export function addStars(data) {
         position: 'afterbegin',
       },
     });
-    document.addEventListener('click', () => stars.restart());
-    setTimeout(() => stars.restart(), 1000);
+    stars.restart();
   });
 }
 
