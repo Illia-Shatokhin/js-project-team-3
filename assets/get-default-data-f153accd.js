@@ -1,0 +1,1 @@
+import{d as t,f as n}from"./header-97cc376f.js";const a={genreMovieList:null,configLanguages:null,SearchQuery:"",currentPageForSearch:0};async function r(){try{const e=await t();e.genres&&(a.genreMovieList=e.genres),a.configLanguages=await n()}catch{}}r();
