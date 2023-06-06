@@ -19,36 +19,40 @@ async function axiosGet(options) {
     const response = await axios.request(options);
     return response.data;
   } catch (err) {
+    //FIXME: may be deleted when error is returned
     console.error(err);
-    Notify.failure(err.message);
+    Notify.failure('axiosGet: ' + err.message);
+
+    throw new Error(err);
   }
 }
 
 //additional functions
 export async function getLanguages() {
-  const options = generateOption('configuration/languages', { language: 'en' });
+  const options = generateOption('configuration/languages', {});
   return axiosGet(options);
 }
 
 //============================================================================
-export async function getTrendingAllDay() {
-  const options = generateOption('trending/all/day', { language: 'en-US' });
+export async function getTrendingAllDay(page = 1, language = 'en-US') {
+  const options = generateOption('trending/all/day', { language, page });
   return axiosGet(options);
 }
 
-export async function getTrendingAllWeek() {
-  const options = generateOption('trending/all/week', { language: 'en-US' });
+export async function getTrendingAllWeek(page = 1, language = 'en-US') {
+  const options = generateOption('trending/all/week', { language , page });
   return axiosGet(options);
 }
 
-export async function getMovieUpcoming(page) {
-  const options = generateOption('movie/upcoming', { language: 'en-US', page });
+export async function getMovieUpcoming(page = 1, language = 'en-US') {
+  const options = generateOption('movie/upcoming', { language, page });
   return axiosGet(options);
 }
 
 //!!! query must not be empty
 export async function getSearchMovie({
   query = 'qqq',
+  language = 'en-US',
   include_adult = false,
   primary_release_year,
   page = 1,
@@ -56,7 +60,7 @@ export async function getSearchMovie({
   year,
 }) {
   const options = generateOption('search/movie', {
-    language: 'en-US',
+    language,
     query,
     include_adult,
     primary_release_year,
@@ -67,21 +71,17 @@ export async function getSearchMovie({
   return axiosGet(options);
 }
 
-export async function getMovieDetails(movie_id) {
-  const options = generateOption(`movie/${movie_id}`, {
-    language: 'en-US',
-  });
+export async function getMovieDetails(movie_id, language = 'en-US') {
+  const options = generateOption(`movie/${movie_id}`, { language });
   return axiosGet(options);
 }
 
-export async function getMovieVideos(movie_id) {
-  const options = generateOption(`movie/${movie_id}/videos`, {
-    language: 'en-US',
-  });
+export async function getMovieVideos(movie_id, language = 'en-US') {
+  const options = generateOption(`movie/${movie_id}/videos`, { language });
   return axiosGet(options);
 }
 
-export async function getGenreMovieList() {
-  const options = generateOption('genre/movie/list', { language: 'en' });
+export async function getGenreMovieList(language = 'en-US') {
+  const options = generateOption('genre/movie/list', { language });
   return axiosGet(options);
 }
