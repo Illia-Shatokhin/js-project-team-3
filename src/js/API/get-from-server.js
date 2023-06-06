@@ -40,7 +40,7 @@ export async function getTrendingAllDay(page = 1, language = 'en-US') {
 }
 
 export async function getTrendingAllWeek(page = 1, language = 'en-US') {
-  const options = generateOption('trending/all/week', { language , page });
+  const options = generateOption('trending/all/week', { language, page });
   return axiosGet(options);
 }
 
@@ -54,10 +54,10 @@ export async function getSearchMovie({
   query = 'qqq',
   language = 'en-US',
   include_adult = false,
-  primary_release_year = "",
+  primary_release_year = '',
   page = 1,
-  region = "",
-  year = "",
+  region = '',
+  year = '',
 }) {
   const options = generateOption('search/movie', {
     language,

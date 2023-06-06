@@ -51,7 +51,6 @@ export async function weeklyTrendsList(page = 1) {
     // TODO:  fix pagination functionality
     const watchedPagination = new CreatePagination(data, weeklyTrendsList);
     watchedPagination.activatePagination();
-
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }

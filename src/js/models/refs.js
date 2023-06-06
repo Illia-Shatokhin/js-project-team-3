@@ -12,8 +12,8 @@ export const refs = {
   buttonReset: document.querySelector('.catalog-button-reset'),
   buttonSearchCatalog: document.querySelector('.catalog-search-button'),
 
-  tuiPaginationContainer:document.getElementById('tui-pagination-container'),
-  
+  tuiPaginationContainer: document.getElementById('tui-pagination-container'),
+
   catalogSelectYear: document.getElementById('year'),
   catalogSelectCountry: document.getElementById('country'),
   heroRef: document.querySelector('.hero'),
