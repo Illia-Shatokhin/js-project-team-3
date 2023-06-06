@@ -1,11 +1,12 @@
 import Pagination from 'tui-pagination';
+import { refs } from '../models/refs';
 // import 'tui-pagination/dist/tui-pagination.css';
 
-
 export default class CreatePagination {
-  constructor(object, requestType = '') {
+  constructor(object, func, requestType = '') {
 
     this.object = object;
+    this.func = func;
     this.options = {
       totalItems: object.total_results,
       itemsPerPage: object.results.length,
@@ -36,9 +37,12 @@ export default class CreatePagination {
   }
 
   activatePagination() {
-    const pagination = new Pagination('tui-pagination-container', this.options);
+    const pagination = new Pagination(refs.tuiPaginationContainer, this.options);
     pagination.on('afterMove', ({ page }) => {
-      // this.object.moveToPage(page);
+      console.log("🚀 ~ file: pagination.js:46 ~ CreatePagination ~ pagination.on ~ page:", page)
+      this.func(page);
+
     });
+
   }
 }

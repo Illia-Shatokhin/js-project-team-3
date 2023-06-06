@@ -1,7 +1,7 @@
 import { getTrendingAllDay } from './API/get-from-server.js';
-// import { getTrailer } from '.hero-trailer.js';
-
-const heroRef = document.querySelector('.hero');
+// import { getTrailer } from './hero-trailer.js';
+import { getMovie } from './modalWindow.js';
+import { refs } from './models/refs.js';
 
 const gradient320 =
   'linear-gradient(86.47deg, #111111 33.63%, rgba(17, 17, 17, 0) 76.86%)';
@@ -10,47 +10,40 @@ const gradient768 =
 const gradient1280 =
   'linear-gradient(83.06deg, #111111 11.91%, rgba(17, 17, 17, 0) 73.11%)';
 
-export function createHero() {
-  getDataHero();
+let currentId;
+
+export function createHero(currentPage) {
+  getDataHero(currentPage);
 }
 
-async function getDataHero() {
+async function getDataHero(currentPage) {
   try {
     const data = await getTrendingAllDay();
-    renderHero(data.results);
-    // !------------------
-    // console.log('Ламаю запит');
-    // !--------------
+    renderHero(data.results, currentPage);
   } catch (error) {
     error => console.log(error);
   }
-
-  // * Це ще в експеременті------------------
-  const watchTrailerBtn = document.getElementById('watch-trailer-btn');
-  watchTrailerBtn.addEventListener('click', e => {
-    console.dir(e.currentTarget);
-    // getTrailer();
-  });
-  // *---------------------------
 }
 
-function renderHero(data) {
+function renderHero(data, currentPage) {
   const index = getRandomIndex();
 
   const { id, overview, title, vote_average, backdrop_path } = data[index];
 
-  heroRef.setAttribute('id', `${id}`);
-
-  // ?---------------------тест заглушки----------------
-  // addHeroBackgroundStub();
-  // heroRef.innerHTML = creatHeroMarkupStub(overview, title, vote_average);
-  // ?----------------------------------
+  currentId = id;
+  console.log(currentPage);
 
   if (!data) {
-    addHeroBackgroundStub();
-    heroRef.innerHTML = creatHeroMarkupStub(overview, title, vote_average);
+    if (currentPage === 'hero/catalog') {
+      addHeroBackgroundStub();
+      refs.heroRef.innerHTML = createHomeHeroMarkupStubb();
+    }
+
+    if (currentPage === 'library') {
+      addHeroBackgroundStub();
+      refs.heroRef.innerHTML = createLibraryHeroMarkupStubb();
+    }
   } else {
-    // !----------Перевірка на погану карточку - якщо не всі дані перезапускаємо функцію знову, шукаємо іншу-------
     if (
       id === undefined ||
       title === undefined ||
@@ -60,11 +53,28 @@ function renderHero(data) {
     ) {
       return createHero();
     }
-    // !-----------------------------------------------------------------
 
     addHeroBackground(backdrop_path);
-    heroRef.innerHTML = creatHeroMarkup(overview, title, vote_average);
+    refs.heroRef.innerHTML = creatHeroMarkup(overview, title, vote_average);
   }
+
+  getElemAddListenersHeroBtn();
+}
+
+function getElemAddListenersHeroBtn() {
+  const trailerHeroBtn = document.getElementById('trailer-hero-btn');
+  trailerHeroBtn.addEventListener('click', () => {
+    getTrailer(currentId);
+  });
+
+  const detailsHeroBtn = document.getElementById('details-hero-btn');
+  detailsHeroBtn.addEventListener('click', () => {
+    getMovie(currentId);
+  });
+}
+
+function getRandomIndex() {
+  return Math.floor(Math.random() * 20);
 }
 
 function creatHeroMarkup(overview, title, vote_average) {
@@ -76,19 +86,17 @@ function creatHeroMarkup(overview, title, vote_average) {
         <p class="overview-text">${overview}</p>
       </div>
       <div class="thumb-hero-btn">
-        <button class="button btn-gradient hero-btn" id="watch-trailer-btn">Watch trailer</button>
-        <button class="button btn-transparent-dark hero-btn">More details</button>
+        <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
+        <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
       </div>
     </div>`;
 }
 
-function getRandomIndex() {
-  return Math.floor(Math.random() * 20);
-}
-
 function addHeroBackground(backdrop_path) {
+  console.log('hero background');
+
   if (document.documentElement.clientWidth <= 767) {
-    heroRef.style.backgroundImage = `${gradient320},
+    refs.heroRef.style.backgroundImage = `${gradient320},
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
   }
 
@@ -96,21 +104,21 @@ function addHeroBackground(backdrop_path) {
     document.documentElement.clientWidth >= 768 &&
     window.innerWidth <= 1279
   ) {
-    heroRef.style.backgroundImage = `${gradient768},
+    refs.heroRef.style.backgroundImage = `${gradient768},
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
   }
 
   if (document.documentElement.clientWidth >= 1280) {
-    heroRef.style.backgroundImage = `${gradient1280},
+    refs.heroRef.style.backgroundImage = `${gradient1280},
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
   }
 }
 
-function addHeroBackgroundStub() {
-  heroRef.classList.add('hero-stub');
+function addHomeHeroBackgroundStub() {
+  refs.heroRef.classList.add('hero-stub');
 }
 
-function creatHeroMarkupStub() {
+function createHomeHeroMarkupStub() {
   let overviewTextStub = '';
 
   if (document.documentElement.clientWidth <= 767) {
@@ -131,6 +139,20 @@ function creatHeroMarkupStub() {
       </div>
       <div class="thumb-hero-btn">
         <a href="./my-library.html" class="button btn-gradient hero-btn">Get Started</a>
+      </div>
+    </div>`;
+}
+
+function addLibraryHeroBackgroundStub() {
+  refs.heroRef.classList.add('hero-library-stub');
+}
+
+function createLibraryHeroMarkupStub() {
+  return `
+    <div class="container hero-container">
+      <h2 class="hero-title hero-title-lib-stub">Create Your Dream Cinema</h2>
+      <div class="hero-lib-text">
+        <p class="overview-text-stub">Is a guide to designing a personalized movie theater experience with the right equipment, customized decor, and favorite films. This guide helps you bring the cinema experience into your own home with cozy seating, dim lighting, and movie theater snacks.</p>
       </div>
     </div>`;
 }
