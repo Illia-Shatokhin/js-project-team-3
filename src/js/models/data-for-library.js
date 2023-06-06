@@ -6,7 +6,7 @@ import { errorLibraryMarkup, renderError } from './../errortrailer';
 import { getMovie } from '/js/modalWindow.js';
 
 
-
+const moviePerPage = 3;
 
 const filmsOfLocalStorage = document.querySelector('.my-library-list');
 
@@ -18,19 +18,39 @@ const libraryFromLocal = localStorage.getItem('myLibrary') ? JSON.parse(localSto
 if (libraryFromLocal.length == 0) {
   renderError(filmsOfLocalStorage, errorLibraryMarkup)
 } else {
-  createMovieCard(libraryFromLocal, filmsOfLocalStorage, libraryFromLocal.length < 3 ? libraryFromLocal.length : 3);
+  createMovieCard(libraryFromLocal, filmsOfLocalStorage, libraryFromLocal.length < moviePerPage ? libraryFromLocal.length : moviePerPage);
 }
 
-if (libraryFromLocal.length > 3) {
+if (libraryFromLocal.length > moviePerPage) {
   btnLoadMore.style.setProperty("display", "block");
 }
 
 filmsOfLocalStorage.addEventListener('click', openFilmDetails);
 
-btnLoadMore.addEventListener('click', loadMore)
 
 
-function loadMore() {
+let PAGE = 1
 
+const libraryForPage = sliceIntoPart(libraryFromLocal, moviePerPage);
+
+console.log('111', libraryForPage);
+
+btnLoadMore.addEventListener('click', function () {
+
+  createMovieCard(libraryForPage[PAGE], filmsOfLocalStorage, libraryForPage[PAGE].length < moviePerPage ? libraryForPage[PAGE].length : moviePerPage);
+
+  console.log('load:', libraryForPage[PAGE]);
+
+  PAGE++
+  if ([PAGE] >= libraryForPage.length) { btnLoadMore.style.setProperty("display", "none"); }
+});
+
+
+function sliceIntoPart(arr, n) {
+  const res = [];
+  for (let i = 0; i < arr.length; i += n) {
+    const part = arr.slice(i, i + n);
+    res.push(part);
+  }
+  return res;
 }
-
