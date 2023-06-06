@@ -54,10 +54,10 @@ export async function getSearchMovie({
   query = 'qqq',
   language = 'en-US',
   include_adult = false,
-  primary_release_year,
+  primary_release_year = "",
   page = 1,
-  region,
-  year,
+  region = "",
+  year = "",
 }) {
   const options = generateOption('search/movie', {
     language,

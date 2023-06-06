@@ -25,21 +25,23 @@ export default function createMovieCard(data, elem, count) {
     const releaseYear = getReleaseYear(data[index]);
     markup += movieCardMarkup(data[index], releaseYear);
   }
-  elem.insertAdjacentHTML('beforeend', markup);
+  //! для перемалювання списку при пагінації
+  // elem.insertAdjacentHTML('beforeend', markup);
+  elem.innerHTML = markup;
 }
 
 //================================================================
-export async function week() {
+export async function week(page = 1) {
   try {
-    const data = await getTrendingAllWeek();
+    const data = await getTrendingAllWeek(page);
     screen.width <= 767
       ? createMovieCard(data.results, refs.catalogList, 10)
       : createMovieCard(data.results, refs.catalogList, 20);
-    
-      // TODO:  fix pagination functionality
-    const watchedPagination = new CreatePagination(data);
+
+    // TODO:  fix pagination functionality
+    const watchedPagination = new CreatePagination(data, week);
     watchedPagination.activatePagination();
-    
+
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
