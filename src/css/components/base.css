@@ -1,3 +1,7 @@
+body {
+  background-color: var(--black);
+}
+
 .container {
   margin: 0 auto;
   padding: 0 20px;

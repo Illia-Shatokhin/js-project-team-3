@@ -1,9 +1,9 @@
 /* MOBILE */
 
 .weekly-section {
- padding-top: 40px;
- padding-bottom: 32px;
- background-color: var(--black);
+  padding-top: 40px;
+  padding-bottom: 32px;
+  background-color: var(--black);
 }
 
 .weekly-wrap {
@@ -37,55 +37,48 @@
   gap: 16px;
 }
 
-
 @media screen and (min-width: 768px) {
-
-.weekly-section {
+  .weekly-section {
     padding-top: 52px;
     padding-bottom: 44px;
-}
+  }
 
-.weekly-links {
- display: flex;
- gap: 16px;
-}
+  .weekly-links {
+    display: flex;
+    gap: 16px;
+  }
 
-.weekly-section-title {
-  font-size: 24px;
-  line-height: 1.16;
-}
+  .weekly-section-title {
+    font-size: 24px;
+    line-height: 1.16;
+  }
 
-.trends-film {
-  font-size: 24px;
-  line-height: 1.16;
-}
+  .trends-film {
+    font-size: 24px;
+    line-height: 1.16;
+  }
 }
 
 @media screen and (min-width: 1280px) {
- .weekly-section {
-  padding-top: 80px;
-  padding-bottom: 60px;
+  .weekly-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .weekly-wrap {
+    margin-bottom: 28px;
+  }
+
+  .weekly-section-title {
+    font-size: 28px;
+    line-height: 1.17;
+  }
+
+  .trends-film {
+    font-size: 24px;
+    line-height: 1.17;
+  }
 }
-
-.weekly-wrap {
-  margin-bottom: 28px;
-}
-
-.weekly-section-title {
- font-size: 28px;
-  line-height: 1.17;
-}
-
-.trends-film {
-  font-size: 24px;
-  line-height: 1.17;
-}
-
-}
-
-
-
-
 
 /* Rating stars */
 
@@ -94,20 +87,18 @@
   font-size: 40px;
   display: inline-block;
 }
- 
- /* Псевдоелемент для спільної обгортки */ 
- .simple-rating::before {
-  content:"★★★★★";
+
+/* Псевдоелемент для спільної обгортки */
+.simple-rating::before {
+  content: '★★★★★';
   display: block;
 }
-
-
 
 .simple-rating_items {
   position: absolute;
   width: 100%;
   height: 100%;
-  top:0;
+  top: 0;
   left: 0;
   display: flex;
   flex-direction: row-reverse;
@@ -116,12 +107,12 @@
 
 .simple-rating_item {
   position: absolute;
-    width: 0%;
-    height: 0%;
-    opacity: 0;
-    visibility: hidden;
-    top: 0;
-    left: 0;
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  left: 0;
 }
 
 .simple-rating_label {
@@ -132,13 +123,13 @@
 }
 
 .simple-rating_label::before {
-  content: "★";
+  content: '★';
   display: block;
   transition: color 0.3s ease 0s;
 }
 
 .simple-rating_item:checked,
-.simple-rating_item:checked~.simply-rating_label {
+.simple-rating_item:checked ~ .simply-rating_label {
   color: #f87719;
 }
 
@@ -147,9 +138,6 @@
 .simple-rating_label:checked ~ .simple-rating_label:hover {
   color: wheat;
 }
-
-
-
 
 /* .star-text {
 .simply-rating {
@@ -160,33 +148,27 @@
  
  /* Псевдоелемент для спільної обгортки */
 .simply-rating::before {
-  content:"★★★★★";
+  content: '★★★★★';
   display: block;
-  
 }
 
+.simply-rating_items {
+}
 
+.simply-rating_item {
+}
 
-.simply-rating_items {}
-
-.simply-rating_item {}
-
-.simple-rating_label {}
-
-
-
+.simple-rating_label {
+}
 
 .star-text {
   color: orange;
-} */
-
-
-
-.simple-rating_items {
+}
+*/ .simple-rating_items {
   position: absolute;
   width: 100%;
   height: 100%;
-  top:0;
+  top: 0;
   left: 0;
   display: flex;
   flex-direction: row-reverse;
@@ -195,12 +177,12 @@
 
 .simple-rating_item {
   position: absolute;
-    width: 0%;
-    height: 0%;
-    opacity: 0;
-    visibility: hidden;
-    top: 0;
-    left: 0;
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  left: 0;
 }
 
 .simple-rating_label {
@@ -211,13 +193,13 @@
 }
 
 .simple-rating_label::before {
-  content: "★";
+  content: '★';
   display: block;
   transition: color 0.3s ease 0s;
 }
 
 .simple-rating_item:checked,
-.simple-rating_item:checked~.simply-rating_label {
+.simple-rating_item:checked ~ .simply-rating_label {
   color: #f87719;
 }
 
@@ -226,9 +208,6 @@
 .simple-rating_label:checked ~ .simple-rating_label:hover {
   color: wheat;
 }
-
-
-
 
 /* .star-text {
   color: orange;
@@ -302,6 +281,3 @@
   line-height: 1;
   padding: 0px 0px 0px 10px;
 } */
-
-
-
