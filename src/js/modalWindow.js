@@ -1,4 +1,4 @@
-// const axios = require('axios').default;
+
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 // import { refs } from './models/refs.js';
@@ -22,6 +22,8 @@ const options = {
 
 /*--------отримує дані з бекенду про фільм-------------*/
 
+const bodyElement = document.querySelector('body'); 
+
 async function fetchMovieDetails(movie_id) {
   try {
     const URL_DETAIL = `https://api.themoviedb.org/3/movie/${movie_id}`;
@@ -34,8 +36,6 @@ async function fetchMovieDetails(movie_id) {
   }
 }
 
-// const movie_id =  603654;
-// const movie_id =  605579;
 
 /*---------------------створює розмітку мадального вікна з інфо про фільм---------------------*/
 function renderModalMovieMarkup(data) {
@@ -87,6 +87,7 @@ async function getMovie(movie_id) {
         .querySelector('.modal-close-btn')
         .addEventListener('click', () => {
           instance.close();
+          bodyElement.style.overflow = 'auto';
         });
       document.addEventListener('keydown', closeModalOnKeyPress);
     },
@@ -107,6 +108,7 @@ async function getMovie(movie_id) {
     toggleLibraryStatus(data);
   });
   updateLibraryButtonStatus(data.id);
+  bodyElement.style.overflow = 'hidden';
 } catch (error) {
   console.log('Помилка отримання даних про фільм:', error);
 }
@@ -117,7 +119,9 @@ function closeModalOnKeyPress(e) {
     return;
   }
   instance.close();
+  bodyElement.style.overflow = 'auto';
   document.removeEventListener('keydown', closeModalOnKeyPress);
+ 
 }
 
 
