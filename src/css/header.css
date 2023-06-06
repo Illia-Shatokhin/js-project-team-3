@@ -1,21 +1,3 @@
-body {
-  background-color: var(--white);
-  transition: background-color 0.5s ease;
-}
-
-body.dark-theme {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-body.dark-theme .menu-content {
-  background-color: var(--black);
-}
-
-body.dark-theme #mobile-menu {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
 .desktop-header {
   display: flex;
   width: 100%;
