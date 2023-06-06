@@ -52,7 +52,6 @@ body.dark-theme #mobile-menu {
   width: auto;
   align-items: center;
   justify-content: space-between;
-  margin: 8px 20px;
 }
 .tablet-menu {
   display: none;

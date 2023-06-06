@@ -1,9 +1,8 @@
-// import { createHero } from './js/hero.js';
+import { createHero } from './js/hero.js';
+createHero();
 
-// createHero();
-
-import '/js/hero.js';
-import '/js/models/weeklyTrends.js';
+import '/js/header.js';
+import weeklyTrends from '/js/models/weeklyTrends.js';
 import '/js/modalWindow.js';
 import { getMovie } from '/js/modalWindow.js';
 import '/js/hero-trailer.js';
@@ -11,3 +10,5 @@ import '/js/hero-trailer.js';
 //     getMovie( 605575);
 // })
 import '/js/upcoming-films.js';
+
+weeklyTrends();
