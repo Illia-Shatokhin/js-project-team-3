@@ -1,1 +1,0 @@
-import{d as r,f as t}from"./header-4ee220f6.js";const a={genreMovieList:null,configLanguages:null,searchCurrentPage:0,searchQuery:"mouse",searchYear:"",searchRegion:""};async function n(){try{const e=await r();e.genres&&(a.genreMovieList=e.genres),a.configLanguages=await t()}catch{}}n();export{a as d};
