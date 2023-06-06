@@ -1,6 +1,6 @@
 :root {
   --color2: #d0d8e0;
-  --color1: #f84119;
+  --color1: rgb(248, 159, 25);
 }
 
 .review-stars {
