@@ -88,7 +88,9 @@
 .logo-container img {
   max-width: 100px; /* Adjust the size as per your logo dimensions */
 }
-
+.table-desktop{
+  color: white;
+}
 .menu-container {
   display: flex;
   align-items: center;
