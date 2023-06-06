@@ -14,6 +14,7 @@
   background-color: var(--black);
   color: var(--white);
 }
+
 .hover-text {
   font-family: 'Roboto-Medium';
   font-size: 14px;
@@ -24,7 +25,9 @@
   text-transform: uppercase;
   transition: color 0.3s ease; /* Transition for color property */
 }
-
+.hover-text.dark-theme {
+  color: var(--white);
+}
 .hover-text:hover,
 .hover-text:focus {
   color: var(--orange);
@@ -138,7 +141,7 @@
 }
 
 .menu-content {
-  width: 204px;
+  width: 65%;
   border-radius: 5px;
   text-align: left;
   background-color: var(--white);
@@ -223,6 +226,24 @@
 .switch input:checked + .slider {
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 }
+.main-logo {
+  display: flex;
+}
+.logo-text {
+  font-family: 'Roboto-Medium';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 8px;
+  transition: color 0.3s ease;
+}
+.logo-text:hover {
+  color: var(--orange);
+}
 
 .switch input:checked + .slider:before {
   transform: translateX(20px);
@@ -284,13 +305,13 @@
     max-height: 36px;
   }
 
-  .logo-container::after {
+  /*.logo-container::after {
     content: 'Cinemania';
     margin-left: 10px;
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
-  }
+  }*/
   .mobile-menu {
     display: flex;
     margin-left: 216px;
@@ -301,6 +322,9 @@
     display: none;
   }
   .table-desktop {
+    display: none;
+  }
+  .logo-text{
     display: none;
   }
 }
@@ -357,13 +381,13 @@
     max-height: 36px;
   }
 
-  .logo-container::after {
+  /*.logo-container::after {
     content: 'Cinemania';
     margin-left: 10px;
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
-  }
+  }*/
   .mobile-menu {
     display: flex;
     margin-left: 216px;
