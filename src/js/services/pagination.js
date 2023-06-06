@@ -3,8 +3,15 @@ import { refs } from '../models/refs';
 // import 'tui-pagination/dist/tui-pagination.css';
 
 export default class CreatePagination {
-  constructor(object, func, requestType = '') {
+  // private Class`s methods
+  #scrollUp() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 
+  constructor(object, func, requestType = '') {
     this.object = object;
     this.func = func;
     this.options = {
@@ -41,7 +48,7 @@ export default class CreatePagination {
     pagination.on('afterMove', ({ page }) => {
       console.log("🚀 ~ file: pagination.js:46 ~ CreatePagination ~ pagination.on ~ page:", page)
       this.func(page);
-
+      this.#scrollUp();
     });
 
   }

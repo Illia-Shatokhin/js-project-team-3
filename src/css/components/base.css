@@ -1,3 +1,10 @@
+body {
+  background-color: var(--black);
+  /* display: flex;
+  flex-direction: column;
+  height: 100vh; */
+}
+
 .container {
   margin: 0 auto;
   padding: 0 20px;
