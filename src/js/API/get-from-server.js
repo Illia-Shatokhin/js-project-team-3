@@ -19,8 +19,10 @@ async function axiosGet(options) {
     const response = await axios.request(options);
     return response.data;
   } catch (err) {
+    //FIXME: may be deleted when error is returned
     console.error(err);
-    Notify.failure(err.message);
+    Notify.failure('axiosGet: ' + err.message);
+
     throw new Error(err);
   }
 }
