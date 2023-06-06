@@ -26,8 +26,10 @@ export async function sendSearch(page = 1) {
     if (arrayMovies.length) {
       filterCreateMovieCard(data);
       refs.catalogForm.reset();
+      hiddenBtnReset();
     } else {
       renderBtnReset();
+      catalogListReset();
       renderError(refs.catalogList, errorCatalogMarkup);
     }
 
@@ -49,10 +51,11 @@ export async function onSubmit(event) {
   const country = form.elements.country.value;
   const year = form.elements.year.value;
 
-  if (value === '') Notify.failure('No movie specified!');
-
+  if (value === '') Notify.failure('No movie specified!')
+ else {
   setSearchParam(1, value, year, country);
   sendSearch();
+ }
 }
 
 function filterCreateMovieCard(data) {
