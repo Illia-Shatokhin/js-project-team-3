@@ -1,58 +1,74 @@
-import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import {getSearchMovie} from './API/get-from-server';
+import { getSearchMovie } from './API/get-from-server';
+import { refs } from './models/refs';
+import { renderError, errorCatalogMarkup } from './errortrailer';
+import createMovieCard from './catalogMovieCard';
 
-const KEY =
-  'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzN2MwNTQ2OTJhMjhhMGI4N2RjMjcxY2I3MjM1MGY5ZCIsInN1YiI6IjY0NzkwNDQ3MTc0OTczMDEzNTAwM2Q4ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.18CUpoY0xgepvezf35K1455pbEVdmHEuDU72vq0k1uQ';
-let value;
-const URL_Movie =
-  'https://api.themoviedb.org/3/search/movie?query=${value}&include_adult=false&language=en-US&page=1';
+refs.catalogForm.addEventListener('submit', onSubmit);
 
-const options = {
-  method: 'GET',
-  headers: {
-    Authorization: `Bearer ${KEY}`,
-    accept: 'application/json',
-  },
-};
-
-const catalogForm = document.getElementById('search-form');
-const buttonReset = document.querySelector('.catalog-button-reset');
-
-async function fetchMovie() {
+export async function onSubmit(event) {
   try {
-    const response = await axios.get(URL_Movie, options);
-    const arrayMovies = response.data.results;
-    console.log(arrayMovies);
-    return arrayMovies;
-  } catch (error) {
-    console.error(error);
-  }
-}
+    event.preventDefault();
+    const form = event.currentTarget;
+    const value = form.elements.searchQuery.value.trim();
+    const country = form.elements.country.value;
+    const year = form.elements.year.value;
+    console.log(year);
+    console.log(country);
 
-catalogForm.addEventListener('submit', onSubmit);
+    if (value === '') Notify.failure('No movie specified!');
+    else {
+      const options = {
+        query: value,
+        include_adult: false,
+        primary_release_year: year,
+        page: 1,
+        region: country,
+        year: year,
+      };
+      const response = await getSearchMovie(options);
+      const arrayMovies = await response.results;
 
-function onSubmit(event) {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const value = form.elements.searchQuery.value.trim();
+      console.dir(arrayMovies);
 
-  if (value === '') Notify.failure('No value!');
-  else {
-    fetchMovie();
-    renderBtnReset();
-    buttonReset.addEventListener('click', e => {
-      catalogForm.reset();
+      if (arrayMovies.length) {
+        catalogListReset();
+        filterCreateMovieCard(arrayMovies);
+      } else {
+        catalogListReset();
+        renderError(refs.catalogList, errorCatalogMarkup);
+      }
+      renderBtnReset();
+    }
+    refs.buttonReset.addEventListener('click', e => {
+      refs.catalogForm.reset();
       hiddenBtnReset();
     });
+  } catch (error) {
+    console.error(error);
+    catalogListReset();
+    renderError(refs.catalogList, errorCatalogMarkup);
   }
 }
 
-function renderBtnReset() {
-  buttonReset.classList.remove('hidden');
-  buttonReset.classList.add('active');
+export function filterCreateMovieCard(array) {
+  screen.width <= 767
+    ? createMovieCard(array, refs.catalogList, 10)
+    : createMovieCard(array, refs.catalogList, 20);
 }
-function hiddenBtnReset() {
-  buttonReset.classList.remove('active');
-  buttonReset.classList.add('hidden');
+
+export function renderBtnReset() {
+  refs.buttonReset.classList.remove('hidden');
+  refs.buttonReset.classList.add('active');
+  refs.buttonSearchCatalog.disabled = true;
+}
+
+export function hiddenBtnReset() {
+  refs.buttonReset.classList.remove('active');
+  refs.buttonReset.classList.add('hidden');
+  refs.buttonSearchCatalog.disabled = false;
+}
+
+export function catalogListReset() {
+  refs.catalogList.innerHTML = '';
 }

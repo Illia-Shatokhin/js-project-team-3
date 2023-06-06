@@ -1,7 +1,7 @@
 import { getTrendingAllDay } from './API/get-from-server.js';
-
-const heroRef = document.querySelector('.hero');
-createHero();
+// import { getTrailer } from './hero-trailer.js';
+import { getMovie } from './modalWindow.js';
+import { refs } from './models/refs.js';
 
 const gradient320 =
   'linear-gradient(86.47deg, #111111 33.63%, rgba(17, 17, 17, 0) 76.86%)';
@@ -10,116 +10,149 @@ const gradient768 =
 const gradient1280 =
   'linear-gradient(83.06deg, #111111 11.91%, rgba(17, 17, 17, 0) 73.11%)';
 
-const gradient320HomeStub =
-  'linear-gradient(86.77deg, #111111 30.38%, rgba(17, 17, 17, 0) 65.61%)';
-const gradient768HomeStub =
-  'linear-gradient(82.55deg, #111111 39.6%, rgba(17, 17, 17, 0) 72.95%)';
-const gradient1280HomeStub =
-  'linear-gradient(83.16deg, #111111 36.85%, rgba(17, 17, 17, 0) 60.05%)';
+let currentId;
 
-const gradient320LibStub =
-  'linear-gradient(79.49deg, #111111 34.1%, rgba(17, 17, 17, 0) 64.67%)';
-const gradient768LibStub =
-  'linear-gradient(77.77deg, #111111 33.58%, rgba(17, 17, 17, 0) 71.57%)';
-const gradient1280LibStub =
-  'linear-gradient(79.39deg, #111111 32.37%, rgba(17, 17, 17, 0) 72.02%)';
-
-export default function createHero() {
-  getDataHero();
+export function createHero(currentPage) {
+  getDataHero(currentPage);
 }
 
-async function getDataHero() {
+async function getDataHero(currentPage) {
   try {
     const data = await getTrendingAllDay();
-    renderHero(data.results);
+    renderHero(data.results, currentPage);
   } catch (error) {
     error => console.log(error);
   }
 }
 
-function renderHero(data) {
+function renderHero(data, currentPage) {
   const index = getRandomIndex();
 
-  const { id, overview, original_title, vote_average, backdrop_path } =
-    data[index];
+  const { id, overview, title, vote_average, backdrop_path } = data[index];
 
-  heroRef.setAttribute('id', `${id}`);
+  currentId = id;
+  console.log(currentPage);
 
   if (!data) {
-    addHeroBackgroundStub();
-    heroRef.innerHTML = creatHeroMarkupStub(
-      overview,
-      original_title,
-      vote_average
-    );
+    if (currentPage === 'hero/catalog') {
+      addHeroBackgroundStub();
+      refs.heroRef.innerHTML = createHomeHeroMarkupStubb();
+    }
+
+    if (currentPage === 'library') {
+      addHeroBackgroundStub();
+      refs.heroRef.innerHTML = createLibraryHeroMarkupStubb();
+    }
   } else {
+    if (
+      id === undefined ||
+      title === undefined ||
+      overview === undefined ||
+      vote_average === undefined ||
+      backdrop_path === undefined
+    ) {
+      return createHero();
+    }
+
     addHeroBackground(backdrop_path);
-    heroRef.innerHTML = creatHeroMarkup(overview, original_title, vote_average);
+    refs.heroRef.innerHTML = creatHeroMarkup(overview, title, vote_average);
   }
+
+  getElemAddListenersHeroBtn();
 }
 
-function creatHeroMarkup(overview, original_title, vote_average) {
-  return `
-    <div class="container hero-container">
-      <h2 class="hero-title">${original_title}</h2>
-      <p class="reting-stars">${vote_average.toFixed(1)}</p>
-      <div class="overview">
-        <p overview-text> ${overview} </p>
-      </div>
-      <div class="thumb-hero-btn">
-        <button class="button btn-gradient hero-btn">Watch trailer</button>
-        <button class="button btn-transparent-dark hero-btn">More details</button>
-      </div>
-    </div>`;
+function getElemAddListenersHeroBtn() {
+  const trailerHeroBtn = document.getElementById('trailer-hero-btn');
+  trailerHeroBtn.addEventListener('click', () => {
+    getTrailer(currentId);
+  });
+
+  const detailsHeroBtn = document.getElementById('details-hero-btn');
+  detailsHeroBtn.addEventListener('click', () => {
+    getMovie(currentId);
+  });
 }
 
 function getRandomIndex() {
   return Math.floor(Math.random() * 20);
 }
 
-function addHeroBackground(backdrop_path) {
-  if (window.innerWidth <= 767) {
-    heroRef.style.backgroundImage = `${gradient320},
-    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
-  }
-
-  if (window.innerWidth >= 768 && window.innerWidth <= 1279) {
-    heroRef.style.backgroundImage = `${gradient768},
-    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
-  }
-
-  if (window.innerWidth >= 1280) {
-    heroRef.style.backgroundImage = `${gradient1280},
-    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
-  }
-}
-//! Перевірити адресу картинки
-function addHeroBackgroundStub() {
-  if (window.innerWidth <= 320) {
-    heroRef.style.backgroundImage = `${gradient320HomeStub},
-    url(./public/img/hero.mob.jpeg})`;
-  }
-
-  if (window.innerWidth >= 321 && window.innerWidth <= 768) {
-    heroRef.style.backgroundImage = `${gradient768},
-    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
-  }
-
-  if (window.innerWidth >= 769) {
-    heroRef.style.backgroundImage = `${gradient1280},
-    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
-  }
-}
-
-function creatHeroMarkupStub() {
+function creatHeroMarkup(overview, title, vote_average) {
   return `
     <div class="container hero-container">
-      <h2 class="hero-title">Let’s Make Your Own Cinema</h2>
+      <h2 class="hero-title">${title}</h2>
+      <p class="reting-stars">${vote_average.toFixed(1)}</p>
       <div class="overview">
-        <p overview-text>Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.</p>
+        <p class="overview-text">${overview}</p>
       </div>
       <div class="thumb-hero-btn">
-        <button class="button btn-gradient hero-btn">Get Started</button>
+        <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
+        <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
+      </div>
+    </div>`;
+}
+
+function addHeroBackground(backdrop_path) {
+  console.log('hero background');
+
+  if (document.documentElement.clientWidth <= 767) {
+    refs.heroRef.style.backgroundImage = `${gradient320},
+    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
+  }
+
+  if (
+    document.documentElement.clientWidth >= 768 &&
+    window.innerWidth <= 1279
+  ) {
+    refs.heroRef.style.backgroundImage = `${gradient768},
+    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
+  }
+
+  if (document.documentElement.clientWidth >= 1280) {
+    refs.heroRef.style.backgroundImage = `${gradient1280},
+    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
+  }
+}
+
+function addHomeHeroBackgroundStub() {
+  refs.heroRef.classList.add('hero-stub');
+}
+
+function createHomeHeroMarkupStub() {
+  let overviewTextStub = '';
+
+  if (document.documentElement.clientWidth <= 767) {
+    overviewTextStub =
+      "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers.";
+  }
+
+  if (document.documentElement.clientWidth >= 768) {
+    overviewTextStub =
+      "Is a guide to creating a personalized movie theater experience. You'll need a projector, screen, and speakers. Decorate your space, choose your films, and stock up on snacks for the full experience.";
+  }
+
+  return `
+    <div class="container hero-container">
+      <h2 class="hero-title hero-title-stub">Let’s Make Your Own Cinema</h2>
+      <div class="overview">
+        <p class="overview-text-stub">${overviewTextStub}</p>
+      </div>
+      <div class="thumb-hero-btn">
+        <a href="./my-library.html" class="button btn-gradient hero-btn">Get Started</a>
+      </div>
+    </div>`;
+}
+
+function addLibraryHeroBackgroundStub() {
+  refs.heroRef.classList.add('hero-library-stub');
+}
+
+function createLibraryHeroMarkupStub() {
+  return `
+    <div class="container hero-container">
+      <h2 class="hero-title hero-title-lib-stub">Create Your Dream Cinema</h2>
+      <div class="hero-lib-text">
+        <p class="overview-text-stub">Is a guide to designing a personalized movie theater experience with the right equipment, customized decor, and favorite films. This guide helps you bring the cinema experience into your own home with cozy seating, dim lighting, and movie theater snacks.</p>
       </div>
     </div>`;
 }

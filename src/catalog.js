@@ -1,12 +1,10 @@
+import './js/services/get-default-data';
+
 import '/js/hero.js';
+import { onSubmit } from './js/catalogSearch.js';
+import { createHero } from './js/hero.js';
 import '/js/catalogSearch.js';
 import '/js/header.js';
-import createCatalogMovieCard from './js/catalogMovieCard';
-import {
-  getGenreMovieList,
-  getTrendingAllWeek,
-} from './js/API/get-from-server';
-
-const catalogList = document.querySelector('.catalog-list');
-// const weeklyTrendsData = await getTrendingAllWeek();
-createCatalogMovieCard(getTrendingAllWeek, catalogList);
+import { weeklyTrendsList } from './js/catalogMovieCard';
+createHero();
+weeklyTrendsList();
