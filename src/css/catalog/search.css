@@ -138,6 +138,9 @@ catalog-button-reset:focus {
     height: 44px;
     gap: 16px;
   }
+  .catalog-selector {
+    height: 44px;
+  }
   .catalog-search-input {
     height: 44px;
     width: 188px;
@@ -164,6 +167,9 @@ catalog-button-reset:focus {
   .catalog-search-form {
     height: 48px;
   }
+  .catalog-selector {
+    height: 48px;
+  }
   .catalog-wrapper-selector {
     column-gap: 20px;
     height: 48px;
@@ -173,6 +179,7 @@ catalog-button-reset:focus {
     column-gap: 24px;
   }
   .catalog-search-input {
+    height: 48px;
     width: 315px;
     padding: 12px 24px 12px 24px;
   }
