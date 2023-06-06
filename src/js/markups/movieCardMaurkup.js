@@ -8,7 +8,7 @@ function movieCardMarkup(card, releaseYear, genreNames) {
     <div class="catalog-card-info-container">
       <p class="catalog-card-title">${card.original_title}</p>
       <div class="film-info-container">
-        <p class="catalog-card-description">${card.genre_ids} | ${releaseYear}</p>
+        <p class="catalog-card-description">${genreNames} | ${releaseYear}</p>
         <div class="rating">${card.vote_average.toFixed(1)}</div>
       </div>
     </div>
@@ -26,7 +26,9 @@ function movieCardMarkupLocalStorage(card, releaseYear) {
     <div class="catalog-card-info-container">
       <p class="catalog-card-title">${card.original_title}</p>
       <div class="film-info-container">
-        <p class="catalog-card-description">${card.genres[0].name} | ${releaseYear}</p>
+        <p class="catalog-card-description">${
+          card.genres[0].name
+        } | ${releaseYear}</p>
         <div class="rating">${card.vote_average.toFixed(1)}</div>
       </div>
     </div>
