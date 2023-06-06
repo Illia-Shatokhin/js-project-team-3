@@ -19,7 +19,6 @@ const options = {
   },
 };
 
-
 /*--------отримує дані з бекенду про фільм-------------*/
 
 async function fetchMovieDetails(movie_id) {
@@ -70,11 +69,9 @@ function renderModalMovieMarkup(data) {
    <p class="about-film-story">${data.overview} </p>
    <button class=" button btn-border-dark add-film-btn button-library">Add to my library</button>
    </div>
-  </div>`
+  </div>`;
 }
 
-
-   
 /*--------------отримує і відображає фільм в модальному вікні----------------*/
 let instance;
 async function getMovie(id) {
@@ -125,9 +122,7 @@ function closeModalOnKeyPress(e) {
 
 // const movie_id = 605575;
 
-
- const movie_id =  605578;
-
+const movie_id = 605578;
 
 export { getMovie };
 
@@ -138,14 +133,10 @@ function saveMovieToLocalStorage(data) {
   const movie = JSON.stringify(data.id);
   localStorage.setItem(key, movie);
   // const libraryBtn = document.querySelector('.button-library');
-refs.libraryBtn.textContent = 'Remove from my library';
-refs.libraryBtn.style.backgroundColor = 'var(--basic-gradient)';
+  refs.libraryBtn.textContent = 'Remove from my library';
 }
 
-
-
 // ПРИКЛАД ЯК ЗАПИСУЄ І ВИДАЛЯЄ ЗІ СХОВИЩА ДАНІ
-
 
 //  const movies = JSON.stringify([{"id":569094,"poster":"https://image.tmdb.org/t/p/w300/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg","originalTitle":"Spider-Man: Across the Spider-Verse","title":"Spider-Man: Across the Spider-Verse","overview":"After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.","genresMovie":"Action, Adventure, Animation, Science Fiction","popularity":"1963.2","voteAverage":"8.8","voteCount":336,"release_date":"2023-05-31"},{"id":961718,"poster":"https://image.tmdb.org/t/p/w300/jKFOQ5LNQuIWGLdB2WhVlSUcS6F.jpg","originalTitle":"Medellin","title":"Medellin","overview":"To save his little brother from the hands of dangerous narcos of the Medellín cartel, Reda has a plan that is as simple as it is totally insane: put together a team and raid Colombia. But this adventure is going to get completely out of control when he decides to kidnap the son of the cartel leader to exchange him for his brother's life.","genresMovie":"Action, Comedy","popularity":"71.0","voteAverage":"4.8","voteCount":21,"release_date":"2023-06-01"},{"id":603692,"poster":"https://image.tmdb.org/t/p/w300/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg","originalTitle":"John Wick: Chapter 4","title":"John Wick: Chapter 4","overview":"With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.","genresMovie":"Action, Thriller, Crime","popularity":"6036.3","voteAverage":"8.0","voteCount":2552,"release_date":"2023-03-22"},{"id":1016084,"poster":"https://image.tmdb.org/t/p/w300/neV35lK7em4rIY9QIoH1cruErPA.jpg","originalTitle":"BlackBerry","title":"BlackBerry","overview":"Two mismatched entrepreneurs – egghead innovator Mike Lazaridis and cut-throat businessman Jim Balsillie – joined forces in an endeavour that was to become a worldwide hit in little more than a decade. The story of the meteoric rise and catastrophic demise of the world's first smartphone.","genresMovie":"Comedy, Drama, History","popularity":"31.4","voteAverage":"7.8","voteCount":21,"release_date":"2023-05-11"}]);
 //  function saveMovieToLocalStorage(movies) {
@@ -156,8 +147,6 @@ refs.libraryBtn.style.backgroundColor = 'var(--basic-gradient)';
 //  }
 //  saveMovieToLocalStorage(movies)
 
-
-
 //  function removeMovie(id) {
 //   const key = 'movie-details';
 //   const storedMovies = localStorage.getItem(key);
@@ -165,7 +154,7 @@ refs.libraryBtn.style.backgroundColor = 'var(--basic-gradient)';
 //   if (storedMovies) {
 //     movies = JSON.parse(storedMovies);
 //   }
-  
+
 //   const index = movies.findIndex(movie => movie.id === id);
 // console.log(index);
 //    if (index !== -1) {
@@ -177,8 +166,7 @@ refs.libraryBtn.style.backgroundColor = 'var(--basic-gradient)';
 //   }
 // }
 
-  // removeMovie(603692);
-
+// removeMovie(603692);
 
 /*--------------завантажує розмітку в бекдроп ----------------*/
 // function updateMovieModal(markup) {
