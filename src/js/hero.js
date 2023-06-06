@@ -77,7 +77,6 @@ function getRandomIndex() {
   return Math.floor(Math.random() * 20);
 }
 
-// -------------markup-------------------
 function creatHeroMarkup(overview, title, vote_average) {
   return `
     <div class="container hero-container">
@@ -115,8 +114,6 @@ function addHeroBackground(backdrop_path) {
   }
 }
 
-// -------------markup STUB-------------------
-
 function addHomeHeroBackgroundStub() {
   refs.heroRef.classList.add('hero-stub');
 }
@@ -146,7 +143,6 @@ function createHomeHeroMarkupStub() {
     </div>`;
 }
 
-// ?------------------------------------------------------------
 function addLibraryHeroBackgroundStub() {
   refs.heroRef.classList.add('hero-library-stub');
 }
