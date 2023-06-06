@@ -1,8 +1,5 @@
 import { errorCatalogMarkup, renderError } from './errortrailer';
-import {
-  movieCardMarkup,
-  movieCardMarkupLocalStorage,
-} from './markups/movieCardMaurkup';
+import { movieCardMarkup } from './markups/movieCardMaurkup';
 import { getMovie } from './modalWindow';
 import { refs } from './models/refs';
 import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
