@@ -1,5 +1,5 @@
 import { createHero } from './js/hero.js';
-createHero();
+createHero('hero/catalog');
 
 import '/js/header.js';
 import weeklyTrends from '/js/models/weeklyTrends.js';

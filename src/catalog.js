@@ -1,5 +1,5 @@
 import { createHero } from './js/hero.js';
-createHero();
+createHero('hero/catalog');
 
 import '/js/catalogSearch.js';
 import { onSubmit } from './js/catalogSearch.js';
@@ -8,8 +8,6 @@ import createCatalogMovieCard, {
   openFilmDetails,
   week,
 } from './js/catalogMovieCard';
-
-
 
 import { refs } from './js/models/refs';
 
