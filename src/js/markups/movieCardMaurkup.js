@@ -15,3 +15,4 @@ function movieCardMarkup(card, releaseYear, originalTitle, genreNames) {
   </li>
 `;
 }
+export { movieCardMarkup };
