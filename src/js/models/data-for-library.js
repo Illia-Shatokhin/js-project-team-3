@@ -1,27 +1,36 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import { getMovieDetails } from '../API/get-from-server';
-import createMovieCard from './../catalogMovieCard';
+import createMovieCard, { openFilmDetails } from './../catalogMovieCard';
 import { errorLibraryMarkup, renderError } from './../errortrailer';
+import { getMovie } from '/js/modalWindow.js';
 
 
-//add to css
+
 
 const filmsOfLocalStorage = document.querySelector('.my-library-list');
-filmsOfLocalStorage.style.cssText =
-  ` display: flex;  
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 15px;
-  `;
+
+const btnLoadMore = document.getElementById('btn-load-more');
+console.log(btnLoadMore);
 
 const libraryFromLocal = localStorage.getItem('myLibrary') ? JSON.parse(localStorage.getItem('myLibrary')) : []
-
-
 
 if (libraryFromLocal.length == 0) {
   renderError(filmsOfLocalStorage, errorLibraryMarkup)
 } else {
-  createMovieCard(libraryFromLocal, filmsOfLocalStorage, libraryFromLocal.length < 9 ? libraryFromLocal.length : 9);
-  //if libraryFromLocal.length > 9 create load more btn...
+  createMovieCard(libraryFromLocal, filmsOfLocalStorage, libraryFromLocal.length < 3 ? libraryFromLocal.length : 3);
 }
+
+if (libraryFromLocal.length > 3) {
+  btnLoadMore.style.setProperty("display", "block");
+}
+
+filmsOfLocalStorage.addEventListener('click', openFilmDetails);
+
+btnLoadMore.addEventListener('click', loadMore)
+
+
+function loadMore() {
+
+}
+
