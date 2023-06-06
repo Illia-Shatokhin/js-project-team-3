@@ -1,9 +1,7 @@
-import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
-const BASE_URL = 'https://api.themoviedb.org/3';
-const KEY = '2d1d8e2963579243d8e1859d5054f040';
+import { getMovieVideos } from './API/get-from-server.js';
+import { errorTrailerMarkup } from './errortrailer.js';
 
-const trailerBtn = document.getElementById('trailer-btn');
 
 async function getDataVideo(id) {
   try {
@@ -15,18 +13,27 @@ async function getDataVideo(id) {
 }
 export async function getTrailer(id) {
   try {
-    const videos = await getDataVideo(id);
+       const videos = await getDataVideo(id);
     const myKey = videos.find(el => el.key)?.key;
-    const instance = createLightboxWithEvents(succesTrailerMarkup(myKey));
-    instance.show(() => console.log('lightbox now visible'));
-  } catch (error) {
-    const instance = createLightboxWithEvents(errorTrailerMarkup());
-    instance.show(() => console.log('lightbox now visible'));
-    instance.element().addEventListener('click', closeModalOnBtn);
-  }
 
-  function createLightboxWithEvents(content) {
-    const instance = basicLightbox.create(content, {
+    const instance = basicLightbox.create(succesTrailerMarkup(myKey), {
+      onShow: instance => {
+        trailerBtn.addEventListener('keydown', closeModalOnEsc);
+      },
+      onClose: instance => {
+        trailerBtn.removeEventListener('keydown', closeModalOnEsc);
+      },
+    });
+
+    instance.show(() => console.log('lightbox now visible'));
+    window.addEventListener('keydown', closeModalOnEsc);
+    function closeModalOnEsc(event) {
+      if (event.code === 'Escape') {
+        instance.close();
+      }
+    }
+  } catch (error) {
+    const instance = basicLightbox.create(errorTrailerMarkup(), {
       onShow: instance => {
         window.addEventListener('keydown', closeModalOnEsc);
       },
@@ -34,33 +41,26 @@ export async function getTrailer(id) {
         window.removeEventListener('keydown', closeModalOnEsc);
       },
     });
-
+    instance.show(() => console.log('Lightbox now visible'));
     window.addEventListener('keydown', closeModalOnEsc);
-
-    return instance;
-  }
-
-  function closeModalOnEsc(event) {
-    if (event.code === 'Escape') {
-      const instance = basicLightbox.get();
-      if (instance) {
+    function closeModalOnEsc(event) {
+      if (event.code === 'Escape') {
         instance.close();
+        console.log(event);
       }
     }
-  }
-
-  function closeModalOnBtn(event) {
-    const target = event.target;
-    if (target.classList.contains('select-icon') || target.closest('.icon')) {
-      const instance = basicLightbox.get();
-      if (instance) {
+    instance.element().addEventListener('click', closeModalOnBtn);
+    function closeModalOnBtn(event) {
+      const target = event.target;
+      console.log(target);
+      if (target.classList.contains('select-icon') || target.closest('.icon')) {
         instance.close();
       }
     }
   }
 }
+
 function succesTrailerMarkup(myKey) {
   return `
 <iframe class="iframe" src="https://www.youtube.com/embed/${myKey}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
 }
-

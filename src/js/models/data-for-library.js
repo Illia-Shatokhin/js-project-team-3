@@ -1,51 +1,27 @@
-import axios from 'axios';
-import Notiflix from 'notiflix';
-import { getMovieDetails } from '../API/get-from-server';
 import createMovieCard, { openFilmDetails } from './../catalogMovieCard';
 import { errorLibraryMarkup, renderError } from './../errortrailer';
-import { getMovie } from '/js/modalWindow.js';
 
-
-const moviePerPage = 3;
+const moviePerPage = 9;
+let currentPage = 1
 
 const filmsOfLocalStorage = document.querySelector('.my-library-list');
-
 const btnLoadMore = document.getElementById('btn-load-more');
-console.log(btnLoadMore);
 
 const libraryFromLocal = localStorage.getItem('myLibrary') ? JSON.parse(localStorage.getItem('myLibrary')) : []
-
-if (libraryFromLocal.length == 0) {
-  renderError(filmsOfLocalStorage, errorLibraryMarkup);
-} else {
-  createMovieCard(libraryFromLocal, filmsOfLocalStorage, libraryFromLocal.length < moviePerPage ? libraryFromLocal.length : moviePerPage);
-}
-
-if (libraryFromLocal.length > moviePerPage) {
-  btnLoadMore.style.setProperty("display", "block");
-}
-
-filmsOfLocalStorage.addEventListener('click', openFilmDetails);
-
-
-
-let PAGE = 1
-
 const libraryForPage = sliceIntoPart(libraryFromLocal, moviePerPage);
 
-console.log('111', libraryForPage);
+if (libraryFromLocal.length == 0) renderError(filmsOfLocalStorage, errorLibraryMarkup);
+else {
+  const count = libraryFromLocal.length < moviePerPage ? libraryFromLocal.length : moviePerPage;
+  createMovieCard(libraryFromLocal, filmsOfLocalStorage, count);
+}
 
-btnLoadMore.addEventListener('click', function () {
+if (libraryFromLocal.length > moviePerPage) btnLoadMore.style.setProperty("display", "block");
 
-  createMovieCard(libraryForPage[PAGE], filmsOfLocalStorage, libraryForPage[PAGE].length < moviePerPage ? libraryForPage[PAGE].length : moviePerPage);
+filmsOfLocalStorage.addEventListener('click', openFilmDetails);
+btnLoadMore.addEventListener('click', onBtnLoadMore);
 
-  console.log('load:', libraryForPage[PAGE]);
-
-  PAGE++
-  if ([PAGE] >= libraryForPage.length) { btnLoadMore.style.setProperty("display", "none"); }
-});
-
-
+//================================================================
 function sliceIntoPart(arr, n) {
   const res = [];
   for (let i = 0; i < arr.length; i += n) {
@@ -53,4 +29,12 @@ function sliceIntoPart(arr, n) {
     res.push(part);
   }
   return res;
+}
+
+//================================================================
+function onBtnLoadMore(event) {
+  const count = libraryForPage[currentPage].length < moviePerPage ? libraryForPage[currentPage].length : moviePerPage;
+  createMovieCard(libraryForPage[currentPage], filmsOfLocalStorage, count);
+  currentPage++;
+  if (currentPage >= libraryForPage.length) btnLoadMore.style.setProperty("display", "none");
 }
