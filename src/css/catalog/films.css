@@ -1,6 +1,5 @@
 .catalog-film-section {
   padding-top: 16px;
-  padding-bottom: 20px;
   background-color: inherit;
 }
 
@@ -74,7 +73,6 @@
 @media screen and (min-width: 768px) {
   .catalog-film-section {
     padding-top: 36px;
-    padding-bottom: 44px;
   }
 
   .catalog-list {
@@ -102,7 +100,6 @@
 @media screen and (min-width: 1280px) {
   .catalog-film-section {
     padding-top: 48px;
-    padding-bottom: 56px;
   }
 
   .catalog-list {

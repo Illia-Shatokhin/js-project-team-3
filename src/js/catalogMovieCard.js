@@ -7,11 +7,18 @@ import CreatePagination from './services/pagination';
 
 //================================================================
 function getReleaseYear(film) {
-  let releaseYear = 'No date';
+  let releaseYear = '2023';
   const { release_date } = film;
   if (release_date) releaseYear = release_date.split('-')[0];
   return releaseYear;
 }
+
+// function getMovieTitle(film) {
+//   let originalTitle = 0;
+//   const { original_title } = film;
+//   if (original_title) originalTitle = original_title;
+//   return originalTitle;
+// }
 
 function getMovieTitle(film) {
   let originalTitle = 'No Title';
@@ -45,8 +52,6 @@ export default async function createMovieCard(data, elem, count) {
         genreNames
       );
   }
-  //! для перемалювання списку при пагінації
-  // elem.insertAdjacentHTML('beforeend', markup);
   elem.innerHTML = markup;
 }
 
@@ -58,7 +63,6 @@ export async function weeklyTrendsList(page = 1) {
       ? createMovieCard(data.results, refs.catalogList, 10)
       : createMovieCard(data.results, refs.catalogList, 20);
 
-    // TODO:  fix pagination functionality
     const watchedPagination = new CreatePagination(data, weeklyTrendsList);
     watchedPagination.activatePagination();
   } catch (error) {
