@@ -1,5 +1,5 @@
 import { getTrendingAllDay } from './API/get-from-server.js';
-// import { getTrailer } from './hero-trailer.js';
+import { getTrailer } from './hero-trailer.js';
 import { getMovie } from './modalWindow.js';
 import { refs } from './models/refs.js';
 
@@ -20,6 +20,8 @@ async function getDataHero(currentPage) {
   try {
     const data = await getTrendingAllDay();
     renderHero(data.results, currentPage);
+
+    error => console.log(error);
   } catch (error) {
     error => console.log(error);
   }
@@ -28,22 +30,21 @@ async function getDataHero(currentPage) {
 function renderHero(data, currentPage) {
   const index = getRandomIndex();
 
-  const { id, overview, title, vote_average, backdrop_path } = data[index];
-
-  currentId = id;
-  console.log(currentPage);
-
   if (!data) {
     if (currentPage === 'hero/catalog') {
-      addHeroBackgroundStub();
-      refs.heroRef.innerHTML = createHomeHeroMarkupStubb();
+      console.log(data, currentPage);
+      addHomeHeroBackgroundStub();
+      refs.heroRef.innerHTML = createHomeHeroMarkupStub();
     }
 
     if (currentPage === 'library') {
-      addHeroBackgroundStub();
-      refs.heroRef.innerHTML = createLibraryHeroMarkupStubb();
+      addLibraryHeroBackgroundStub();
+      refs.heroRef.innerHTML = createLibraryHeroMarkupStub();
     }
   } else {
+    const { id, overview, title, vote_average, backdrop_path } = data[index];
+    currentId = id;
+
     if (
       id === undefined ||
       title === undefined ||
@@ -93,8 +94,6 @@ function creatHeroMarkup(overview, title, vote_average) {
 }
 
 function addHeroBackground(backdrop_path) {
-  console.log('hero background');
-
   if (document.documentElement.clientWidth <= 767) {
     refs.heroRef.style.backgroundImage = `${gradient320},
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
@@ -113,7 +112,7 @@ function addHeroBackground(backdrop_path) {
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
   }
 }
-
+// ------------------------------------------------------
 function addHomeHeroBackgroundStub() {
   refs.heroRef.classList.add('hero-stub');
 }
