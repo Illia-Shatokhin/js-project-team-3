@@ -1,29 +1,130 @@
-#film-container {
+@media screen and (min-width: 321px) {
+  .film-image {
+    width: 280px;
+    height: 402px;
+    object-fit: cover;
+    margin-bottom: 24px;
+  }
+
+  .upcoming-film-section > img {
+    padding-bottom: 0px;
+  }
+  
+  .upcoming-film-section-title {
+    font-family: 'Roboto-Medium';
+    font-size: 16px;
+    line-height: 1.18;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .upcoming-film-section {
+    padding-top: 0;
+    background: var(--black);
+  }
+
+  .upcoming-wrap {
+    display: block;
+  }
+
+  .film-release-date, .film-rating, .film-votes, .film-genre, .film-release-text, .film-vote-text, .film-rating-text, .film-genre-text {
+    font-family: 'Roboto-Medium';
+    font-size: 16px;
+    line-height: 1.19;
+    color: var(--light-gray);
+    margin-bottom: 12px;
+  }
+  .film-vote-wrap, .film-release-wrap, .film-popularity-wrap, .film-genre-wrap {
+    display: flex;
+    gap: 57px;
+  }
+  
+  .film-vote-wrap{
+  gap: 61px;
+  }
+  
+  .film-popularity-wrap {
+    gap: 77px;
+  }
+  
+  .film-genre-wrap {
+    gap: 107px;
+    margin-bottom: 20px;
+  }
+  
+.film-title {
+  font-family: 'Roboto-Medium';
+  font-size: 20px;
+  line-height: 1.18;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.film-about {
+  color: var(--white-smoke);
+  margin-bottom: 16px;
+  font-family: 'Roboto-Medium';
+font-size: 16px;
+line-height: 1.18;
+}
+
+.film-description {
+margin-top: 10px;
+max-width: 390px;
+font-family: 'Roboto-Regular';
+font-size: 14px;
+line-height: 20px;
+color: var(--white-smoke);
+margin-bottom: 20px;
+}
+}
+
+@media screen and (min-width: 768px) {
+  .upcoming-film-section-title {
+    font-size: 24px;
+}
+
+.film-image {
+    width: 704px;
+    height: 400px;
+  margin-bottom: 32px;
+}
+
+.film-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.film-info-total-wrap{ 
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .film-info-total-wrap > div {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+  }
+
+  .film-description {
+    max-width: 625px;
+}
+}
+
+@media screen and (min-width: 1280px) {
+  .film-info-total-wrap > div{
+  width: 100%;
+  float: none;
+  }
+  
+  .film-info-total-wrap {
   display: flex;
   flex-wrap: wrap;
 }
 
-.upcoming-film-section > .container {
-background: var(--black);
-padding-top: 60px;
-<<<<<<< HEAD
-
-}
-
-.upcoming-film-section {
-  background: var(--black);
-=======
->>>>>>> 3df6e258c74a8697ae3602a6a490f0e1114a7a92
-}
-
 .upcoming-film-section-title {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
   font-size: 28px;
-  line-height: 1.18;
-  text-transform: uppercase;
-  color: var(--white);
   margin-bottom: 28px;
 }
 
@@ -33,12 +134,7 @@ padding-top: 60px;
 }
 
 .film-title {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
   font-size: 32px;
-  line-height: 1.18;
-  color: var(--white);
   margin-bottom: 28px;
 }
 
@@ -48,41 +144,18 @@ padding-top: 60px;
   object-fit: cover;
 }
 
+.film-info-total-wrap {
+  display: block;
+  /* flex-wrap: wrap; */
+}
   .film-release-date, .film-rating, .film-votes, .film-genre, .film-release-text, .film-vote-text, .film-rating-text, .film-genre-text {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
   font-size: 16px;
-  line-height: 1.19;
-    color: var(--light-gray);
   margin-bottom: 12px;
 }
 
-<<<<<<< HEAD
 .film-genres {
   margin-top: 5px;
 }
-=======
-  .film-image {
-    width: 800px;
-    height: 458px;
-    object-fit: cover;
-  }
-  
-  .film-release-date, .film-rating, .film-votes, .film-genre, .film-release-text, .film-vote-text, .film-rating-text, .film-genre-text {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.19;
-    color: var(--light-gray);
-    margin-bottom: 12px;
-  }
-   
-  .film-genres {
-    margin-top: 5px;
-  }
->>>>>>> 3df6e258c74a8697ae3602a6a490f0e1114a7a92
 
   .film-about {
     color: var(--white-smoke);
@@ -92,12 +165,7 @@ padding-top: 60px;
 .film-description {
   margin-top: 10px;
   max-width: 390px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
-    color: var(--white-smoke);
     margin-bottom: 20px;
 }
 
@@ -124,4 +192,5 @@ gap: 65px;
 .film-genre-wrap {
   gap: 105px;
   margin-bottom: 20px;
+}
 }
