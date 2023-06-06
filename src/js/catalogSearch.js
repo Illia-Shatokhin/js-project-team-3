@@ -7,15 +7,15 @@ import createMovieCard from './catalogMovieCard';
 refs.catalogForm.addEventListener('submit', onSubmit);
 
 export async function onSubmit(event) {
+  // try {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const value = form.elements.searchQuery.value.trim();
+  const country = form.elements.country.value;
+  const year = form.elements.year.value;
+  // console.log(year);
+  // console.log(country);
   try {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const value = form.elements.searchQuery.value.trim();
-    const country = form.elements.country.value;
-    const year = form.elements.year.value;
-    console.log(year);
-    console.log(country);
-
     if (value === '') Notify.failure('No movie specified!');
     else {
       const options = {
@@ -34,11 +34,13 @@ export async function onSubmit(event) {
       if (arrayMovies.length) {
         catalogListReset();
         filterCreateMovieCard(arrayMovies);
+        refs.catalogForm.reset();
       } else {
         catalogListReset();
+        renderBtnReset();
         renderError(refs.catalogList, errorCatalogMarkup);
       }
-      renderBtnReset();
+      // renderBtnReset();
     }
     refs.buttonReset.addEventListener('click', e => {
       refs.catalogForm.reset();
@@ -60,13 +62,13 @@ export function filterCreateMovieCard(array) {
 export function renderBtnReset() {
   refs.buttonReset.classList.remove('hidden');
   refs.buttonReset.classList.add('active');
-  refs.buttonSearchCatalog.disabled = true;
+  // refs.buttonSearchCatalog.disabled = true;
 }
 
 export function hiddenBtnReset() {
   refs.buttonReset.classList.remove('active');
   refs.buttonReset.classList.add('hidden');
-  refs.buttonSearchCatalog.disabled = false;
+  // refs.buttonSearchCatalog.disabled = false;
 }
 
 export function catalogListReset() {
