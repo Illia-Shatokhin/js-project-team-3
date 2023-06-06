@@ -34,13 +34,13 @@ export async function getLanguages() {
 }
 
 //============================================================================
-export async function getTrendingAllDay(language = 'en-US') {
-  const options = generateOption('trending/all/day', { language });
+export async function getTrendingAllDay(page = 1, language = 'en-US') {
+  const options = generateOption('trending/all/day', { language, page });
   return axiosGet(options);
 }
 
-export async function getTrendingAllWeek(language = 'en-US') {
-  const options = generateOption('trending/all/week', { language });
+export async function getTrendingAllWeek(page = 1, language = 'en-US') {
+  const options = generateOption('trending/all/week', { language , page });
   return axiosGet(options);
 }
 
