@@ -2,7 +2,6 @@ export const dataObj = {
   genreMovieList: null,
   configLanguages: null,
 
-  SearchQuery: "",
+  SearchQuery: '',
   currentPageForSearch: 0,
-
-}
+};

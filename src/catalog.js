@@ -1,4 +1,3 @@
-
 import './js/services/get-default-data';
 
 import '/js/hero.js';

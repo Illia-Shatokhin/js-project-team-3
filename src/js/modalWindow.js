@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 // import { refs } from './models/refs.js';
@@ -22,7 +21,7 @@ const options = {
 
 /*--------отримує дані з бекенду про фільм-------------*/
 
-const bodyElement = document.querySelector('body'); 
+const bodyElement = document.querySelector('body');
 
 async function fetchMovieDetails(movie_id) {
   try {
@@ -35,7 +34,6 @@ async function fetchMovieDetails(movie_id) {
     console.log('Помилка запиту:', error);
   }
 }
-
 
 /*---------------------створює розмітку мадального вікна з інфо про фільм---------------------*/
 function renderModalMovieMarkup(data) {
@@ -77,41 +75,41 @@ function renderModalMovieMarkup(data) {
 let instance;
 async function getMovie(movie_id) {
   try {
-  const data = await fetchMovieDetails(movie_id);
-  const markup = renderModalMovieMarkup(data);
-  instance = basicLightbox.create(markup, {
-    closable: true,
-    onShow: instance => {
-      instance
-        .element()
-        .querySelector('.modal-close-btn')
-        .addEventListener('click', () => {
-          instance.close();
-          bodyElement.style.overflow = 'auto';
-        });
-      document.addEventListener('keydown', closeModalOnKeyPress);
-    },
-    onClose: instance => {
-      instance
-        .element()
-        .querySelector('.modal-close-btn')
-        .removeEventListener('click', () => {
-          instance.close();
-        });
-      document.removeEventListener('keydown', closeModalOnKeyPress);
-    },
-  });
+    const data = await fetchMovieDetails(movie_id);
+    const markup = renderModalMovieMarkup(data);
+    instance = basicLightbox.create(markup, {
+      closable: true,
+      onShow: instance => {
+        instance
+          .element()
+          .querySelector('.modal-close-btn')
+          .addEventListener('click', () => {
+            instance.close();
+            bodyElement.style.overflow = 'auto';
+          });
+        document.addEventListener('keydown', closeModalOnKeyPress);
+      },
+      onClose: instance => {
+        instance
+          .element()
+          .querySelector('.modal-close-btn')
+          .removeEventListener('click', () => {
+            instance.close();
+          });
+        document.removeEventListener('keydown', closeModalOnKeyPress);
+      },
+    });
 
-  instance.show();
-  const libraryBtn = document.querySelector('.add-film-btn');
-  libraryBtn.addEventListener('click', () => {
-    toggleLibraryStatus(data);
-  });
-  updateLibraryButtonStatus(data.id);
-  bodyElement.style.overflow = 'hidden';
-} catch (error) {
-  console.log('Помилка отримання даних про фільм:', error);
-}
+    instance.show();
+    const libraryBtn = document.querySelector('.add-film-btn');
+    libraryBtn.addEventListener('click', () => {
+      toggleLibraryStatus(data);
+    });
+    updateLibraryButtonStatus(data.id);
+    bodyElement.style.overflow = 'hidden';
+  } catch (error) {
+    console.log('Помилка отримання даних про фільм:', error);
+  }
 }
 /*--------------перевірка чи натиснута клавіша Escape із акриття модалки------------*/
 function closeModalOnKeyPress(e) {
@@ -121,14 +119,15 @@ function closeModalOnKeyPress(e) {
   instance.close();
   bodyElement.style.overflow = 'auto';
   document.removeEventListener('keydown', closeModalOnKeyPress);
- 
 }
 
 /*--------------перевіряє чи є фільм у сховищі, записує та видаляє фільм зі сховища;----*/
 function toggleLibraryStatus(movieData) {
   const libraryMovies = getLibraryMovies();
-  const movieIndex = libraryMovies.findIndex(movie => movie.id === movieData.id);
-  
+  const movieIndex = libraryMovies.findIndex(
+    movie => movie.id === movieData.id
+  );
+
   if (movieIndex === -1) {
     libraryMovies.push(movieData);
   } else {
@@ -148,12 +147,11 @@ function getLibraryMovies() {
 //   localStorage.setItem('myLibrary', JSON.stringify(movies));
 // }
 
-
 /*-------------- змінює статус кнопки відносно потреби додавання, або видалення зі сховища--------*/
 function updateLibraryButtonStatus(movieId) {
   const libraryBtn = document.querySelector('.add-film-btn');
   const libraryMovies = getLibraryMovies();
-  
+
   if (libraryMovies.some(movie => movie.id === movieId)) {
     libraryBtn.textContent = 'Remove from my library';
     // libraryBtn.classList.add('button-library-active');
@@ -166,4 +164,3 @@ function updateLibraryButtonStatus(movieId) {
 export { getMovie };
 
 /*--------------Робота з LocalStorage ----------------*/
-
