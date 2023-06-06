@@ -23,7 +23,7 @@
 
   font-size: 16px;
   line-height: 1.14;
-  font-family: 'Roboto-Medium';
+  font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
 }
 .catalog-wrapper-selector {
@@ -47,7 +47,7 @@
   color: var(--white);
   font-size: 16px;
   line-height: 1.14;
-  font-family: 'Roboto-Medium';
+  font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
 }
 .year {
@@ -70,7 +70,7 @@ input::placeholder {
   color: #b7b7b7;
   font-size: 16px;
   line-height: 1.14;
-  font-family: 'Roboto-Medium';
+  font-family: 'Roboto-Medium', sans-serif;
 }
 
 .catalog-search-button {
@@ -138,6 +138,9 @@ catalog-button-reset:focus {
     height: 44px;
     gap: 16px;
   }
+  .catalog-selector {
+    height: 44px;
+  }
   .catalog-search-input {
     height: 44px;
     width: 188px;
@@ -164,6 +167,9 @@ catalog-button-reset:focus {
   .catalog-search-form {
     height: 48px;
   }
+  .catalog-selector {
+    height: 48px;
+  }
   .catalog-wrapper-selector {
     column-gap: 20px;
     height: 48px;
@@ -173,6 +179,7 @@ catalog-button-reset:focus {
     column-gap: 24px;
   }
   .catalog-search-input {
+    height: 48px;
     width: 315px;
     padding: 12px 24px 12px 24px;
   }

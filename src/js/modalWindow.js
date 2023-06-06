@@ -35,6 +35,12 @@ async function fetchMovieDetails(movie_id) {
   }
 }
 
+//================================================================
+function normalizeData(data) {
+  const genre_ids = data.genres.map(el => el.id)
+  data.genre_ids = genre_ids;
+}
+
 /*---------------------створює розмітку мадального вікна з інфо про фільм---------------------*/
 function renderModalMovieMarkup(data) {
   const genreList = data.genres.map(genre => genre.name).join(', ');
@@ -76,6 +82,9 @@ let instance;
 async function getMovie(movie_id) {
   try {
     const data = await fetchMovieDetails(movie_id);
+    
+    normalizeData(data);
+
     const markup = renderModalMovieMarkup(data);
     instance = basicLightbox.create(markup, {
       closable: true,
