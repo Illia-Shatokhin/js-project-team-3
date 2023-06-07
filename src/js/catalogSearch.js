@@ -1,4 +1,4 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import { getSearchMovie } from './API/get-from-server';
 import { refs } from './models/refs';
 import { renderError, errorCatalogMarkup } from './errortrailer';
