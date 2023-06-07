@@ -14,10 +14,7 @@ async function getDataVideo(id) {
 export async function getTrailer(id) {
   try {
     const videos = await getDataVideo(id);
-    console.log(videos);
-    console.log(id);
     const myKey = videos.find(el => el.key)?.key;
-    console.log(myKey);
     const instance = basicLightbox.create(succesTrailerMarkup(myKey), {
       onShow: instance => {
         trailerBtn.addEventListener('keydown', closeModalOnEsc);

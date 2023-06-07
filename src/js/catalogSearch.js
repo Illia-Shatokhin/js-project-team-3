@@ -19,15 +19,17 @@ export async function sendSearch(page = 1) {
     };
     const data = await getSearchMovie(options);
     const arrayMovies = data.results;
-    
+
     const searchPagination = new CreatePagination(data, sendSearch);
     searchPagination.activatePagination();
 
     if (arrayMovies.length) {
       filterCreateMovieCard(data);
       refs.catalogForm.reset();
+      hiddenBtnReset();
     } else {
       renderBtnReset();
+      catalogListReset();
       renderError(refs.catalogList, errorCatalogMarkup);
     }
 
@@ -50,9 +52,10 @@ export async function onSubmit(event) {
   const year = form.elements.year.value;
 
   if (value === '') Notify.failure('No movie specified!');
-
-  setSearchParam(1, value, year, country);
-  sendSearch();
+  else {
+    setSearchParam(1, value, year, country);
+    sendSearch();
+  }
 }
 
 function filterCreateMovieCard(data) {
@@ -78,7 +81,7 @@ function catalogListReset() {
   refs.catalogList.innerHTML = '';
 }
 // ==========================================================================================
-function setSearchParam( page, query, year, region) {
+function setSearchParam(page, query, year, region) {
   dataObj.searchCurrentPage = page;
   dataObj.searchQuery = query;
   dataObj.searchYear = year;

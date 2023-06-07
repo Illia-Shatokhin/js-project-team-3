@@ -88,7 +88,7 @@
 .logo-container img {
   max-width: 100px; /* Adjust the size as per your logo dimensions */
 }
-.table-desktop{
+.table-desktop {
   color: white;
 }
 .menu-container {
@@ -180,6 +180,7 @@
   align-items: center;
 }
 .menu-toggle-label {
+  color: white;
   transition: color 0.3s ease;
   cursor: pointer;
 }
@@ -327,7 +328,7 @@
   .table-desktop {
     display: none;
   }
-  .logo-text{
+  .logo-text {
     display: none;
   }
 }
