@@ -1,40 +1,38 @@
 import * as basicLightbox from 'basiclightbox';
-const teamLink = document.querySelector('.footer-btn');
+const teamLink = document.getElementById('our-team-btn');
+import { errorTrailerMarkup } from './errortrailer.js';
 // const teamBackdrop = document.querySelector('.team__backdrop');
 // const teamCloseBtn = document.querySelector('.team__modal-close-btn');
 
-teamLink.addEventListener('click', onLinkClick);
+teamLink.addEventListener('click', () =>  {onLinkClick()});
 
-function createLightboxWithEvents(content) {
-  const instance = basicLightbox.create(content, {
-    onShow: instance => {
-      window.addEventListener('keydown', closeModalOnEsc);
-    },
-    onClose: instance => {
-      window.removeEventListener('keydown', closeModalOnEsc);
-    },
-  });
+let instance;
+function onLinkClick() {const instance = basicLightbox.create(errorTrailerMarkup (),
+   {
+  onShow: instance => {
+    window.addEventListener('keydown', closeModalOnEsc);
+  },
+  onClose: instance => {
+    window.removeEventListener('keydown', closeModalOnEsc);
+  },
+});
 
-  window.addEventListener('keydown', closeModalOnEsc);
-
-  return instance;
-}
-
+ instance.show(() => console.log('Lightbox now visible'));
+window.addEventListener('keydown', closeModalOnEsc);
 function closeModalOnEsc(event) {
   if (event.code === 'Escape') {
-    const instance = basicLightbox.get();
-    if (instance) {
-      instance.close();
-    }
-  }
-}
+    instance.close();
+    console.log(event);
+    }}
 
+instance.element().addEventListener('click', closeModalOnBtn);
 function closeModalOnBtn(event) {
   const target = event.target;
+  console.log(target);
   if (target.classList.contains('select-icon') || target.closest('.icon')) {
-    const instance = basicLightbox.get();
-    if (instance) {
-      instance.close();
-    }
+    instance.close();
   }
 }
+}
+
+// function modalTeamMarkup() {return}
