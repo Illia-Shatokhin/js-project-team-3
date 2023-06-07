@@ -1,4 +1,3 @@
-@media screen and (min-width: 321px) {
 .film-image {
   width: 280px;
   height: 402px;
@@ -79,7 +78,8 @@
   line-height: 1.18;
 }
 
-.vote-average, .vote-count {
+.vote-average,
+.vote-count {
   background-color: var(--white);
   border-radius: 5px;
   color: var(--black);
@@ -94,7 +94,6 @@
   line-height: 20px;
   color: var(--white-smoke);
   margin-bottom: 20px;
-}
 }
 
 @media screen and (min-width: 768px) {
