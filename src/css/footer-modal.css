@@ -1,4 +1,4 @@
-/* .team__backdrop {
+.team__backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,15 +15,15 @@
   .is-hidden {
     visibility: hidden;
     pointer-events: none;
-    opacity: 0;
+    opacity: 0;}
   
-    & .team__wrapper {
+    .is-hidden.team__wrapper {
       visibility: hidden;
       pointer-events: none;
       opacity: 0.3;
       transform: translate(-75%, -90%) scale(3);
     }
-  }
+  
   
   .team__wrapper {
     position: relative;
@@ -32,27 +32,33 @@
     margin-left: auto;
     margin-right: auto;
     padding: 25px 15px 20px;
+    visibility: visible;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33);}
   
-    @include tablet {
-      width: 580px;
+    .team__wrapper {
+      visibility: hidden;
+      pointer-events: none;
+      opacity: 0.3;
+      transform: translate(-75%, -90%) scale(3);
     }
-  
-    @include desktop {
+    @media screen and (min-width: 321px) {
+      .team__wrapper{ 
+      width: 580px;}
+    }
+    @media screen and (min-width: 768px)
+     {.team__wrapper{
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(1);
       width: 1200px;
-      padding: 30px;
+      padding: 30px;}
     }
   
-    visibility: visible;
-    opacity: 1;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33);
-  }
-  
+    
   .team__modal-close-btn {
     display: flex;
     justify-content: center;
@@ -65,15 +71,16 @@
     background-color: transparent;
     border-radius: 50%;
     cursor: pointer;
-    color: $black-color;
-  
-    @include tablet {
+    color: black;}
+
+    @media screen and (min-width: 321px) {
+    .team__modal-close-btn{
       top: 10px;
       right: 10px;
     }
   
-    &:hover {
-      color: $orange-color;
+    .team__modal-close-btn:hover {
+      color: orange;
     }
   }
   
@@ -84,7 +91,7 @@
   .team__title {
     text-align: center;
     text-transform: uppercase;
-    color: $black-color;
+    color: black;
     font-size: 24px;
     margin-bottom: 20px;
   }
@@ -100,7 +107,7 @@
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
       0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    background: $white-color;
+    background: white;
     position: relative;
     border-radius: 10px;
     padding-bottom: 5px;
@@ -120,7 +127,10 @@
   }
   
   .team__box {
-    @include font(500, 16px, null, null);
+    font-family: 'Roboto-family';
+    font-size: 16px;
+    line-height: 1.18;
+    font-weight: 500;
     padding: 10px;
     text-align: center;
     margin-bottom: 3px;
@@ -129,14 +139,14 @@
   .team__member {
     font-weight: 500;
     font-size: 18px;
-    color: $black-color;
+    color: black;
     margin-bottom: 10px;
   }
   
   .team__role {
     font-weight: 500;
     font-size: 16px;
-    color: $orange-color;
+    color: orange;
     margin-bottom: 10px;
   }
   
@@ -147,18 +157,11 @@
     border-radius: 10%;
     margin-right: 10px;
     background-color: transparent;
-    fill: $black-color;
+    fill: black;
     display: inline-flex;
     justify-content: center;
     align-items: center;
   
-    @include animation3(background-color, color, fill);
-  
-    &--active:hover,
-    &--active:focus {
-      background-color: $orange-color;
-      fill: $white-color;
-    }
   }
   
   .team__link-github {
@@ -167,16 +170,9 @@
     height: 36px;
     border-radius: 50%;
     background-color: transparent;
-    fill: $black-color;
+    fill: black;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-  
-    @include animation3(background-color, color, fill);
-  
-    &--active:hover,
-    &--active:focus {
-      background-color: $orange-color;
-      fill: $white-color;
-    }
-  } */
+    
+  }
