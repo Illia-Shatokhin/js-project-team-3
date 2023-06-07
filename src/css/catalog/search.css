@@ -1,7 +1,7 @@
 /* =============  Mobile version ================== */
 .catalog-search {
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
 }
 .catalog-search-form {
   display: flex;
@@ -142,7 +142,7 @@ catalog-button-reset:focus {
 /* ======================== Tablet version ===================== */
 @media screen and (min-width: 768px) {
   .catalog-search {
-    padding-bottom: 16px;
+    padding-bottom: 0px;
   }
   .catalog-search-form {
     height: 44px;
