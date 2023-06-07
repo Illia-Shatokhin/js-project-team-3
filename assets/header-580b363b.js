@@ -145,11 +145,11 @@ Notiflix needs to be appended to the "<`+g+'>" element, but you called it before
       <div class="hero-lib-text">
         <p class="overview-text-stub">Is a guide to designing a personalized movie theater experience with the right equipment, customized decor, and favorite films. This guide helps you bring the cinema experience into your own home with cozy seating, dim lighting, and movie theater snacks.</p>
       </div>
-    </div>`}function ki(t,e,n,r){let o="url(./img/trailer-modal-desk.png)";return t.poster_path&&(o=`url(https://image.tmdb.org/t/p/w500${t.poster_path})`),`
+    </div>`}function ki(t,e,n,r){let o="url(./img/trailer-modal-desk.png)",s="; background-size: contain;";return t.poster_path&&(o=`url(https://image.tmdb.org/t/p/w500${t.poster_path})`,s=""),`
   <li class="catalog-item" style="background-image: linear-gradient(180deg, 
     rgba(0, 0, 0, 0) 63.48%, 
     rgba(0, 0, 0, 0.9) 92.16%), 
-    ${o}" id="${t.id}">
+    ${o}${s}" id="${t.id}">
 
     <div class="catalog-card-info-container">
       <p class="catalog-card-title">${n}</p>
