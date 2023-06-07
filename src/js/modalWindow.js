@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 // import { refs } from './models/refs.js';
-import { refs } from './models/refs.js'
+// import { refs } from './models/refs.js'
 
 
 export { getMovie };
@@ -25,7 +25,6 @@ const options = {
 /*-------------отримує дані з бекенду про фільм------------------------------------*/
 
 const bodyElement = document.querySelector('body');
-const modalElement = document.querySelector('.modal-film-window');
 
 async function fetchMovieDetails(movie_id) {
   try {
