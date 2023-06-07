@@ -61,7 +61,10 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
 
             const filmImage = document.createElement('img');
             filmImage.className = 'film-image';
-            filmImage.src = `https://image.tmdb.org/t/p/original/${randomFilm.backdrop_path}`;
+            filmImage.src =
+              screen.width >= 768
+                ? `https://image.tmdb.org/t/p/original/${randomFilm.backdrop_path}`
+                : `https://image.tmdb.org/t/p/original/${randomFilm.poster_path}`;
             filmImgContainer.appendChild(filmImage);
 
             const filmTitle = document.createElement('h2');
@@ -77,7 +80,6 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
             filmReleaseWrap.className = 'film-release-wrap';
             filmWrap.appendChild(filmReleaseWrap);
 
-
             const filmReleaseDateText = document.createElement('p');
             filmReleaseDateText.className = 'film-release-text';
             filmReleaseDateText.textContent = 'Release Date';
@@ -88,11 +90,11 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
 
             function formatDate(dateString) {
               const date = new Date(dateString);
-              
+
               const day = String(date.getDate()).padStart(2, '0');
               const month = String(date.getMonth() + 1).padStart(2, '0');
               const year = date.getFullYear();
-              
+
               return `${day}.${month}.${year}`;
             }
             const formattedDate = formatDate(randomFilm.release_date);
@@ -203,13 +205,12 @@ function toggleLibrary(film, button) {
   if (isInLibrary(film.id)) {
     button.textContent = 'Remove from My Library';
     button.classList.remove('btn-gradient');
-    button.style.background = 'white'
-    button.style.color = 'orange'
+    button.style.background = 'white';
+    button.style.color = 'orange';
   } else {
     button.textContent = 'Add to My Library';
     button.classList.add('btn-gradient');
-    button.style.background = 'var(--basic-gradient)'
-    button.style.color = 'black'
+    button.style.background = 'var(--basic-gradient)';
+    button.style.color = 'black';
   }
 }
-
