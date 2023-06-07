@@ -40,8 +40,6 @@ export async function getMovie(movie_id) {
           .removeEventListener('click', () => {
              instance.close();
               bodyElement.style.overflow = 'auto';
-           
-           
           });
         document.removeEventListener('keydown', closeModalOnKeyPress);
         bodyElement.style.overflow = 'auto';
