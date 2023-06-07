@@ -1,0 +1,70 @@
+:root {
+  --color2: #d0d8e0;
+  --color1: rgb(248, 159, 25);
+}
+
+.review-stars {
+  width: calc((var(--size) * 5) + 16px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  background: transparent;
+}
+
+/* One Star SVG */
+svg.review-star {
+  width: var(--size);
+  height: var(--size);
+  display: block;
+  overflow: visible;
+}
+
+svg.review-star * {
+  pointer-events: none;
+}
+
+svg.review-star path.star {
+  stroke: transparent;
+  stroke-width: 0;
+}
+
+svg.review-star path.star.on {
+  fill: var(--color1);
+  opacity: 0;
+}
+
+svg.review-star path.star.off {
+  fill: var(--color2);
+}
+
+svg.review-star circle {
+  transform: scale(2);
+  transform-origin: center;
+  opacity: 0;
+}
+
+svg.review-star * {
+  transform-origin: center;
+}
+
+.loading-skeleton .review-star {
+  fill: var(--color2);
+}
+
+svg.review-star.animate-star .star.on {
+  fill: var(--color1);
+  stroke: none;
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+
+svg.review-star.animate-star .star.on + circle {
+  stroke: none;
+  fill: lighten(var(--color1), 15%);
+}
+
+svg.review-star.filled .star.on {
+  opacity: 1;
+  transition: none;
+}

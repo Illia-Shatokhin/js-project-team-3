@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 // import { refs } from './models/refs.js';
@@ -22,7 +21,7 @@ const options = {
 
 /*--------отримує дані з бекенду про фільм-------------*/
 
-const bodyElement = document.querySelector('body'); 
+const bodyElement = document.querySelector('body');
 
 async function fetchMovieDetails(movie_id) {
   try {
@@ -36,6 +35,11 @@ async function fetchMovieDetails(movie_id) {
   }
 }
 
+//================================================================
+function normalizeData(data) {
+  const genre_ids = data.genres.map(el => el.id)
+  data.genre_ids = genre_ids;
+}
 
 /*---------------------створює розмітку мадального вікна з інфо про фільм---------------------*/
 function renderModalMovieMarkup(data) {
@@ -43,9 +47,7 @@ function renderModalMovieMarkup(data) {
   const vote = data.vote_average.toFixed(1);
   const populatity = data.popularity.toFixed(1);
   const voteCount = data.vote_count.toFixed(1);
-
-  const posterUrl = getPosterUrl(data);
-
+  const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   return `
   <div class="modal-film-window">
     <button class="modal-close-btn">
@@ -73,63 +75,50 @@ function renderModalMovieMarkup(data) {
    <button class=" button btn-border-dark add-film-btn button-library-active">Add to my library</button>
    </div>
   </div>`;
-
 }
 
-
-/*--------------------повертає постер з бекенду---------------------*/
-function getPosterUrl(data) {
-  if (data.poster_path !== null) {
-    return `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-  } else if (data.backdrop_path !== null) {
-    return `https://image.tmdb.org/t/p/original${data.backdrop_path}`;
-  } else {
-    console.log('Немає постеру');
-    return 'https://bosaksvitlana.blogspot.com/p/blog-page_25.html'
-
-    // return 'шлях_до_загального_застосунку_постеру';
-  }
-}
 /*--------------отримує і відображає фільм в модальному вікні----------------*/
 let instance;
 async function getMovie(movie_id) {
   try {
-  const data = await fetchMovieDetails(movie_id);
-  console.log(data)
-  const markup = renderModalMovieMarkup(data);
-  instance = basicLightbox.create(markup, {
-    closable: true,
-    onShow: instance => {
-      instance
-        .element()
-        .querySelector('.modal-close-btn')
-        .addEventListener('click', () => {
-          instance.close();
-          bodyElement.style.overflow = 'auto';
-        });
-      document.addEventListener('keydown', closeModalOnKeyPress);
-    },
-    onClose: instance => {
-      instance
-        .element()
-        .querySelector('.modal-close-btn')
-        .removeEventListener('click', () => {
-          instance.close();
-        });
-      document.removeEventListener('keydown', closeModalOnKeyPress);
-    },
-  });
+    const data = await fetchMovieDetails(movie_id);
+    
+    normalizeData(data);
 
-  instance.show();
-  const libraryBtn = document.querySelector('.add-film-btn');
-  libraryBtn.addEventListener('click', () => {
-    toggleLibraryStatus(data);
-  });
-  updateLibraryButtonStatus(data.id);
-  bodyElement.style.overflow = 'hidden';
-} catch (error) {
-  console.log('Помилка отримання даних про фільм:', error);
-}
+    const markup = renderModalMovieMarkup(data);
+    instance = basicLightbox.create(markup, {
+      closable: true,
+      onShow: instance => {
+        instance
+          .element()
+          .querySelector('.modal-close-btn')
+          .addEventListener('click', () => {
+            instance.close();
+            bodyElement.style.overflow = 'auto';
+          });
+        document.addEventListener('keydown', closeModalOnKeyPress);
+      },
+      onClose: instance => {
+        instance
+          .element()
+          .querySelector('.modal-close-btn')
+          .removeEventListener('click', () => {
+            instance.close();
+          });
+        document.removeEventListener('keydown', closeModalOnKeyPress);
+      },
+    });
+
+    instance.show();
+    const libraryBtn = document.querySelector('.add-film-btn');
+    libraryBtn.addEventListener('click', () => {
+      toggleLibraryStatus(data);
+    });
+    updateLibraryButtonStatus(data.id);
+    bodyElement.style.overflow = 'hidden';
+  } catch (error) {
+    console.log('Помилка отримання даних про фільм:', error);
+  }
 }
 /*--------------перевірка чи натиснута клавіша Escape із акриття модалки------------*/
 function closeModalOnKeyPress(e) {
@@ -139,14 +128,15 @@ function closeModalOnKeyPress(e) {
   instance.close();
   bodyElement.style.overflow = 'auto';
   document.removeEventListener('keydown', closeModalOnKeyPress);
- 
 }
 
 /*--------------перевіряє чи є фільм у сховищі, записує та видаляє фільм зі сховища;----*/
 function toggleLibraryStatus(movieData) {
   const libraryMovies = getLibraryMovies();
-  const movieIndex = libraryMovies.findIndex(movie => movie.id === movieData.id);
-  
+  const movieIndex = libraryMovies.findIndex(
+    movie => movie.id === movieData.id
+  );
+
   if (movieIndex === -1) {
     libraryMovies.push(movieData);
   } else {
@@ -166,12 +156,11 @@ function getLibraryMovies() {
 //   localStorage.setItem('myLibrary', JSON.stringify(movies));
 // }
 
-
 /*-------------- змінює статус кнопки відносно потреби додавання, або видалення зі сховища--------*/
 function updateLibraryButtonStatus(movieId) {
   const libraryBtn = document.querySelector('.add-film-btn');
   const libraryMovies = getLibraryMovies();
-  
+
   if (libraryMovies.some(movie => movie.id === movieId)) {
     libraryBtn.textContent = 'Remove from my library';
     // libraryBtn.classList.add('button-library-active');
@@ -183,55 +172,4 @@ function updateLibraryButtonStatus(movieId) {
 
 export { getMovie };
 
-
-
-/*------------- Функція для додавання/видалення класу 'dark-theme' для модального вікна ----------------*/
-
-function toggleModalTheme(darkMode) {
-  if (darkMode) {
-    modalWindow.classList.add('dark-theme');
-  } else {
-    modalWindow.classList.remove('dark-theme');
-  }
-}
-
-// Перевірка вибраної теми при завантаженні сторінки
-// if (
-//   window.matchMedia &&
-//   window.matchMedia('(prefers-color-scheme: dark)').matches
-// ) {
-//   themeToggle.checked = true;
-//   document.body.classList.add('dark-theme');
-//   buttons.forEach(function (button) {
-//     button.classList.add('dark-theme');
-//   });
-//   toggleModalTheme(true); // Виклик функції при завантаженні сторінки
-//   console.log('User prefers dark theme');
-// } else {
-//   themeToggle.checked = false;
-//   document.body.classList.remove('dark-theme');
-//   buttons.forEach(function (button) {
-//     button.classList.remove('dark-theme');
-//   });
-//   toggleModalTheme(false); // Виклик функції при завантаженні сторінки
-//   console.log('User prefers light theme');
-// }
-
-// // Подія зміни теми
-// themeToggle.addEventListener('change', function () {
-//   if (themeToggle.checked) {
-//     document.body.classList.add('dark-theme');
-//     buttons.forEach(function (button) {
-//       button.classList.add('dark-theme');
-//     });
-//     toggleModalTheme(true); // Виклик функції при зміні теми
-//     console.log('User prefers dark theme');
-//   } else {
-//     document.body.classList.remove('dark-theme');
-//     buttons.forEach(function (button) {
-//       button.classList.remove('dark-theme');
-//     });
-//     toggleModalTheme(false); // Виклик функції при зміні теми
-//     console.log('User prefers light theme');
-//   }
-// });
+/*--------------Робота з LocalStorage ----------------*/

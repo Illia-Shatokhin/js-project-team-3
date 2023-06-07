@@ -1,21 +1,3 @@
-body {
-  background-color: var(--white);
-  transition: background-color 0.5s ease;
-}
-
-body.dark-theme {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-body.dark-theme .menu-content {
-  background-color: var(--black);
-}
-
-body.dark-theme #mobile-menu {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
 .desktop-header {
   display: flex;
   width: 100%;
@@ -32,6 +14,7 @@ body.dark-theme #mobile-menu {
   background-color: var(--black);
   color: var(--white);
 }
+
 .hover-text {
   font-family: 'Roboto-Medium';
   font-size: 14px;
@@ -42,7 +25,9 @@ body.dark-theme #mobile-menu {
   text-transform: uppercase;
   transition: color 0.3s ease; /* Transition for color property */
 }
-
+.hover-text.dark-theme {
+  color: var(--white);
+}
 .hover-text:hover,
 .hover-text:focus {
   color: var(--orange);
@@ -52,6 +37,7 @@ body.dark-theme #mobile-menu {
   width: auto;
   align-items: center;
   justify-content: space-between;
+  margin: 6px auto;
 }
 .tablet-menu {
   display: none;
@@ -102,7 +88,9 @@ body.dark-theme #mobile-menu {
 .logo-container img {
   max-width: 100px; /* Adjust the size as per your logo dimensions */
 }
-
+.table-desktop {
+  color: white;
+}
 .menu-container {
   display: flex;
   align-items: center;
@@ -147,15 +135,21 @@ body.dark-theme #mobile-menu {
   transform: translateX(-100%);
   transition: transform 0.3s ease-out;
 }
+<<<<<<< HEAD
  img {
   padding-bottom: 40px;
 } 
+=======
+.menu-logo {
+  padding-bottom: 40px;
+}
+>>>>>>> main
 #mobile-menu.visible {
   transform: translateX(0);
 }
 
 .menu-content {
-  width: 204px;
+  width: 65%;
   border-radius: 5px;
   text-align: left;
   background-color: var(--white);
@@ -192,6 +186,7 @@ body.dark-theme #mobile-menu {
   align-items: center;
 }
 .menu-toggle-label {
+  color: white;
   transition: color 0.3s ease;
   cursor: pointer;
 }
@@ -240,9 +235,29 @@ body.dark-theme #mobile-menu {
 .switch input:checked + .slider {
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 }
+.main-logo {
+  display: flex;
+}
+.logo-text {
+  font-family: 'Roboto-Medium';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 8px;
+  color: white;
+  transition: color 0.3s ease;
+}
+.logo-text:hover {
+  color: var(--orange);
+}
 
 .switch input:checked + .slider:before {
   transform: translateX(20px);
+  background-color: black;
 }
 .main-nav.dark-theme {
   background-color: var(--black);
@@ -300,13 +315,13 @@ body.dark-theme #mobile-menu {
     max-height: 36px;
   }
 
-  .logo-container::after {
+  /*.logo-container::after {
     content: 'Cinemania';
     margin-left: 10px;
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
-  }
+  }*/
   .mobile-menu {
     display: flex;
     margin-left: 216px;
@@ -317,6 +332,9 @@ body.dark-theme #mobile-menu {
     display: none;
   }
   .table-desktop {
+    display: none;
+  }
+  .logo-text {
     display: none;
   }
 }
@@ -373,13 +391,13 @@ body.dark-theme #mobile-menu {
     max-height: 36px;
   }
 
-  .logo-container::after {
+  /*.logo-container::after {
     content: 'Cinemania';
     margin-left: 10px;
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
-  }
+  }*/
   .mobile-menu {
     display: flex;
     margin-left: 216px;

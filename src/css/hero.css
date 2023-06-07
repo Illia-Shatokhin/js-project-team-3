@@ -7,6 +7,7 @@
   width: 100%;
   margin: 0 auto;
   min-height: 380px;
+  max-width: 320px;
 }
 
 .hero-stub {
@@ -82,6 +83,9 @@
 }
 
 @media screen and (min-width: 321px) {
+  .hero {
+    max-width: 768px;
+  }
   .hero-stub {
     background-image: var(--gradient768HomeStub),
       url(../public/img/hero-tab.jpg);
@@ -108,6 +112,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .hero {
+    max-width: 1280px;
+  }
   .hero {
     padding-top: 36px;
     padding-bottom: 63px;
