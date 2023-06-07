@@ -14,14 +14,14 @@
     <meta name="theme-color" content="#ffffff">
     <link href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css" rel="stylesheet">
     
-    <script type="module" crossorigin src="/js-project-team-3/assets/catalog-135f93bc.js"></script>
-    <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/header-fb3d401f.js">
-    <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/get-default-data-6a54342f.js">
-    <link rel="stylesheet" href="/js-project-team-3/assets/header-2886f0dd.css">
+    <script type="module" crossorigin src="/js-project-team-3/assets/catalog-2f49c3ac.js"></script>
+    <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/header-400f131b.js">
+    <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/get-default-data-61590432.js">
+    <link rel="stylesheet" href="/js-project-team-3/assets/header-dd849cfe.css">
   </head>
 
   <body>
-    <header class="">
+    <header class="header">
   <div class="container mobile-header">
     <!--<link rel="stylesheet" href="/header.css" />-->
 
@@ -56,7 +56,7 @@
         <h1 class="logo-text">Cinemania</h1>
       </a>
     </div>
-
+<!--mobile menu-->
     <nav id="table-menu" class="table-desktop">
       <ul class="table-menu">
         <li class="space" id="home">
@@ -72,9 +72,9 @@
     </nav>
     <div class="menu-container checkbox">
       <label for="menu-toggle" class="menu-toggle-label"
-        >MENU<input type="checkbox" id="menu-toggle"
-      /></label>
-
+        >MENU
+        <input type="checkbox" id="menu-toggle" />
+      </label>
       <div id="mobile-menu" class="">
         <div class="menu-content">
           <button id="close-menu" class="close-button" aria-label="Close menu">
@@ -103,6 +103,7 @@
           </ul>
         </div>
       </div>
+      <div id="backdrop"></div>
     </div>
     <div class="theme-slider-container">
       <label class="switch">
