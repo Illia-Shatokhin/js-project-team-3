@@ -1,5 +1,5 @@
  .my-library-films {
-   padding-top: 80px;
+   padding-top: 40px;
    background-color: var(--black);
 
  }
@@ -23,6 +23,7 @@
  /* select */
  .my-library-wrap-select {
    position: relative;
+   margin-bottom: 16px;
  }
 
  .select-library {
@@ -33,13 +34,44 @@
    -webkit-appearance: none;
    -moz-appearance: none;
 
-   background: transparent;
+   border-radius: 8px;
+   border: 1px solid var(--white);
+   padding: 10px 20px 10px 20px;
+   background-color: var(--black);
+   color: var(--white);
+   font-size: 14px;
+   line-height: 1.14;
+   font-family: 'Roboto-Regular', sans-serif;
+   font-weight: 400;
  }
 
  .select-library+label {
    position: absolute;
    top: 10px;
    bottom: 0;
-   left: 151px;
+   left: 142px;
    pointer-events: none;
+   stroke: var(--white);
+ }
+
+ @media screen and (min-width: 768px) {
+   .my-library-films {
+     padding-top: 60px;
+   }
+
+   .my-library-wrap-select {
+     margin-bottom: 36px;
+   }
+
+ }
+
+
+ @media screen and (min-width: 1280px) {
+   .my-library-films {
+     padding-top: 80px;
+   }
+
+   .my-library-wrap-select {
+     margin-bottom: 48px;
+   }
  }
