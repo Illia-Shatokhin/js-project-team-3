@@ -14,9 +14,9 @@
     <meta name="theme-color" content="#ffffff">
     <link href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"  rel="stylesheet" >
     
-    <script type="module" crossorigin src="/js-project-team-3/assets/my-library-8fdde14a.js"></script>
-    <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/header-400f131b.js">
-    <link rel="stylesheet" href="/js-project-team-3/assets/header-dd849cfe.css">
+    <script type="module" crossorigin src="/js-project-team-3/assets/my-library-186c8f8e.js"></script>
+    <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/header-2b29f95c.js">
+    <link rel="stylesheet" href="/js-project-team-3/assets/header-1be775d4.css">
   </head>
 
   <body>
@@ -153,17 +153,24 @@
 
       <section class="my-library-films">
   <div class="container">
+
+    <div class="my-library-wrap-select">
+      <select class="select-library" id="select-library" name="select-library" data-library="" data-filter="">
+      </select>
+      <label>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round"
+          stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </label>
+    </div>
+
     <ul class="my-library-list"></ul>
-    <button
-      type="button"
-      class="button btn-gradient btn-load-more"
-      id="btn-load-more"
-    >
+    <button type="button" class="button btn-gradient btn-load-more" id="btn-load-more">
       Load more
     </button>
   </div>
 </section>
-
     </main>
     <footer class="footer">
   <div class="footer-container container">
