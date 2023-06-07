@@ -23,7 +23,9 @@ export function renderModalMovieMarkup(data) {
           <use href="./img/symbols.svg#close" width="100%" height="100%"></use>
        </svg>
    </button>
-   <img class="film-poster-img"   src="${poster}" alt="Movie poster" width="375" height="478">
+   <div class="film-poster-wrapper">
+   <img class="film-poster-img"   src="${poster}" alt="Movie poster"width="375" height="478">
+   </div>
    <div class="about-film-wrapper">
     <h2 class="film-tittle">${data.original_title}</h2>
     <div class="film-list-wrapper">
