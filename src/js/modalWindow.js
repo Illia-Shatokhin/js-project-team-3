@@ -2,6 +2,7 @@
 import * as basicLightbox from 'basiclightbox';
 import { renderModalMovieMarkup } from './models/modal-film-window';
 import { getMovieDetails } from './API/get-from-server';
+import { createLibraryFromLocalStorage } from './services/data-for-library';
 
 let instance;
 const bodyElement = document.querySelector('body');
@@ -42,8 +43,9 @@ export async function getMovie(movie_id) {
           });
         document.removeEventListener('keydown', closeModalOnKeyPress);
         bodyElement.style.overflow = 'auto';
-        // add reload modal window
-        if (document.title === 'My Library') location.reload();
+        // add reload modal window                  reload page
+        // if (document.title === 'My Library') location.reload();
+        if (document.title === 'My Library')  createLibraryFromLocalStorage();
       },
       onOverlayClick: () => {
         closeModal();
