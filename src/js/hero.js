@@ -2,6 +2,7 @@ import { getTrendingAllDay } from './API/get-from-server.js';
 import { getTrailer } from './hero-trailer.js';
 import { getMovie } from './modalWindow.js';
 import { refs } from './models/refs.js';
+import { addHeroStars } from './stars';
 
 const gradient320 =
   'linear-gradient(86.47deg, #111111 33.63%, rgba(17, 17, 17, 0) 76.86%)';
@@ -57,6 +58,7 @@ function renderHero(data, currentPage) {
 
     addHeroBackground(backdrop_path);
     refs.heroRef.innerHTML = creatHeroMarkup(overview, title, vote_average);
+    addHeroStars(document.querySelector('.reting-stars'), screen.width);
   }
 
   getElemAddListenersHeroBtn();
