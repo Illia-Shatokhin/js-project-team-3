@@ -8,7 +8,7 @@ export default class CreatePagination {
   #scrollUp() {
     window.scrollTo({
       top: 400,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
@@ -41,16 +41,18 @@ export default class CreatePagination {
           '<span class="tui-ico-ellip">...</span>' +
           '</a>',
       },
-    }
+    };
   }
 
   activatePagination() {
-    const pagination = new Pagination(refs.tuiPaginationContainer, this.options);
+    const pagination = new Pagination(
+      refs.tuiPaginationContainer,
+      this.options
+    );
     pagination.on('afterMove', ({ page }) => {
       if (dataObj.searchQuery) dataObj.searchCurrentPage = page;
       this.func(page);
       this.#scrollUp();
     });
-
   }
 }

@@ -17,6 +17,7 @@ function generateOption(addURL, params) {
 async function axiosGet(options) {
   try {
     const response = await axios.request(options);
+    // console.log(response);
     return response.data;
   } catch (err) {
     //FIXME: may be deleted when error is returned
