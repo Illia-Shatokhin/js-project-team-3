@@ -66,12 +66,17 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
 
             const filmTitle = document.createElement('h2');
             filmTitle.className = 'film-title';
-            filmTitle.textContent = randomFilm.title;
+            filmTitle.textContent = randomFilm.title.toUpperCase();
             filmCard.appendChild(filmTitle);
+
+            const filmWrap = document.createElement('div');
+            filmWrap.className = 'film-wrap';
+            filmCard.appendChild(filmWrap);
 
             const filmReleaseWrap = document.createElement('div');
             filmReleaseWrap.className = 'film-release-wrap';
-            filmCard.appendChild(filmReleaseWrap);
+            filmWrap.appendChild(filmReleaseWrap);
+
 
             const filmReleaseDateText = document.createElement('p');
             filmReleaseDateText.className = 'film-release-text';
@@ -80,12 +85,25 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
 
             const filmReleaseDate = document.createElement('p');
             filmReleaseDate.className = 'film-release-date';
-            filmReleaseDate.textContent = randomFilm.release_date;
+
+            function formatDate(dateString) {
+              const date = new Date(dateString);
+              
+              const day = String(date.getDate()).padStart(2, '0');
+              const month = String(date.getMonth() + 1).padStart(2, '0');
+              const year = date.getFullYear();
+              
+              return `${day}.${month}.${year}`;
+            }
+            const formattedDate = formatDate(randomFilm.release_date);
+            // console.log(formattedDate)
+
+            filmReleaseDate.textContent = formattedDate;
             filmReleaseWrap.appendChild(filmReleaseDate);
 
             const filmVoteWrap = document.createElement('div');
             filmVoteWrap.className = 'film-vote-wrap';
-            filmCard.appendChild(filmVoteWrap);
+            filmWrap.appendChild(filmVoteWrap);
 
             const filmVoteText = document.createElement('p');
             filmVoteText.className = 'film-vote-text';
@@ -99,7 +117,7 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
 
             const filmPopularityWrap = document.createElement('div');
             filmPopularityWrap.className = 'film-popularity-wrap';
-            filmCard.appendChild(filmPopularityWrap);
+            filmWrap.appendChild(filmPopularityWrap);
 
             const filmRatingText = document.createElement('p');
             filmRatingText.className = 'film-rating-text';
@@ -113,7 +131,7 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
 
             const filmGenreWrap = document.createElement('div');
             filmGenreWrap.className = 'film-genre-wrap';
-            filmCard.appendChild(filmGenreWrap);
+            filmWrap.appendChild(filmGenreWrap);
 
             const filmGenreText = document.createElement('p');
             filmGenreText.className = 'film-genre-text';

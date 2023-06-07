@@ -42,6 +42,11 @@
   color: var(--light-gray);
   margin-bottom: 12px;
 }
+
+
+.film-release-date{
+  color: var(--orange);
+}
 .film-vote-wrap,
 .film-release-wrap,
 .film-popularity-wrap,
@@ -113,12 +118,12 @@
     margin-bottom: 24px;
   }
 
-  .film-info-total-wrap {
+  .film-wrap {
     width: 100%;
     overflow: hidden;
   }
 
-  .film-info-total-wrap > div {
+  .film-wrap > div {
     width: 50%;
     float: left;
     box-sizing: border-box;
@@ -130,14 +135,14 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .film-info-total-wrap > div {
+  .film-wrap > div {
     width: 100%;
     float: none;
   }
 
   .film-info-total-wrap {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
   }
 
   .upcoming-film-section-title {
@@ -161,9 +166,9 @@
     object-fit: cover;
   }
 
-  .film-info-total-wrap {
+  .film-wrap {
     display: block;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
   }
   .film-release-date,
   .film-rating,
