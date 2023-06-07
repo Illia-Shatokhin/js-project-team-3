@@ -10,6 +10,9 @@
 }
 
 .catalog-item {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
   position: relative;
   width: 280px;
   height: 406px;
