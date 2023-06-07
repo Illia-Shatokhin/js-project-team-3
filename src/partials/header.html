@@ -3,38 +3,68 @@
     <!--<link rel="stylesheet" href="/header.css" />-->
 
     <div class="logo-container">
-      <a class="main-logo" href="./index.html">
-        <img style="padding: 0" src="./img/tablet-logo.png" alt="Your Logo" />
-        <p class="logo-text">Cinemania</p>
+      <a class="" href="./index.html"
+        ><picture class="main-logo">
+          <source
+            srcset="./img/tablet-logo.png 1x, ./img/tablet-logo@2x.png 2x"
+            type="image/png"
+          />
+          <img
+            style="padding: 0"
+            src="./img/tablet-logo.png"
+            srcset="./img/tablet-logo@2x.png 2x"
+            alt="Your Logo"
+          />
+
+          <h1 class="logo-text">Cinemania</h1>
+        </picture>
       </a>
     </div>
 
     <nav id="table-menu" class="table-desktop">
       <ul class="table-menu">
-        <li class="space">
+        <li class="space" id="home">
           <a class="hover-text" href="./index.html">HOME</a>
         </li>
-        <li class="space">
+        <li class="space" id="catalog">
           <a class="hover-text" href="./catalog.html">CATALOG</a>
         </li>
-        <li><a class="hover-text" href="./my-library.html">MY LIBRARY</a></li>
+        <li id="my-library">
+          <a class="hover-text" href="./my-library.html">MY LIBRARY</a>
+        </li>
       </ul>
     </nav>
     <div class="menu-container checkbox">
-      <input type="checkbox" id="menu-toggle" />
-      <label for="menu-toggle" class="menu-toggle-label">MENU</label>
+      <label for="menu-toggle" class="menu-toggle-label">MENU<input type="checkbox" id="menu-toggle" /></label>
+      
       <div id="mobile-menu" class="">
         <div class="menu-content">
           <button id="close-menu" class="close-button" aria-label="Close menu">
             <span aria-hidden="true">&times;</span>
           </button>
           <a href="index.html"
-            ><img class="menu-logo" src="img/tablet-logo.png" alt="Your Logo"
-          /></a>
+            ><picture class="menu-logo">
+              <source
+                srcset="./img/tablet-logo.png 1x, ./img/tablet-logo@2x.png 2x"
+                type="image/png"
+              />
+              <img
+                style="padding-bottom: 40px"
+                src="./img/tablet-logo.png"
+                srcset="./img/tablet-logo@2x.png 2x"
+                alt="Your Logo"
+              /> </picture
+          ></a>
           <ul class="menu-list">
-            <li><a class="hover-text" href="index.html">HOME</a></li>
-            <li><a class="hover-text" href="catalog.html">CATALOG</a></li>
-            <li><a class="hover-text" href="my-library.html">MY LIBRARY</a></li>
+            <li id="home1">
+              <a class="hover-text2" href="index.html">HOME</a>
+            </li>
+            <li id="catalog1">
+              <a class="hover-text2" href="catalog.html">CATALOG</a>
+            </li>
+            <li id="my-library1">
+              <a class="hover-text2" href="my-library.html">MY LIBRARY</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -42,10 +72,43 @@
     <div class="theme-slider-container">
       <label class="switch">
         <input type="checkbox" id="theme-toggle" />
-        <span class="slider round"></span>
+        <span class="slider round">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            style="
+              fill: none;
+              stroke: #ffffff;
+              stroke-width: 2px;
+              margin-left: 3px;
+              margin-top: 3px;
+            "
+          >
+            <path
+              d="M20 12.92A9.503 9.503 0 0 1 9.78 3.8 7.5 7.5 0 0 0 4 12c0 4.15 3.35 7.5 7.5 7.5 4.19 0 7.63-3.4 7.75-7.6V12.92z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            style="
+              fill: none;
+              stroke: #ffffff;
+              stroke-width: 2px;
+              margin-left: 21.5px;
+            "
+          >
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M18.66 18.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41"
+            />
+          </svg>
+        </span>
       </label>
     </div>
   </div>
 </header>
-
-<!-- <script src="/src/js/header.js"></script>-->
