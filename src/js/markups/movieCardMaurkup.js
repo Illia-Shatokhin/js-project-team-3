@@ -1,7 +1,8 @@
 function movieCardMarkup(card, releaseYear, originalTitle, genreNames) {
-  let pic = `url(../public/img/trailer-modal-desk.png)`
+  let pic = `url(./img/trailer-modal-desk.png)`;
 
-  if (card.poster_path) pic = `url(https://image.tmdb.org/t/p/w500${card.poster_path})`;
+  if (card.poster_path)
+    pic = `url(https://image.tmdb.org/t/p/w500${card.poster_path})`;
 
   return `
   <li class="catalog-item" style="background-image: linear-gradient(180deg, 
