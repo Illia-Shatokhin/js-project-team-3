@@ -55,3 +55,30 @@ if (
     button.classList.remove('dark-theme');
   });
 }
+// Get the current page URL
+  var currentPage = window.location.href;
+
+  // Check if the current page matches each menu item
+  var homeLink = document.getElementById('home');
+  var catalogLink = document.getElementById('catalog');
+  var myLibraryLink = document.getElementById('my-library');
+
+  if (currentPage.includes('index.html')) {
+    homeLink.classList.add('current-page');
+  } else if (currentPage.includes('catalog.html')) {
+    catalogLink.classList.add('current-page');
+  } else if (currentPage.includes('my-library.html')) {
+    myLibraryLink.classList.add('current-page');
+}
+  
+var homeLink = document.getElementById('home1');
+var catalogLink = document.getElementById('catalog1');
+var myLibraryLink = document.getElementById('my-library1');
+
+if (currentPage.includes('index.html')) {
+  homeLink.classList.add('current-page');
+} else if (currentPage.includes('catalog.html')) {
+  catalogLink.classList.add('current-page');
+} else if (currentPage.includes('my-library.html')) {
+  myLibraryLink.classList.add('current-page');
+}

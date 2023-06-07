@@ -9,12 +9,24 @@
   padding-right: 20px;
   padding-left: 20px;
 }
-
+.current-page a {
+  color: var(--orange);
+}
 .desktop-header.dark-theme {
   background-color: var(--black);
   color: var(--white);
 }
-
+.hover-text2 {
+  font-family: 'Roboto-Medium';
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  color: var(--white);
+}
 .hover-text {
   font-family: 'Roboto-Medium';
   font-size: 14px;
@@ -24,12 +36,19 @@
   text-align: center;
   text-transform: uppercase;
   transition: color 0.3s ease; /* Transition for color property */
+  padding-bottom: 22px;
+  padding-top: 22px;
 }
 .hover-text.dark-theme {
   color: var(--white);
 }
 .hover-text:hover,
 .hover-text:focus {
+  color: var(--orange);
+}
+
+.hover-text2:hover,
+.hover-text2:focus {
   color: var(--orange);
 }
 .mobile-header {
@@ -65,7 +84,6 @@
 
 /* Modify the styles for the menu-content */
 .menu-content {
-  width: 204px;
   padding-left: 20px;
   padding-top: 8px;
   padding-right: 20px;
@@ -88,7 +106,7 @@
 .logo-container img {
   max-width: 100px; /* Adjust the size as per your logo dimensions */
 }
-.table-desktop{
+.table-desktop {
   color: white;
 }
 .menu-container {
@@ -128,7 +146,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -144,9 +162,10 @@
 
 .menu-content {
   width: 65%;
+  height: 100vh;
   border-radius: 5px;
   text-align: left;
-  background-color: var(--white);
+  background-color: var(--black);
 }
 
 .menu-content.dark-theme {
@@ -170,6 +189,7 @@
 .close-button {
   transition: color 0.3s ease;
   cursor: pointer;
+  color: white;
 }
 .close-button:hover,
 .close-button:focus {
@@ -330,7 +350,7 @@
   .table-desktop {
     display: none;
   }
-  .logo-text{
+  .logo-text {
     display: none;
   }
 }
