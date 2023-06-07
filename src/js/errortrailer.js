@@ -1,4 +1,5 @@
 function renderError(elem, markup) {
+  elem.style.display = 'block';
   elem.insertAdjacentHTML('beforeend', markup());
 }
 

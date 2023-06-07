@@ -9,6 +9,8 @@ const ratingArray = [];
 //================================================================
 function getReleaseYear(film) {
   let releaseYear = '2023';
+  if (!film) return releaseYear;
+  
   const { release_date } = film;
   if (release_date) releaseYear = release_date.split('-')[0];
   return releaseYear;
@@ -16,6 +18,8 @@ function getReleaseYear(film) {
 
 function getMovieTitle(film) {
   let originalTitle = 'No Title';
+  if (!film) return originalTitle;
+
   const { original_title } = film;
   if (original_title) originalTitle = original_title;
   return originalTitle;
@@ -30,10 +34,15 @@ async function getGenreIds(getGenreMovieList) {
 //================================================================
 export default async function createMovieCard(data, elem, count) {
   const genreIds = await getGenreIds(getGenreMovieList);
+  count = count > data.length ? data.length : count;
   let markup = '';
   for (let index = 0; index < count; index++) {
-    ratingArray.push(data[index].vote_average ? data[index].vote_average : 0);
-
+    
+    // console.log(data[index].vote_average);
+    // debugger
+    // if (data[index].vote_average) { 
+      ratingArray.push(data[index].vote_average ? data[index].vote_average : 0);
+    // }
     const releaseYear = getReleaseYear(data[index]);
     const originalTitle = getMovieTitle(data[index]);
     const movieGenres = genreIds.filter(genre =>
@@ -52,6 +61,7 @@ export default async function createMovieCard(data, elem, count) {
         genreNames
       );
   }
+  elem.style.display = 'flex';
   elem.innerHTML = markup;
   addStars([...document.querySelectorAll('.catalog-card-rating')]);
 }

@@ -1,44 +1,48 @@
 import * as basicLightbox from 'basiclightbox';
+import { errorTrailerMarkup } from './errortrailer';
 import { getMovieVideos } from './API/get-from-server.js';
-import { errorTrailerMarkup } from './errortrailer.js';
+
+const bodyElement = document.querySelector('body');
 
 async function getDataVideo(id) {
   try {
     const data = await getMovieVideos(id);
-    console.log(data);
-    return data.results;
+    return data.results[0];
   } catch (err) {
     console.log(err);
   }
 }
 export async function getTrailer(id) {
   try {
-    const videos = await getDataVideo(id);
-    const myKey = videos.find(el => el.key)?.key;
-    const instance = basicLightbox.create(succesTrailerMarkup(myKey), {
+    const { key } = await getDataVideo(id);
+    const instance = basicLightbox.create(succesTrailerMarkup(key), {
       onShow: instance => {
-        trailerBtn.addEventListener('keydown', closeModalOnEsc);
+        window.addEventListener('keydown', closeModalOnEsc);
+        bodyElement.style.overflow = 'hidden';
       },
       onClose: instance => {
-        trailerBtn.removeEventListener('keydown', closeModalOnEsc);
+        window.removeEventListener('keydown', closeModalOnEsc);
+        bodyElement.style.overflow = 'auto';
       },
     });
 
-    console.log(instance);
     instance.show(() => console.log('lightbox now visible'));
     window.addEventListener('keydown', closeModalOnEsc);
     function closeModalOnEsc(event) {
       if (event.code === 'Escape') {
         instance.close();
+        bodyElement.style.overflow = 'auto';
       }
     }
   } catch (error) {
     const instance = basicLightbox.create(errorTrailerMarkup(), {
       onShow: instance => {
         window.addEventListener('keydown', closeModalOnEsc);
+        bodyElement.style.overflow = 'hidden';
       },
       onClose: instance => {
         window.removeEventListener('keydown', closeModalOnEsc);
+        bodyElement.style.overflow = 'auto';
       },
     });
     instance.show(() => console.log('Lightbox now visible'));
@@ -55,12 +59,12 @@ export async function getTrailer(id) {
       console.log(target);
       if (target.classList.contains('select-icon') || target.closest('.icon')) {
         instance.close();
+        bodyElement.style.overflow = 'auto';
       }
     }
   }
 }
-
-function succesTrailerMarkup(myKey) {
+function succesTrailerMarkup(key) {
   return `
-<iframe class="iframe" src="https://www.youtube.com/embed/${myKey}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
+  <iframe class="iframe" src="https://www.youtube.com/embed/${key}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
 }
