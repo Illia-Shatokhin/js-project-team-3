@@ -9,7 +9,6 @@
   line-height: calc(16 / 14);
 
   padding: 52px 16px;
-  /* min-height: 847px; */
   width: 280px;
 
   background-color: var(--black);
@@ -17,6 +16,13 @@
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 1px 1px 0px rgba(255, 107, 8, 0.42);
+   /* overflow-y: auto;  */
+  /* height: 100vh;   */
+    opacity: 1;
+  max-height: 95vh;
+   /* height: auto;  */
+  /* overflow-y: scroll;   */
+
 }
 
 .modal-close-btn {
@@ -63,9 +69,7 @@
 .about-film-item:not(:first-child) {
   margin-top: 12px;
 }
-/* .first-about-film-list{
-  width: 100px;
-} */
+
 .second-about-film-list > .about-film-item {
   color: var(--white);
   width: 120px;
@@ -94,7 +98,8 @@
   color: var(--white-smoke);
   width: 248px;
   height: 160px;
-  overflow: auto;
+   overflow: auto; 
+  /* overflow-y: scroll;  */
 }
 
 .add-film-btn {
@@ -110,17 +115,36 @@
   color: white;
 }
 
-/*-------------------------------Tablet-----------------------------*/
-/* @media screen and (min-width: 320px) {
-  .container {
-    max-width: 320px;
+
+ /* @media screen and  (min-width: 320px) and (max-width: 400px) {
+  .modal-film-window{
+    opacity: 1;
+    max-height: 95vh;
+     height: auto; 
+    overflow-y: scroll; 
   }
-} */
+}   */
+@media screen and (max-width: 767px) {
+  .modal-film-window {
+    overflow-y: auto;
+  }
+
+  .about-film-story {
+    overflow-y: auto;
+  }
+}
+/*-------------------------------Tablet-----------------------------*/
+
 @media screen and (min-width: 768px) {
   .modal-film-window {
     justify-content: center;
     width: 704px;
     min-height: 488px;
+    /* overflow-y: initial; */
+    /* overflow-y: auto;  */
+    /* height: 100vh;   */
+    overflow-y: hidden;
+   
   }
 
   .modal-film-window {
@@ -159,6 +183,8 @@
     /* height: 130px; */
     height: 100px;
     margin-top: 16px;
+    /* overflow-y: scroll;  */
+    overflow-y: auto;
   }
 
   .film-poster-img {

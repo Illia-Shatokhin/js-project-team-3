@@ -3,6 +3,9 @@ import * as basicLightbox from 'basiclightbox';
 // import { refs } from './models/refs.js';
 import { refs } from './models/refs.js'
 
+
+export { getMovie };
+
 const KEY =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzgzN2Q4ZThiOWY1YjkyODFlNGYzODM2ZjQwZmMzMiIsInN1YiI6IjY0NzhmMTllMGUyOWEyMDBkY2I5YmFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Gm8FRVhZa5JYfHHhkK7gHuf4DwF_mvLWBXC6uzMdhLk';
 const API_KEY = '5788acd6bec4b8c2fc2e238d02649a74';
@@ -19,9 +22,10 @@ const options = {
   },
 };
 
-/*--------отримує дані з бекенду про фільм-------------*/
+/*-------------отримує дані з бекенду про фільм------------------------------------*/
 
 const bodyElement = document.querySelector('body');
+const modalElement = document.querySelector('.modal-film-window');
 
 async function fetchMovieDetails(movie_id) {
   try {
@@ -77,6 +81,8 @@ function renderModalMovieMarkup(data) {
    </div>
   </div>`;
 }
+
+/*--------------перевіряє наявність постера у фільма і робить відповідний запит----------------*/
 function checkPoster(data) {
   if (data.poster_path) {
     return `https://image.tmdb.org/t/p/w500${data.poster_path}`;
@@ -84,14 +90,15 @@ function checkPoster(data) {
     return './img/trailer-modal-mob.png';
   }
 }
-/*--------------отримує і відображає фільм в модальному вікні----------------*/
+/*--------------отримує і відображає фільм в модальному вікні--------------------------------*/
 let instance;
+
 async function getMovie(movie_id) {
   try {
-    bodyElement.style.overflow = 'hidden';
-
+       bodyElement.style.overflow = 'hidden';
+  
     const data = await fetchMovieDetails(movie_id);
-    
+
     normalizeData(data);
 
     const markup = renderModalMovieMarkup(data);
@@ -102,8 +109,10 @@ async function getMovie(movie_id) {
           .element()
           .querySelector('.modal-close-btn')
           .addEventListener('click', () => {
-            instance.close();
-             bodyElement.style.overflow = 'auto';
+             instance.close();
+              bodyElement.style.overflow = 'auto';
+            
+          
           });
         document.addEventListener('keydown', closeModalOnKeyPress);
       },
@@ -112,22 +121,25 @@ async function getMovie(movie_id) {
           .element()
           .querySelector('.modal-close-btn')
           .removeEventListener('click', () => {
-            instance.close();
-            bodyElement.style.overflow = 'auto';
+             instance.close();
+              bodyElement.style.overflow = 'auto';
+           
+           
           });
         document.removeEventListener('keydown', closeModalOnKeyPress);
-        bodyElement.style.overflow = 'auto';
+          bodyElement.style.overflow = 'auto';
+        
 
       },
       onOverlayClick: () => {
-        closeModal();
+        closeModal()
       },
     });
     instance.show();
-     const libraryBtn = document.querySelector('.add-film-btn');
+    const libraryBtn = document.querySelector('.add-film-btn');
     libraryBtn.addEventListener('click', () => {
       toggleLibraryStatus(data);
-    
+
     });
     updateLibraryButtonStatus(data.id);
   } catch (error) {
@@ -137,21 +149,25 @@ async function getMovie(movie_id) {
 
 
 /*-------------закриває модальне вікно, натичкаючи на бекдроп та  відновлює скрол------------*/
-function closeModal() {
-  instance.close();
-  bodyElement.style.overflow = 'auto';
-}
-/*--------------перевірка чи натиснута клавіша Escape із акриття модалки------------*/
+ function closeModal() {
+    instance.close();
+    bodyElement.style.overflow = 'auto';
+  }
+
+/*--------------перевірка чи натиснута клавіша Escape із акриття модалки--------------------*/
 function closeModalOnKeyPress(e) {
   if (e.code !== 'Escape') {
     return;
   }
-  instance.close();
-  bodyElement.style.overflow = 'auto';
+   instance.close();
+  //  bodyElement.style.overflow = 'auto';
+  closeModalWindow();
+ 
   document.removeEventListener('keydown', closeModalOnKeyPress);
 }
 
-/*--------------перевіряє чи є фільм у сховищі, записує та видаляє фільм зі сховища;----*/
+
+/*--------------перевіряє чи є фільм у сховищі, записує та видаляє фільм зі сховища;-------*/
 function toggleLibraryStatus(movieData) {
   const libraryMovies = getLibraryMovies();
   const movieIndex = libraryMovies.findIndex(
@@ -167,19 +183,16 @@ function toggleLibraryStatus(movieData) {
   updateLibraryButtonStatus(movieData.id);
 }
 
-/*-------------- отримує фільми зі сховища бібліотеки--------*/
+/*----------------отримує фільми зі сховища бібліотеки--------------------------------------*/
 function getLibraryMovies() {
   const storedMovies = localStorage.getItem('myLibrary');
   return storedMovies ? JSON.parse(storedMovies) : [];
 }
 
-// function saveLibraryMovies(movies) {
-//   localStorage.setItem('myLibrary', JSON.stringify(movies));
-// }
 
-/*-------------- змінює статус кнопки відносно потреби додавання, або видалення зі сховища--------*/
+/*--------------змінює статус кнопки відносно потреби додавання, або видалення зі сховища-----*/
 function updateLibraryButtonStatus(movieId) {
- const libraryBtn = document.querySelector('.add-film-btn');
+  const libraryBtn = document.querySelector('.add-film-btn');
   const libraryMovies = getLibraryMovies();
 
   if (libraryMovies.some(movie => movie.id === movieId)) {
@@ -191,6 +204,16 @@ function updateLibraryButtonStatus(movieId) {
   }
 }
 
-export { getMovie };
 
-/*--------------Робота з LocalStorage ----------------*/
+
+
+//  const modalElement = document.querySelector('.modal-film-window');
+ 
+
+
+
+
+
+
+
+
