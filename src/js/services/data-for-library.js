@@ -2,10 +2,10 @@ import createMovieCard, { openFilmDetails } from '../catalogMovieCard';
 import { errorLibraryMarkup, renderError } from '../errortrailer';
 
 
-createLibraryFromLocalStorage();
+if (document.title === 'My Library')  createLibraryFromLocalStorage();
 
 //================================================================
-function createLibraryFromLocalStorage() {
+export function createLibraryFromLocalStorage() {
   const moviePerPage = 9;
   let currentPage = 1;
 
