@@ -9,7 +9,7 @@ function movieCardMarkup(card, releaseYear, originalTitle, genreNames) {
       <p class="catalog-card-title">${originalTitle}</p>
       <div class="film-info-container">
         <p class="catalog-card-description">${genreNames} | ${releaseYear}</p>
-        <div class="rating">${card.vote_average.toFixed(1)}</div>
+        <div class="catalog-card-rating"></div>
       </div>
     </div>
   </li>

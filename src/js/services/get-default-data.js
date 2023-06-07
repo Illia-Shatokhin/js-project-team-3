@@ -1,5 +1,5 @@
-import { getGenreMovieList, getLanguages } from "../API/get-from-server";
-import { dataObj } from "../models/data";
+import { getGenreMovieList, getLanguages } from '../API/get-from-server';
+import { dataObj } from '../models/data';
 
 export async function getDefaultData() {
   try {

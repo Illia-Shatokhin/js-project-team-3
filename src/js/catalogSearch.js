@@ -19,7 +19,7 @@ export async function sendSearch(page = 1) {
     };
     const data = await getSearchMovie(options);
     const arrayMovies = data.results;
-    
+
     const searchPagination = new CreatePagination(data, sendSearch);
     searchPagination.activatePagination();
 
@@ -51,11 +51,11 @@ export async function onSubmit(event) {
   const country = form.elements.country.value;
   const year = form.elements.year.value;
 
-  if (value === '') Notify.failure('No movie specified!')
- else {
-  setSearchParam(1, value, year, country);
-  sendSearch();
- }
+  if (value === '') Notify.failure('No movie specified!');
+  else {
+    setSearchParam(1, value, year, country);
+    sendSearch();
+  }
 }
 
 function filterCreateMovieCard(data) {
@@ -81,7 +81,7 @@ function catalogListReset() {
   refs.catalogList.innerHTML = '';
 }
 // ==========================================================================================
-function setSearchParam( page, query, year, region) {
+function setSearchParam(page, query, year, region) {
   dataObj.searchCurrentPage = page;
   dataObj.searchQuery = query;
   dataObj.searchYear = year;
