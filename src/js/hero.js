@@ -114,7 +114,7 @@ function addHeroBackground(backdrop_path) {
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
   }
 }
-// ------------------------------------------------------
+
 function addHomeHeroBackgroundStub() {
   refs.heroRef.classList.add('hero-stub');
 }
