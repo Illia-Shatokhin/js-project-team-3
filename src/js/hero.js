@@ -46,13 +46,7 @@ function renderHero(data, currentPage) {
     const { id, overview, title, vote_average, backdrop_path } = data[index];
     currentId = id;
 
-    if (
-      id === undefined ||
-      title === undefined ||
-      overview === undefined ||
-      vote_average === undefined ||
-      backdrop_path === undefined
-    ) {
+    if (!id || !title || !overview || !vote_average || !backdrop_path) {
       return createHero();
     }
 
