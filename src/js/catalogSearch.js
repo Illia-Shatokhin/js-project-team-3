@@ -3,6 +3,7 @@ import { getSearchMovie } from './API/get-from-server';
 import { refs } from './models/refs';
 import { renderError, errorCatalogMarkup } from './errortrailer';
 import createMovieCard from './catalogMovieCard';
+import { weeklyTrendsList } from './catalogMovieCard';
 import { dataObj } from './models/data';
 import CreatePagination from './services/pagination';
 
@@ -53,7 +54,7 @@ export async function onSubmit(event) {
   const country = form.elements.country.value;
   const year = form.elements.year.value;
 
-  if (value === '') Notify.failure('No movie specified!');
+  if (value === '') {weeklyTrendsList()}
   else {
     setSearchParam(1, value, year, country);
     sendSearch();
