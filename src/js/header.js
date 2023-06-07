@@ -94,4 +94,55 @@ myLibraryLink.classList.remove('current-page');
     myLibraryLink1.classList.add('current-page');
   } else {
     homeLink1.classList.add('current-page');
+}
+// Mobile menu toggle
+var menuToggle = document.getElementById('menu-toggle');
+var mobileMenu = document.getElementById('mobile-menu');
+var backdrop = document.getElementById('backdrop');
+var closeMenuButton = document.getElementById('close-menu');
+
+function openMenu() {
+  mobileMenu.classList.add('visible');
+  mobileMenu.classList.add('show-menu');
+  backdrop.classList.add('show-backdrop');
+}
+
+function closeMenu() {
+  mobileMenu.classList.remove('show-menu');
+  backdrop.classList.remove('show-backdrop');
+  setTimeout(function () {
+    mobileMenu.classList.remove('visible');
+  }, 300);
+}
+
+menuToggle.addEventListener('change', function () {
+  if (this.checked) {
+    openMenu();
+  } else {
+    closeMenu();
   }
+});
+
+closeMenuButton.addEventListener('click', function () {
+  menuToggle.checked = false;
+  closeMenu();
+});
+
+// Close button event listener
+document.getElementById('close-menu').addEventListener('click', function () {
+  var mobileMenu = document.getElementById('mobile-menu');
+  var backdrop = document.getElementById('backdrop');
+  mobileMenu.classList.remove('show-menu');
+  backdrop.classList.remove('show-backdrop');
+  setTimeout(function () {
+    mobileMenu.classList.remove('visible');
+  }, 300);
+});
+
+
+
+
+
+
+
+
