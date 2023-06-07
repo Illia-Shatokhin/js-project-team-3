@@ -47,7 +47,8 @@ function renderModalMovieMarkup(data) {
   const vote = data.vote_average.toFixed(1);
   const populatity = data.popularity.toFixed(1);
   const voteCount = data.vote_count.toFixed(1);
-  const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+  const poster = checkPoster(data);
+  // const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   return `
   <div class="modal-film-window">
     <button class="modal-close-btn">
@@ -55,7 +56,7 @@ function renderModalMovieMarkup(data) {
           <use href="./img/symbols.svg#close" width="100%" height="100%"></use>
        </svg>
    </button>
-   <img class="film-poster-img"  src="${posterUrl}" alt="Movie poster" width="375" height="478">
+   <img class="film-poster-img"   src="${poster}" alt="Movie poster" width="375" height="478">
    <div class="about-film-wrapper">
    <h2 class="film-tittle">${data.original_title}</h2>
    <div class="film-list-wrapper">
@@ -76,7 +77,13 @@ function renderModalMovieMarkup(data) {
    </div>
   </div>`;
 }
-
+function checkPoster(data) {
+  if (data.poster_path) {
+    return `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+  } else {
+    return './img/trailer-modal-mob.png';
+  }
+}
 /*--------------отримує і відображає фільм в модальному вікні----------------*/
 let instance;
 async function getMovie(movie_id) {
@@ -117,8 +124,8 @@ async function getMovie(movie_id) {
       },
     });
     instance.show();
-    // const libraryBtn = document.querySelector('.add-film-btn');
-    refs.libraryBtn.addEventListener('click', () => {
+     const libraryBtn = document.querySelector('.add-film-btn');
+    libraryBtn.addEventListener('click', () => {
       toggleLibraryStatus(data);
     
     });
@@ -172,14 +179,14 @@ function getLibraryMovies() {
 
 /*-------------- змінює статус кнопки відносно потреби додавання, або видалення зі сховища--------*/
 function updateLibraryButtonStatus(movieId) {
-  // const libraryBtn = document.querySelector('.add-film-btn');
+ const libraryBtn = document.querySelector('.add-film-btn');
   const libraryMovies = getLibraryMovies();
 
   if (libraryMovies.some(movie => movie.id === movieId)) {
-    refs.libraryBtn.textContent = 'Remove from my library';
+    libraryBtn.textContent = 'Remove from my library';
     // libraryBtn.classList.add('button-library-active');
   } else {
-    refs.libraryBtn.textContent = 'Add to my library';
+    libraryBtn.textContent = 'Add to my library';
     // libraryBtn.classList.remove('button-library-active');
   }
 }
