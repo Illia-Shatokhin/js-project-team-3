@@ -1,20 +1,6 @@
-// Клас для виклику зірочок
+export { addCardStars, addHeroStars };
 
-// import ReviewStars from './js/stars';
-// const stars = new ReviewStars({
-//   totalStars: 5,
-//   averageRating: 3.8,
-//   size: 24,
-//   filled: false,
-//   insertTo: {
-//     element: document.querySelector('.weekly-section').firstElementChild,
-//     position: "afterbegin"
-//   }
-// });
-// document.addEventListener("click", () => stars.restart());
-// setTimeout(() => stars.restart(), 1000);
-
-export default class ReviewStars {
+class ReviewStars {
   /**
    * Create a group of SVG stars.
    * @param {Number} totalStars
@@ -186,7 +172,7 @@ export default class ReviewStars {
 // Usage
 // -----------------------------------------------------------------------------
 
-export function addHeroStars(elementLink, screen) {
+function addHeroStars(elementLink, screen) {
   let size = 0;
   screen <= 767 ? (size = 16) : (size = 20);
   screen > 1279 ? (size = 24) : 0;
@@ -203,4 +189,23 @@ export function addHeroStars(elementLink, screen) {
     },
   });
   stars.restart();
+}
+
+function addCardStars(data, screen, ratingArray) {
+  data.map(el => {
+    let size = 0;
+    screen <= 767 ? (size = 14) : (size = 10);
+    screen > 1279 ? (size = 18) : 0;
+    const stars = new ReviewStars({
+      totalStars: 5,
+      averageRating: ratingArray.shift() / 2,
+      size: size,
+      filled: false,
+      insertTo: {
+        element: el,
+        position: 'afterbegin',
+      },
+    });
+    stars.restart();
+  });
 }
