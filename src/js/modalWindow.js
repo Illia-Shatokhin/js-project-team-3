@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 // import { refs } from './models/refs.js';
-import { refs } from './models/refs';
+import { refs } from './models/refs.js'
 
 const KEY =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzgzN2Q4ZThiOWY1YjkyODFlNGYzODM2ZjQwZmMzMiIsInN1YiI6IjY0NzhmMTllMGUyOWEyMDBkY2I5YmFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Gm8FRVhZa5JYfHHhkK7gHuf4DwF_mvLWBXC6uzMdhLk';
@@ -81,6 +81,8 @@ function renderModalMovieMarkup(data) {
 let instance;
 async function getMovie(movie_id) {
   try {
+    bodyElement.style.overflow = 'hidden';
+
     const data = await fetchMovieDetails(movie_id);
     
     normalizeData(data);
@@ -94,7 +96,7 @@ async function getMovie(movie_id) {
           .querySelector('.modal-close-btn')
           .addEventListener('click', () => {
             instance.close();
-            bodyElement.style.overflow = 'auto';
+             bodyElement.style.overflow = 'auto';
           });
         document.addEventListener('keydown', closeModalOnKeyPress);
       },
@@ -104,21 +106,33 @@ async function getMovie(movie_id) {
           .querySelector('.modal-close-btn')
           .removeEventListener('click', () => {
             instance.close();
+            bodyElement.style.overflow = 'auto';
           });
         document.removeEventListener('keydown', closeModalOnKeyPress);
+        bodyElement.style.overflow = 'auto';
+
+      },
+      onOverlayClick: () => {
+        closeModal();
       },
     });
-
     instance.show();
-    const libraryBtn = document.querySelector('.add-film-btn');
-    libraryBtn.addEventListener('click', () => {
+    // const libraryBtn = document.querySelector('.add-film-btn');
+    refs.libraryBtn.addEventListener('click', () => {
       toggleLibraryStatus(data);
+    
     });
     updateLibraryButtonStatus(data.id);
-    bodyElement.style.overflow = 'hidden';
   } catch (error) {
     console.log('Помилка отримання даних про фільм:', error);
   }
+}
+
+
+/*-------------закриває модальне вікно, натичкаючи на бекдроп та  відновлює скрол------------*/
+function closeModal() {
+  instance.close();
+  bodyElement.style.overflow = 'auto';
 }
 /*--------------перевірка чи натиснута клавіша Escape із акриття модалки------------*/
 function closeModalOnKeyPress(e) {
@@ -158,14 +172,14 @@ function getLibraryMovies() {
 
 /*-------------- змінює статус кнопки відносно потреби додавання, або видалення зі сховища--------*/
 function updateLibraryButtonStatus(movieId) {
-  const libraryBtn = document.querySelector('.add-film-btn');
+  // const libraryBtn = document.querySelector('.add-film-btn');
   const libraryMovies = getLibraryMovies();
 
   if (libraryMovies.some(movie => movie.id === movieId)) {
-    libraryBtn.textContent = 'Remove from my library';
+    refs.libraryBtn.textContent = 'Remove from my library';
     // libraryBtn.classList.add('button-library-active');
   } else {
-    libraryBtn.textContent = 'Add to my library';
+    refs.libraryBtn.textContent = 'Add to my library';
     // libraryBtn.classList.remove('button-library-active');
   }
 }
