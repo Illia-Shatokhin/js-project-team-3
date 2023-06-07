@@ -19,7 +19,6 @@ async function axiosGet(options) {
     const response = await axios.request(options);
     return response.data;
   } catch (err) {
-    //FIXME: may be deleted when error is returned
     console.error(err);
     Notify.failure('axiosGet: ' + err.message);
 
@@ -49,7 +48,6 @@ export async function getMovieUpcoming(page = 1, language = 'en-US') {
   return axiosGet(options);
 }
 
-//!!! query must not be empty
 export async function getSearchMovie({
   query = 'qqq',
   language = 'en-US',

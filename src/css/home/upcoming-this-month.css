@@ -78,6 +78,14 @@
   line-height: 1.18;
 }
 
+.vote-average,
+.vote-count {
+  background-color: var(--white);
+  border-radius: 5px;
+  color: var(--black);
+  padding: 1px 8px;
+}
+
 .film-description {
   margin-top: 10px;
   max-width: 390px;
@@ -196,11 +204,11 @@
   .film-popularity-wrap,
   .film-genre-wrap {
     display: flex;
-    gap: 58px;
+    gap: 56px;
   }
 
   .film-vote-wrap {
-    gap: 65px;
+    gap: 63px;
   }
 
   .film-popularity-wrap {

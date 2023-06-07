@@ -7,6 +7,7 @@
   width: 100%;
   margin: 0 auto;
   min-height: 380px;
+  max-width: 320px;
 }
 
 .hero-stub {
@@ -111,6 +112,7 @@
   .hero {
     padding-top: 36px;
     padding-bottom: 63px;
+    max-width: 768px;
   }
 
   .hero-stub {
@@ -176,6 +178,7 @@
   .hero {
     padding-top: 118px;
     padding-bottom: 181px;
+    max-width: 1280px;
   }
 
   .hero-container {

@@ -1,66 +1,70 @@
-import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
-const BASE_URL = 'https://api.themoviedb.org/3';
-const KEY = '2d1d8e2963579243d8e1859d5054f040';
+import { errorTrailerMarkup } from './errortrailer';
+import { getMovieVideos } from './API/get-from-server.js';
 
-const trailerBtn = document.getElementById('trailer-btn');
+const bodyElement = document.querySelector('body');
 
 async function getDataVideo(id) {
   try {
     const data = await getMovieVideos(id);
-    return data.results;
+    return data.results[0];
   } catch (err) {
     console.log(err);
   }
 }
 export async function getTrailer(id) {
   try {
-    const videos = await getDataVideo(id);
-    const myKey = videos.find(el => el.key)?.key;
-    const instance = createLightboxWithEvents(succesTrailerMarkup(myKey));
-    instance.show(() => console.log('lightbox now visible'));
-  } catch (error) {
-    const instance = createLightboxWithEvents(errorTrailerMarkup());
-    instance.show(() => console.log('lightbox now visible'));
-    instance.element().addEventListener('click', closeModalOnBtn);
-  }
-
-  function createLightboxWithEvents(content) {
-    const instance = basicLightbox.create(content, {
+    const { key } = await getDataVideo(id);
+    const instance = basicLightbox.create(succesTrailerMarkup(key), {
       onShow: instance => {
         window.addEventListener('keydown', closeModalOnEsc);
+        bodyElement.style.overflow = 'hidden';
       },
       onClose: instance => {
         window.removeEventListener('keydown', closeModalOnEsc);
+        bodyElement.style.overflow = 'auto';
       },
     });
 
+    instance.show(() => console.log('lightbox now visible'));
     window.addEventListener('keydown', closeModalOnEsc);
-
-    return instance;
-  }
-
-  function closeModalOnEsc(event) {
-    if (event.code === 'Escape') {
-      const instance = basicLightbox.get();
-      if (instance) {
+    function closeModalOnEsc(event) {
+      if (event.code === 'Escape') {
         instance.close();
+        bodyElement.style.overflow = 'auto';
       }
     }
-  }
-
-  function closeModalOnBtn(event) {
-    const target = event.target;
-    if (target.classList.contains('select-icon') || target.closest('.icon')) {
-      const instance = basicLightbox.get();
-      if (instance) {
+  } catch (error) {
+    const instance = basicLightbox.create(errorTrailerMarkup(), {
+      onShow: instance => {
+        window.addEventListener('keydown', closeModalOnEsc);
+        bodyElement.style.overflow = 'hidden';
+      },
+      onClose: instance => {
+        window.removeEventListener('keydown', closeModalOnEsc);
+        bodyElement.style.overflow = 'auto';
+      },
+    });
+    instance.show(() => console.log('Lightbox now visible'));
+    window.addEventListener('keydown', closeModalOnEsc);
+    function closeModalOnEsc(event) {
+      if (event.code === 'Escape') {
         instance.close();
+        console.log(event);
+      }
+    }
+    instance.element().addEventListener('click', closeModalOnBtn);
+    function closeModalOnBtn(event) {
+      const target = event.target;
+      console.log(target);
+      if (target.classList.contains('select-icon') || target.closest('.icon')) {
+        instance.close();
+        bodyElement.style.overflow = 'auto';
       }
     }
   }
 }
-function succesTrailerMarkup(myKey) {
+function succesTrailerMarkup(key) {
   return `
-<iframe class="iframe" src="https://www.youtube.com/embed/${myKey}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
+  <iframe class="iframe" src="https://www.youtube.com/embed/${key}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
 }
-

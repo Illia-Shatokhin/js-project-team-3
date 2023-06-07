@@ -1,7 +1,7 @@
 /* =============  Mobile version ================== */
 .catalog-search {
   padding-top: 80px;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
 }
 .catalog-search-form {
   display: flex;
@@ -45,10 +45,21 @@
   padding: 10px 20px 10px 20px;
   background-color: var(--black);
   color: var(--white);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.14;
-  font-family: 'Roboto-Medium', sans-serif;
-  font-weight: 500;
+  font-family: 'Roboto-Regular', sans-serif;
+  font-weight: 400;
+}
+.catalog-selector option {
+  border: 1px solid #467797;
+}
+.catalog-selector option:checked {
+  border: 1px solid var(--white);
+  color: var(--orange);
+}
+.catalog-selector option:not(:checked) {
+  border: 1px solid var(--white);
+  background-color: var(--black);
 }
 .year {
   width: 95px;
@@ -101,7 +112,6 @@ input::placeholder {
 .hidden {
   display: none;
 }
-
 /* .hidden {
   position: absolute;
   width: 1px;
@@ -132,7 +142,7 @@ catalog-button-reset:focus {
 /* ======================== Tablet version ===================== */
 @media screen and (min-width: 768px) {
   .catalog-search {
-    padding-bottom: 16px;
+    padding-bottom: 0px;
   }
   .catalog-search-form {
     height: 44px;
@@ -224,4 +234,9 @@ catalog-button-reset:focus {
 }
 .catalog-button-reset-light {
   background-color: var(--white);
+}
+.placeholder::before {
+  content: 'Year';
+  font-size: 16x;
+  color: teal;
 }

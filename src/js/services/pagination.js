@@ -1,13 +1,14 @@
 import Pagination from 'tui-pagination';
 import { refs } from '../models/refs';
+import { dataObj } from '../models/data';
 // import 'tui-pagination/dist/tui-pagination.css';
 
 export default class CreatePagination {
   // private Class`s methods
   #scrollUp() {
     window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+      top: 400,
+      behavior: 'smooth',
     });
   }
 
@@ -40,16 +41,18 @@ export default class CreatePagination {
           '<span class="tui-ico-ellip">...</span>' +
           '</a>',
       },
-    }
+    };
   }
 
   activatePagination() {
-    const pagination = new Pagination(refs.tuiPaginationContainer, this.options);
+    const pagination = new Pagination(
+      refs.tuiPaginationContainer,
+      this.options
+    );
     pagination.on('afterMove', ({ page }) => {
-      console.log("🚀 ~ file: pagination.js:46 ~ CreatePagination ~ pagination.on ~ page:", page)
+      if (dataObj.searchQuery) dataObj.searchCurrentPage = page;
       this.func(page);
       this.#scrollUp();
     });
-
   }
 }
