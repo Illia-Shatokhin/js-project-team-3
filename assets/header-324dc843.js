@@ -73,7 +73,9 @@ Notiflix needs to be appended to the "<`+g+'>" element, but you called it before
           <use href="./img/symbols.svg#close" width="100%" height="100%"></use>
        </svg>
    </button>
-   <img class="film-poster-img"   src="${ci(t)}" alt="Movie poster" width="375" height="478">
+   <div class="film-poster-wrapper">
+   <img class="film-poster-img"   src="${ci(t)}" alt="Movie poster"width="375" height="478">
+   </div>
    <div class="about-film-wrapper">
     <h2 class="film-tittle">${t.original_title}</h2>
     <div class="film-list-wrapper">
