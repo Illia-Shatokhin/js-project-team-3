@@ -4,6 +4,7 @@ import { getMovie } from './modalWindow';
 import { refs } from './models/refs';
 import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
 import CreatePagination from './services/pagination';
+import { addCardStars } from './stars';
 
 const ratingArray = [];
 //================================================================
@@ -42,11 +43,8 @@ export default async function createMovieCard(data, elem, count) {
   count = count > data.length ? data.length : count;
   let markup = '';
   for (let index = 0; index < count; index++) {
-    // console.log(data[index].vote_average);
-    // debugger
-    // if (data[index].vote_average) {
     ratingArray.push(data[index].vote_average ? data[index].vote_average : 0);
-    // }
+
     const releaseYear = getReleaseYear(data[index]);
     const originalTitle = getMovieTitle(data[index]);
     const movieGenres = genreIds.filter(genre =>
@@ -67,26 +65,11 @@ export default async function createMovieCard(data, elem, count) {
   }
   elem.style.display = 'flex';
   elem.innerHTML = markup;
-  addStars([...document.querySelectorAll('.catalog-card-rating')]);
-}
-
-//================================================================
-import ReviewStars from './stars';
-
-export function addStars(data) {
-  data.map(el => {
-    const stars = new ReviewStars({
-      totalStars: 5,
-      averageRating: ratingArray.shift() / 2,
-      size: 14,
-      filled: false,
-      insertTo: {
-        element: el,
-        position: 'afterbegin',
-      },
-    });
-    stars.restart();
-  });
+  addCardStars(
+    [...document.querySelectorAll('.catalog-card-rating')],
+    screen.width,
+    ratingArray
+  );
 }
 
 //================================================================
