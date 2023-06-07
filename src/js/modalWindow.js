@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 // import { refs } from './models/refs.js';
-import { refs } from './models/refs';
+import { refs } from './models/refs.js'
 
 const KEY =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNzgzN2Q4ZThiOWY1YjkyODFlNGYzODM2ZjQwZmMzMiIsInN1YiI6IjY0NzhmMTllMGUyOWEyMDBkY2I5YmFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Gm8FRVhZa5JYfHHhkK7gHuf4DwF_mvLWBXC6uzMdhLk';
@@ -37,7 +37,7 @@ async function fetchMovieDetails(movie_id) {
 
 //================================================================
 function normalizeData(data) {
-  const genre_ids = data.genres.map(el => el.id);
+  const genre_ids = data.genres.map(el => el.id)
   data.genre_ids = genre_ids;
 }
 
@@ -47,7 +47,8 @@ function renderModalMovieMarkup(data) {
   const vote = data.vote_average.toFixed(1);
   const populatity = data.popularity.toFixed(1);
   const voteCount = data.vote_count.toFixed(1);
-  const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+  const poster = checkPoster(data);
+  // const posterUrl = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   return `
   <div class="modal-film-window">
     <button class="modal-close-btn">
@@ -55,7 +56,7 @@ function renderModalMovieMarkup(data) {
           <use href="./img/symbols.svg#close" width="100%" height="100%"></use>
        </svg>
    </button>
-   <img class="film-poster-img"  src="${posterUrl}" alt="Movie poster" width="375" height="478">
+   <img class="film-poster-img"   src="${poster}" alt="Movie poster" width="375" height="478">
    <div class="about-film-wrapper">
    <h2 class="film-tittle">${data.original_title}</h2>
    <div class="film-list-wrapper">
@@ -76,13 +77,21 @@ function renderModalMovieMarkup(data) {
    </div>
   </div>`;
 }
-
+function checkPoster(data) {
+  if (data.poster_path) {
+    return `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+  } else {
+    return './img/trailer-modal-mob.png';
+  }
+}
 /*--------------отримує і відображає фільм в модальному вікні----------------*/
 let instance;
 async function getMovie(movie_id) {
   try {
-    const data = await fetchMovieDetails(movie_id);
+    bodyElement.style.overflow = 'hidden';
 
+    const data = await fetchMovieDetails(movie_id);
+    
     normalizeData(data);
 
     const markup = renderModalMovieMarkup(data);
@@ -94,7 +103,7 @@ async function getMovie(movie_id) {
           .querySelector('.modal-close-btn')
           .addEventListener('click', () => {
             instance.close();
-            bodyElement.style.overflow = 'auto';
+             bodyElement.style.overflow = 'auto';
           });
         document.addEventListener('keydown', closeModalOnKeyPress);
       },
@@ -104,21 +113,33 @@ async function getMovie(movie_id) {
           .querySelector('.modal-close-btn')
           .removeEventListener('click', () => {
             instance.close();
+            bodyElement.style.overflow = 'auto';
           });
         document.removeEventListener('keydown', closeModalOnKeyPress);
+        bodyElement.style.overflow = 'auto';
+
+      },
+      onOverlayClick: () => {
+        closeModal();
       },
     });
-
     instance.show();
-    const libraryBtn = document.querySelector('.add-film-btn');
+     const libraryBtn = document.querySelector('.add-film-btn');
     libraryBtn.addEventListener('click', () => {
       toggleLibraryStatus(data);
+    
     });
     updateLibraryButtonStatus(data.id);
-    bodyElement.style.overflow = 'hidden';
   } catch (error) {
     console.log('Помилка отримання даних про фільм:', error);
   }
+}
+
+
+/*-------------закриває модальне вікно, натичкаючи на бекдроп та  відновлює скрол------------*/
+function closeModal() {
+  instance.close();
+  bodyElement.style.overflow = 'auto';
 }
 /*--------------перевірка чи натиснута клавіша Escape із акриття модалки------------*/
 function closeModalOnKeyPress(e) {
@@ -158,7 +179,7 @@ function getLibraryMovies() {
 
 /*-------------- змінює статус кнопки відносно потреби додавання, або видалення зі сховища--------*/
 function updateLibraryButtonStatus(movieId) {
-  const libraryBtn = document.querySelector('.add-film-btn');
+ const libraryBtn = document.querySelector('.add-film-btn');
   const libraryMovies = getLibraryMovies();
 
   if (libraryMovies.some(movie => movie.id === movieId)) {
