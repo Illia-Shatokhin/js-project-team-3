@@ -185,3 +185,22 @@ export default class ReviewStars {
 // -----------------------------------------------------------------------------
 // Usage
 // -----------------------------------------------------------------------------
+
+export function addHeroStars(elementLink, screen) {
+  let size = 0;
+  screen <= 767 ? (size = 16) : (size = 20);
+  screen > 1279 ? (size = 24) : 0;
+  const rating = Number(elementLink.innerText) / 2;
+  elementLink.innerText = '';
+  const stars = new ReviewStars({
+    totalStars: 5,
+    averageRating: rating,
+    size: size,
+    filled: false,
+    insertTo: {
+      element: elementLink,
+      position: 'afterbegin',
+    },
+  });
+  stars.restart();
+}

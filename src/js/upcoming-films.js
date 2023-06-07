@@ -17,7 +17,7 @@ const options = {
 fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
   .then(response => response.json())
   .then(genreData => {
-    // Створіть об'єкт зі списком жанрів, використовуючи ID як ключі і назви як значення
+    // Create an object with genre IDs as keys and names as values
     const genres = {};
     genreData.genres.forEach(genre => {
       genres[genre.id] = genre.name;
@@ -58,7 +58,6 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
             const filmImgContainer = document.querySelector(
               '.upcoming-film-image-container'
             );
-            //   const releaseDateWrap = document.querySelector('.release-date-wrap')
 
             const filmImage = document.createElement('img');
             filmImage.className = 'film-image';
@@ -95,7 +94,7 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
 
             const filmVotes = document.createElement('p');
             filmVotes.className = 'film-votes';
-            filmVotes.textContent = `${randomFilm.vote_average} / ${randomFilm.vote_count}`;
+            filmVotes.innerHTML = `<span class="vote-average">${randomFilm.vote_average}</span> / <span class="vote-count">${randomFilm.vote_count}</span>`;
             filmVoteWrap.appendChild(filmVotes);
 
             const filmPopularityWrap = document.createElement('div');
@@ -143,8 +142,10 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
             libraryButton.className = 'library-button button btn-gradient';
             if (isInLibrary(randomFilm.id)) {
               libraryButton.textContent = 'Remove from My Library';
+              libraryButton.classList.remove('btn-gradient');
             } else {
               libraryButton.textContent = 'Add to My Library';
+              libraryButton.classList.add('btn-gradient');
             }
             libraryButton.addEventListener('click', () =>
               toggleLibrary(randomFilm, libraryButton)
@@ -153,28 +154,22 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
 
             document.getElementById('film-container').appendChild(filmCard);
           } else {
-            libraryButton.textContent = 'Add to My Library';
+            const message = document.createElement('p');
+            message.textContent = 'No upcoming films found for this month.';
+            document.getElementById('film-container').appendChild(message);
           }
-          libraryButton.addEventListener('click', () =>
-            toggleLibrary(randomFilm, libraryButton)
-          );
-          filmCard.appendChild(libraryButton);
-
-          document.getElementById('film-container').appendChild(filmCard);
         }
-        const message = document.createElement('p');
-        message.textContent = 'No upcoming films found for this month.';
-        document.getElementById('film-container').appendChild(message);
       });
   });
-//   // Check if a film is in My Library
+
+// Check if a film is in My Library
 function isInLibrary(filmId) {
   const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
   return myLibrary.some(film => film.id === filmId);
 }
 
 // Add or remove a film from My Library
-function toggleLibrary(film, libraryButton) {
+function toggleLibrary(film, button) {
   const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
   const index = myLibrary.findIndex(f => f.id === film.id);
 
@@ -186,10 +181,17 @@ function toggleLibrary(film, libraryButton) {
 
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 
-  // Update library button text
+  // Update library button text and styles
   if (isInLibrary(film.id)) {
-    libraryButton.textContent = 'Remove from My Library';
+    button.textContent = 'Remove from My Library';
+    button.classList.remove('btn-gradient');
+    button.style.background = 'white'
+    button.style.color = 'orange'
   } else {
-    libraryButton.textContent = 'Add to My Library';
+    button.textContent = 'Add to My Library';
+    button.classList.add('btn-gradient');
+    button.style.background = 'var(--basic-gradient)'
+    button.style.color = 'black'
   }
 }
+
