@@ -1,6 +1,5 @@
 .catalog-film-section {
   padding-top: 16px;
-  padding-bottom: 20px;
   background-color: inherit;
 }
 
@@ -11,6 +10,9 @@
 }
 
 .catalog-item {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
   position: relative;
   width: 280px;
   height: 406px;
@@ -18,7 +20,9 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
+.catalog-card-rating {
+  align-items: center;
+}
 .catalog-item:hover,
 .catalog-item:focus {
   transform: scale(1.05);
@@ -47,12 +51,13 @@
   display: flex;
   width: 256px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .catalog-card-title,
 .catalog-card-description,
 .rating {
-  font-family: Roboto-Medium;
+  font-family: 'Roboto-Medium', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -73,7 +78,6 @@
 @media screen and (min-width: 768px) {
   .catalog-film-section {
     padding-top: 36px;
-    padding-bottom: 44px;
   }
 
   .catalog-list {
@@ -101,7 +105,6 @@
 @media screen and (min-width: 1280px) {
   .catalog-film-section {
     padding-top: 48px;
-    padding-bottom: 56px;
   }
 
   .catalog-list {

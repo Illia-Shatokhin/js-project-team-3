@@ -1,4 +1,20 @@
-class ReviewStars {
+// Клас для виклику зірочок
+
+// import ReviewStars from './js/stars';
+// const stars = new ReviewStars({
+//   totalStars: 5,
+//   averageRating: 3.8,
+//   size: 24,
+//   filled: false,
+//   insertTo: {
+//     element: document.querySelector('.weekly-section').firstElementChild,
+//     position: "afterbegin"
+//   }
+// });
+// document.addEventListener("click", () => stars.restart());
+// setTimeout(() => stars.restart(), 1000);
+
+export default class ReviewStars {
   /**
    * Create a group of SVG stars.
    * @param {Number} totalStars
@@ -15,8 +31,8 @@ class ReviewStars {
     stagger = 0.005,
     insertTo = {
       element: document.body,
-      position: "afterbegin"
-    }
+      position: 'afterbegin',
+    },
   } = {}) {
     this.stagger = stagger;
     this.filled = filled;
@@ -46,7 +62,7 @@ class ReviewStars {
    * @returns {number[]} - A two dimensional array.
    */
   get ratingsSplit() {
-    const [integer, percent] = this.averageRating.toFixed(2).split(".");
+    const [integer, percent] = this.averageRating.toFixed(2).split('.');
     return [Number(integer || 0), Number(percent || 0)];
   }
 
@@ -55,7 +71,7 @@ class ReviewStars {
    * @returns {string[]}
    */
   createStars() {
-    const stars = document.createElement("div");
+    const stars = document.createElement('div');
     const [nthChild, percent] = this.ratingsSplit;
 
     // Create an array of stars. HTML string template.
@@ -67,7 +83,7 @@ class ReviewStars {
       const isNthStar = nthChild === idx;
 
       // Apply crop style or empty string
-      const styles = isNthStar ? cropStar : "";
+      const styles = isNthStar ? cropStar : '';
 
       // Identify where the last rated star is located by index.
       const isAfterNth = !Boolean(nthChild < idx);
@@ -75,8 +91,8 @@ class ReviewStars {
       stars.innerHTML += this.oneStarHTML(styles, idx, isAfterNth);
     }
 
-    stars.classList.add("review-stars");
-    stars.style.setProperty("--size", `${this.size}px`);
+    stars.classList.add('review-stars');
+    stars.style.setProperty('--size', `${this.size}px`);
 
     return stars;
   }
@@ -94,11 +110,11 @@ class ReviewStars {
      * "off" - The stars are empty.
      */
     const starPath =
-      "M8,0.4c0.3,0,0.5,0.2,0.7,0.4L10.7,5l4.6,0.7c0.3,0,0.5,0.2,0.6,0.5c0.1,0.3,0,0.6-0.2,0.7l-3.4,3.3l0.8,4.6 c0,0.3-0.1,0.5-0.3,0.7c-0.2,0.2-0.5,0.2-0.8,0.1L8,13.4l-4.2,2.2c-0.2,0.1-0.5,0.1-0.8-0.1c-0.2-0.2-0.3-0.4-0.3-0.7l0.8-4.6 L0.2,6.9C0,6.7,0,6.4,0,6.1c0.1-0.3,0.3-0.5,0.6-0.5L5.3,5l2.1-4.2C7.5,0.5,7.7,0.4,8,0.4z";
+      'M8,0.4c0.3,0,0.5,0.2,0.7,0.4L10.7,5l4.6,0.7c0.3,0,0.5,0.2,0.6,0.5c0.1,0.3,0,0.6-0.2,0.7l-3.4,3.3l0.8,4.6 c0,0.3-0.1,0.5-0.3,0.7c-0.2,0.2-0.5,0.2-0.8,0.1L8,13.4l-4.2,2.2c-0.2,0.1-0.5,0.1-0.8-0.1c-0.2-0.2-0.3-0.4-0.3-0.7l0.8-4.6 L0.2,6.9C0,6.7,0,6.4,0,6.1c0.1-0.3,0.3-0.5,0.6-0.5L5.3,5l2.1-4.2C7.5,0.5,7.7,0.4,8,0.4z';
     return `
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="review-star ${this.filled ? "filled" : ""}"
+        class="review-star ${this.filled ? 'filled' : ''}"
         data-review-star="${idx}"
         width="16"
         height="16"
@@ -109,7 +125,7 @@ class ReviewStars {
           d="${starPath}"
         />
         <path
-          class="star ${isAfterNth ? "on" : "off"}"
+          class="star ${isAfterNth ? 'on' : 'off'}"
           style="${styles}"
           d="${starPath}"
         />
@@ -134,11 +150,11 @@ class ReviewStars {
     let duration = 0;
     const stars = Array.from(this.el.children);
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       stars.forEach((star, idx) => {
         // Stagger the stars with a delay
         const delay = this.el.children.length * idx * this.stagger * 1000;
-        setTimeout(() => star.classList.add("animate-star"), delay);
+        setTimeout(() => star.classList.add('animate-star'), delay);
 
         // Let the last delay be the duration.
         duration = delay;
@@ -155,12 +171,12 @@ class ReviewStars {
    */
   async restart() {
     Array.from(this.el.children).forEach((star, idx) =>
-      star.classList.remove("animate-star")
+      star.classList.remove('animate-star')
     );
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       setTimeout(() => {
-        this.animate().then((d) => resolve(d));
+        this.animate().then(d => resolve(d));
       }, 250);
     });
   }
@@ -169,15 +185,22 @@ class ReviewStars {
 // -----------------------------------------------------------------------------
 // Usage
 // -----------------------------------------------------------------------------
-const stars = new ReviewStars({
-  totalStars: 5,
-  averageRating: 3.8,
-  size: 24,
-  filled: false,
-  insertTo: {
-    element: document.body,
-    position: "afterbegin"
-  }
-});
-document.addEventListener("click", () => stars.restart());
-setTimeout(() => stars.restart(), 1000);
+
+export function addHeroStars(elementLink, screen) {
+  let size = 0;
+  screen <= 767 ? (size = 16) : (size = 20);
+  screen > 1279 ? (size = 24) : 0;
+  const rating = Number(elementLink.innerText) / 2;
+  elementLink.innerText = '';
+  const stars = new ReviewStars({
+    totalStars: 5,
+    averageRating: rating,
+    size: size,
+    filled: false,
+    insertTo: {
+      element: elementLink,
+      position: 'afterbegin',
+    },
+  });
+  stars.restart();
+}

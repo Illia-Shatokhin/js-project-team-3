@@ -7,7 +7,7 @@ export const refs = {
   catalogList: document.querySelector('.catalog-list'),
   weeklyLinks: document.querySelector('.weekly-links'),
   modalCloseBtn: document.querySelector('.modal-close-btn'),
-  libraryBtn: document.querySelector('.button-library'),
+  libraryBtn: document.querySelector('.add-film-btn'),
   catalogForm: document.getElementById('search-form'),
   buttonReset: document.querySelector('.catalog-button-reset'),
   buttonSearchCatalog: document.querySelector('.catalog-search-button'),

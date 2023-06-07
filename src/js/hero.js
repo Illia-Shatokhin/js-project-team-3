@@ -1,7 +1,8 @@
 import { getTrendingAllDay } from './API/get-from-server.js';
-// import { getTrailer } from './hero-trailer.js';
+import { getTrailer } from './hero-trailer.js';
 import { getMovie } from './modalWindow.js';
 import { refs } from './models/refs.js';
+import { addHeroStars } from './stars';
 
 const gradient320 =
   'linear-gradient(86.47deg, #111111 33.63%, rgba(17, 17, 17, 0) 76.86%)';
@@ -20,6 +21,8 @@ async function getDataHero(currentPage) {
   try {
     const data = await getTrendingAllDay();
     renderHero(data.results, currentPage);
+
+    error => console.log(error);
   } catch (error) {
     error => console.log(error);
   }
@@ -28,34 +31,28 @@ async function getDataHero(currentPage) {
 function renderHero(data, currentPage) {
   const index = getRandomIndex();
 
-  const { id, overview, title, vote_average, backdrop_path } = data[index];
-
-  currentId = id;
-  console.log(currentPage);
-
   if (!data) {
     if (currentPage === 'hero/catalog') {
-      addHeroBackgroundStub();
-      refs.heroRef.innerHTML = createHomeHeroMarkupStubb();
+      console.log(data, currentPage);
+      addHomeHeroBackgroundStub();
+      refs.heroRef.innerHTML = createHomeHeroMarkupStub();
     }
 
     if (currentPage === 'library') {
-      addHeroBackgroundStub();
-      refs.heroRef.innerHTML = createLibraryHeroMarkupStubb();
+      addLibraryHeroBackgroundStub();
+      refs.heroRef.innerHTML = createLibraryHeroMarkupStub();
     }
   } else {
-    if (
-      id === undefined ||
-      title === undefined ||
-      overview === undefined ||
-      vote_average === undefined ||
-      backdrop_path === undefined
-    ) {
+    const { id, overview, title, vote_average, backdrop_path } = data[index];
+    currentId = id;
+
+    if (!id || !title || !overview || !vote_average || !backdrop_path) {
       return createHero();
     }
 
     addHeroBackground(backdrop_path);
     refs.heroRef.innerHTML = creatHeroMarkup(overview, title, vote_average);
+    addHeroStars(document.querySelector('.reting-stars'), screen.width);
   }
 
   getElemAddListenersHeroBtn();
@@ -93,8 +90,6 @@ function creatHeroMarkup(overview, title, vote_average) {
 }
 
 function addHeroBackground(backdrop_path) {
-  console.log('hero background');
-
   if (document.documentElement.clientWidth <= 767) {
     refs.heroRef.style.backgroundImage = `${gradient320},
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
