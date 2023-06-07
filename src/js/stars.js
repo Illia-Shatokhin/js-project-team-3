@@ -161,9 +161,7 @@ class ReviewStars {
     );
 
     return new Promise(resolve => {
-      setTimeout(() => {
-        this.animate().then(d => resolve(d));
-      }, 250);
+      this.animate().then(d => resolve(d));
     });
   }
 }

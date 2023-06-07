@@ -3,21 +3,34 @@
     <!--<link rel="stylesheet" href="/header.css" />-->
 
     <div class="logo-container">
-      <a class="" href="./index.html"
-        ><picture class="main-logo">
+      <a class="logo-container-link" href="./index.html">
+        <picture class="main-logo">
           <source
-            srcset="./img/tablet-logo.png 1x, ./img/tablet-logo@2x.png 2x"
+            srcset="
+              ./img/header-logo-des.png    1x,
+              ./img/header-logo-des@2x.png 2x
+            "
+            media="(min-width: 1280px)"
+            type="image/png"
+            width="48"
+          />
+          <source
+            srcset="
+              ./img/header-logo-tab.png    1x,
+              ./img/header-logo-tab@2x.png 2x
+            "
+            media="(min-width: 768px)"
+            type="image/png"
+            width="48"
+          />
+          <source
+            srcset="./img/header-logo.png 1x, ./img/header-logo@2x.png 2x"
+            media="(max-width: 767px)"
             type="image/png"
           />
-          <img
-            style="padding: 0"
-            src="./img/tablet-logo.png"
-            srcset="./img/tablet-logo@2x.png 2x"
-            alt="Your Logo"
-          />
-
-          <h1 class="logo-text">Cinemania</h1>
+          <img src="./img/header-logo.png" alt="image" width="32" height="32" />
         </picture>
+        <h1 class="logo-text">Cinemania</h1>
       </a>
     </div>
 
@@ -35,26 +48,25 @@
       </ul>
     </nav>
     <div class="menu-container checkbox">
-      <label for="menu-toggle" class="menu-toggle-label">MENU<input type="checkbox" id="menu-toggle" /></label>
-      
+      <label for="menu-toggle" class="menu-toggle-label"
+        >MENU<input type="checkbox" id="menu-toggle"
+      /></label>
+
       <div id="mobile-menu" class="">
         <div class="menu-content">
           <button id="close-menu" class="close-button" aria-label="Close menu">
             <span aria-hidden="true">&times;</span>
           </button>
-          <a href="index.html"
-            ><picture class="menu-logo">
+          <a href="index.html">
+            <picture class="main-logo">
               <source
-                srcset="./img/tablet-logo.png 1x, ./img/tablet-logo@2x.png 2x"
+                srcset="./img/header-logo.png 1x, ./img/header-logo@2x.png 2x"
+                media="(max-width: 767px)"
                 type="image/png"
               />
-              <img
-                style="padding-bottom: 40px"
-                src="./img/tablet-logo.png"
-                srcset="./img/tablet-logo@2x.png 2x"
-                alt="Your Logo"
-              /> </picture
-          ></a>
+              <img src="./img/header-logo.png" alt="image" width="32" />
+            </picture>
+          </a>
           <ul class="menu-list">
             <li id="home1">
               <a class="hover-text2" href="index.html">HOME</a>
