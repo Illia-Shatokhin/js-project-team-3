@@ -27,10 +27,12 @@ export async function sendSearch(page = 1) {
       filterCreateMovieCard(data);
       refs.catalogForm.reset();
       hiddenBtnReset();
+      refs.tuiPaginationContainer.style.display = 'block';
     } else {
       renderBtnReset();
       catalogListReset();
       renderError(refs.catalogList, errorCatalogMarkup);
+      refs.tuiPaginationContainer.style.display = 'none';
     }
 
     refs.buttonReset.addEventListener('click', e => {
