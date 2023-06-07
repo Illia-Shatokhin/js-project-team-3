@@ -178,6 +178,7 @@
 .theme-slider-container {
   display: flex;
   align-items: center;
+  width: 60px;
 }
 .menu-toggle-label {
   color: white;
@@ -212,6 +213,7 @@
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   transition: 0.4s;
   border-radius: 20px;
+  width: 60px;
 }
 
 .slider:before {
@@ -220,7 +222,7 @@
   height: 16px;
   width: 16px;
   left: 2px;
-  bottom: 2px;
+  bottom: 2.009px;
   background-color: var(--white-smoke);
   transition: 0.4s;
   border-radius: 50%;
@@ -250,11 +252,12 @@
 }
 
 .switch input:checked + .slider:before {
-  transform: translateX(20px);
+  transform: translateX(40px);
 }
 .main-nav.dark-theme {
   background-color: var(--black);
 }
+
 @media (min-width: 768px) and (max-width: 1279px) {
   .hidden {
     display: none;
