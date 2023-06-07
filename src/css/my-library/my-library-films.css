@@ -1,22 +1,45 @@
- 
-.my-library-films {
-padding-top: 80px;
-background-color: var(--black);
+ .my-library-films {
+   padding-top: 80px;
+   background-color: var(--black);
 
-} 
+ }
 
-.my-library-list {
-    display: flex;  
-    flex-flow: row wrap;
-    justify-content: start;
-    gap: 15px;
+ .my-library-list {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: start;
+   gap: 15px;
 
-    padding-bottom: 40px; 
-}   
+   padding-bottom: 40px;
+ }
 
-.btn-load-more {
-  margin: 0 auto;
- border: 0;
- display: none;
-  
-}
+ .btn-load-more {
+   margin: 0 auto;
+   border: 0;
+   display: none;
+
+ }
+
+ /* select */
+ .my-library-wrap-select {
+   position: relative;
+ }
+
+ .select-library {
+   width: 173px;
+   height: 40px;
+
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+
+   background: transparent;
+ }
+
+ .select-library+label {
+   position: absolute;
+   top: 10px;
+   bottom: 0;
+   left: 151px;
+   pointer-events: none;
+ }

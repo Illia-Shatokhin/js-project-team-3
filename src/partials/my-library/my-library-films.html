@@ -1,11 +1,19 @@
 <section class="my-library-films">
   <div class="container">
+
+    <div class="my-library-wrap-select">
+      <select class="select-library" id="select-library" name="select-library" data-library="" data-filter="">
+      </select>
+      <label>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </label>
+    </div>
+
     <ul class="my-library-list"></ul>
-    <button
-      type="button"
-      class="button btn-gradient btn-load-more"
-      id="btn-load-more"
-    >
+    <button type="button" class="button btn-gradient btn-load-more" id="btn-load-more">
       Load more
     </button>
   </div>
