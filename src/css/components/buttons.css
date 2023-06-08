@@ -6,9 +6,8 @@
   border-radius: 74px;
   cursor: pointer;
   border: 1px solid transparent;
-  font-family: 'Roboto-Medium';
+  font-family: 'Roboto-Medium',sans-serif;
     /* text */
-  font-family: 'Roboto-Medium';
   font-size: 12px;
   line-height: 1.16;
   text-align: center;
@@ -44,15 +43,15 @@
 }
 /* ===Ligth theme ===== */
 
-.btn-border-light {
+.light .btn-border-dark {
   background: linear-gradient(var(--white), var(--white)) padding-box,
     linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
   color: var(--black);
   transition: var(--transition);
 }
 
-.btn-border-light:hover,
-.btn-border-light:focus {
+.light .btn-border-dark:hover,
+.light .btn-border-dark:focus {
   background: var(--black);
   color: var(--orange);
 }
@@ -69,14 +68,14 @@
   color: var(--orange);
 }
 
-.btn-transparent-light {
+.light .btn-transparent-dark {
   background: transparent;
   border: 1px solid var(--black);
   color: var(--black);
   transition: var(--transition);
 }
-.btn-transparent-light:hover,
-.btn-transparent-light:focus {
+.light .btn-transparent-dark:hover,
+.light .btn-transparent-dark:focus {
   background: var(--black);
   color: var(--orange);
 }
