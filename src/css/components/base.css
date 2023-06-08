@@ -3,6 +3,12 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  transition: background-color var(--transition);
+}
+
+.light {
+  background-color: var(--white);
+  transition: background-color var(--transition);
 }
 
 .button-to-header {
