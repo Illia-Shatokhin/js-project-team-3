@@ -26,11 +26,12 @@
   line-height: 1.18;
   text-transform: uppercase;
   color: var(--white);
+  transition: color var(--transition);
 }
 
 .light .weekly-section-title {
   color: var(--black);
-  transition: background-color var(--transition);
+  transition: color var(--transition);
 }
 
 .trends-film {
