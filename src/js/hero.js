@@ -12,6 +12,7 @@ const gradient1280 =
   'linear-gradient(83.06deg, #111111 11.91%, rgba(17, 17, 17, 0) 73.11%)';
 
 let currentId;
+// let heroBackgroundImg;
 
 export function createHero(currentPage) {
   getDataHero(currentPage);
@@ -42,15 +43,24 @@ function renderHero(data, currentPage) {
       refs.heroRef.innerHTML = createLibraryHeroMarkupStub();
     }
   } else {
-    const { id, overview, title, vote_average, backdrop_path } = data[index];
+    const { id, overview, title, vote_average, backdrop_path, poster_path } =
+      data[index];
     currentId = id;
 
-    if (!id || !title || !overview || !vote_average || !backdrop_path) {
+    if (
+      !id ||
+      !title ||
+      !overview ||
+      !vote_average ||
+      !backdrop_path ||
+      !poster_path
+    ) {
       return createHero();
     }
 
-    addHeroBackground(backdrop_path);
     refs.heroRef.innerHTML = creatHeroMarkup(overview, title, vote_average);
+    const heroBackgroundImg = document.querySelector('.hero-background-img');
+    addHeroBackground(backdrop_path, poster_path, heroBackgroundImg);
     addHeroStars(document.querySelector('.reting-stars'), screen.width);
   }
 
@@ -75,35 +85,38 @@ function getRandomIndex() {
 
 function creatHeroMarkup(overview, title, vote_average) {
   return `
+    <div class="hero-background-img"></div>
     <div class="container hero-container">
-      <h2 class="hero-title">${title}</h2>
-      <p class="reting-stars">${vote_average.toFixed(1)}</p>
-      <div class="overview">
-        <p class="overview-text">${overview}</p>
-      </div>
-      <div class="thumb-hero-btn">
-        <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
-        <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
+     <div class="hero-text-thumb">
+     <h2 class="hero-title">${title}</h2>
+     <p class="reting-stars">${vote_average.toFixed(1)}</p>
+       <div class="overview">
+         <p class="overview-text">${overview}</p>
+       </div>
+       <div class="thumb-hero-btn">
+          <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
+          <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
+        </div>
       </div>
     </div>`;
 }
 
-function addHeroBackground(backdrop_path) {
+function addHeroBackground(backdrop_path, poster_path, heroBackgroundImg) {
   if (document.documentElement.clientWidth <= 767) {
-    refs.heroRef.style.backgroundImage = `${gradient320},
-    url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
+    heroBackgroundImg.style.backgroundImage = `${gradient320},
+    url(https://www.themoviedb.org/t/p/original/${poster_path})`;
   }
 
   if (
     document.documentElement.clientWidth >= 768 &&
     window.innerWidth <= 1279
   ) {
-    refs.heroRef.style.backgroundImage = `${gradient768},
+    heroBackgroundImg.style.backgroundImage = `${gradient768},
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
   }
 
   if (document.documentElement.clientWidth >= 1280) {
-    refs.heroRef.style.backgroundImage = `${gradient1280},
+    heroBackgroundImg.style.backgroundImage = `${gradient1280},
     url(https://www.themoviedb.org/t/p/original/${backdrop_path})`;
   }
 }
