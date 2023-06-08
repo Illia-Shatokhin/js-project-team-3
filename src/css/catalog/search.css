@@ -3,7 +3,7 @@
   background-color: var(--black);
   padding-top: 80px;
   padding-bottom: 55px;
-  transition: background-color var(-- transition);
+  transition: background-color var(--transition);
 }
 .catalog-search-form {
   display: flex;
@@ -15,7 +15,7 @@
   margin-right: auto;
   margin-left: auto;
   background-color: var(--black);
-  transition: background-color var(-- transition);
+  transition: background-color var(--transition);
 }
 .catalog-search-input {
   width: 173px;
@@ -33,8 +33,8 @@
   font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
 
-  transition: background-color var(-- transition);
-  transition: color var(-- transition);
+  transition: background-color var(--transition);
+  transition: color var(--transition);
 }
 .catalog-wrapper-selector {
   display: flex;
@@ -61,8 +61,8 @@
   font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
 
-  transition: background-color var(-- transition);
-  transition: color var(-- transition);
+  transition: background-color var(--transition);
+  transition: color var(--transition);
 }
 .catalog-selector option:checked {
   color: var(--orange);
@@ -85,7 +85,7 @@
   font-size: 16px;
   line-height: 1.14;
   font-family: 'Roboto-Medium', sans-serif;
-  transition: color var(-- transition);
+  transition: color var(--transition);
 }
 
 .catalog-search-button {
@@ -111,7 +111,7 @@
   stroke: var(--white);
   background-color: var(--black);
 
-  transition: background-color var(-- transition);
+  transition: background-color var(--transition);
   transition: stroke 100ms linear;
 }
 .active {
@@ -145,7 +145,7 @@
 
 .catalog-button-reset:hover {
   stroke: var(--orange);
-  transition: stroke var(-- transition);
+  transition: stroke var(--transition);
 }
 /* ======================== Tablet version ===================== */
 @media screen and (min-width: 768px) {
@@ -225,37 +225,37 @@
 .light .catalog-search,
 .light .catalog-search-form {
   background-color: var(--white);
-  transition: background-color var(-- transition);
+  transition: background-color var(--transition);
 }
 .light .catalog-search-input {
   background-color: var(--white);
   color: var(--grey);
   border: 1px solid var(--gray);
-  transition: background-color var(-- transition);
-  transition: color var(-- transition);
+  transition: background-color var(--transition);
+  transition: color var(--transition);
 }
 .light .catalog-button-reset {
   background-color: var(--white);
   stroke: var(--black);
-  transition: background-color var(-- transition);
-  transition: stroke var(-- transition);
+  transition: background-color var(--transition);
+  transition: stroke var(--transition);
 }
 .light .catalog-search-button {
   stroke: var(--black);
-  transition: stroke var(-- transition);
+  transition: stroke var(--transition);
 }
 .light .catalog-selector {
   border: 1px solid var(--gray);
   background-color: var(--white);
   color: var(--black);
-  transition: background-color var(-- transition);
-  transition: color var(-- transition);
+  transition: background-color var(--transition);
+  transition: color var(--transition);
 }
 .light .catalog-search-input::placeholder {
   color: var(--black);
-  transition: color var(-- transition);
+  transition: color var(--transition);
 }
 .light .catalog-button-reset:hover {
   stroke: var(--orange);
-  transition: stroke var(-- transition);
+  transition: stroke var(--transition);
 }
