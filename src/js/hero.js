@@ -33,7 +33,6 @@ function renderHero(data, currentPage) {
 
   if (!data) {
     if (currentPage === 'hero/catalog') {
-      console.log(data, currentPage);
       addHomeHeroBackgroundStub();
       refs.heroRef.innerHTML = createHomeHeroMarkupStub();
     }

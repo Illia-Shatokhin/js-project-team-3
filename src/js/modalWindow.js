@@ -38,8 +38,8 @@ export async function getMovie(movie_id) {
       onClose: instance => {
         instance.element().querySelector('.modal-close-btn')
           .removeEventListener('click', () => {
-            instance.close();
-            bodyElement.style.overflow = 'auto';
+             instance.close();
+              bodyElement.style.overflow = 'auto';
           });
         document.removeEventListener('keydown', closeModalOnKeyPress);
         bodyElement.style.overflow = 'auto';
@@ -48,7 +48,7 @@ export async function getMovie(movie_id) {
         if (document.title === 'My Library')  createLibraryFromLocalStorage();
       },
       onOverlayClick: () => {
-        closeModal();
+        closeModal()
       },
     });
     instance.show();
@@ -77,7 +77,8 @@ function closeModalOnKeyPress(e) {
   document.removeEventListener('keydown', closeModalOnKeyPress);
 }
 
-/*--------------перевіряє чи є фільм у сховищі, записує та видаляє фільм зі сховища;----*/
+
+/*--------------перевіряє чи є фільм у сховищі, записує та видаляє фільм зі сховища;-------*/
 function toggleLibraryStatus(movieData) {
   const libraryMovies = getLibraryMovies();
   const movieIndex = libraryMovies.findIndex(f => f.id === movieData.id);
@@ -89,7 +90,7 @@ function toggleLibraryStatus(movieData) {
   updateLibraryButtonStatus(movieData.id);
 }
 
-/*-------------- отримує фільми зі сховища бібліотеки--------*/
+/*----------------отримує фільми зі сховища бібліотеки--------------------------------------*/
 function getLibraryMovies() {
   const storedMovies = localStorage.getItem('myLibrary');
   return storedMovies ? JSON.parse(storedMovies) : [];

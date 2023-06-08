@@ -1,13 +1,7 @@
-//example
 export const refs = {
-  // searchForm: document.getElementById('search-form'),
-  // searchQueryInput: document.querySelector('.search-form input'),
-  // SearchButton: document.querySelector('.search-form button'),
-  // galleryDiv: document.querySelector('.gallery'),
   catalogList: document.querySelector('.catalog-list'),
   weeklyLinks: document.querySelector('.weekly-links'),
   modalCloseBtn: document.querySelector('.modal-close-btn'),
-  libraryBtn: document.querySelector('.add-film-btn'),
   catalogForm: document.getElementById('search-form'),
   buttonReset: document.querySelector('.catalog-button-reset'),
   buttonSearchCatalog: document.querySelector('.catalog-search-button'),
@@ -17,4 +11,10 @@ export const refs = {
   catalogSelectYear: document.getElementById('year'),
   catalogSelectCountry: document.getElementById('country'),
   heroRef: document.querySelector('.hero'),
+  buttonToHeader: document.querySelector('.button-to-header'),
+
+  libraryBtn: document.querySelector('.add-film-btn'),
+  selectLibrary: document.getElementById('select-library'),
+  filmsOfLocalStorage: document.querySelector('.my-library-list'),
+  btnLoadMore: document.getElementById('btn-load-more'),
 };

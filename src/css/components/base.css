@@ -5,6 +5,35 @@ body {
   height: 100vh; */
 }
 
+.button-to-header {
+  display: none;
+  border: 1px solid var(--orange);
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  background: var(--white);
+  position: fixed;
+  bottom: 6%;
+  right: 3%;
+  scale: 1;
+  transition: background-color var(--transition), scale var(--transition);
+}
+.button-to-header:hover,
+.button-to-header:focus {
+  background-color: inherit;
+  scale: 1.2;
+}
+.button-to-header-icon {
+  fill: var(--black);
+  transition: fill var(--transition);
+}
+.button-to-header:hover .button-to-header-icon,
+.button-to-header:focus .button-to-header-icon {
+  fill: var(--orange);
+}
+
 .container {
   margin: 0 auto;
   padding: 0 20px;
