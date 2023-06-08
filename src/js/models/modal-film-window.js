@@ -21,7 +21,7 @@ function checkPoster(data) {
   } else {
     return {
       // posterURL: './img/trailer-modal-tab.png',
-      posterURL: './img/trailer-modal-desk.png',
+      posterURL: './img/trailer-modal-desk@2x.png',
       imageClass: 'picture-class'
     };
   }
@@ -33,7 +33,6 @@ export function renderModalMovieMarkup(data) {
   const vote = data.vote_average.toFixed(1);
   const popularity = data.popularity.toFixed(1);
   const voteCount = data.vote_count.toFixed(1);
-  // const poster = checkPoster(data);
   const { posterURL, imageClass } = checkPoster(data);
   
   return `
@@ -44,7 +43,7 @@ export function renderModalMovieMarkup(data) {
        </svg>
    </button>
    <div class="film-poster-wrapper">
-   <img class="${imageClass}"   src="${ posterURL}" alt="Movie poster">
+   <img class="${imageClass}"   src="${posterURL}" alt="Movie poster">
    </div>
    <div class="about-film-wrapper">
     <h2 class="film-tittle">${data.original_title}</h2>
@@ -54,14 +53,14 @@ export function renderModalMovieMarkup(data) {
         <li class="about-film-item">Popularity</li>
         <li class="about-film-item">Genre</li>
       </ul >
-      <ul class="second-about-film-list">
-       <li class="about-film-item"> <span class ="vote-span">${vote}</span> / <span class ="vote-span">${voteCount}</span></li>
+      <ul class="second-about-film-list ">
+       <li class="about-film-item "> <span class ="vote-span">${vote}</span> / <span class ="vote-span">${voteCount}</span></li>
        <li class="about-film-item">${popularity}</li>
        <li class="about-film-item">${genreList}</li>
       </ul>
     </div>
-   <p class="about-film-tittle">About </p>
-   <p class="about-film-story">${data.overview} </p>
+   <p class=" about-film-tittle">About </p>
+   <p class="about-film-story ">${data.overview} </p>
    <button class=" button btn-border-dark add-film-btn button-library-active">Add to my library</button>
    </div>
   </div>`;
