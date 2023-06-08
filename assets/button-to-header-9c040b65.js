@@ -62,7 +62,7 @@ var Yt=(e,t,n)=>{if(!t.has(e))throw TypeError("Cannot "+n)};var ze=(e,t,n)=>{if(
         />
       </picture>
     </div>`}const W=document.querySelector("body");async function xr(e){try{return(await vr(e)).results[0]}catch(t){console.log(t)}}async function Lr(e){try{let i=function(r){r.code==="Escape"&&(n.close(),W.style.overflow="auto")};const{key:t}=await xr(e),n=Ae.create(Sr(t),{onShow:r=>{window.addEventListener("keydown",i),W.style.overflow="hidden"},onClose:r=>{window.removeEventListener("keydown",i),W.style.overflow="auto"}});n.show(()=>console.log("lightbox now visible")),window.addEventListener("keydown",i)}catch{let i=function(o){o.code==="Escape"&&(n.close(),console.log(o))},r=function(o){const s=o.target;console.log(s),(s.classList.contains("select-icon")||s.closest(".icon"))&&(n.close(),W.style.overflow="auto")};const n=Ae.create(wr(),{onShow:o=>{window.addEventListener("keydown",i),W.style.overflow="hidden"},onClose:o=>{window.removeEventListener("keydown",i),W.style.overflow="auto"}});n.show(()=>console.log("Lightbox now visible")),window.addEventListener("keydown",i),n.element().addEventListener("click",r)}}function Sr(e){return`
-  <iframe class="iframe" src="https://www.youtube.com/embed/${e}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`}function Pr(e){return e.poster_path?`https://image.tmdb.org/t/p/w500${e.poster_path}`:"./img/trailer-modal-mob.png"}function Or(e){const t=e.genres.map(s=>s.name).join(", "),n=e.vote_average.toFixed(1),i=e.popularity.toFixed(1),r=e.vote_count.toFixed(1);return`
+  <iframe class="iframe" src="https://www.youtube.com/embed/${e}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`}function Pr(e){return e.poster_path?{posterURL:`https://image.tmdb.org/t/p/w500${e.poster_path}`,imageClass:"film-poster-img"}:{posterURL:"./img/trailer-modal-desk.png",imageClass:"picture-class"}}function Or(e){const t=e.genres.map(l=>l.name).join(", "),n=e.vote_average.toFixed(1),i=e.popularity.toFixed(1),r=e.vote_count.toFixed(1),{posterURL:o,imageClass:s}=Pr(e);return`
   <div class="modal-film-window">
     <button class="modal-close-btn">
        <svg class="modal-close-icon" width="100%" height="100%" >
@@ -70,7 +70,7 @@ var Yt=(e,t,n)=>{if(!t.has(e))throw TypeError("Cannot "+n)};var ze=(e,t,n)=>{if(
        </svg>
    </button>
    <div class="film-poster-wrapper">
-   <img class="film-poster-img"   src="${Pr(e)}" alt="Movie poster"width="375" height="478">
+   <img class="${s}"   src="${o}" alt="Movie poster">
    </div>
    <div class="about-film-wrapper">
     <h2 class="film-tittle">${e.original_title}</h2>
