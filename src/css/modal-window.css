@@ -41,11 +41,11 @@
 .modal-close-icon {
   width: 20px;
   height: 20px;
-  stroke: var(--white)
+  stroke: var(--white);
 }
 
 .light .modal-close-icon {
-  stroke: var(--black)
+  stroke: var(--black);
 }
 
 
