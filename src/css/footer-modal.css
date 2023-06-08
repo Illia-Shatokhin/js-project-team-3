@@ -7,7 +7,7 @@
     overflow-y: auto;
     z-index: 998;
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.2);
     visibility: visible;
     opacity: 1;
   }
@@ -29,28 +29,25 @@
     position: relative;
     z-index: 999;
     width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 25px 15px 20px;
-    visibility: visible;
-    opacity: 1;
-    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px 15px;
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    box-shadow: 0 28px 42px rgba(0, 0, 0, 0.38), 0 20px 20px rgba(0, 0, 0, 0.33);}
+    box-shadow: 1px 1px 14px 4px rgba(255, 108, 8, 0.519)}
   
     
     @media screen and (min-width: 321px) {
       .team__wrapper{ 
-      width: 580px;}
+      width: 580px;
+      padding: 30px;}
     }
     @media screen and (min-width: 768px)
      {.team__wrapper{
       position: absolute;
-      top: 5%;
-      left: 10%;
-      /* transform: translate(-50%, -50%) scale(1); */
+      top: 50px; 
+      left: 50%;
+      transform: translate(-50%, 0);
       width: 1200px;
-      padding: 30px;}
+      padding: 50px 70px;}
     }
   
     
@@ -59,55 +56,63 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     padding: 0px;
     border: none;
     background-color: transparent;
     border-radius: 50%;
     cursor: pointer;
-    color: black;}
+    }
 
     @media screen and (min-width: 321px) {
     .team__modal-close-btn{
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 20px;
     }
-  
-    .team__modal-close-btn:hover {
-      color: orange;
-    }
-  }
-  
+        }
+        @media screen and (min-width: 768px) {
+          .team__modal-close-btn{
+            top: 30px;
+            right: 30px;
+          }
+        }
   .team__modal-close-icon {
-    fill: currentColor;
+    fill: var(--white);
+    transition: var(--transition);
   }
-  
+  .team__modal-close-icon:hover
+{fill: var(--orange);}  
+
   .team__title {
     text-align: center;
     text-transform: uppercase;
-    color: black;
+    color: var(--white);
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
   
   .team__list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2.8rem;
+    gap: 2.6rem;
   }
   
   .team__item {
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-      0px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     border-radius: 5px;
     background: white;
     position: relative;
-    border-radius: 10px;
+       border-radius: 10px;
     padding-bottom: 5px;
     overflow: hidden;
+    transform: scale(1.0);
+    transition: box-shadow var(--transition),transform var(--transition);
   }
+  .team__item:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);}
   
   .team__wrap {
     overflow: hidden;
@@ -117,12 +122,12 @@
     overflow: hidden;
     object-fit: cover;
     margin-bottom: 5px;
-    width: 200px;
-    height: 180px;
+    width: 240px;
+    height: 240px;
   }
   
   .team__box {
-    font-family: 'Roboto-medium';
+    font-family: 'Roboto-medium',sans-serif;
     font-size: 16px;
     line-height: 1.18;
     font-weight: 500;
@@ -134,14 +139,14 @@
   .team__member {
     font-weight: 500;
     font-size: 18px;
-    color: black;
+    color: var(--black);
     margin-bottom: 10px;
   }
   
   .team__role {
     font-weight: 500;
     font-size: 16px;
-    color: orange;
+    color: var(--orange);
     margin-bottom: 10px;
   }
   
@@ -152,10 +157,11 @@
     border-radius: 10%;
     margin-right: 10px;
     background-color: transparent;
-    fill: black;
+    fill: var(--black);
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    transition: var(--transition);
   
   }
   
@@ -165,70 +171,13 @@
     height: 36px;
     border-radius: 50%;
     background-color: transparent;
-    fill: black;
+    fill: var(--black);
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    transition: var(--transition);
     
   }
 
-  .backdrop {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(46, 47, 66, 0.4);
-    /* transition: opacity var(--cub--), visibility var(--cub--); */
-  }
-  
-  .modal {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    background-color: var(--wight-color--);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
-      0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    transition: transform var(--cub--), visibility var(--cub--);
-    padding: 24px;
-  }
-  
-  .backdrop.is-hidden .modal {
-    transform: translate(-50%, -50%) scale(0);
-  }
-  .modal-close {
-    margin-left: auto;
-    margin-bottom: 24px;
-    width: 24px;
-    height: 24px;
-    background-color: #e7e9fc;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    fill: black;
-    transition: background-color var(--cub--), fill var(--cub--);
-  }
-  
-  .modal-close:hover {
-    background-color: var(--pressed-color--);
-    fill: var(--wight-color--);
-  }
-  
-  .is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-  .modal-title {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-    margin-bottom: 14px;
-    color: var(--secondary-text-color--);
-  }
-  
+ .team__link-github:hover,
+  .team__link-linkedin:hover  {fill: var(--orange)};
