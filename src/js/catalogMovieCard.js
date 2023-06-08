@@ -5,6 +5,7 @@ import { refs } from './models/refs';
 import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
 import CreatePagination, { addZeroPagination } from './services/pagination';
 import { addCardStars } from './stars';
+import { Loading } from 'notiflix';
 
 const ratingArray = [];
 //================================================================
@@ -77,6 +78,10 @@ export default async function createMovieCard(data, elem, count) {
 //================================================================
 export async function weeklyTrendsList(page = 1) {
   try {
+    Loading.standard('Loading...', {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      svgColor: 'rgb(248, 119, 25)',
+    });
     const data = await getTrendingAllWeek(page);
     screen.width <= 767
       ? createMovieCard(data.results, refs.catalogList, 10)
@@ -89,6 +94,7 @@ export async function weeklyTrendsList(page = 1) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
   refs.catalogList.addEventListener('click', openFilmDetails);
+  Loading.remove();
 }
 
 //================================================================

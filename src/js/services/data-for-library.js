@@ -94,7 +94,7 @@ async function renderSelect() {
 
   await getDefaultData();
 
-  const defMarkUp = `<option class="placeholder" value="">--Genre--</option>`
+  const defMarkUp = `<option class="placeholder" value="">Genre ...</option>`
   const markUp = defMarkUp + dataObj.genreMovieList.map(el => {
     let selected = refs.selectLibrary.dataset.library == el.id ? `selected` : ``;
     return `<option value="${el.id}" ${selected}>${el.name}</option>`

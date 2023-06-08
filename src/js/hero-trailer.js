@@ -14,6 +14,11 @@ async function getDataVideo(id) {
 }
 export async function getTrailer(id) {
   try {
+    Loading.standard('Loading...', {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      svgColor: 'rgb(248, 119, 25)',
+    });
+
     const { key } = await getDataVideo(id);
     const instance = basicLightbox.create(succesTrailerMarkup(key), {
       onShow: instance => {
@@ -63,6 +68,7 @@ export async function getTrailer(id) {
       }
     }
   }
+  Loading.remove();
 }
 function succesTrailerMarkup(key) {
   return `
