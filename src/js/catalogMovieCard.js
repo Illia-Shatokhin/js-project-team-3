@@ -78,9 +78,7 @@ export default async function createMovieCard(data, elem, count) {
 export async function weeklyTrendsList(page = 1) {
   try {
     const data = await getTrendingAllWeek(page);
-    screen.width <= 767
-      ? createMovieCard(data.results, refs.catalogList, 10)
-      : createMovieCard(data.results, refs.catalogList, 20);
+    createMovieCard(data.results, refs.catalogList, 20);
 
     const watchedPagination = new CreatePagination(data, weeklyTrendsList);
     watchedPagination.activatePagination();
