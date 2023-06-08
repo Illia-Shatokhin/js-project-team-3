@@ -39,18 +39,24 @@
   
     
     @media screen and (min-width: 321px) {
-      .team__wrapper{ 
-      width: 580px;
+      .team__wrapper {
+      width: 320px;
       padding: 30px;}
     }
     @media screen and (min-width: 768px)
      {.team__wrapper{
-      position: absolute;
+    
+      width: 704px;
+      padding: 30px 90px;
+    }
+    }
+    @media screen and (min-width: 1280px){
+      .team__wrapper {position: absolute;
       top: 30px; 
       left: 50%;
       transform: translate(-50%, 0);
-      width: 1200px;
-      padding: 50px 70px;}
+      width: 100%;
+      padding: 50px 140px;}
     }
   
     .light .team__wrapper {
@@ -99,9 +105,9 @@
   
   .team__list {
     display: flex;
-    justify-content: center;
+    justify-content:space-between; 
     flex-wrap: wrap;
-    gap: 2.6rem;
+    gap: 40px;
   }
   
   .team__item {
