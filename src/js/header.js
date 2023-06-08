@@ -19,7 +19,7 @@ if (document.getElementById('close-menu')) {
 }
 
 // Dark mode theme toggle
-var themeToggle = document.getElementById('theme-toggle');
+/*var themeToggle = document.getElementById('theme-toggle');
 // var buttons = document.querySelectorAll('button');
 
 themeToggle.addEventListener('change', function () {
@@ -52,6 +52,27 @@ if (
   // buttons.forEach(function (button) {
   //   button.classList.remove('dark-theme');
   // });
+}*/
+
+var themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('change', function () {
+  if (themeToggle.checked) {
+    document.body.classList.add('light');
+  } else {
+    document.body.classList.remove('light');
+  }
+});
+
+if (
+  window.matchMedia &&
+  window.matchMedia('(prefers-color-scheme: dark)').matches
+) {
+  themeToggle.checked = false; // Set the toggle to unchecked for dark mode
+  document.body.classList.remove('light');
+} else {
+  themeToggle.checked = true; // Set the toggle to checked for light mode
+  document.body.classList.add('light');
 }
 // Get the current page URL
 var currentPage = window.location.href;
