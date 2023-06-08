@@ -1,26 +1,39 @@
-<header class="header">
+<header class="header theme-transition">
   <div class="container mobile-header">
     <!--<link rel="stylesheet" href="/header.css" />-->
 
     <div class="logo-container">
-      <a class="" href="./index.html"
-        ><picture class="main-logo">
+      <a class="logo-container-link" href="./index.html">
+        <picture class="main-logo">
           <source
-            srcset="./img/tablet-logo.png 1x, ./img/tablet-logo@2x.png 2x"
+            srcset="
+              ./img/header-logo-des.png    1x,
+              ./img/header-logo-des@2x.png 2x
+            "
+            media="(min-width: 1280px)"
+            type="image/png"
+            width="48"
+          />
+          <source
+            srcset="
+              ./img/header-logo-tab.png    1x,
+              ./img/header-logo-tab@2x.png 2x
+            "
+            media="(min-width: 768px)"
+            type="image/png"
+            width="48"
+          />
+          <source
+            srcset="./img/header-logo.png 1x, ./img/header-logo@2x.png 2x"
+            media="(max-width: 767px)"
             type="image/png"
           />
-          <img
-            style="padding: 0"
-            src="./img/tablet-logo.png"
-            srcset="./img/tablet-logo@2x.png 2x"
-            alt="Your Logo"
-          />
-
-          <h1 class="logo-text">Cinemania</h1>
+          <img src="./img/header-logo.png" alt="image" width="32" height="32" />
         </picture>
+        <h1 class="logo-text">Cinemania</h1>
       </a>
     </div>
-<!--mobile menu-->
+    <!--mobile menu-->
     <nav id="table-menu" class="table-desktop">
       <ul class="table-menu">
         <li class="space" id="home">
@@ -45,13 +58,14 @@
             <span aria-hidden="true">&times;</span>
           </button>
           <a href="index.html"
-            ><picture class="menu-logo" style="padding-bottom: 40px;">
+            ><picture class="menu-logo" style="padding-bottom: 40px">
               <source
-                srcset="./img/tablet-logo.png 1x, ./img/tablet-logo@2x.png 2x"
+                srcset="./img/header-logo.png 1x, ./img/header-logo@2x.png 2x"
+                media="(max-width: 767px)"
                 type="image/png"
               />
               <img
-                style="padding-bottom: 40px;"
+                style="padding-bottom: 40px"
                 src="./img/tablet-logo.png"
                 srcset="./img/tablet-logo@2x.png 2x"
                 alt="Your Logo"
@@ -86,11 +100,11 @@
               stroke: #ffffff;
               stroke-width: 2px;
               margin-left: 3px;
-              margin-top: 3px;
             "
           >
+            <circle cx="12" cy="12" r="5" />
             <path
-              d="M20 12.92A9.503 9.503 0 0 1 9.78 3.8 7.5 7.5 0 0 0 4 12c0 4.15 3.35 7.5 7.5 7.5 4.19 0 7.63-3.4 7.75-7.6V12.92z"
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M18.66 18.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41"
             />
           </svg>
           <svg
@@ -102,12 +116,13 @@
               fill: none;
               stroke: #ffffff;
               stroke-width: 2px;
+
+              margin-top: 3px;
               margin-left: 21.5px;
             "
           >
-            <circle cx="12" cy="12" r="5" />
             <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M18.66 18.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41"
+              d="M20 12.92A9.503 9.503 0 0 1 9.78 3.8 7.5 7.5 0 0 0 4 12c0 4.15 3.35 7.5 7.5 7.5 4.19 0 7.63-3.4 7.75-7.6V12.92z"
             />
           </svg>
         </span>
