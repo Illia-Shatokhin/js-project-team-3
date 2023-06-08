@@ -3,6 +3,7 @@
   padding-top: 40px;
   padding-bottom: 28px;
   margin-top: auto;
+  transition: background-color var(--transition);
 }
 .light .footer {
   background-color: var(--white);
@@ -40,6 +41,8 @@
   background-color: transparent;
   color: var(--light-gray);
   text-decoration: none;
+  transform: scale(1.0);
+  transition: color var(--transition), transform var(--transition);
 }
 .footer-btn:hover {
   color: var(--orange);

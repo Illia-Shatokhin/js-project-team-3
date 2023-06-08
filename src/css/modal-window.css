@@ -127,7 +127,7 @@
   color: var(--white-smoke);
   width: 248px;
   height: 160px;
-  overflow: auto;
+   overflow: auto; 
 }
 
 .light .about-film-story {
@@ -160,7 +160,7 @@
   align-items: center;
   max-width: 248px;
   max-height: 315px;
-  overflow: hidden;
+   /* overflow: hidden;  */
 }
 
 .film-poster-img {
@@ -172,7 +172,6 @@
 .picture-class {
   background-size: contain;
   margin-left: -40px;
-  /* margin-top: -70px; */
 }
 
 .film-poster-img[alt] {
@@ -182,7 +181,6 @@
 .light .film-poster-img[alt] {
   color: var(--black)
 }
-
 
 
 /* @media screen and (max-width: 767px) {

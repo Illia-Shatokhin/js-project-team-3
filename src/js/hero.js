@@ -4,6 +4,7 @@ import { getTrailer } from './hero-trailer.js';
 import { getMovie } from './modalWindow.js';
 import { refs } from './models/refs.js';
 import { addHeroStars } from './stars';
+import debounce from 'lodash.debounce';
 
 const gradient320 =
   'linear-gradient(86.47deg, #111111 33.63%, rgba(17, 17, 17, 0) 76.86%)';
@@ -75,14 +76,18 @@ function renderHero(data, currentPage) {
 
 function getElemAddListenersHeroBtn() {
   const trailerHeroBtn = document.getElementById('trailer-hero-btn');
-  trailerHeroBtn.addEventListener('click', () => {
+  trailerHeroBtn.addEventListener('click', debounce(getTrailerOnClick, 300));
+
+  function getTrailerOnClick() {
     getTrailer(currentId);
-  });
+  }
 
   const detailsHeroBtn = document.getElementById('details-hero-btn');
-  detailsHeroBtn.addEventListener('click', () => {
+  detailsHeroBtn.addEventListener('click', debounce(getMovieOnClick, 300));
+
+  function getMovieOnClick() {
     getMovie(currentId);
-  });
+  }
 }
 
 function getRandomIndex() {
@@ -101,7 +106,7 @@ function creatHeroMarkup(overview, title, vote_average) {
        </div>
        <div class="thumb-hero-btn">
           <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
-          <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
+          <button class="button hero-transparent-btn hero-btn" id="details-hero-btn">More details</button>
         </div>
       </div>
     </div>`;
