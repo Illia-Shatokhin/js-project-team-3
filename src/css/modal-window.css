@@ -15,8 +15,9 @@
   border-radius: 14px;
   transform: translate(-50%, -50%) scale(1);
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-  /* opacity: 1; */
-  max-height: 98vh;
+   /* opacity: 1;  */
+   max-height: 98vh; 
+  overflow-y: auto;
 }
 
 .light .modal-film-window {
@@ -126,7 +127,7 @@
   color: var(--white-smoke);
   width: 248px;
   height: 160px;
-  overflow: auto;
+   overflow: auto; 
 }
 
 .light .about-film-story {
@@ -141,26 +142,16 @@
 
 
 .light .add-film-btn {
-  /* background: linear-gradient(var(--white), var(--white)) padding-box,
-  linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box; */
-  /* color: var(--black); */
-   background: var(--basic-gradient);
-  color: var(--black);
-  transition: var(--transition);
-  transition: color 100ms linear; 
-  /* background: linear-gradient(var(--white), var(--white)) padding-box,
-  linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
-color: var(--black);
-transition: var(--transition); */
+   background: linear-gradient(var(--white), var(--white)) padding-box,
+  linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box; 
+   color: var(--black); 
+
 }
 
 .light .add-film-btn:hover,
 .light .add-film-btn:hover {
-  /* background: linear-gradient(var(--black), var(--black)) padding-box,
-    linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box; */
-  background: linear-gradient(var(--white), var(--white)) padding-box,
-  linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box; 
-  color: var(--orange);
+   background: linear-gradient(var(--black), var(--black)) padding-box,
+    linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box; 
 }
 
 .film-poster-wrapper {
@@ -169,7 +160,7 @@ transition: var(--transition); */
   align-items: center;
   max-width: 248px;
   max-height: 315px;
-  overflow: hidden;
+   /* overflow: hidden;  */
 }
 
 .film-poster-img {
@@ -181,7 +172,6 @@ transition: var(--transition); */
 .picture-class {
   background-size: contain;
   margin-left: -40px;
-  /* margin-top: -70px; */
 }
 
 .film-poster-img[alt] {
@@ -193,8 +183,7 @@ transition: var(--transition); */
 }
 
 
-
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
   .modal-film-window {
     overflow-y: auto;
   }
@@ -202,7 +191,7 @@ transition: var(--transition); */
   .about-film-story {
     overflow-y: auto;
   }
-}
+} */
 
 /*-------------------------------Tablet-----------------------------*/
 
@@ -210,8 +199,8 @@ transition: var(--transition); */
   .modal-film-window {
     justify-content: center;
     width: 704px;
-    min-height: 488px;
-    overflow-y: hidden;
+    height: 488px;
+    /* overflow-y: hidden; */
   }
 
   .modal-film-window {
