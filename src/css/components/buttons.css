@@ -14,11 +14,17 @@
 }
 
 .btn-gradient {
-  border: 1px solid white;
+  border: 1px solid var(--black);
   background: var(--basic-gradient);
   color: var(--black);
   transition: var(--transition);
   transition: color 100ms linear;
+}
+.light .btn-gradient {
+  border: 1px solid var(--white);
+}
+.light .btn-gradient:hover {
+  border: 1px solid var(--orange);
 }
 
 .btn-gradient:hover,
