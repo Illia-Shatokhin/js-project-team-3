@@ -17,13 +17,13 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/js-project-team-3/assets/index-9f257df9.js"></script>
-    <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/button-to-header-559ff8b8.js">
-    <link rel="stylesheet" href="/js-project-team-3/assets/button-to-header-d0161170.css">
+    <script type="module" crossorigin src="/js-project-team-3/assets/index-6cc35c19.js"></script>
+    <link rel="modulepreload" crossorigin href="/js-project-team-3/assets/button-to-header-bc852b36.js">
+    <link rel="stylesheet" href="/js-project-team-3/assets/button-to-header-07b2dcc3.css">
   </head>
 
   <body>
-    <header class="header">
+    <header class="header theme-transition">
   <div class="container mobile-header">
     <!--<link rel="stylesheet" href="/header.css" />-->
 
@@ -58,7 +58,7 @@
         <h1 class="logo-text">Cinemania</h1>
       </a>
     </div>
-<!--mobile menu-->
+    <!--mobile menu-->
     <nav id="table-menu" class="table-desktop">
       <ul class="table-menu">
         <li class="space" id="home">
@@ -82,16 +82,20 @@
           <button id="close-menu" class="close-button" aria-label="Close menu">
             <span aria-hidden="true">&times;</span>
           </button>
-          <a href="index.html">
-            <picture class="main-logo">
+          <a href="index.html"
+            ><picture class="menu-logo" style="padding-bottom: 40px">
               <source
                 srcset="./img/header-logo.png 1x, ./img/header-logo@2x.png 2x"
                 media="(max-width: 767px)"
                 type="image/png"
               />
-              <img src="./img/header-logo.png" alt="image" width="32" />
-            </picture>
-          </a>
+              <img
+                style="padding-bottom: 40px"
+                src="./img/tablet-logo.png"
+                srcset="./img/tablet-logo@2x.png 2x"
+                alt="Your Logo"
+              /> </picture
+          ></a>
           <ul class="menu-list">
             <li id="home1">
               <a class="hover-text2" href="index.html">HOME</a>
@@ -121,11 +125,11 @@
               stroke: #ffffff;
               stroke-width: 2px;
               margin-left: 3px;
-              margin-top: 3px;
             "
           >
+            <circle cx="12" cy="12" r="5" />
             <path
-              d="M20 12.92A9.503 9.503 0 0 1 9.78 3.8 7.5 7.5 0 0 0 4 12c0 4.15 3.35 7.5 7.5 7.5 4.19 0 7.63-3.4 7.75-7.6V12.92z"
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M18.66 18.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41"
             />
           </svg>
           <svg
@@ -137,12 +141,13 @@
               fill: none;
               stroke: #ffffff;
               stroke-width: 2px;
+
+              margin-top: 3px;
               margin-left: 21.5px;
             "
           >
-            <circle cx="12" cy="12" r="5" />
             <path
-              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M18.66 18.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41"
+              d="M20 12.92A9.503 9.503 0 0 1 9.78 3.8 7.5 7.5 0 0 0 4 12c0 4.15 3.35 7.5 7.5 7.5 4.19 0 7.63-3.4 7.75-7.6V12.92z"
             />
           </svg>
         </span>
