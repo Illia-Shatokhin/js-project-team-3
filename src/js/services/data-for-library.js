@@ -37,8 +37,12 @@ export function createLibraryFromLocalStorage() {
     : [];
 
 
-  if (dataObj.libraryFromLocal.length == 0)
+  if (dataObj.libraryFromLocal.length == 0) { 
+    refs.filmsOfLocalStorage.innerHTML = '';
+    document.querySelector(".my-library-wrap-select").style.setProperty('display', 'none');
     renderError(refs.filmsOfLocalStorage, errorLibraryMarkup);
+  }
+    
   else {
     // filter 
     const idGenre = refs.selectLibrary.dataset.library;
@@ -46,7 +50,8 @@ export function createLibraryFromLocalStorage() {
     refs.selectLibrary.dataset.filter = filteredLibrary.length;
 
     const count = filteredLibrary.length < dataObj.moviePerPage ? filteredLibrary.length : dataObj.moviePerPage;
-
+    
+    document.querySelector(".my-library-wrap-select").style.setProperty('display', 'block');
     renderSelect();
     createMovieCard(filteredLibrary, refs.filmsOfLocalStorage, count);
   }
