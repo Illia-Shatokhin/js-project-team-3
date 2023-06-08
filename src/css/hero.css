@@ -35,6 +35,7 @@
 
 .hero-title {
   font-family: 'Roboto-Bold', sans-serif;
+  font-weight: 700;
   font-size: 32px;
   line-height: 1.18;
   color: var(--white);
@@ -55,6 +56,7 @@
 .hero-lib-text {
   max-width: 249px;
   font-family: 'Roboto-Regular', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
   color: var(--white-smoke);
@@ -67,12 +69,14 @@
   -webkit-box-orient: vertical;
   color: var(--white-smoke);
   font-family: 'Roboto-Regular', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
 }
 .overview-text-stub {
   color: var(--white-smoke);
   font-family: 'Roboto-Regular', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
 }
@@ -200,6 +204,7 @@
 
   .overview {
     font-family: 'Roboto-Regular', sans-serif;
+    font-weight: 400;
     font-size: 16px;
     line-height: 1.19;
     margin-bottom: 36px;
