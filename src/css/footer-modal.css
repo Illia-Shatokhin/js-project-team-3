@@ -7,11 +7,14 @@
     overflow-y: auto;
     z-index: 998;
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.6);
     visibility: visible;
     opacity: 1;
+    
   }
-  
+  .light .team__backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
   .is-hidden {
     visibility: hidden;
     pointer-events: none;
@@ -32,7 +35,7 @@
     padding: 25px 15px;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    box-shadow: 1px 1px 14px 4px rgba(255, 108, 8, 0.519)}
+    box-shadow: 1px 1px 25px 4px rgba(255, 108, 8, 0.3)}
   
     
     @media screen and (min-width: 321px) {
@@ -43,14 +46,16 @@
     @media screen and (min-width: 768px)
      {.team__wrapper{
       position: absolute;
-      top: 50px; 
+      top: 30px; 
       left: 50%;
       transform: translate(-50%, 0);
       width: 1200px;
       padding: 50px 70px;}
     }
   
-    
+    .light .team__wrapper {
+      box-shadow: 1px 1px 25px 4px rgba(0, 0, 0, 0.3)
+    }
   .team__modal-close-btn {
     display: flex;
     justify-content: center;
@@ -73,8 +78,8 @@
         }
         @media screen and (min-width: 768px) {
           .team__modal-close-btn{
-            top: 30px;
-            right: 30px;
+            top: 40px;
+            right: 40px;
           }
         }
   .team__modal-close-icon {
