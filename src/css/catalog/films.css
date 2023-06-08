@@ -1,6 +1,9 @@
 .catalog-film-section {
   padding-top: 16px;
-  background-color: inherit;
+  background-color: var(--black);
+}
+.light .catalog-film-section {
+  background-color: var(--white);
 }
 
 .catalog-list {
