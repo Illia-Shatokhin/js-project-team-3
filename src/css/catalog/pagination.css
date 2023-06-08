@@ -41,6 +41,10 @@
   transition: background-color var(--transition);
 }
 
+.tui-pagination .tui-page-btn::before {
+  content: attr(data-zero);
+}
+
 .tui-pagination .tui-page-btn:hover {
   background-color: var(--light-gray);
 }
