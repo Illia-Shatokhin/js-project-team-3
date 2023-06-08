@@ -93,9 +93,9 @@
   transition: stroke 100ms linear;
 }
 .catalog-button-reset {
-  padding: 7px;
+  padding: 5px 7px;
   border-radius: 5px;
-  height: 39px;
+  height: 37px;
   border: 1px solid transparent;
   margin-left: -55px;
   outline: none;
