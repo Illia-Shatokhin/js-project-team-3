@@ -1,10 +1,29 @@
 
 //============================================================================
+// function checkPoster(data) {
+//   if (data.poster_path) {
+//     const imageClass =  'film-poster-img'
+//     return `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+//   } else {
+//     // const imgEl = document.querySelector('img');
+//     const imageClass =  'picture-class'
+//     // imgEl.className = 'picture';
+//     // imgEl.addClassList('picture')
+//     return './img/trailer-modal-mob.png';
+//   }
+// }
 function checkPoster(data) {
   if (data.poster_path) {
-    return `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+    return {
+      posterURL: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+      imageClass: 'film-poster-img'
+    };
   } else {
-    return './img/trailer-modal-mob.png';
+    return {
+      // posterURL: './img/trailer-modal-tab.png',
+      posterURL: './img/trailer-modal-desk.png',
+      imageClass: 'picture-class'
+    };
   }
 }
 
@@ -14,7 +33,8 @@ export function renderModalMovieMarkup(data) {
   const vote = data.vote_average.toFixed(1);
   const popularity = data.popularity.toFixed(1);
   const voteCount = data.vote_count.toFixed(1);
-  const poster = checkPoster(data);
+  // const poster = checkPoster(data);
+  const { posterURL, imageClass } = checkPoster(data);
   
   return `
   <div class="modal-film-window">
@@ -23,7 +43,9 @@ export function renderModalMovieMarkup(data) {
           <use href="./img/symbols.svg#close" width="100%" height="100%"></use>
        </svg>
    </button>
-   <img class="film-poster-img"   src="${poster}" alt="Movie poster" width="375" height="478">
+   <div class="film-poster-wrapper">
+   <img class="${imageClass}"   src="${ posterURL}" alt="Movie poster">
+   </div>
    <div class="about-film-wrapper">
     <h2 class="film-tittle">${data.original_title}</h2>
     <div class="film-list-wrapper">

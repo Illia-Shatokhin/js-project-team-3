@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { CONSTS } from '../models/consts';
 
 function generateOption(addURL, params) {
@@ -20,7 +19,6 @@ async function axiosGet(options) {
     return response.data;
   } catch (err) {
     console.error(err);
-    Notify.failure('axiosGet: ' + err.message);
 
     throw new Error(err);
   }
