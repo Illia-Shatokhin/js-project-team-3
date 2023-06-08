@@ -1,5 +1,5 @@
 .theme-transition {
-  transition: background-color 0.5s ease;
+  transition: background-color var(--transition);
 }
 .desktop-header {
   display: flex;
@@ -63,7 +63,6 @@
   width: auto;
   align-items: center;
   justify-content: space-between;
-  transition: opacity 0.5s ease-in; /* Transition property with duration and timing function */
 }
 .tablet-menu {
   display: none;
