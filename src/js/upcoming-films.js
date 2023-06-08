@@ -1,3 +1,5 @@
+import { Loading } from "notiflix";
+
 if (!localStorage.getItem('myLibrary')) {
   localStorage.setItem('myLibrary', JSON.stringify([]));
 }
@@ -17,6 +19,12 @@ const options = {
 fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
   .then(response => response.json())
   .then(genreData => {
+
+    Loading.standard('Loading...', {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      svgColor: 'rgb(248, 119, 25)',
+    });
+
     // Create an object with genre IDs as keys and names as values
     const genres = {};
     genreData.genres.forEach(genre => {
@@ -181,7 +189,7 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
         }
       });
   });
-
+Loading.remove();
 // Check if a film is in My Library
 function isInLibrary(filmId) {
   const myLibrary = JSON.parse(localStorage.getItem('myLibrary'));

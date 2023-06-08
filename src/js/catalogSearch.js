@@ -5,11 +5,18 @@ import createMovieCard from './catalogMovieCard';
 import { weeklyTrendsList } from './catalogMovieCard';
 import { dataObj } from './models/data';
 import CreatePagination from './services/pagination';
+import { Loading } from 'notiflix';
 
 refs.catalogForm.addEventListener('submit', onSubmit);
 
 export async function sendSearch(page = 1) {
   try {
+
+    Loading.standard('Loading...', {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      svgColor: 'rgb(248, 119, 25)',
+    });
+
     const options = {
       query: dataObj.searchQuery,
       primary_release_year: dataObj.searchYear,
@@ -44,6 +51,7 @@ export async function sendSearch(page = 1) {
     catalogListReset();
     renderError(refs.catalogList, errorCatalogMarkup);
   }
+  Loading.remove();
 }
 
 export async function onSubmit(event) {
