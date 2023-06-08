@@ -1,6 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import { errorTrailerMarkup } from './errortrailer';
 import { getMovieVideos } from './API/get-from-server.js';
+import { Loading } from 'notiflix';
 
 const bodyElement = document.querySelector('body');
 
