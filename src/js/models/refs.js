@@ -17,4 +17,5 @@ export const refs = {
   catalogSelectYear: document.getElementById('year'),
   catalogSelectCountry: document.getElementById('country'),
   heroRef: document.querySelector('.hero'),
+  buttonToHeader: document.querySelector('.button-to-header'),
 };

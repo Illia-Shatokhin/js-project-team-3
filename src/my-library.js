@@ -3,3 +3,6 @@ createHero('library');
 
 import './js/services/data-for-library.js';
 import './js/header';
+
+import { toHeaderUp } from './js/button-to-header';
+toHeaderUp();
