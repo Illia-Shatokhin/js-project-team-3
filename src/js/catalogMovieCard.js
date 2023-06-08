@@ -5,6 +5,7 @@ import { refs } from './models/refs';
 import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
 import CreatePagination, { addZeroPagination } from './services/pagination';
 import { addCardStars } from './stars';
+import debounce from 'lodash.debounce';
 
 const ratingArray = [];
 //================================================================
@@ -86,7 +87,7 @@ export async function weeklyTrendsList(page = 1) {
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
-  refs.catalogList.addEventListener('click', openFilmDetails);
+  refs.catalogList.addEventListener('click', debounce(openFilmDetails, 300));
 }
 
 //================================================================
