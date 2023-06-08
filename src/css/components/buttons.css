@@ -14,6 +14,7 @@
 }
 
 .btn-gradient {
+  border: 1px solid white;
   background: var(--basic-gradient);
   color: var(--black);
   transition: var(--transition);
@@ -23,8 +24,8 @@
 .btn-gradient:hover,
 .btn-gradient:focus {
   color: var(--orange);
-  background: linear-gradient(var(--white), var(--white)) padding-box,
-    linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
+  border: 1px solid var(--orange);
+  background: var(--white);
 }
 
 /* ===Dark theme ===== */
