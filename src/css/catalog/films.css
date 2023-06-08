@@ -1,9 +1,12 @@
 .catalog-film-section {
   padding-top: 16px;
   background-color: var(--black);
+  transition: background-color var(--transition);
 }
+
 .light .catalog-film-section {
   background-color: var(--white);
+  transition: background-color var(--transition);
 }
 
 .catalog-list {
