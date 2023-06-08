@@ -76,15 +76,18 @@ function getRandomIndex() {
 
 function creatHeroMarkup(overview, title, vote_average) {
   return `
+    <div class="hero-background-img">1111</div>
     <div class="container hero-container">
-      <h2 class="hero-title">${title}</h2>
-      <p class="reting-stars">${vote_average.toFixed(1)}</p>
-      <div class="overview">
-        <p class="overview-text">${overview}</p>
-      </div>
-      <div class="thumb-hero-btn">
-        <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
-        <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
+     <div class="hero-text-thumb>
+       <h2 class="hero-title">${title}</h2>
+       <p class="reting-stars">${vote_average.toFixed(1)}</p>
+       <div class="overview">
+         <p class="overview-text">${overview}</p>
+       </div>
+       <div class="thumb-hero-btn">
+          <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
+          <button class="button btn-transparent-dark hero-btn" id="details-hero-btn">More details</button>
+        </div>
       </div>
     </div>`;
 }
