@@ -62,7 +62,7 @@ var Yt=(e,t,n)=>{if(!t.has(e))throw TypeError("Cannot "+n)};var qe=(e,t,n)=>{if(
         />
       </picture>
     </div>`}const W=document.querySelector("body");async function xr(e){try{return(await vr(e)).results[0]}catch(t){console.log(t)}}async function Lr(e){try{let i=function(r){r.code==="Escape"&&(n.close(),W.style.overflow="auto")};const{key:t}=await xr(e),n=Ae.create(Sr(t),{onShow:r=>{window.addEventListener("keydown",i),W.style.overflow="hidden"},onClose:r=>{window.removeEventListener("keydown",i),W.style.overflow="auto"}});n.show(()=>console.log("lightbox now visible")),window.addEventListener("keydown",i)}catch{let i=function(o){o.code==="Escape"&&(n.close(),console.log(o))},r=function(o){const s=o.target;console.log(s),(s.classList.contains("select-icon")||s.closest(".icon"))&&(n.close(),W.style.overflow="auto")};const n=Ae.create(wr(),{onShow:o=>{window.addEventListener("keydown",i),W.style.overflow="hidden"},onClose:o=>{window.removeEventListener("keydown",i),W.style.overflow="auto"}});n.show(()=>console.log("Lightbox now visible")),window.addEventListener("keydown",i),n.element().addEventListener("click",r)}}function Sr(e){return`
-  <iframe class="iframe" src="https://www.youtube.com/embed/${e}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`}function Pr(e){return e.poster_path?{posterURL:`https://image.tmdb.org/t/p/w500${e.poster_path}`,imageClass:"film-poster-img"}:{posterURL:"./img/trailer-modal-desk.png",imageClass:"picture-class"}}function Or(e){const t=e.genres.map(l=>l.name).join(", "),n=e.vote_average.toFixed(1),i=e.popularity.toFixed(1),r=e.vote_count.toFixed(1),{posterURL:o,imageClass:s}=Pr(e);return`
+  <iframe class="iframe" src="https://www.youtube.com/embed/${e}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`}function Pr(e){return e.poster_path?{posterURL:`https://image.tmdb.org/t/p/w500${e.poster_path}`,imageClass:"film-poster-img"}:{posterURL:"./img/trailer-modal-desk@2x.png",imageClass:"picture-class"}}function Or(e){const t=e.genres.map(l=>l.name).join(", "),n=e.vote_average.toFixed(1),i=e.popularity.toFixed(1),r=e.vote_count.toFixed(1),{posterURL:o,imageClass:s}=Pr(e);return`
   <div class="modal-film-window">
     <button class="modal-close-btn">
        <svg class="modal-close-icon" width="100%" height="100%" >
@@ -80,14 +80,14 @@ var Yt=(e,t,n)=>{if(!t.has(e))throw TypeError("Cannot "+n)};var qe=(e,t,n)=>{if(
         <li class="about-film-item">Popularity</li>
         <li class="about-film-item">Genre</li>
       </ul >
-      <ul class="second-about-film-list">
-       <li class="about-film-item"> <span class ="vote-span">${n}</span> / <span class ="vote-span">${r}</span></li>
+      <ul class="second-about-film-list ">
+       <li class="about-film-item "> <span class ="vote-span">${n}</span> / <span class ="vote-span">${r}</span></li>
        <li class="about-film-item">${i}</li>
        <li class="about-film-item">${t}</li>
       </ul>
     </div>
-   <p class="about-film-tittle">About </p>
-   <p class="about-film-story">${e.overview} </p>
+   <p class=" about-film-tittle">About </p>
+   <p class="about-film-story ">${e.overview} </p>
    <button class=" button btn-border-dark add-film-btn button-library-active">Add to my library</button>
    </div>
   </div>`}var Tr="Expected a function",rt=0/0,Cr="[object Symbol]",Rr=/^\s+|\s+$/g,_r=/^[-+]0x[0-9a-f]+$/i,Ar=/^0b[01]+$/i,Mr=/^0o[0-7]+$/i,Ir=parseInt,Nr=typeof ie=="object"&&ie&&ie.Object===Object&&ie,Br=typeof self=="object"&&self&&self.Object===Object&&self,kr=Nr||Br||Function("return this")(),Fr=Object.prototype,Hr=Fr.toString,Ur=Math.max,jr=Math.min,Oe=function(){return kr.Date.now()};function Dr(e,t,n){var i,r,o,s,l,p,c=0,d=!1,m=!1,b=!0;if(typeof e!="function")throw new TypeError(Tr);t=it(t)||0,Me(n)&&(d=!!n.leading,m="maxWait"in n,o=m?Ur(it(n.maxWait)||0,t):o,b="trailing"in n?!!n.trailing:b);function u(S){var A=i,N=r;return i=r=void 0,c=S,s=e.apply(N,A),s}function a(S){return c=S,l=setTimeout(y,t),d?u(S):s}function f(S){var A=S-p,N=S-c,$=t-A;return m?jr($,o-N):$}function g(S){var A=S-p,N=S-c;return p===void 0||A>=t||A<0||m&&N>=o}function y(){var S=Oe();if(g(S))return x(S);l=setTimeout(y,f(S))}function x(S){return l=void 0,b&&i?u(S):(i=r=void 0,s)}function _(){l!==void 0&&clearTimeout(l),c=0,i=p=r=l=void 0}function v(){return l===void 0?s:x(Oe())}function E(){var S=Oe(),A=g(S);if(i=arguments,r=this,p=S,A){if(l===void 0)return a(p);if(m)return l=setTimeout(y,t),u(p)}return l===void 0&&(l=setTimeout(y,t)),s}return E.cancel=_,E.flush=v,E}function Me(e){var t=typeof e;return!!e&&(t=="object"||t=="function")}function $r(e){return!!e&&typeof e=="object"}function zr(e){return typeof e=="symbol"||$r(e)&&Hr.call(e)==Cr}function it(e){if(typeof e=="number")return e;if(zr(e))return rt;if(Me(e)){var t=typeof e.valueOf=="function"?e.valueOf():e;e=Me(t)?t+"":t}if(typeof e!="string")return e===0?e:+e;e=e.replace(Rr,"");var n=Ar.test(e);return n||Mr.test(e)?Ir(e.slice(2),n?2:8):_r.test(e)?rt:+e}var qr=Dr;const Vr=Tt(qr);function Jr(e,t,n,i){let r="url(./img/trailer-modal-desk.png)",o="; background-size: contain;";return e.poster_path&&(r=`url(https://image.tmdb.org/t/p/w500${e.poster_path})`,o=""),`
