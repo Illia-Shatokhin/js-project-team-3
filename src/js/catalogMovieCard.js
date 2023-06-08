@@ -86,11 +86,7 @@ export async function weeklyTrendsList(page = 1) {
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
-  refs.catalogList.addEventListener('click', () => {
-    setTimeout(() => {
-      openFilmDetails;
-    }, 2000);
-  });
+  refs.catalogList.addEventListener('click', openFilmDetails);
 }
 
 //================================================================
