@@ -6,7 +6,8 @@ document.getElementById('menu-toggle').addEventListener('click', function () {
 // Close menu when pressing Esc key
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
-    document.getElementById('mobile-menu').classList.remove('visible');
+    // document.getElementById('mobile-menu').classList.remove('visible');
+    closeMenu();
   }
 });
 
@@ -23,17 +24,15 @@ var themeToggle = document.getElementById('theme-toggle');
 
 themeToggle.addEventListener('change', function () {
   if (themeToggle.checked) {
-    document.body.classList.add('dark-theme');
-    buttons.forEach(function (button) {
-      button.classList.add('dark-theme');
-    });
-    console.log('User prefers dark theme');
+    document.body.classList.add('light');
+    // buttons.forEach(function (button) {
+    //   button.classList.add('light');
+    // });
   } else {
-    document.body.classList.remove('dark-theme');
-    buttons.forEach(function (button) {
-      button.classList.remove('dark-theme');
-    });
-    console.log('User prefers light theme');
+    document.body.classList.remove('light');
+    // buttons.forEach(function (button) {
+    //   button.classList.remove('light');
+    // });
   }
 });
 
@@ -43,14 +42,13 @@ if (
   window.matchMedia('(prefers-color-scheme: dark)').matches
 ) {
   themeToggle.checked = true;
-  document.body.classList.add('dark-theme');
-  buttons.forEach(function (button) {
-    button.classList.add('dark-theme');
-  });
-  console.log('User prefers dark theme');
+  document.body.classList.add('light');
+  // buttons.forEach(function (button) {
+  //   button.classList.add('dark-theme');
+  // });
 } else {
   themeToggle.checked = false;
-  document.body.classList.remove('dark-theme');
+  document.body.classList.remove('light');
   // buttons.forEach(function (button) {
   //   button.classList.remove('dark-theme');
   // });
@@ -110,9 +108,7 @@ function openMenu() {
 function closeMenu() {
   mobileMenu.classList.remove('show-menu');
   backdrop.classList.remove('show-backdrop');
-  setTimeout(function () {
-    mobileMenu.classList.remove('visible');
-  }, 300);
+  mobileMenu.classList.remove('visible');
 }
 
 menuToggle.addEventListener('change', function () {
