@@ -32,7 +32,7 @@
   align-items: center;
   text-align: center;
   text-transform: uppercase;
-  transition: color 0.3s ease;
+  transition: color var(--transition);
   color: var(--white);
 }
 .hover-text {
@@ -44,7 +44,7 @@
   align-items: center;
   text-align: center;
   text-transform: uppercase;
-  transition: color 0.3s ease; /* Transition for color property */
+  transition: color var(--transition); /* Transition for color property */
   padding-bottom: 22px;
   padding-top: 22px;
 }
@@ -225,7 +225,7 @@
 }
 .menu-toggle-label {
   color: white;
-  transition: color 0.3s ease;
+  transition: color var(--transition);
   cursor: pointer;
   padding-top: 17px;
   padding-bottom: 17px;
