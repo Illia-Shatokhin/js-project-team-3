@@ -1,4 +1,3 @@
-
 import { getSearchMovie } from './API/get-from-server';
 import { refs } from './models/refs';
 import { renderError, errorCatalogMarkup } from './errortrailer';
@@ -54,8 +53,9 @@ export async function onSubmit(event) {
   const country = form.elements.country.value;
   const year = form.elements.year.value;
 
-  if (value === '') {weeklyTrendsList()}
-  else {
+  if (value === '') {
+    weeklyTrendsList();
+  } else {
     setSearchParam(1, value, year, country);
     sendSearch();
   }
@@ -97,3 +97,19 @@ function clearSearchParam() {
   dataObj.searchYear = '';
   dataObj.searchRegion = '';
 }
+
+// ====================================================================
+
+
+export function changeLightThemeSearchCatalog() {
+  refs.catalogSearch.classList.add('light');
+  refs.catalogForm.classList.add('light');
+  refs.catalogSearchInput.classList.add('light');
+  refs.buttonSearchCatalog.classList.add('light');
+  refs.buttonReset.classList.add('light');
+  refs.catalogSelectYear.classList.add('light');
+  refs.catalogSelectCountry.classList.add('light');
+  refs.catalogPlaseholderInput.classList.add('light');
+  refs.catalogResetBtnHover.classList.add('light');
+}
+// changeLightThemeSearchCatalog();
