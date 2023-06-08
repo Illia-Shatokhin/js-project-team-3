@@ -13,7 +13,6 @@ body {
 
 .button-to-header {
   display: none;
-  border: 1px solid var(--orange);
   width: 70px;
   height: 70px;
   border: 1px solid var(--white);
@@ -24,15 +23,35 @@ body {
   bottom: 6%;
   right: 3%;
   scale: 1;
-  transition: background-color var(--transition), scale var(--transition);
+  transition: background-color var(--transition), scale var(--transition),
+    border var(--transition);
 }
+
+.light .button-to-header {
+  background-color: var(--black);
+  transition: background-color var(--transition), scale var(--transition),
+    border var(--transition);
+}
+
 .button-to-header:hover,
 .button-to-header:focus {
   background-color: inherit;
   scale: 1.2;
+  border: 1px solid var(--orange);
 }
+
+.light .button-to-header:hover,
+.light .button-to-header:focus {
+  scale: 1.2;
+  border: 1px solid var(--orange);
+}
+
 .button-to-header-icon {
   fill: var(--black);
+  transition: fill var(--transition);
+}
+.light .button-to-header-icon {
+  fill: var(--white);
   transition: fill var(--transition);
 }
 .button-to-header:hover .button-to-header-icon,
