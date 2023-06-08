@@ -3,6 +3,7 @@ import * as basicLightbox from 'basiclightbox';
 import { renderModalMovieMarkup } from './models/modal-film-window';
 import { getMovieDetails } from './API/get-from-server';
 import { createLibraryFromLocalStorage } from './services/data-for-library';
+import { Loading } from 'notiflix';
 
 let instance;
 const bodyElement = document.querySelector('body');
@@ -19,6 +20,10 @@ export async function getMovie(movie_id) {
   bodyElement.style.overflow = 'hidden';
 
   try {
+    Loading.standard('Loading...', {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      svgColor: 'rgb(248, 119, 25)',
+    });
 
     const data = await getMovieDetails(movie_id);
     normalizeData(data);
@@ -61,6 +66,7 @@ export async function getMovie(movie_id) {
   } catch (error) {
     console.log('Помилка отримання даних про фільм:', error);
   }
+  Loading.remove();
 }
 
 /*-------------закриває modal-window, натискаючи на backdrop та  відновлює scroll ------------*/

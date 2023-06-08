@@ -4,6 +4,11 @@
 
  }
 
+ .light .my-library-films {
+   background-color: var(--white);
+   transition: background-color var(--transition);
+ }
+
  .my-library-list {
    display: flex;
    flex-flow: row wrap;
@@ -45,8 +50,20 @@
    line-height: 1.14;
  }
 
+ .light .select-library {
+   border: 1px solid var(--black);
+   transition: border var(--transition);
+
+   background-color: var(--white);
+   transition: background-color var(--transition);
+
+   color: var(--black);
+   transition: color var(--transition);
+ }
+
+
  .select-library option:checked {
-  
+
    border: 1px solid var(--white);
    color: var(--orange);
  }
@@ -54,6 +71,14 @@
  .select-library option:not(:checked) {
    border: 1px solid var(--white);
    background-color: var(--black);
+ }
+
+ .light .select-library option:not(:checked) {
+   border: 1px solid var(--black);
+   transition: border var(--transition);
+
+   background-color: var(--white);
+   transition: background-color var(--transition);
  }
 
  .select-library+label {

@@ -1,3 +1,4 @@
+import { Loading } from 'notiflix';
 import { getTrendingAllDay } from './API/get-from-server.js';
 import { getTrailer } from './hero-trailer.js';
 import { getMovie } from './modalWindow.js';
@@ -20,6 +21,10 @@ export function createHero(currentPage) {
 
 async function getDataHero(currentPage) {
   try {
+    Loading.standard('Loading...', {
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      svgColor: 'rgb(248, 119, 25)',
+    });
     const data = await getTrendingAllDay();
     renderHero(data.results, currentPage);
 
@@ -27,6 +32,7 @@ async function getDataHero(currentPage) {
   } catch (error) {
     error => console.log(error);
   }
+  Loading.remove();
 }
 
 function renderHero(data, currentPage) {
