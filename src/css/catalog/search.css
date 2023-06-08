@@ -33,10 +33,10 @@
   font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
 
-  transition: background-color var(--transition);
-  transition: color var(--transition);
+  transition: background-color var(--transition), color var(--transition);
 }
 .catalog-wrapper-selector {
+  position: relative;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -45,8 +45,8 @@
 }
 .catalog-wrapper-selector-down {
   column-gap: 20px;
+  position: relative;
 }
-
 .catalog-selector {
   display: block;
   height: 40px;
@@ -56,19 +56,38 @@
   background-color: var(--black);
   color: var(--white);
 
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
   font-size: 14px;
   line-height: 1.14;
   font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
 
-  transition: background-color var(--transition);
-  transition: color var(--transition);
+  transition: background-color var(--transition), color var(--transition);
 }
 .catalog-selector option:checked {
   color: var(--orange);
 }
-/* .catalog-selector option:not(:checked) {
-} */
+.catalog-selector.country+label {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 180px;
+  pointer-events: none;
+  stroke: var(--white);
+  transition: stroke var(--transition);
+}
+.catalog-selector.year+label {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 250px;
+  pointer-events: none;
+  stroke: var(--white);
+  transition: stroke var(--transition);
+}
 .year {
   width: 95px;
   height: 40px;
@@ -81,7 +100,7 @@
 }
 
 .catalog-search-input::placeholder {
-  color:  var(--white);
+  color: var(--white);
   font-size: 16px;
   line-height: 1.14;
   font-family: 'Roboto-Medium', sans-serif;
@@ -98,9 +117,9 @@
   padding: 12px;
   fill: var(--orange);
   stroke: var(--white);
-  transition: fill 100ms linear;
-  transition: stroke 100ms linear;
+  transition: fill 100ms linear, stroke 100ms linear;
 }
+
 .catalog-button-reset {
   padding: 5px 7px;
   border-radius: 5px;
@@ -111,8 +130,7 @@
   stroke: var(--white);
   background-color: var(--black);
 
-  transition: background-color var(--transition);
-  transition: stroke 100ms linear;
+  transition: background-color var(--transition), stroke 100ms linear;
 }
 .active {
   display: block;
@@ -120,19 +138,7 @@
 .hidden {
   display: none;
 }
-/* .hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
 
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-} */
 .icon-search {
   width: 18px;
   height: 18px;
@@ -178,6 +184,12 @@
   .catalog-wrapper-selector-down {
     column-gap: 16px;
   }
+  .catalog-selector.country+label {
+    left: 145px;
+  }
+  .catalog-selector.year+label {
+    left: 260px;
+  }
 }
 /*  ================ Desktop version ================= */
 
@@ -219,7 +231,15 @@
     padding-left: 10px;
     padding-right: 10px;
     margin-left: -70px;
-}
+  }
+  .catalog-selector.country+label {
+    left: 240px;
+    top: 12px;
+  }
+  .catalog-selector.year+label {
+    top: 12px;
+    left: 395px;
+  }
 }
 /* ==================Dark and light property for catalog============== */
 .light .catalog-search,
@@ -231,14 +251,12 @@
   background-color: var(--white);
   color: var(--grey);
   border: 1px solid var(--gray);
-  transition: background-color var(--transition);
-  transition: color var(--transition);
+  transition: background-color var(--transition), color var(--transition);
 }
 .light .catalog-button-reset {
   background-color: var(--white);
   stroke: var(--black);
-  transition: background-color var(--transition);
-  transition: stroke var(--transition);
+  transition: background-color var(--transition), stroke var(--transition);
 }
 .light .catalog-search-button {
   stroke: var(--black);
@@ -248,8 +266,7 @@
   border: 1px solid var(--gray);
   background-color: var(--white);
   color: var(--black);
-  transition: background-color var(--transition);
-  transition: color var(--transition);
+  transition: background-color var(--transition), color var(--transition);
 }
 .light .catalog-search-input::placeholder {
   color: var(--black);
@@ -257,5 +274,13 @@
 }
 .light .catalog-button-reset:hover {
   stroke: var(--orange);
+  transition: stroke var(--transition);
+}
+.light .catalog-selector.country+label {
+  stroke: var(--black);
+  transition: stroke var(--transition);
+}
+.light .catalog-selector.year+label {
+  stroke: var(--black);
   transition: stroke var(--transition);
 }
