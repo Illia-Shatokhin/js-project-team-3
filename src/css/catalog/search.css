@@ -1,7 +1,8 @@
 /* =============  Mobile version ================== */
 .catalog-search {
+  background-color: var(--black);
   padding-top: 80px;
-  padding-bottom: 50px;
+  padding-bottom: 55px;
 }
 .catalog-search-form {
   display: flex;
@@ -12,6 +13,7 @@
   row-gap: 12px;
   margin-right: auto;
   margin-left: auto;
+  background-color: var(--black);
 }
 .catalog-search-input {
   width: 173px;
@@ -20,8 +22,11 @@
   top: 0px;
   border-radius: 8px;
   padding: 10px 20px 10px 20px;
+  background-color: var(--black);
+  color: var(--white);
+  border: 1px solid var(--white);
 
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.14;
   font-family: 'Roboto-Medium', sans-serif;
   font-weight: 500;
@@ -45,22 +50,17 @@
   padding: 10px 20px 10px 20px;
   background-color: var(--black);
   color: var(--white);
+
   font-size: 14px;
   line-height: 1.14;
-  font-family: 'Roboto-Regular', sans-serif;
-  font-weight: 400;
-}
-.catalog-selector option {
-  border: 1px solid #467797;
+  font-family: 'Roboto-Medium', sans-serif;
+  font-weight: 500;
 }
 .catalog-selector option:checked {
-  border: 1px solid var(--white);
   color: var(--orange);
 }
-.catalog-selector option:not(:checked) {
-  border: 1px solid var(--white);
-  background-color: var(--black);
-}
+/* .catalog-selector option:not(:checked) {
+} */
 .year {
   width: 95px;
   height: 40px;
@@ -72,12 +72,19 @@
   height: 40px;
 }
 
-.selector-option {
+/* .catalog-selector option {
   border-radius: 2px;
   border: 1px solid var(--white);
+  transition: color 100ms linear;
+  transition: font-size 100ms linear;
 }
+.catalog-selector option:hover {
+  /* border: 1px solid var(--orange); */
+/* font-size: 18px;
+  color: var(--orange);
+}  */
 
-input::placeholder {
+.catalog-search-input::placeholder {
   color: #b7b7b7;
   font-size: 16px;
   line-height: 1.14;
@@ -98,6 +105,7 @@ input::placeholder {
   transition: stroke 100ms linear;
 }
 .catalog-button-reset {
+  padding: 7px;
   border-radius: 5px;
   height: 39px;
   border: 1px solid transparent;
@@ -105,6 +113,7 @@ input::placeholder {
   outline: none;
   stroke: var(--white);
   transition: stroke 100ms linear;
+  background-color: var(--black);
 }
 .active {
   display: block;
@@ -135,8 +144,7 @@ input::placeholder {
   fill: var(--white);
 }
 
-.catalog-button-reset:hover,
-catalog-button-reset:focus {
+.catalog-button-reset:hover {
   stroke: var(--orange);
 }
 /* ======================== Tablet version ===================== */
@@ -189,9 +197,13 @@ catalog-button-reset:focus {
     column-gap: 24px;
   }
   .catalog-search-input {
+    font-size: 16px;
     height: 48px;
     width: 315px;
     padding: 12px 24px 12px 24px;
+  }
+  .catalog-selector {
+    font-size: 16px;
   }
   .country {
     width: 281px;
@@ -206,37 +218,30 @@ catalog-button-reset:focus {
 }
 
 /* ==================Dark and light property for catalog============== */
-.dark-theme {
-  background-color: var(--black);
-}
-.dark-theme-input {
-  background-color: var(--black);
-  color: var(--white);
-  border: 1px solid var(--white);
-}
-.dark-theme-btn {
-  stroke: var(--white);
-}
-.catalog-button-reset-dark {
-  background-color: var(--black);
-}
-
-.light-theme {
+.light .catalog-search,
+.light .catalog-search-form {
   background-color: var(--white);
 }
-.light-theme-input {
+.light .catalog-search-input {
   background-color: var(--white);
   color: var(--grey);
   border: 1px solid var(--gray);
 }
-.light-theme-btn {
+.light .catalog-button-reset {
+  background-color: var(--white);
   stroke: var(--black);
 }
-.catalog-button-reset-light {
-  background-color: var(--white);
+.light .catalog-search-button {
+  stroke: var(--black);
 }
-.placeholder::before {
-  content: 'Year';
-  font-size: 16x;
-  color: teal;
+.light .catalog-selector {
+  border: 1px solid var(--gray);
+  background-color: var(--white);
+  color: var(--black);
+}
+.light .catalog-search-input::placeholder {
+  color: var(--black);
+}
+.light .catalog-button-reset:hover {
+  stroke: var(--orange);
 }

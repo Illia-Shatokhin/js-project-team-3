@@ -3,7 +3,7 @@ import { movieCardMarkup } from './markups/movieCardMaurkup';
 import { getMovie } from './modalWindow';
 import { refs } from './models/refs';
 import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
-import CreatePagination from './services/pagination';
+import CreatePagination, { addZeroPagination } from './services/pagination';
 import { addCardStars } from './stars';
 
 const ratingArray = [];
@@ -70,6 +70,8 @@ export default async function createMovieCard(data, elem, count) {
     screen.width,
     ratingArray
   );
+
+  addZeroPagination();
 }
 
 //================================================================

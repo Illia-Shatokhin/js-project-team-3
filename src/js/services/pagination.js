@@ -25,9 +25,9 @@ export default class CreatePagination {
       firstItemClassName: 'tui-first-child',
       lastItemClassName: 'tui-last-child',
       template: {
-        page: '<a href="#" class="tui-page-btn"><span class="add-zero-pagination">0</span>{{page}}</a>',
+        page: '<a href="#" class="tui-page-btn" data-zero="0">{{page}}</a>',
         currentPage:
-          '<strong class="tui-page-btn tui-is-selected"><span class="add-zero-pagination">0</span>{{page}}</strong>',
+          '<strong class="tui-page-btn tui-is-selected" data-zero="0">{{page}}</strong>',
         moveButton:
           '<a href="#" class="tui-page-btn tui-{{type}}">' +
           '<span class="tui-ico-{{type}}">{{type}}</span>' +
@@ -55,4 +55,16 @@ export default class CreatePagination {
       this.#scrollUp();
     });
   }
+
+}
+
+export function addZeroPagination() {
+  const allBtn = document.querySelectorAll('.tui-page-btn');
+  allBtn.forEach(el => {
+    // debugger
+    console.dir("length" + el.textContent.length + "zero" + el.dataset.zero);
+
+    if (el.textContent.length === 1) el.dataset.zero = "0";
+    else el.dataset.zero = "";
+  });
 }

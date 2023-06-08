@@ -1,3 +1,6 @@
+.theme-transition {
+  transition: background-color 0.5s ease;
+}
 .desktop-header {
   display: flex;
   width: 100%;
@@ -33,6 +36,7 @@
   color: var(--white);
 }
 .hover-text {
+  color: white;
   font-family: 'Roboto-Medium';
   font-size: 14px;
   line-height: 16px;
@@ -44,9 +48,7 @@
   padding-bottom: 22px;
   padding-top: 22px;
 }
-.hover-text.dark-theme {
-  color: var(--white);
-}
+
 .hover-text:hover,
 .hover-text:focus {
   color: var(--orange);
@@ -61,7 +63,7 @@
   width: auto;
   align-items: center;
   justify-content: space-between;
-  margin: 6px auto;
+  transition: opacity 0.5s ease-in; /* Transition property with duration and timing function */
 }
 .tablet-menu {
   display: none;
@@ -301,7 +303,9 @@
 .main-nav.dark-theme {
   background-color: var(--black);
 }
-
+.space {
+  color: aliceblue;
+}
 @media (min-width: 768px) {
   .hidden {
     display: none;
@@ -448,4 +452,59 @@
     display: flex;
     margin-left: 216px;
   }
+}
+body.light .mobile-header {
+  color: var(--black);
+  background-color: var(--white);
+}
+body.light .logo-text {
+  color: var(--black);
+}
+body.light .hover-text {
+  color: var(--black);
+}
+body.light .current-page a,
+.hover-text:hover,
+.hover-text:focus {
+  color: var(--orange);
+}
+body.light .logo-text:hover,
+.logo-text:focus {
+  color: var(--orange);
+}
+body.light .hover-text:hover,
+.hover-text:focus {
+  color: var(--orange);
+}
+body.light header {
+  background-color: var(--white);
+}
+
+body.light .menu-toggle-label {
+  color: var(--black);
+}
+body.light .menu-toggle-label:hover,
+.menu-toggle-label:focus {
+  color: var(--orange);
+}
+body.light #backdrop.show-backdrop {
+  background: rgba(0, 0, 0, 0.2);
+}
+body.light .menu-content {
+  color: var(--black);
+  background-color: var(--white);
+}
+body.light .hover-text2 {
+  color: var(--black);
+}
+body.light .hover-text2:hover,
+.hover-text2:focus {
+  color: var(--orange);
+}
+body.light .close-button {
+  color: var(--black);
+}
+body.light .close-button:hover,
+.close-button:focus {
+  color: var(--orange);
 }
