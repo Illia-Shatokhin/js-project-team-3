@@ -39,6 +39,7 @@
 const teamLink = document.getElementById('our-team-btn');
 const teamBackdrop = document.querySelector('.team__backdrop');
 const teamCloseBtn = document.querySelector('.team__modal-close-btn');
+const bodyElement = document.querySelector('body')
 
 teamLink.addEventListener('click', onLinkClick);
 
@@ -79,6 +80,7 @@ function addAllEventListeners() {
   document.addEventListener('keydown', onEscClick);
   teamBackdrop.addEventListener('click', onBackdropClick);
   teamCloseBtn.addEventListener('click', onCloseBtnClick);
+  bodyElement.style.overflow = 'hidden';
 }
 
 function closingModalStaff() {
@@ -88,6 +90,7 @@ function closingModalStaff() {
 
   teamBackdrop.classList.add('is-hidden');
   document.body.classList.remove('modal-open');
+  bodyElement.style.overflow = 'auto';
 }
 
 teamLink.addEventListener('click', onLinkClick);
