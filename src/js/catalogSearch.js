@@ -1,4 +1,3 @@
-
 import { getSearchMovie } from './API/get-from-server';
 import { refs } from './models/refs';
 import { renderError, errorCatalogMarkup } from './errortrailer';
@@ -54,8 +53,9 @@ export async function onSubmit(event) {
   const country = form.elements.country.value;
   const year = form.elements.year.value;
 
-  if (value === '') {weeklyTrendsList()}
-  else {
+  if (value === '') {
+    weeklyTrendsList();
+  } else {
     setSearchParam(1, value, year, country);
     sendSearch();
   }
@@ -97,3 +97,4 @@ function clearSearchParam() {
   dataObj.searchYear = '';
   dataObj.searchRegion = '';
 }
+
