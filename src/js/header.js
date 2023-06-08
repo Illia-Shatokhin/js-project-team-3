@@ -18,42 +18,6 @@ if (document.getElementById('close-menu')) {
   });
 }
 
-// Dark mode theme toggle
-/*var themeToggle = document.getElementById('theme-toggle');
-// var buttons = document.querySelectorAll('button');
-
-themeToggle.addEventListener('change', function () {
-  if (themeToggle.checked) {
-    document.body.classList.add('light');
-    // buttons.forEach(function (button) {
-    //   button.classList.add('light');
-    // });
-  } else {
-    document.body.classList.remove('light');
-    // buttons.forEach(function (button) {
-    //   button.classList.remove('light');
-    // });
-  }
-});
-
-// Check user's preferred color scheme
-if (
-  window.matchMedia &&
-  window.matchMedia('(prefers-color-scheme: dark)').matches
-) {
-  themeToggle.checked = true;
-  document.body.classList.add('light');
-  // buttons.forEach(function (button) {
-  //   button.classList.add('dark-theme');
-  // });
-} else {
-  themeToggle.checked = false;
-  document.body.classList.remove('light');
-  // buttons.forEach(function (button) {
-  //   button.classList.remove('dark-theme');
-  // });
-}*/
-
 var themeToggle = document.getElementById('theme-toggle');
 
 themeToggle.addEventListener('change', function () {
