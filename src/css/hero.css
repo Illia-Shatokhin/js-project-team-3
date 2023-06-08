@@ -99,6 +99,18 @@
   gap: 8px;
 }
 
+.hero-transparent-btn {
+  background: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+  transition: var(--transition);
+}
+.hero-transparent-btn:hover,
+.hero-transparent-btn:focus {
+  background: var(--white);
+  color: var(--orange);
+}
+
 @media screen and (min-width: 321px) {
   .hero-stub {
     background-image: var(--gradient768HomeStub),
