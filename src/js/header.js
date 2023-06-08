@@ -155,3 +155,55 @@ document.getElementById('close-menu').addEventListener('click', function () {
     mobileMenu.classList.remove('visible');
   }, 300);
 });
+// Function to set the preferred theme
+function setPreferredTheme(theme) {
+  document.body.classList.add(theme);
+  localStorage.setItem('theme', theme);
+}
+
+// Function to toggle the theme
+function toggleTheme() {
+  const isDarkTheme = document.body.classList.contains('dark-theme');
+  if (isDarkTheme) {
+    document.body.classList.remove('dark-theme');
+    document.body.classList.add('light');
+    localStorage.setItem('theme', 'light');
+  } else {
+    document.body.classList.remove('light');
+    document.body.classList.add('dark-theme');
+    localStorage.setItem('theme', 'dark-theme');
+  }
+}
+
+// Function to initialize the theme based on user preference
+function initializeTheme() {
+  const preferredTheme = localStorage.getItem('theme');
+  if (preferredTheme === 'dark-theme') {
+    setPreferredTheme('dark-theme');
+  } else if (preferredTheme === 'light') {
+    setPreferredTheme('light');
+  } else {
+    // Default theme if 'theme' item is null or empty
+    setPreferredTheme('dark-theme');
+  }
+  
+  // Update the theme toggle button state
+  const isDarkTheme = document.body.classList.contains('dark-theme');
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.checked = isDarkTheme;
+}
+
+// Check if the user has visited the site before
+if (localStorage.getItem('visitedBefore') === null) {
+  // First time visit, set dark theme and save the preference
+  setPreferredTheme('dark-theme');
+  localStorage.setItem('visitedBefore', true);
+} else {
+  // User has visited before, initialize theme based on preference
+  initializeTheme();
+}
+
+// Event listener for theme toggle
+document.getElementById('theme-toggle').addEventListener('change', function() {
+  toggleTheme();
+});
