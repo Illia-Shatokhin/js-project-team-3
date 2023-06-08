@@ -19,7 +19,7 @@
   max-height: 98vh;
 }
 
-.light.modal-film-window {
+.light .modal-film-window {
   background-color: var(--white);
   box-shadow: none;
 }
@@ -144,10 +144,14 @@
   /* background: linear-gradient(var(--white), var(--white)) padding-box,
   linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box; */
   /* color: var(--black); */
-  background: var(--basic-gradient);
+   background: var(--basic-gradient);
   color: var(--black);
   transition: var(--transition);
-  transition: color 100ms linear;
+  transition: color 100ms linear; 
+  /* background: linear-gradient(var(--white), var(--white)) padding-box,
+  linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
+color: var(--black);
+transition: var(--transition); */
 }
 
 .light .add-film-btn:hover,
