@@ -9,6 +9,12 @@
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 16px;
   transform: translate(-50%, -50%);
+  transition: background-color var(--transition);
+}
+
+.light .errortrailer {
+  background-color: var(--white);
+  transition: background-color var(--transition);
 }
 
 .errortrailer-text {
@@ -19,6 +25,12 @@
   font-size: 16px;
   line-height: 1.19;
   color: var(--white);
+  transition: color var(--transition);
+}
+
+.light .errortrailer-text {
+  color: var(--black);
+  transition: color var(--transition);
 }
 
 .trailer-img {
@@ -33,6 +45,12 @@
 }
 .icon {
   stroke: var(--white);
+  transition: stroke var(--transition);
+}
+
+.light .icon {
+  stroke: var(--black);
+  transition: stroke var(--transition);
 }
 
 .errortext {
@@ -45,6 +63,12 @@
   text-align: center;
   margin: 0 auto;
   color: var(--white);
+  transition: color var(--transition);
+}
+
+.light .errortext {
+  color: var(--black);
+  transition: color var(--transition);
 }
 
 .hidden {
