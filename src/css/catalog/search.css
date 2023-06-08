@@ -72,18 +72,6 @@
   height: 40px;
 }
 
-/* .catalog-selector option {
-  border-radius: 2px;
-  border: 1px solid var(--white);
-  transition: color 100ms linear;
-  transition: font-size 100ms linear;
-}
-.catalog-selector option:hover {
-  /* border: 1px solid var(--orange); */
-/* font-size: 18px;
-  color: var(--orange);
-}  */
-
 .catalog-search-input::placeholder {
   color: #b7b7b7;
   font-size: 16px;
@@ -109,7 +97,7 @@
   border-radius: 5px;
   height: 39px;
   border: 1px solid transparent;
-  margin-left: -60px;
+  margin-left: -55px;
   outline: none;
   stroke: var(--white);
   transition: stroke 100ms linear;
@@ -215,8 +203,12 @@
     width: 20px;
     height: 20px;
   }
+  .catalog-button-reset {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -70px;
 }
-
+}
 /* ==================Dark and light property for catalog============== */
 .light .catalog-search,
 .light .catalog-search-form {
