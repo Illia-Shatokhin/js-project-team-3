@@ -17,12 +17,4 @@ export const refs = {
   selectLibrary: document.getElementById('select-library'),
   filmsOfLocalStorage: document.querySelector('.my-library-list'),
   btnLoadMore: document.getElementById('btn-load-more'),
-
-  catalogSearch: document.querySelector('.catalog-search'),
-  catalogSearchInput: document.querySelector('.catalog-search-input'),
-  catalogSelector: document.querySelector('.catalog-selector'),
-  catalogPlaseholderInput: document.querySelector(
-    '.catalog-search-input::placeholder'
-  ),
-  catalogResetBtnHover: document.querySelector('.catalog-button-reset:hover'),
 };

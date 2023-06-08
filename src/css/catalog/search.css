@@ -218,30 +218,30 @@
 }
 
 /* ==================Dark and light property for catalog============== */
-.light.catalog-search,
-.light.catalog-search-form {
+.light .catalog-search,
+.light .catalog-search-form {
   background-color: var(--white);
 }
-.light.catalog-search-input {
+.light .catalog-search-input {
   background-color: var(--white);
   color: var(--grey);
   border: 1px solid var(--gray);
 }
-.light.catalog-button-reset {
+.light .catalog-button-reset {
   background-color: var(--white);
   stroke: var(--black);
 }
-.light.catalog-search-button {
+.light .catalog-search-button {
   stroke: var(--black);
 }
-.light.catalog-selector {
+.light .catalog-selector {
   border: 1px solid var(--gray);
   background-color: var(--white);
   color: var(--black);
 }
-.light.catalog-search-input::placeholder {
+.light .catalog-search-input::placeholder {
   color: var(--black);
 }
-.light.catalog-button-reset:hover {
+.light .catalog-button-reset:hover {
   stroke: var(--orange);
 }
