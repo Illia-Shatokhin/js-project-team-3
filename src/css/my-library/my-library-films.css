@@ -39,10 +39,21 @@
    padding: 10px 20px 10px 20px;
    background-color: var(--black);
    color: var(--white);
-   font-size: 14px;
-   line-height: 1.14;
    font-family: 'Roboto-Regular', sans-serif;
    font-weight: 400;
+   font-size: 14px;
+   line-height: 1.14;
+ }
+
+ .select-library option:checked {
+  
+   border: 1px solid var(--white);
+   color: var(--orange);
+ }
+
+ .select-library option:not(:checked) {
+   border: 1px solid var(--white);
+   background-color: var(--black);
  }
 
  .select-library+label {
