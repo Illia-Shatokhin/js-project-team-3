@@ -81,7 +81,7 @@
 }
 
 .catalog-search-input::placeholder {
-  color: #b7b7b7;
+  color:  var(--white);
   font-size: 16px;
   line-height: 1.14;
   font-family: 'Roboto-Medium', sans-serif;
