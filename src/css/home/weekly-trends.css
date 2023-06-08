@@ -4,9 +4,15 @@
   padding-top: 40px;
   padding-bottom: 32px;
   background-color: var(--black);
+  transition: background-color var(--transition);
 }
 
-.weekly-wrap {
+.light .weekly-section {
+  background-color: var(--white);
+  transition: background-color var(--transition);
+}
+
+.weekly-section .weekly-wrap {
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
@@ -20,6 +26,12 @@
   line-height: 1.18;
   text-transform: uppercase;
   color: var(--white);
+  transition: color var(--transition);
+}
+
+.light .weekly-section-title {
+  color: var(--black);
+  transition: color var(--transition);
 }
 
 .trends-film {
