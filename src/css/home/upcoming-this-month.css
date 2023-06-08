@@ -20,7 +20,40 @@
 
 .upcoming-film-section {
   padding-top: 0;
-  background: var(--black);
+  background-color: var(--black);
+  transition: background-color var(--transition)
+}
+
+.light .upcoming-film-section {
+  background-color: var(--white); 
+  transition: background-color var(--transition);
+}
+
+.light .upcoming-film-section-title {
+  color: var(--black);
+  transition: color var(--transition);
+}
+
+.film-release-date {
+  color: var(--orange);
+}
+
+.light .film-about,
+.light .film-title,
+.light .film-release-text,
+.light .film-vote-text,
+.light .film-rating-text,
+.light .film-genre-text {
+  color: var(--black);
+  transition: color var(--transition);
+}
+
+.light .film-description,
+.light .film-rating,
+.light .film-votes,
+.light .film-genre {
+  color: var(--dark-gray);
+  transition: color var(--transition);
 }
 
 .upcoming-wrap {
@@ -46,6 +79,7 @@
 .film-release-date{
   color: var(--orange);
 }
+
 .film-vote-wrap,
 .film-release-wrap,
 .film-popularity-wrap,
@@ -91,6 +125,12 @@
   padding: 1px 8px;
 }
 
+.light .vote-average,
+.light .vote-count {
+  background-color: var(--white-smoke);
+  transition: background-color var(--transition);
+}
+
 .film-description {
   margin-top: 10px;
   max-width: 390px;
@@ -100,6 +140,7 @@
   color: var(--white-smoke);
   margin-bottom: 20px;
 }
+
 
 @media screen and (min-width: 768px) {
   .upcoming-film-section-title {

@@ -6,6 +6,7 @@ import { getGenreMovieList, getTrendingAllWeek } from './API/get-from-server';
 import CreatePagination, { addZeroPagination } from './services/pagination';
 import { addCardStars } from './stars';
 import { Loading } from 'notiflix';
+import debounce from 'lodash.debounce';
 
 const ratingArray = [];
 //================================================================
@@ -83,9 +84,7 @@ export async function weeklyTrendsList(page = 1) {
       svgColor: 'rgb(248, 119, 25)',
     });
     const data = await getTrendingAllWeek(page);
-    screen.width <= 767
-      ? createMovieCard(data.results, refs.catalogList, 10)
-      : createMovieCard(data.results, refs.catalogList, 20);
+    createMovieCard(data.results, refs.catalogList, 20);
 
     const watchedPagination = new CreatePagination(data, weeklyTrendsList);
     watchedPagination.activatePagination();
@@ -93,8 +92,7 @@ export async function weeklyTrendsList(page = 1) {
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
-  refs.catalogList.addEventListener('click', openFilmDetails);
-  Loading.remove();
+  refs.catalogList.addEventListener('click', debounce(openFilmDetails, 300));
 }
 
 //================================================================

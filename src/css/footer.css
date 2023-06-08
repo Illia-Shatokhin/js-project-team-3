@@ -1,10 +1,12 @@
 .footer {
-  background-color: inherit;
+  background-color: var(--black);
   padding-top: 40px;
   padding-bottom: 28px;
   margin-top: auto;
 }
-
+.light .footer {
+  background-color: var(--white);
+}
 .footer-container {
   display: flex;
   flex-direction: column;
@@ -19,15 +21,18 @@
   display: inline;
   text-align: center;
   color: var(--light-gray);
+
 }
 
 .orange_heart {
   margin: 0 10px 0 10px;
   fill: var(--orange);
   vertical-align: middle;
+ 
 }
 
 .footer-btn {
+  margin-left: 2px;
   padding: 0;
   text-decoration: none;
   display: inline-block;
@@ -35,6 +40,10 @@
   background-color: transparent;
   color: var(--light-gray);
   text-decoration: none;
+}
+.footer-btn:hover {
+  color: var(--orange);
+  transform: scale(1.03);
 }
 
 @media screen and (min-width: 321px) {
