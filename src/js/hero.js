@@ -105,7 +105,7 @@ function creatHeroMarkup(overview, title, vote_average) {
          <p class="overview-text">${overview}</p>
        </div>
        <div class="thumb-hero-btn">
-          <button class="button btn-gradient hero-btn" id="trailer-hero-btn">Watch trailer</button>
+          <button class="button hero-orange-btn hero-btn" id="trailer-hero-btn">Watch trailer</button>
           <button class="button hero-transparent-btn hero-btn" id="details-hero-btn">More details</button>
         </div>
       </div>
@@ -156,7 +156,7 @@ function createHomeHeroMarkupStub() {
         <p class="overview-text-stub">${overviewTextStub}</p>
       </div>
       <div class="thumb-hero-btn">
-        <a href="./my-library.html" class="button btn-gradient hero-btn">Get Started</a>
+        <a href="./my-library.html" class="button hero-orange-btn hero-btn">Get Started</a>
       </div>
     </div>`;
 }

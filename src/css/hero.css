@@ -98,7 +98,12 @@
   display: flex;
   gap: 8px;
 }
-
+.hero-orange-btn {
+  border: 1px solid var(--basic-gradient);
+  background: var(--basic-gradient);
+  color: var(--black);
+  transition: var(--transition);
+}
 .hero-transparent-btn {
   background: transparent;
   border: 1px solid var(--white);
