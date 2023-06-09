@@ -8,9 +8,7 @@ export default async function weeklyTrends() {
   try {
     const data = await getTrendingAllWeek();
 
-    screen.width <= 767
-      ? createMovieCard(data.results, refs.weeklyLinks, 1)
-      : createMovieCard(data.results, refs.weeklyLinks, 3);
+    createMovieCard(data.results, refs.weeklyLinks, 3);
     refs.weeklyLinks.addEventListener('click', openFilmDetails);
   } catch (error) {
     console.error(error);

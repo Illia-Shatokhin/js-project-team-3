@@ -49,6 +49,10 @@
   gap: 16px;
 }
 
+.weekly-links .catalog-item:not(:first-child) {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .weekly-section {
     padding-top: 52px;
@@ -68,6 +72,10 @@
   .trends-film {
     font-size: 24px;
     line-height: 1.16;
+  }
+
+  .weekly-links .catalog-item:not(:first-child) {
+    display: block;
   }
 }
 
