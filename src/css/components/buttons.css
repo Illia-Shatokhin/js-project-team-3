@@ -43,11 +43,19 @@
   transition: var(--transition);
 }
 
-.btn-border-dark:hover,
-.btn-border-dark:focus {
+.btn-border-dark:hover
+ {
   background: var(--white);
   color: var(--orange);
 }
+
+.btn-clicked {
+  background: var(--white);
+  color: var(--orange);
+  transition: var(--transition);
+}
+
+
 /* ===Ligth theme ===== */
 
 .light .btn-border-dark {
@@ -57,12 +65,17 @@
   transition: var(--transition);
 }
 
-.light .btn-border-dark:hover,
-.light .btn-border-dark:focus {
+.light .btn-border-dark:hover
+{
   background: var(--black);
   color: var(--orange);
 }
 
+.light .btn-clicked {  
+  background: var(--black);
+  color: var(--orange);
+  
+}
 .btn-transparent-dark {
   background: transparent;
   border: 1px solid var(--white);

@@ -1,17 +1,3 @@
-
-//============================================================================
-// function checkPoster(data) {
-//   if (data.poster_path) {
-//     const imageClass =  'film-poster-img'
-//     return `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-//   } else {
-//     // const imgEl = document.querySelector('img');
-//     const imageClass =  'picture-class'
-//     // imgEl.className = 'picture';
-//     // imgEl.addClassList('picture')
-//     return './img/trailer-modal-mob.png';
-//   }
-// }
 function checkPoster(data) {
   if (data.poster_path) {
     return {
