@@ -32,7 +32,7 @@ export async function getTrailer(id) {
       },
     });
 
-    instance.show(() => console.log('lightbox now visible'));
+    instance.show(() => {});
     window.addEventListener('keydown', closeModalOnEsc);
     function closeModalOnEsc(event) {
       if (event.code === 'Escape') {
@@ -51,18 +51,18 @@ export async function getTrailer(id) {
         bodyElement.style.overflow = 'auto';
       },
     });
-    instance.show(() => console.log('Lightbox now visible'));
+    instance.show(() => {});
     window.addEventListener('keydown', closeModalOnEsc);
     function closeModalOnEsc(event) {
       if (event.code === 'Escape') {
         instance.close();
-        console.log(event);
+        // console.log(event);
       }
     }
     instance.element().addEventListener('click', closeModalOnBtn);
     function closeModalOnBtn(event) {
       const target = event.target;
-      console.log(target);
+      // console.log(target);
       if (target.classList.contains('select-icon') || target.closest('.icon')) {
         instance.close();
         bodyElement.style.overflow = 'auto';
