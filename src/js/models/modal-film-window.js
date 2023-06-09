@@ -49,7 +49,7 @@ export function renderModalMovieMarkup(data) {
     </div>
    <p class=" about-film-tittle">About </p>
    <p class="about-film-story ">${data.overview} </p>
-   <button class=" button btn-border-dark add-film-btn button-library-active">Add to my library</button>
+   <button class=" button btn-border-dark add-film-btn">Add to my library</button>
    </div>
   </div>`;
 }
