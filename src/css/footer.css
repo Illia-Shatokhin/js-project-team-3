@@ -22,26 +22,23 @@
   display: inline;
   text-align: center;
   color: var(--light-gray);
-
 }
 
 .orange_heart {
   margin: 0 10px 0 10px;
   fill: var(--orange);
   vertical-align: middle;
- 
 }
 
 .footer-btn {
   margin-left: 2px;
   padding: 0;
-  text-decoration: none;
+  text-decoration: underline;
   display: inline-block;
   border: none;
   background-color: transparent;
   color: var(--light-gray);
-  text-decoration: none;
-  transform: scale(1.0);
+  transform: scale(1);
   transition: color var(--transition), transform var(--transition);
 }
 .footer-btn:hover {
