@@ -11,6 +11,7 @@
 
 .upcoming-film-section-title {
   font-family: 'Roboto-Medium';
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.18;
   text-transform: uppercase;
@@ -46,6 +47,7 @@
 .light .film-genre-text {
   color: var(--black);
   transition: color var(--transition);
+  font-weight: 500;
 }
 
 .light .film-description,
@@ -69,6 +71,7 @@
 .film-rating-text,
 .film-genre-text {
   font-family: 'Roboto-Medium';
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
   color: var(--light-gray);
@@ -103,6 +106,7 @@
 
 .film-title {
   font-family: 'Roboto-Medium';
+  font-weight: 500;
   font-size: 20px;
   line-height: 1.18;
   color: var(--white);
@@ -113,6 +117,7 @@
   color: var(--white-smoke);
   margin-bottom: 16px;
   font-family: 'Roboto-Medium';
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.18;
 }
@@ -135,10 +140,17 @@
   margin-top: 10px;
   max-width: 390px;
   font-family: 'Roboto-Regular';
+  font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   color: var(--white-smoke);
   margin-bottom: 20px;
+}
+
+.upcoming-btn {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: calc(14/12);
 }
 
 
@@ -172,6 +184,10 @@
   .film-description {
     max-width: 625px;
   }
+  
+  .upcoming-btn {
+    font-size: 14px;
+}
 }
 
 @media screen and (min-width: 1280px) {
