@@ -86,23 +86,23 @@
   margin-top: 12px;
 }
 
-.second-about-film-list > .about-film-item {
+.second-about-film-list>.about-film-item {
   color: var(--white);
   width: 120px;
 }
 
-.light .second-about-film-list > .about-film-item {
+.light .second-about-film-list>.about-film-item {
   color: var(--black);
 }
 
-.about-film-item:first-child > .vote-span {
+.about-film-item:first-child>.vote-span {
   padding: 1px 7px;
   background-color: var(--white);
   border-radius: 5px;
   color: var(--black);
 }
 
-.light .about-film-item:first-child > .vote-span {
+.light .about-film-item:first-child>.vote-span {
   background-color: var(--orange);
 }
 
@@ -130,6 +130,20 @@
 
 .light .about-film-story {
   color: var(--black);
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.about-film-story::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.about-film-story {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .add-film-btn {
@@ -160,9 +174,9 @@
 }
 
 .film-poster-img {
-  object-fit:  contain;
+  object-fit: contain;
   width: 100%;
-   height: 100%; 
+  height: 100%;
 }
 
 .picture-class {
@@ -224,7 +238,7 @@
     margin-top: 26px;
   }
 
-  .second-about-film-list > .about-film-item {
+  .second-about-film-list>.about-film-item {
     width: 180px;
   }
 
@@ -242,6 +256,7 @@
     max-width: 294px;
     min-height: 400px;
   }
+
   .picture-class {
     margin-top: -70px;
   }
