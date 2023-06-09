@@ -167,7 +167,7 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
             filmCard.appendChild(filmDescription);
 
             const libraryButton = document.createElement('button');
-            libraryButton.className = 'library-button button btn-gradient';
+            libraryButton.className = 'library-button button btn-gradient upcoming-btn';
             if (isInLibrary(randomFilm.id)) {
               libraryButton.textContent = 'Remove from My Library';
               libraryButton.classList.remove('btn-gradient');
@@ -215,6 +215,7 @@ function toggleLibrary(film, button) {
     button.classList.remove('btn-gradient');
     button.style.background = 'white';
     button.style.color = 'orange';
+    button.style.borderColor = 'orange';
   } else {
     button.textContent = 'Add to My Library';
     button.classList.add('btn-gradient');
