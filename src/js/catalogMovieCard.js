@@ -9,7 +9,8 @@ import { Loading } from 'notiflix';
 import debounce from 'lodash.debounce';
 
 const ratingArray = [];
-refs.catalogList.addEventListener('click', debounce(openFilmDetails, 300));
+
+if (document.title === 'Catalog') refs.catalogList.addEventListener('click', debounce(openFilmDetails, 300));
 
 //================================================================
 function getReleaseYear(film) {
