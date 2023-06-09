@@ -155,13 +155,14 @@
   justify-content: center;
   align-items: center;
   max-width: 248px;
+  min-height: 315px;
   /* overflow: hidden;  */
 }
 
 .film-poster-img {
-  object-fit: cover;
+  object-fit:  contain;
   width: 100%;
-  height: 100%;
+   height: 100%; 
 }
 
 .picture-class {
@@ -239,6 +240,7 @@
 
   .film-poster-wrapper {
     max-width: 294px;
+    min-height: 400px;
   }
   .picture-class {
     margin-top: -70px;
@@ -277,5 +279,6 @@
 
   .film-poster-wrapper {
     max-width: 375px;
+    min-height: 478px;
   }
 }
