@@ -1,3 +1,5 @@
+
+//============================================================================
 function checkPoster(data) {
   if (data.poster_path) {
     return {
@@ -18,7 +20,7 @@ export function renderModalMovieMarkup(data) {
   const genreList = data.genres.map(genre => genre.name).slice(0, 2).join(', ');
   const vote = data.vote_average.toFixed(1);
   const popularity = data.popularity.toFixed(1);
-  const voteCount = data.vote_count.toFixed(1);
+  const voteCount = data.vote_count.toFixed(0);
   const { posterURL, imageClass } = checkPoster(data);
   
   return `
@@ -47,7 +49,7 @@ export function renderModalMovieMarkup(data) {
     </div>
    <p class=" about-film-tittle">About </p>
    <p class="about-film-story ">${data.overview} </p>
-   <button class=" button btn-border-dark add-film-btn button-library-active">Add to my library</button>
+   <button class=" button btn-border-dark add-film-btn">Add to my library</button>
    </div>
   </div>`;
 }

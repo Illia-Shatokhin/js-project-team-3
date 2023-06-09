@@ -4,6 +4,7 @@ import { renderModalMovieMarkup } from './models/modal-film-window';
 import { getMovieDetails } from './API/get-from-server';
 import { createLibraryFromLocalStorage } from './services/data-for-library';
 import { Loading } from 'notiflix';
+import Notiflix from 'notiflix';
 
 let instance;
 const bodyElement = document.querySelector('body');
@@ -64,6 +65,7 @@ export async function getMovie(movie_id) {
     });
     updateLibraryButtonStatus(data.id);
   } catch (error) {
+  Notiflix.Notify.failure("Sorry, the movie is not found ");
     console.log('Помилка отримання даних про фільм:', error);
   }
   Loading.remove();
@@ -109,9 +111,12 @@ function updateLibraryButtonStatus(movieId) {
 
   if (libraryMovies.some(movie => movie.id === movieId)) {
     libraryBtn.textContent = 'Remove from my library';
-    // libraryBtn.classList.add('button-library-active');
+     libraryBtn.classList.add('.btn-clicked');
+     libraryBtn.classList.remove('.btn-border-dark');
   } else {
     libraryBtn.textContent = 'Add to my library';
+    libraryBtn.classList.remove('.btn-clicked');
+    libraryBtn.classList.add('.btn-border-dark');
     // libraryBtn.classList.remove('button-library-active');
   }
 }
