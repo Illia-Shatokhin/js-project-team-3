@@ -21,12 +21,15 @@ export async function getMovie(movie_id) {
   bodyElement.style.overflow = 'hidden';
 
   try {
-    Loading.standard('Loading...', {
-      backgroundColor: 'rgba(0,0,0,0.8)',
-      svgColor: 'rgb(248, 119, 25)',
-    });
+     Loading.standard('Loading...', {
+       backgroundColor: 'rgba(0,0,0,0.8)',
+       svgColor: 'rgb(248, 119, 25)',
+     });
 
     const data = await getMovieDetails(movie_id);
+  //    if (!data) {
+  //    throw new Error('Movie data not found');
+  //  }
     normalizeData(data);
 
     const markup = renderModalMovieMarkup(data);
@@ -49,8 +52,6 @@ export async function getMovie(movie_id) {
           });
         document.removeEventListener('keydown', closeModalOnKeyPress);
         bodyElement.style.overflow = 'auto';
-        // add reload modal window                  reload page
-        // if (document.title === 'My Library') location.reload();
         if (document.title === 'My Library')  createLibraryFromLocalStorage();
       },
       onOverlayClick: () => {
@@ -58,6 +59,7 @@ export async function getMovie(movie_id) {
       },
     });
     instance.show();
+    
     const libraryBtn = document.querySelector('.add-film-btn');
     libraryBtn.addEventListener('click', () => {
       toggleLibraryStatus(data);
@@ -65,11 +67,38 @@ export async function getMovie(movie_id) {
     });
     updateLibraryButtonStatus(data.id);
   } catch (error) {
+    // catchError(error)
   Notiflix.Notify.failure("Sorry, the movie is not found ");
-    console.log('Помилка отримання даних про фільм:', error);
+   console.log('Помилка отримання даних про фільм:', error);
   }
-  Loading.remove();
+   Loading.remove();
 }
+
+
+// function catchError(error){
+//   const errorMessage = error.message || 'Request failed';
+//  const errorMarkup = `<div class="error-message">${errorMessage}</div>`;
+//   const errorInstance = basicLightbox.create(errorMarkup, {
+//     closable: true,
+//     onShow: instance => {
+//       instance.element().querySelector('.modal-close-btn')
+//         .addEventListener('click', () => {
+//           instance.close();
+//           bodyElement.style.overflow = 'auto';
+//         });
+//     },
+//     onClose: instance => {
+//       instance.element().querySelector('.modal-close-btn')
+//         .removeEventListener('click', () => {
+//           instance.close();
+//           bodyElement.style.overflow = 'auto';
+//         });
+//       bodyElement.style.overflow = 'auto';
+//     },
+//   });
+  
+//   errorInstance.show();
+// }
 
 /*-------------закриває modal-window, натискаючи на backdrop та  відновлює scroll ------------*/
 function closeModal() {
