@@ -29,7 +29,7 @@ function checkPoster(data) {
 
 /*---------------------створює розмітку мадального вікна з інфо про фільм---------------------*/
 export function renderModalMovieMarkup(data) {
-  const genreList = data.genres.map(genre => genre.name).join(', ');
+  const genreList = data.genres.map(genre => genre.name).slice(0, 2).join(', ');
   const vote = data.vote_average.toFixed(1);
   const popularity = data.popularity.toFixed(1);
   const voteCount = data.vote_count.toFixed(1);
