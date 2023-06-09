@@ -1,4 +1,4 @@
-import { Loading } from "notiflix";
+import { Loading } from 'notiflix';
 
 if (!localStorage.getItem('myLibrary')) {
   localStorage.setItem('myLibrary', JSON.stringify([]));
@@ -19,7 +19,6 @@ const options = {
 fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
   .then(response => response.json())
   .then(genreData => {
-
     Loading.standard('Loading...', {
       backgroundColor: 'rgba(0,0,0,0.8)',
       svgColor: 'rgb(248, 119, 25)',
@@ -73,6 +72,7 @@ fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
               screen.width >= 768
                 ? `https://image.tmdb.org/t/p/original/${randomFilm.backdrop_path}`
                 : `https://image.tmdb.org/t/p/original/${randomFilm.poster_path}`;
+            filmImage.alt = `${randomFilm.original_title}`;
             filmImgContainer.appendChild(filmImage);
 
             const filmTitle = document.createElement('h2');
