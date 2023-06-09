@@ -1,3 +1,4 @@
+const THEME_KEY = 'theme';
 // Mobile menu toggle
 document.getElementById('menu-toggle').addEventListener('click', function () {
   document.getElementById('mobile-menu').classList.add('visible');
@@ -6,7 +7,7 @@ document.getElementById('menu-toggle').addEventListener('click', function () {
 // Close menu when pressing Esc key
 document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
-    // document.getElementById('mobile-menu').classList.remove('visible');
+    document.getElementById('mobile-menu').classList.remove('visible');
     closeMenu();
   }
 });
@@ -15,29 +16,18 @@ document.addEventListener('keydown', function (event) {
 if (document.getElementById('close-menu')) {
   document.getElementById('close-menu').addEventListener('click', function () {
     document.getElementById('mobile-menu').classList.remove('visible');
+    closeMenu();
   });
 }
 
-var themeToggle = document.getElementById('theme-toggle');
-
-themeToggle.addEventListener('change', function () {
-  if (themeToggle.checked) {
-    document.body.classList.add('light');
-  } else {
-    document.body.classList.remove('light');
-  }
-});
-
-if (
-  window.matchMedia &&
-  window.matchMedia('(prefers-color-scheme: dark)').matches
-) {
-  themeToggle.checked = false; // Set the toggle to unchecked for dark mode
-  document.body.classList.remove('light');
-} else {
-  themeToggle.checked = true; // Set the toggle to checked for light mode
-  document.body.classList.add('light');
+// Close menu when clicking on backdrop
+if (document.getElementById('close-menu')) {
+  document.getElementById('backdrop').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.remove('visible');
+    closeMenu();
+  });
 }
+
 // Get the current page URL
 var currentPage = window.location.href;
 
@@ -119,55 +109,37 @@ document.getElementById('close-menu').addEventListener('click', function () {
     mobileMenu.classList.remove('visible');
   }, 300);
 });
-// Function to set the preferred theme
-function setPreferredTheme(theme) {
-  document.body.classList.add(theme);
-  localStorage.setItem('theme', theme);
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// var themeToggle = document.getElementById('theme-toggle');
+
+// ================================================================================================
+
+export function themeSwitcher() {
+  const theme = JSON.parse(loadThemeFromLocal(THEME_KEY));
+  const switchTheme = document.querySelector('.switch');
+
+  if (theme) switchTheme.classList.add('true');
+  if (theme) document.body.classList.add('light');
+
+  switchTheme.querySelector('span').addEventListener('click', () => {
+    if (switchTheme.classList.contains('true')) {
+      saveThemeToLocal(THEME_KEY, false);
+      switchTheme.classList.remove('true');
+      document.body.classList.remove('light');
+    } else {
+      saveThemeToLocal(THEME_KEY, true);
+      switchTheme.classList.add('true');
+      document.body.classList.add('light');
+    }
+  });
 }
 
-// Function to toggle the theme
-function toggleTheme() {
-  const isDarkTheme = document.body.classList.contains('dark-theme');
-  if (isDarkTheme) {
-    document.body.classList.remove('dark-theme');
-    document.body.classList.add('light');
-    localStorage.setItem('theme', 'light');
-  } else {
-    document.body.classList.remove('light');
-    document.body.classList.add('dark-theme');
-    localStorage.setItem('theme', 'dark-theme');
-  }
+function loadThemeFromLocal(key) {
+  return localStorage.getItem(key);
 }
 
-// Function to initialize the theme based on user preference
-function initializeTheme() {
-  const preferredTheme = localStorage.getItem('theme');
-  if (preferredTheme === 'dark-theme') {
-    setPreferredTheme('dark-theme');
-  } else if (preferredTheme === 'light') {
-    setPreferredTheme('light');
-  } else {
-    // Default theme if 'theme' item is null or empty
-    setPreferredTheme('dark-theme');
-  }
-  
-  // Update the theme toggle button state
-  const isDarkTheme = document.body.classList.contains('dark-theme');
-  const themeToggle = document.getElementById('theme-toggle');
-  themeToggle.checked = isDarkTheme;
+function saveThemeToLocal(key, value) {
+  localStorage.setItem(key, value);
 }
-
-// Check if the user has visited the site before
-if (localStorage.getItem('visitedBefore') === null) {
-  // First time visit, set dark theme and save the preference
-  setPreferredTheme('dark-theme');
-  localStorage.setItem('visitedBefore', true);
-} else {
-  // User has visited before, initialize theme based on preference
-  initializeTheme();
-}
-
-// Event listener for theme toggle
-document.getElementById('theme-toggle').addEventListener('change', function() {
-  toggleTheme();
-});

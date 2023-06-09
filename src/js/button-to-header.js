@@ -1,3 +1,4 @@
+import debounce from 'lodash.debounce';
 import { refs } from './models/refs';
 
 export function toHeaderUp() {
@@ -7,7 +8,11 @@ export function toHeaderUp() {
 function scrollListener() {
   if (document.documentElement.scrollTop > 0) {
     refs.buttonToHeader.style.display = 'block';
-    refs.buttonToHeader.addEventListener('click', buttonScrollClickListener);
+    refs.buttonToHeader.addEventListener(
+      'click',
+      debounce(buttonScrollClickListener),
+      600
+    );
   } else {
     refs.buttonToHeader.style.display = 'none';
   }
