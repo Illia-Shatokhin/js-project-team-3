@@ -9,6 +9,8 @@ import { Loading } from 'notiflix';
 import debounce from 'lodash.debounce';
 
 const ratingArray = [];
+refs.catalogList.addEventListener('click', debounce(openFilmDetails, 300));
+
 //================================================================
 function getReleaseYear(film) {
   let releaseYear = '2023';
@@ -92,7 +94,6 @@ export async function weeklyTrendsList(page = 1) {
   } catch (error) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
-  refs.catalogList.addEventListener('click', debounce(openFilmDetails, 300));
   Loading.remove();
 }
 

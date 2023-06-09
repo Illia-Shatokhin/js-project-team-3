@@ -60,9 +60,6 @@ export default class CreatePagination {
 export function addZeroPagination() {
   const allBtn = document.querySelectorAll('.tui-page-btn');
   allBtn.forEach(el => {
-    // debugger
-    // console.dir("length" + el.textContent.length + "zero" + el.dataset.zero);
-
     if (el.textContent.length === 1) el.dataset.zero = '0';
     else el.dataset.zero = '';
   });
