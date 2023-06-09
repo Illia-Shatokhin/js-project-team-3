@@ -67,10 +67,6 @@
 .tablet-menu {
   display: none;
 }
-.mobile-header.dark-theme {
-  background-color: var(--black);
-  color: var(--white);
-}
 
 /* Add styles for the close button */
 .close-button {
@@ -108,10 +104,6 @@
 .checkbox input[type='checkbox'] {
   opacity: 0;
 }
-
-.logo-container img {
-  /* max-width: 100px; Adjust the size as per your logo dimensions */
-}
 .table-desktop {
   color: white;
 }
@@ -125,10 +117,6 @@
   border: none;
   cursor: pointer;
   display: none;
-}
-
-.logo-container img {
-  /* max-width: 100px; */
 }
 
 .menu-container {
@@ -148,6 +136,7 @@
 
 #mobile-menu {
   position: fixed;
+  width: 65%;
   top: 0;
   left: 0;
   bottom: 0;
@@ -184,7 +173,7 @@
 }
 
 .menu-content {
-  width: 65%;
+  width: 100%;
   height: 100vh;
   border-radius: 5px;
   text-align: left;
@@ -269,8 +258,8 @@
   left: 2px;
   bottom: 2.009px;
   background-color: var(--white-smoke);
-  transition: 0.4s;
   border-radius: 50%;
+  transition: transform var(--transition);
 }
 
 .switch input:checked + .slider {
@@ -296,7 +285,7 @@
   color: var(--orange);
 }
 
-.switch input:checked + .slider:before {
+.switch.true .slider:before {
   transform: translateX(40px);
 }
 .main-nav.dark-theme {
@@ -358,19 +347,6 @@
     justify-content: center;
     align-items: center;
   }
-
-  .logo-container img {
-    /* max-width: 45px;
-    max-height: 36px; */
-  }
-
-  /*.logo-container::after {
-    content: 'Cinemania';
-    margin-left: 10px;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-  }*/
   .mobile-menu {
     display: flex;
     margin-left: 216px;
@@ -452,10 +428,11 @@
     margin-left: 216px;
   }
 }
-body.light .mobile-header {
+/* body.light .mobile-header {
   color: var(--black);
   background-color: var(--white);
-}
+  transform: color var(--transition), background-color var(--transition);
+} */
 body.light .logo-text {
   color: var(--black);
 }
@@ -475,9 +452,10 @@ body.light .hover-text:hover,
 .hover-text:focus {
   color: var(--orange);
 }
-body.light header {
+/* body.light header {
   background-color: var(--white);
-}
+  transition: background-color var(--transition);
+} */
 
 body.light .menu-toggle-label {
   color: var(--black);

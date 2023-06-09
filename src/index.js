@@ -1,3 +1,5 @@
+import { themeSwitcher } from './js/header';
+themeSwitcher();
 import './js/services/get-default-data';
 import { createHero } from './js/hero.js';
 createHero('hero/catalog');
@@ -9,6 +11,6 @@ import weeklyTrends from '/js/models/weeklyTrends.js';
 
 import '/js/upcoming-films.js';
 import { toHeaderUp } from './js/button-to-header';
-import '/js/footer-modal.js'
+import '/js/footer-modal.js';
 weeklyTrends();
 toHeaderUp();

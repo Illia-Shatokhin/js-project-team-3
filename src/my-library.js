@@ -1,3 +1,5 @@
+import { themeSwitcher } from './js/header';
+themeSwitcher();
 import { createHero } from './js/hero.js';
 createHero('library');
 
