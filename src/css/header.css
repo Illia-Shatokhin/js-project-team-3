@@ -67,10 +67,6 @@
 .tablet-menu {
   display: none;
 }
-.mobile-header.dark-theme {
-  background-color: var(--black);
-  color: var(--white);
-}
 
 /* Add styles for the close button */
 .close-button {
@@ -432,11 +428,11 @@
     margin-left: 216px;
   }
 }
-body.light .mobile-header {
-  transform: color var(--transition), background-color var(--transition);
+/* body.light .mobile-header {
   color: var(--black);
   background-color: var(--white);
-}
+  transform: color var(--transition), background-color var(--transition);
+} */
 body.light .logo-text {
   color: var(--black);
 }
@@ -456,10 +452,10 @@ body.light .hover-text:hover,
 .hover-text:focus {
   color: var(--orange);
 }
-body.light header {
+/* body.light header {
   background-color: var(--white);
   transition: background-color var(--transition);
-}
+} */
 
 body.light .menu-toggle-label {
   color: var(--black);
