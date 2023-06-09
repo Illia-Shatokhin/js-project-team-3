@@ -7,4 +7,5 @@ import './js/services/data-for-library.js';
 import './js/header';
 
 import { toHeaderUp } from './js/button-to-header';
+import '/js/footer-modal.js';
 toHeaderUp();

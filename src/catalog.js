@@ -9,6 +9,7 @@ import '/js/catalogSearch.js';
 import '/js/header.js';
 import { weeklyTrendsList } from './js/catalogMovieCard';
 import { toHeaderUp } from './js/button-to-header';
+import '/js/footer-modal.js';
 createHero('hero/catalog');
 weeklyTrendsList();
 toHeaderUp();
