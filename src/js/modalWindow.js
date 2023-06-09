@@ -111,9 +111,12 @@ function updateLibraryButtonStatus(movieId) {
 
   if (libraryMovies.some(movie => movie.id === movieId)) {
     libraryBtn.textContent = 'Remove from my library';
-    // libraryBtn.classList.add('button-library-active');
+     libraryBtn.classList.add('.btn-clicked');
+     libraryBtn.classList.remove('.btn-border-dark');
   } else {
     libraryBtn.textContent = 'Add to my library';
+    libraryBtn.classList.remove('.btn-clicked');
+    libraryBtn.classList.add('.btn-border-dark');
     // libraryBtn.classList.remove('button-library-active');
   }
 }

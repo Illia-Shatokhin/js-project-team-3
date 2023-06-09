@@ -138,7 +138,7 @@
   line-height: calc(14 / 12);
 }
 
-.light .add-film-btn {
+/* .light .add-film-btn {
   background: linear-gradient(var(--white), var(--white)) padding-box,
     linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
   color: var(--black);
@@ -148,7 +148,7 @@
 .light .add-film-btn:hover {
   background: linear-gradient(var(--black), var(--black)) padding-box,
     linear-gradient(to right, #ffc226 100%, var(--orange) 100%) border-box;
-}
+} */
 
 .film-poster-wrapper {
   display: flex;
