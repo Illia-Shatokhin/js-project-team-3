@@ -93,6 +93,7 @@ export async function weeklyTrendsList(page = 1) {
     renderError(refs.catalogList, errorCatalogMarkup);
   }
   refs.catalogList.addEventListener('click', debounce(openFilmDetails, 300));
+  Loading.remove();
 }
 
 //================================================================
