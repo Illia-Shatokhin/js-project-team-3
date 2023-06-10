@@ -17,4 +17,5 @@ export const refs = {
   selectLibrary: document.getElementById('select-library'),
   filmsOfLocalStorage: document.querySelector('.my-library-list'),
   btnLoadMore: document.getElementById('btn-load-more'),
+  bodyElement: document.querySelector('body')
 };

@@ -2,17 +2,43 @@ import * as basicLightbox from 'basiclightbox';
 import { errorTrailerMarkup } from './errortrailer';
 import { getMovieVideos } from './API/get-from-server.js';
 import { Loading } from 'notiflix';
+import { refs } from './models/refs';
 
-const bodyElement = document.querySelector('body');
+refs.bodyElement = document.querySelector('body');
 
 async function getDataVideo(id) {
   try {
     const data = await getMovieVideos(id);
-    return data.results[0];
+    return data.results;
   } catch (err) {
     console.log(err);
   }
 }
+
+function createInstanceAndShowTrailer(key) {
+  const instance = basicLightbox.create(succesTrailerMarkup(key), {
+    onShow: instance => {
+      window.addEventListener('keydown', closeModalOnEsc);
+      refs.bodyElement.style.overflow = 'hidden';
+    },
+    onClose: instance => {
+      window.removeEventListener('keydown', closeModalOnEsc);
+      refs.bodyElement.style.overflow = 'auto';
+    },
+  });
+
+  instance.show(() => {});
+
+  window.addEventListener('keydown', closeModalOnEsc);
+
+  function closeModalOnEsc(event) {
+    if (event.code === 'Escape') {
+      instance.close();
+      refs.bodyElement.style.overflow = 'auto';
+    }
+  }
+}
+
 export async function getTrailer(id) {
   try {
     Loading.standard('Loading...', {
@@ -20,58 +46,51 @@ export async function getTrailer(id) {
       svgColor: 'rgb(248, 119, 25)',
     });
 
-    const { key } = await getDataVideo(id);
-    const instance = basicLightbox.create(succesTrailerMarkup(key), {
-      onShow: instance => {
-        window.addEventListener('keydown', closeModalOnEsc);
-        bodyElement.style.overflow = 'hidden';
-      },
-      onClose: instance => {
-        window.removeEventListener('keydown', closeModalOnEsc);
-        bodyElement.style.overflow = 'auto';
-      },
-    });
+    const video = await getDataVideo(id);
+    const officialTrailer = video.find(el => el.name === "Official Trailer");
+    const selectedTrailer = officialTrailer || video[0];
+    const { key } = selectedTrailer;
 
-    instance.show(() => {});
-    window.addEventListener('keydown', closeModalOnEsc);
-    function closeModalOnEsc(event) {
-      if (event.code === 'Escape') {
-        instance.close();
-        bodyElement.style.overflow = 'auto';
-      }
-    }
+    createInstanceAndShowTrailer(key);
   } catch (error) {
     const instance = basicLightbox.create(errorTrailerMarkup(), {
       onShow: instance => {
         window.addEventListener('keydown', closeModalOnEsc);
-        bodyElement.style.overflow = 'hidden';
+        refs.bodyElement.style.overflow = 'hidden';
       },
       onClose: instance => {
         window.removeEventListener('keydown', closeModalOnEsc);
-        bodyElement.style.overflow = 'auto';
+        refs.bodyElement.style.overflow = 'auto';
       },
     });
+
     instance.show(() => {});
+
     window.addEventListener('keydown', closeModalOnEsc);
+
     function closeModalOnEsc(event) {
       if (event.code === 'Escape') {
         instance.close();
         // console.log(event);
       }
     }
+
     instance.element().addEventListener('click', closeModalOnBtn);
+
     function closeModalOnBtn(event) {
       const target = event.target;
       // console.log(target);
       if (target.classList.contains('select-icon') || target.closest('.icon')) {
         instance.close();
-        bodyElement.style.overflow = 'auto';
+        refs.bodyElement.style.overflow = 'auto';
       }
     }
   }
+
   Loading.remove();
 }
+
 function succesTrailerMarkup(key) {
   return `
-  <iframe class="iframe" src="https://www.youtube.com/embed/${key}" width="560" height="315" frameborder="0" allowfullscreen></iframe>`;
+  <div class="watch-modal__content"> <iframe class="watch-modal__iframe" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe></div>`;
 }
