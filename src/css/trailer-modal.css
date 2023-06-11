@@ -1,0 +1,60 @@
+.watch-modal {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 9999;
+  }
+  
+  /* Модальное окно видео */
+  .watch-modal__content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+    border-radius: 20px;
+    background-color: var(--page-bgc);
+    z-index: 9999;
+  }
+    @media screen and (min-width: 321px) {
+    .watch-modal__content
+    {width: 280px; /* Ширина на мобильных устройствах */
+      height: 289px;
+      margin: 10% auto;
+      padding: 10px;
+    }
+}
+    @media screen and (min-width: 768px) {
+        .watch-modal__content {
+            width: 609px; /* Ширина на планшетах */
+      height: 400px;
+      margin: 10% auto;
+      padding: 20px;
+    }
+}
+@media screen and (min-width: 1280px) {
+       .watch-modal__content{
+      width: 700px; /* Ширина на настольных устройствах */
+      height: 400px;
+      margin: 10% auto;
+      padding: 30px;
+    }
+  }
+  
+  /* Содержимое модального окна (видео) */
+  .watch-modal__content iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  
