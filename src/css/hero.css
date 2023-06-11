@@ -116,7 +116,19 @@
   color: var(--orange);
 }
 
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 36px;
+    padding-bottom: 63px;
+    max-width: 768px;
+    min-height: 432px;
+  }
+
+  .hero-background-img {
+    width: 480px;
+    background-size: cover;
+  }
+
   .hero-stub {
     background-image: var(--gradient768HomeStub),
       url(../public/img/hero-tab.jpg);
@@ -138,43 +150,6 @@
     .hero-library-stub {
       background-image: var(--gradient768HomeStub),
         url(../public/img/hero-library-tab@2x.jpg);
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .hero {
-    padding-top: 36px;
-    padding-bottom: 63px;
-    max-width: 768px;
-  }
-
-  .hero-background-img {
-    width: 480px;
-    background-size: cover;
-  }
-
-  .hero-stub {
-    background-image: var(--gradient1280HomeStub),
-      url(../public/img/hero-desk.jpg);
-  }
-
-  .hero-library-stub {
-    background-image: var(--gradient1280HomeStub),
-      url(../public/img/hero-library-desk.jpg);
-  }
-
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .hero-stub {
-      background-image: var(--gradient1280HomeStub),
-        url(../public/img/hero-desk@2x.jpg);
-    }
-    .hero-library-stub {
-      background-image: var(--gradient1280HomeStub),
-        url(../public/img/hero-library-desk@2x.jpg);
     }
   }
 
@@ -218,11 +193,36 @@
     padding-top: 118px;
     padding-bottom: 181px;
     max-width: 1280px;
+    min-height: 720px;
   }
 
   .hero-background-img {
     width: 800px;
     border: 2px solid var(--black);
+  }
+
+  .hero-stub {
+    background-image: var(--gradient1280HomeStub),
+      url(../public/img/hero-desk.jpg);
+  }
+
+  .hero-library-stub {
+    background-image: var(--gradient1280HomeStub),
+      url(../public/img/hero-library-desk.jpg);
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero-stub {
+      background-image: var(--gradient1280HomeStub),
+        url(../public/img/hero-desk@2x.jpg);
+    }
+    .hero-library-stub {
+      background-image: var(--gradient1280HomeStub),
+        url(../public/img/hero-library-desk@2x.jpg);
+    }
   }
 
   .hero-container {
